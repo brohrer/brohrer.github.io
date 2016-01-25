@@ -223,12 +223,14 @@ table {
 
 th {
   font-weight: 500;
+  padding= 5px;
 }
 
 td {
   font-weight: 300;
   text-align: center;
   border: 1px solid #ebebeb;
+  padding= 5px;
 }
 
 form {
