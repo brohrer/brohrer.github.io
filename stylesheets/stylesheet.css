@@ -15,7 +15,7 @@ article, aside, canvas, details, embed,
 figure, figcaption, footer, header, hgroup,
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
-	padding: 5px;
+	padding: 0;
 	margin: 0;
 	font: inherit;
 	font-size: 100%;
