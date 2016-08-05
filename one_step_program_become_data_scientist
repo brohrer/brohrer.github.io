@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="description" content="Brandon Rohrer: A One-Step Program for Becoming a Data Scientist.">
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
+
+    <title>A One-Step Program for Becoming a Data Scientist</title>
+    </head>
+
+  <body>
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <h1 id="project_title">Brandon Rohrer </h1>
+          <h2 id="project_tagline">A One-Step Program for Becoming a Data Scientist</h2>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <p>
+        I get asked one question more than any other: “How do I become a data scientist?” 
+        I looked online for an answer I like, but I didn’t find one. Instead I found checklists.
+        There were lists of computer languages to study, software tools to get, technical skills to master, 
+        communication techniques to practice, online courses to take, online communities to follow, 
+        universities to attend. The lists were thoughtfully written by excellent data scientists, 
+        but I didn’t find them helpful. If I had come across these when I set out to become 
+        a data scientist, I would have been overwhelmed and a bit discouraged. 
+        And I was mildly troubled that I haven’t completed a single one of them.
+        </p>
+        
+        <p>
+        After giving the question some thought, here is the answer I would give my own children:
+        </p>
+        <p>
+        Build stuff.
+        </p>
+        <p>
+        Being a data scientist is like being an athlete or a cook. An athlete is someone who does sports. A cook is someone who makes food. A data scientist is someone who builds things using data. No one has to give you permission. Choose a tiny project today and jump in. Plot the heights of all your houseplants. Predict your commute time using the weather. Estimate the probability that your team will win the Super Bowl. It doesn’t matter what you pick. It doesn’t matter if you do it wrong. It doesn’t matter if the results are pretty. Just make something.
+        </p>
+        <p>
+        Don’t worry if you don’t know how to do every part your project. In fact, it’s best if you choose something you don’t know how to do. If you decide to write a mobile app that recommends the best local brewery based on your location, don’t worry that you’ve never written a mobile app or tried a craft beer. Just get your hands dirty, do the research, and learn what you need to know. If your project needs it, don’t be afraid to learn a new language or a machine learning algorithm. Or even to write your own. And don’t worry about learning it in a traditional or classroom sense. Learn just what you need, just well enough to build what you’re making. Your project will tell you what you need to learn next.
+        </p>
+        <p>
+        Build something you can point to and feel a swell of pride—a picture or a demonstration or an app or a set of files on GitHub or a Word document—something you could show to your mom (or an interviewer) and say “Look what I did!” And when you finish it, turn around, pick another project and start over again.
+        </p>
+        <p>
+        Building things is the way I became a data scientist. I built lots of small projects as part of graduate school courses, professional research programs and hobby work. My favorite project is a long-running moonshot at general purpose artificial intelligence for robots. It still doesn’t work as well as I’d like, but in the process of working on it over the last 15 years, I’ve learned python, created my own on-line deep learning and reinforcement learning algorithms, written a physics simulator, rendered my own videos, and a hundred other things that, now that I think about it, look a lot like a list.
+        </p>
+        <p>
+        Building things is one of the great pleasures in my life. I hope you enjoy it too. If you don’t mind sharing, I’d love to see what you make! Connect with me on LinkedIn, Twitter or email to continue the conversation.
+        </p>
+        <p>
+        Brandon
+        </p>
+        <p>
+        Follow me on Twitter: @_brohrer_ or connect with me on LinkedIn
+        </p>
+        <p>
+        I work at Microsoft, but my opinions are my own.  This post was originally published on Microsoft's TechNet Machine Learning Blog. 
+        </p>
+        
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <section id="downloads" class="clearfix">
+          <a target="_blank" href="https://github.com/brohrer" id="view-on-github" class="button"><span>View on GitHub</span></a>
+        </section>
+      </footer>
+    </div>
+
+              <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("UA-10180621-3");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
+  </body>
+</html>
