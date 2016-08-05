@@ -154,6 +154,7 @@ img {
   -o-box-shadow: 0 0 5px #ebebeb;
   -ms-box-shadow: 0 0 5px #ebebeb;
 }
+
 p img {
   display: inline;
   margin: 0;
@@ -274,6 +275,12 @@ Full-Width Styles
   max-width: 640px;
   padding: 20px 10px;
   margin: 0 auto;
+}
+
+.center_image {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 #forkme_banner {
