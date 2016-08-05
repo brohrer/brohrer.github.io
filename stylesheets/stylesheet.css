@@ -154,7 +154,7 @@ img {
   -o-box-shadow: 0 0 5px #ebebeb;
   -ms-box-shadow: 0 0 5px #ebebeb;
 }
-
+<!--
 p img {
   display: inline;
   margin: 0;
@@ -163,7 +163,7 @@ p img {
   text-align: center;
   border: none;
 }
-
+-->
 pre, code {
   width: 100%;
   color: #222;
