@@ -104,10 +104,9 @@ footer p {
 
 a {
   text-decoration: none;
-  <!--color: #007edf;-->
   text-shadow: none;
   color: #303030;
-  font-size: 24px;
+  font-size: 20px;
 
   transition: color 0.5s ease;
   transition: text-shadow 0.5s ease;
