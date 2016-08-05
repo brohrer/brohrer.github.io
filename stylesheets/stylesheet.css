@@ -234,9 +234,9 @@ hr {
 }
 
 table {
-  border-style: none;
+  border-collapse:collapse;
   margin-bottom: 20px;
-  text-align: left;
+  text-align: right;
  }
 <!--
 table {
