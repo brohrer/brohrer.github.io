@@ -41,7 +41,6 @@ ol, ul {
 }
 
 table {
-  vertical-align: middle;
   border-collapse: collapse;
   border-spacing: 0;
 }
@@ -248,7 +247,8 @@ th {
 
 td {
   padding: 10px;
-  <!-- border: 1px solid #373737; -->
+  vertical-align: middle;
+  text-align: center;
  }
 
 form {
