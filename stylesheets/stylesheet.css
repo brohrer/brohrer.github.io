@@ -41,6 +41,7 @@ ol, ul {
 }
 
 table {
+  vertical-align: middle;
   border-collapse: collapse;
   border-spacing: 0;
 }
@@ -268,12 +269,6 @@ Full-Width Styles
   max-width: 640px;
   padding: 20px 10px;
   margin: 0 auto;
-}
-
-.center_image {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
 }
 
 #forkme_banner {
