@@ -136,19 +136,12 @@ strong {
 }
 
 img {
-  
-  position: relative;
-  <!--margin: 10px 0 10px 0;
+  display: block;
   max-width: 739px;
   padding: 5px;
   border: 1px solid #ebebeb;
-  -->
-  display: block;
   margin: 0 auto;
-  <!--margin-left: auto;
-  margin-right: auto;
-  -->
-  
+
   box-shadow: 0 0 5px #ebebeb;
   -webkit-box-shadow: 0 0 5px #ebebeb;
   -moz-box-shadow: 0 0 5px #ebebeb;
