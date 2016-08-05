@@ -107,10 +107,20 @@
         </h2>
         <p>
         Before jumping into machine learning, one step remains: feature engineering. This just means that you take the features you have and creatively combine them so that they better predict your target. For instance, in this example train arrival and departure times are subtracted to get transit duration. This proved much more useful for predicting the target, peak speed.
+        </p>
+        <p>
         Strictly speaking, feature engineering doesn’t add any information to the data. It is simply combining what’s there in a new way. However, there are infinitely many ways to combine even two columns of data. Most of these won’t be meaningful or help predict the target. Choosing a good one usually requires knowledge about the world. It’s a way that you can fold your knowledge about the problem into the data and stack the deck in your favor.
+        </p>
+        <p>
         The process of feature engineering is the darkest of data science arts. There is no principled way to automatically choose the best derived features. It’s a process of trial and error, intuition and experience. All of deep learning is an attempt to automate this process. For all its successes, deep learning is finicky and still has spectacular failures. Arguably the special sauce of human intelligence is the ability to automatically create features from a large number of rods, codes and Pacinian corpuscles.
+        </p>
+        <p>
         Even if you haven’t yet achieved the rank of feature engineering black belt, there is a trick you can use. Color code your target and plot it against every pair of variables you have. This will help expose sneaky relationships between variables. This may generate a lot of plots, but take the time to look through all of them. Each time you see a pattern in these two-features-by-target plots, that’s a feature engineering opportunity. It tells you that the combination of those two variables may be more helpful than the two variables in isolation.
+        </p>
+        <p>
         There’s a lot more to be said about feature engineering. I hope to return to it soon and add links to the discussion here.
+        </p>
+        <p>
         Sometimes you’ll discover that none of your variables or combinations of variables help predict your target. This probably means that you need to measure something else. Go back to Step 1 and Get More Data.
         </p>
 
@@ -119,10 +129,20 @@
         </h2>
         <p>
         Finally you get to the data scientists’ favorite part. Machine learning! There are lots of resources available on this and I won’t try to summarize them all here. Very briefly, you have to decide what algorithm family your question belongs to, choose one or more algorithms within that family to use and then turn the crank, using the traditional machine learning techniques of splitting the data into training, tuning, and testing data sets and optimizing the parameters on whichever model(s) you pick.
+        </p>
+        <p>
         If your model doesn’t answer your question well or you would like to avoid doing machine learning, there are a couple non-traditional ways to answer your question.
+        </p>
+        <p>
         The first of these is to simply look at pictures of your data. Half the time, visualizing your data gives you the answer you are looking for. If your question is “What will the high temperature be in Boston on July 4 next year?” then looking at a histogram of high temperatures in Boston on July 4 for the past 100 years gives a visual answer that will be sufficient for most purposes. Two dimensional heatmaps are particularly effective at combining two features with a target in a way that is easy for our visual system to interpret and remember.
+        </p>
+        <p>
         The second of these is more technically demanding. If your results are unsatisfying because your data set is too small, you can deviate into the realm of optimization. This is a deep topic that I plan to return to in more detail. For now I’ll leave a teaser. Machine learning algorithms boast weak priors, that is, they make weak assumptions about the structure of the data. The upside of this approach is that you aren’t required to know much about your data before using the algorithms. They can learn a broad class of models. The downside is that it takes a lot of data to get a confident answer. An alternative to this is to make more assumptions about your data—to incorporate what you know about the world into your assumptions.
+        </p>
+        <p>
         For example, if you want to predict the ballistic trajectory of an object you can collect data on lots of objects in freefall and train a machine learning algorithms on them. Alternatively, you can use what you know about Newtonian physics to create a richer model. Then, a single data point that includes position and velocity is enough to predict the position and velocity of the object at every point in the future. The risk of this approach is that your assumptions aren’t exactly correct, but the strength is that you can get by with far less data.
+        </p>
+        <p>
         If none of these methods work for you, it is probably a sign that you need to collect more data or rethink what you are measuring. Go back to Step 1 and Get More Data.
         </p>
 
@@ -131,6 +151,8 @@
         </h2>
         <p>
         No matter how well you use your data to answer your question, your job isn’t done until it a person uses it. Put it in a form that someone can use to either make a decision, complete a task or learn something they didn’t know. There are lots of ways to do this. Publish results plots on a web page. Write a PDF describing the features you found most useful. Share your code on GitHub. Make a video sharing your conclusions with a business audience. Generate a beautiful visualization and Tweet it. Spin up a web service that applies your model to new data points. Whatever you do, get your work into the hands of another human. If a tree falls in the forest and no one is around to hear it, it might still make a sound, but if you build a brilliant model and no one sees it, it will certainly not get you a raise.
+        </p>
+        <p>
         Then start over. Go back to Step 1 and Get More Data.
         
         <p>
