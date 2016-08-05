@@ -159,12 +159,6 @@ p img {
   border: none;
 }
 
-td img {
-  vertical-align: middle;
-  text-align: left;
-  border: none;
-}
-
 pre, code {
   width: 100%;
   color: #222;
