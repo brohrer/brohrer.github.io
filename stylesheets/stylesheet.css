@@ -143,6 +143,7 @@ img {
   margin: 10px 0 10px 0;
   border: 1px solid #ebebeb;
   -->
+  position: relative;
   display: block;
   margin-left: auto;
   margin-right: auto;
