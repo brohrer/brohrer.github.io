@@ -24,13 +24,15 @@
     <div id="main_content_wrap" class="outer">
       <section id="main_content" class="inner">
         
-        <img src="images/how_to_do_data_science.png" alt="How to do data science" style="height: 300px;" />
+        <img src="images/how_to_do_data_science.png" alt="How to do data science" style="height: 400px;" />
 
         <h2>
         1. Get More Data
         </h2>
         <p>
         The raw stuff of data science is a collection of numbers and names. Measurements, prices, dates, times, products, titles, actions—everything is fair game. You can use images, text, audio, video and other complex data too, as long as you have a way to reduce it to numbers and names.
+        </p>
+        <p>
         The mechanics of getting data can be quite complex. Data engineers are ninjas. But this guide is focused on the data science, so I’ll leave that topic for another time.
         </p>
         
@@ -39,6 +41,8 @@
         </h2>
         <p>
         Data science is the process of using names and numbers to answer a question. The more precisely you ask your question the better chance you have of finding an answer you are satisfied with. When choosing your question, imagine that you are approaching an oracle that can tell you anything in the universe, as long as the answer is a number or a name. It’s a mischievous oracle, and its answer will be as vague and confusing as it can get away with. You want to pin it down with a question so airtight that the oracle can’t help but tell you what you want to know. Examples of poor questions are “What can my data tell me about my business?”, “What should I do?” or “How can I increase my profits?” These leave wiggle room for useless answers. In contrast, clear answers to questions like “How many Model Q Gizmos will I sell in Montreal during the third quarter?” or “Which car in my fleet is going to fail first?” are impossible to avoid.
+        </p>
+        <p>
         Now that you have a question, check to see whether you have examples of the answer in your data. If your question is “What will my stock’s sale price be next week?” then make sure your data includes your stock’s price history. If your question is “How many hours until a model 88 aircraft engine fails?” then make sure your data includes failure times of several model 88 engines. These examples of answers are called your target. Your target is the quantity or category that you want to predict or assign in the future. If you don’t have any target data, go back to Step 1 and Get More Data. You won’t be able to answer your question without it.
         </p>
 
@@ -47,26 +51,54 @@
         </h2>
         <p>
         Most machine learning algorithms assume your data is in a table. Each row is one event or item or instance. Each column is one feature or attribute of all those rows. A data set describing American football might have each row represent a game with columns for home_team, visiting_team, home_team’s_score, visiting_team’s_score, date, start_time, attendance and so on. The columns can be arbitrarily detailed and there can be as many as you like. The football data set could even include a column as detailed as yards_rushed_by_the_home_team_during_the_final_two_minutes_of_the_first_half.
+        </p>
+        <h3>
         Choose Your Rows
+        </h3>
+        <p>
         There are lots of ways to break a data set into rows, but only one way will help you answer your question: each row needs to have one and only one instance of your target. Consider data gathered from a retail store. It could be condensed to one transaction per row, one day per row, one store per row, one customer per row, and many other row representations. If your question is “Will a customer return for a second visit?” then one customer per row is the right way for you to organize it. Your target, whether_the_customer_returned, applies once and only once to each individual and will be present on each row. That wouldn’t happen if there were one store per row or one day per row. If you end up with a single target column across all your rows, then you know you chose the right row representation.
+        </p>
+        <p>
         You may have to roll some data up to get it to fit. For instance, if your question is “How many lattes will I sell per day?” then you’ll want one day per row in your table, with a target column of number_of_lattes_sold. But your data may be recorded as a list of latte sales transaction with the time and date of each. In order to fit this into a one-day-per-row format, it is first necessary to roll up the data, that is, to combine a bunch of measurements into a single one. In this case, it means counting up the number of lattes sold on each date. Other information, such as the time each latte was sold, is lost in this process, but that’s OK. That data wasn’t going to help you answer your question.
         </p>
 
         <h2>
         4. Check for Quality
         </h2>
-        <p>
+        <h3>
         Inspection
+        </h3>
+        <p>
         The next step is to take a careful walk through the data. This has two purposes. The first is to spot any poor data and fix or remove it. The other is to become intimately familiar with each row and column. You cannot skip this step and expect to get the most out of your data. If you show your data love, it will love you back.
+        </p>
+        <p>
         Look at just one column of data. What is it labeled? Do the values fit the label? Does the label mean anything to you? Is there documentation on what the column means? On how it was measured? On who measured it? If you’re lucky enough to know the person who recorded it, take them out for a donut and ask them how they measured it. Ask them for funny stories about what went wrong. Your investment in pastry will be repaid many times over.
+        </p>
+        <p>
         Now plot the column as a histogram. Does the distribution fit what you know about the feature? Are there an unusual number of outliers? Do the outliers make physical sense? If you are looking at longitude of agricultural plots, do some of them lie in the Pacific Ocean? If you are looking at test scores, is there a cluster at one percent? Ten thousand percent? Use everything you know about where the data came from and subject the values to a sniff test. If they seem a little off in any way, find out why.
+        </p>
+        <h3>
         Correction
+        </h3>
+        <p>
         While walking through the columns, you may find that the labels and documentation were misleading or incorrect. Make sure to write down what you learned about them. At this point you probably know the data better than anyone except the person that recorded it. Share your knowledge.
+        </p>
+        <p>
         You may also find that some of the values are just wrong. The value may be outside the range of possibilities, such as a person 72 meters tall, or it might be highly unlikely, like an address of “7777777777 Main St”. When this occurs, you have three choices. You can try to correct the value, if the correction seems obvious (for instance, converting 72 meters of height to 72 inches). If the correction isn’t obvious, you can delete the value and leave it as missing. Alternatively, if the value is a critical piece of information, you can remove the entire row or column. This will keep you from training a model on erroneous data. Wrong data is far more damaging than missing data.
+        </p>
+        <p>
         There can be a temptation here to remove values or rows that are undesirable. They might be surprising or may not support your favorite theory. Don’t do this. It’s unethical and, worse, it will get you the wrong answer.
+        </p>
+        <h3>
         Replacing Missing Values
+        </h3>
+        <p>
         In almost every data set there are missing values. Sometimes they were found to be erroneous and deleted. Sometimes you start measuring a new variable halfway through the experiment. Sometimes the data came from different sources that measured different things. Whatever the case, most machine learning algorithms either require that data have no missing values, or else they fill in any missing values in a naïve way. You can do better than them, because you understand your data.
+        </p>
+        <p>
         There are lots of methods for replacing missing values. If you’d like to see a sampling check out this Azure Machine Learning experiment. The bottom line is that the best thing to do will depend on what each column means and what it means when one of those values is missing. It will be a little different for every data set.
+        </p>
+        <p>
         After you’ve replaced all your missing values, your data is “connected”. Every data point has a value for every feature. It is clean and ready to go to work on. Occasionally you may discover that after cleaning, you have little or no data left. This is a good thing. You just saved yourself the pain of building a model with bad data, getting a wrong result, getting laughed at by your customers and disgruntling your boss. Go back to Step 1 and Get More Data.
         </p>
 
