@@ -107,7 +107,7 @@ footer p {
 a {
   text-decoration: underline;
   text-shadow: none;
-  font-weight: 300;
+  font-weight: 700;
   color: #606060;
 
   transition: color 0.5s ease;
@@ -126,7 +126,7 @@ a:hover, a:focus {text-decoration: underline;}
 
 footer a {
   color: #F2F2F2;
-  font-weight: 300;
+  font-weight: 700;
   text-decoration: none;
 }
 
@@ -313,7 +313,7 @@ Full-Width Styles
 #project_tagline {
   color: #fff;
   font-size: 24px;
-  font-weight: 300;
+  font-weight: 700;
   background: none;
   text-shadow: #111 0px 0px 10px;
   text-decoration: none;
