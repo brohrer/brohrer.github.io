@@ -316,6 +316,7 @@ Full-Width Styles
   text-decoration: none;
 }
 
+<!--
 #downloads {
   position: absolute;
   width: 210px;
@@ -352,7 +353,7 @@ Full-Width Styles
   @extend .footer_link;
   width: 230px;
 }
-
+-->
 .zip_download_link {
   display: block;
   float: right;
