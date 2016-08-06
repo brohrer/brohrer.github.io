@@ -105,7 +105,7 @@ footer p {
 }
 
 a {
-  text-decoration: underline;
+  text-decoration: none;
   text-shadow: none;
   font-weight: 700;
   color: #606060;
