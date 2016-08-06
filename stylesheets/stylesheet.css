@@ -107,7 +107,8 @@ footer p {
 a {
   text-decoration: underline;
   text-shadow: none;
-  color: #303030;
+  font-weight: 300;
+  color: #606060;
 
   transition: color 0.5s ease;
   transition: text-shadow 0.5s ease;
@@ -125,7 +126,8 @@ a:hover, a:focus {text-decoration: underline;}
 
 footer a {
   color: #F2F2F2;
-  text-decoration: underline;
+  font-weight: 300;
+  text-decoration: none;
 }
 
 em {
@@ -196,7 +198,6 @@ blockquote {
   padding: 0 0 0 20px;
   border-left: 3px solid #bbb;
 }
-
 
 ul, ol, dl {
   margin-bottom: 15px
