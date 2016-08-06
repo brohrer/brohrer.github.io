@@ -24,21 +24,39 @@
     <!-- MAIN CONTENT -->
     <div id="main_content_wrap" class="outer">
       <section id="main_content" class="inner">
-        Becca 8 is out and it has several big improvements.
-
-< Performance.> Becca 8 is performing well on its ten  test worlds. Each one presents a different type of reinforcement learning challenge. None of them are exceptionally challenging, but for one algorithm to perform pretty well on alk
-        
         <p>
-        Brandon <br>
-        August 5, 2016
+          Becca 8 is out and it has several big improvements. 
+        </p>
+        <h3>Performance</h3>
+        <p>
+          Becca 8 is performing well on its ten test worlds. Each one presents a different type of reinforcement learning challenge. None of them are exceptionally challenging, but for one algorithm to perform pretty well on all of them requires a robust approach.
         </p>
         <p>
-        Follow me on <a target="_blank" href="https://twitter.com/_brohrer_">Twitter</a>
-        or connect with me on 
-        <a target="_blank" href="https://www.linkedin.com/in/brohrer">LinkedIn</a>
+          In order to make Becca run comfortably on laptops, the bulk of the computation is accelerated. Although it's written in python, it uses numba to compile the most often used parts into C. Those bits run very fast.
+        </p>
+        <h3>Ease of use</h3>
+        <p>
+          Installing Becca is a one-line job on the command line.
+          <code>
+            pip install becca
+          </code>
+          Running the test worlds is easy too. In python:
+          <code>
+            import becca_test.test
+            becca_test.test.suite()
+          </code>
         </p>
         <p>
-        I work at Microsoft, but my opinions are my own.
+          Making Becca work better and easier to use are baby steps toward it's larger purpose--to be useful. I hope you enjoy working with it.
+        </p>
+        <p>
+          Brandon <br>
+          August 5, 2016
+        </p>
+        <p>
+          Follow me on <a target="_blank" href="https://twitter.com/_brohrer_">Twitter</a>
+          or connect with me on 
+          <a target="_blank" href="https://www.linkedin.com/in/brohrer">LinkedIn</a>
         </p>
       </section>
     </div>
