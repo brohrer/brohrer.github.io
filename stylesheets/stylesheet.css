@@ -108,7 +108,7 @@ a {
   text-decoration: none;
   text-shadow: none;
   font-weight: 700;
-  color: #606060;
+  color: #505050;
 
   transition: color 0.5s ease;
   transition: text-shadow 0.5s ease;
@@ -120,6 +120,11 @@ a {
   -o-transition: text-shadow 0.5s ease;
   -ms-transition: color 0.5s ease;
   -ms-transition: text-shadow 0.5s ease;
+}
+
+a:visited {
+  text-decoration: none;
+  color: #808080;
 }
 
 a:hover, a:focus {text-decoration: underline;}
