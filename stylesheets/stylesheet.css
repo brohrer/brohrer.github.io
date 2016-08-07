@@ -123,11 +123,13 @@ a {
 }
 
 a:visited {
-  text-decoration: none;
   color: #808080;
 }
 
-a:hover, a:focus {text-decoration: underline;}
+a:hover, a:focus {
+  color: #303030;
+  text-decoration: underline;
+}
 
 footer a {
   color: #F2F2F2;
