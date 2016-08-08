@@ -117,7 +117,10 @@
         In almost every data set there are missing values. Sometimes they were found to be erroneous and deleted. Sometimes you start measuring a new variable halfway through the experiment. Sometimes the data came from different sources that measured different things. Whatever the case, most machine learning algorithms either require that data have no missing values, or else they fill in any missing values in a naïve way. You can do better than them, because you understand your data.
         </p>
         <p>
-        There are lots of methods for replacing missing values. If you’d like to see a sampling check out this Azure Machine Learning experiment. The bottom line is that the best thing to do will depend on what each column means and what it means when one of those values is missing. It will be a little different for every data set.
+        There are lots of methods for replacing missing values. If you’d like to see a sampling check out 
+        <a href="https://gallery.cortanaintelligence.com/Experiment/Methods-for-handling-missing-values-1?r=leg">
+        this Azure Machine Learning experiment</a>.
+        The bottom line is that the best thing to do will depend on what each column means and what it means when one of those values is missing. It will be a little different for every data set.
         </p>
         <p>
         After you’ve replaced all your missing values, your data is “connected”. Every data point has a value for every feature. It is clean and ready to go to work on. Occasionally you may discover that after cleaning, you have little or no data left. This is a good thing. You just saved yourself the pain of building a model with bad data, getting a wrong result, getting laughed at by your customers and disgruntling your boss. Go back to Step 1 and Get More Data.
@@ -127,7 +130,10 @@
         5. Transform the Features
         </h2>
         <p>
-        Before jumping into machine learning, one step remains: feature engineering. This just means that you take the features you have and creatively combine them so that they better predict your target. For instance, in this example train arrival and departure times are subtracted to get transit duration. This proved much more useful for predicting the target, peak speed.
+        Before jumping into machine learning, one step remains: feature engineering. This just means that you take the features you have and creatively combine them so that they better predict your target. For instance, in 
+        <a href="https://gallery.cortanaintelligence.com/Experiment/Create-useful-features-for-trains-1?r=legacy">
+        this example</a>
+        train arrival and departure times are subtracted to get transit duration. This proved much more useful for predicting the target, peak speed.
         </p>
         <p>
         Strictly speaking, feature engineering doesn’t add any information to the data. It is simply combining what’s there in a new way. However, there are infinitely many ways to combine even two columns of data. Most of these won’t be meaningful or help predict the target. Choosing a good one usually requires knowledge about the world. It’s a way that you can fold your knowledge about the problem into the data and stack the deck in your favor.
@@ -149,7 +155,12 @@
         6. Answer the Question
         </h2>
         <p>
-        Finally you get to the data scientists’ favorite part. Machine learning! There are lots of resources available on this and I won’t try to summarize them all here. Very briefly, you have to decide what algorithm family your question belongs to, choose one or more algorithms within that family to use and then turn the crank, using the traditional machine learning techniques of splitting the data into training, tuning, and testing data sets and optimizing the parameters on whichever model(s) you pick.
+        Finally you get to the data scientists’ favorite part. Machine learning! There are lots of resources available on this and I won’t try to summarize them all here. Very briefly, you have to decide 
+        <a href="https://blogs.technet.microsoft.com/machinelearning/2015/08/27/what-types-of-questions-can-data-science-answer/">
+        what algorithm family your question belongs to</a>, 
+        <a href="https://azure.microsoft.com/en-us/documentation/articles/machine-learning-algorithm-choice/">
+        choose one or more algorithms within that family to use</a> 
+        and then turn the crank, using the traditional machine learning techniques of splitting the data into training, tuning, and testing data sets and optimizing the parameters on whichever model(s) you pick.
         </p>
         <p>
         If your model doesn’t answer your question well or you would like to avoid doing machine learning, there are a couple non-traditional ways to answer your question.
