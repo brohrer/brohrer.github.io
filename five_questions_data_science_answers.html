@@ -34,11 +34,11 @@
           As amazing as it is, there are only five questions machine learning can answer.
         </p>
           
-        <h5>1. Is this A or B?</h5>
-        <h5>2. Is this weird?</h5>
-        <h5>3. How much/how many?</h5>
-        <h5>4. How is it organized?</h5>
-        <h5>5. What should I do next?</h5>
+        <h4>1. Is this A or B?</h4>
+        <h4>2. Is this weird?</h4>
+        <h4>3. How much/how many?</h4>
+        <h4>4. How is it organized?</h4>
+        <h4>5. What should I do next?</h4>
         
         <p>
           Machine learning (ML) is the motor that drives data science. Each ML method (also called an algorithm) takes in data, turns it over, and spits out an answer. ML algorithms do the part of data science that is the trickiest to explain and the most fun to work with. That’s where the mathematical magic happens.
@@ -47,7 +47,7 @@
           ML algorithms can be grouped into families based on the type of question they answer. These can help guide your thinking as you are formulating your razor sharp question.
         </p>
 
-        <h5>Is this A or B?</h5>
+        <h4>Is this A or B?</h4>
           This family is formally known as two-class classification. It’s useful for any question that has just two possible answers: yes or no, on or off, smoking or non-smoking, purchased or not. Lots of data science questions sound like this or can be re-phrased to fit this form. It’s the simplest and most commonly asked data science question. Here are few typical examples.
         </p>
         <p>
@@ -61,7 +61,7 @@
           <br>
           Does the $5 coupon or the 25% off coupon result in more return customers?
         </p>
-        <h5>Is this A or B or C or D?</h5>
+        <h4>Is this A or B or C or D?</h4>
         <p>
           This algorithm family is called multi-class classification. Like its name implies, it answers a question that has several (or even many) possible answers: which flavor, which person, which part, which company, which candidate. Most multi-class classification algorithms are just extensions of two-class classification algorithms. Here are a few typical examples.
         </p>
@@ -76,45 +76,56 @@
           <br>
           Who is the speaker in this recording?
         </p>
-          Is this Weird?
+        <h4>Is this Weird?</h4>
         <p>
           This family of algorithms performs anomaly detection. They identify data points that are not normal. If you are paying close attention, you noticed that this looks like a binary classification question. It can be answered yes or no. The difference is that binary classification assumes you have a collection of examples of both yes and no cases. Anomaly detection doesn’t. This is particularly useful when what you are looking for occurs so rarely that you haven’t had a chance to collect many examples of it, like equipment failures. It’s also very helpful when there is a lot of variety in what constitutes “not normal,” as there is in credit card fraud detection.  Here are some typical anomaly detection questions.
         <p>
           Is this pressure reading unusual?
+          <br>
           Is this internet message typical?
+          <br>
           Is this combination of purchases very different from what this customer has made in the past?
+          <br>
           Are these voltages normal for this season and time of day?
         </p>
-          How Much / How Many?
+        <h4>How Much / How Many?</h4>
         <p>
           When you are looking for a number instead of a class or category, the algorithm family to use is regression.
         </p>
         <p>
           What will the temperature be next Tuesday?
+          <br>
           What will my fourth quarter sales in Portugal be?
+          <br>
           How many kilowatts will be demanded from my wind farm 30 minutes from now?
+          <br>
           How many new followers will I get next week?
+          <br>
           Out of a thousand units, how many of this model of bearings will survive 10,000 hours of use?
         </p>
         <p>
           Usually, regression algorithms give a real-valued answer; the answers can have lots of decimal places or even be negative. For some questions, especially questions beginning “How many…”, negative answers may have to be re-interpreted as zero and fractional values re-interpreted as the nearest whole number. 
         </p>
-          Multi-Class Classification as Regression
+        <h5>Multi-Class Classification as Regression</h5>
         <p>
           Sometimes questions that look like multi-value classification questions are actually better suited to regression. For instance, “Which news story is the most interesting to this reader?” appears to ask for a category—a single item from the list of news stories. However, you can reformulate it to “How interesting is each story on this list to this reader?” and give each article a numerical score. Then it is a simple thing to identify the highest-scoring article. Questions of this type often occur as rankings or comparisons.
         </p>
         <p>
           “Which van in my fleet needs servicing the most?” can be rephrased as “How badly does each van in my fleet need servicing?”
+          <br>
           “Which 5% of my customers will leave my business for a competitor in the next year?” can be rephrased as “How likely is each of my customers to leave my business for a competitor in the next year?” 
         </p>
-          Two-Class Classification as Regression
+        <h5>Two-Class Classification as Regression</h5>
         <p>
           It may not come as a surprise that binary classification problems can also be reformulated as regression. (In fact, under the hood some algorithms reformulate every binary classification as regression.) This is especially helpful when an example can belong part A and part B, or have a chance of going either way. When an answer can be partly yes and no, probably on but possibly off, then regression can reflect that. Questions of this type often begin “How likely…” or “What fraction…”
         </p>
         <p>
           How likely is this user to click on my ad?
+          <br>
           What fraction of pulls on this slot machine result in payout?
+          <br>
           How likely is this employee to be an insider security threat?
+          <br>
           What fraction of today’s flights will depart on time?
         </p>
         <p>
@@ -123,7 +134,7 @@
         <p>
           Entirely different sets of data science questions belong in the extended algorithm families of unsupervised and reinforcement learning. 
         </p>
-          How is this Data Organized?
+        <h4>How is this Data Organized?</h4>
         <p>
           Questions about how data is organized belong to unsupervised learning. There are a wide variety of techniques that try to tease out the structure of data. One family of these perform clustering, a.k.a. chunking, grouping, bunching, or segmentation. They seek to separate out a data set into intuitive chunks. What makes clustering different from supervised learning is that there is no number or name that tells you what group each point belongs to, what the groups represent, or even how many groups there should be. If supervised learning is picking out planets from among the stars in the night sky, then clustering is inventing constellations. Clustering tries to separate out data into natural “clumps,” so that a human analyst can more easily interpret it and explain it to others.
         </p>
@@ -132,9 +143,13 @@
         </p>
         <p>
           Which shoppers have similar tastes in produce?
+          <br>
           Which viewers like the same kind of movies?
+          <br>
           Which printer models fail the same way?
+          <br>
           During which days of the week does this electrical substation have similar electrical power demands?
+          <br>
           What is a natural way to break these documents into five topic groups?
         </p>
         <p>
@@ -148,14 +163,17 @@
         </p>
         <p>
           Which groups of sensors in this jet engine tend to vary with (and against) each other?
+          <br>
           What leadership practices do successful CEOs have in common?
+          <br>
           What are the most common patterns in gasoline price changes across the US?
+          <br>
           What groups of words tend to occur together in this set of documents? (What are the topics they cover?)
         </p>
         <p>
           If your goal is to summarize, simplify, condense, or distill a collection of data, dimensionality reduction and clustering are your tools of choice.
         </p>
-          What Should I Do Now?
+        <h4>What Should I Do Now?</h4>
         <p>
           A third extended family of ML algorithms focuses on taking actions. These are called reinforcement learning(RL) algorithms. They are little different than the supervised and unsupervised learning algorithms. A regression algorithm might predict that the high temperature will be 98 degrees tomorrow, but it doesn’t decide what to do about it. A RL algorithm goes the next step and chooses an action, such as pre-refrigerating the upper floors of the office building while the day is still cool.
         </p>
@@ -167,9 +185,13 @@
         </p>
         <p>
           Where should I place this ad on the webpage so that the viewer is most likely to click it?
+          <br>
           Should I adjust the temperature higher, lower, or leave it where it is?
+          <br>
           Should I vacuum the living room again or stay plugged in to my charging station?
+          <br>
           How many shares of this stock should I buy right now?
+          <br>
           Should I continue driving at the same speed, brake, or accelerate in response to that yellow light?
         </p>
         <p>
@@ -192,8 +214,10 @@
         If you found this helpful, I also recommend 
         <a href="make_data_science_work_for_you.html">Make Data Science Work for You</a>.
         I work at Microsoft, but my opinions are my own. This post was originally published on 
-        <a href="">Microsoft's TechNet Machine Learning Blog</a>. 
-        <a href="">Book image</a> is in the public domain. 
+        <a href="http://blogs.technet.com/b/machinelearning/archive/2015/08/27/what-types-of-questions-can-data-science-answer.aspx">
+          Microsoft's TechNet Machine Learning Blog</a>. 
+        <a href="https://pixabay.com/en/book-magnifying-glass-loupe-lookup-390277/">
+          Book image</a> is in the public domain. 
         </p>
       </section>
     </div>
