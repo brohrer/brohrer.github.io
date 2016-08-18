@@ -174,7 +174,7 @@
         </a>
         
         <p>
-          Our story is filling in nicely, but it still has a huge hole—Where do features come from? and How do we find the weights in our fully connected layers. If these all had to be chosen by hand, CNNs would be a good deal less popular than they are. Luckily, a bit of machine learning magic called backpropagation does this work for us.
+          Our story is filling in nicely, but it still has a huge hole—Where do features come from? and How do we find the weights in our fully connected layers? If these all had to be chosen by hand, CNNs would be a good deal less popular than they are. Luckily, a bit of machine learning magic called backpropagation does this work for us.
         </p>
         <p>
           To make use of backpropagation, we need a collection of images that we already know the answer for. This means that some patient soul flipped through thousands of images and assigned them a label of X or O. We use these with an untrained CNN, which means that every pixel of every feature and every weight in every fully connected layer is set to a random value. Then we start feeding images through it, one after other.
@@ -190,11 +190,11 @@
         <p>
           Unfortunately, not every aspect of CNNs can be learned in so straightforward a manner. There is still a long list of decisions that a CNN designer must make.
         </p>
-        <p>
-          •	For each convolution layer, How many features? How many pixels in each feature?
-          •	For each pooling layer, What window size? What stride?
-          •	For each extra fully connected layer, How many hidden neurons? 
-        </p>
+        <ul>
+          <li> For each convolution layer, How many features? How many pixels in each feature? </li>
+          <li> For each pooling layer, What window size? What stride? </li>
+          <li> For each extra fully connected layer, How many hidden neurons? </li> 
+        </ul>
         <p>
           In addition to these there are also higher level architectural decisions to make: How many of each layer to include? In what order? Some deep neural networks can have over a thousand layers, which opens up a lot of possibilities.
         </p>
