@@ -26,7 +26,7 @@
     <div id="main_content_wrap" class="outer">
       <section id="main_content" class="inner">
         
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/FmpDIaiMIeA" 
+        <iframe width="440" height="315" src="https://www.youtube.com/embed/FmpDIaiMIeA" 
         frameborder="0" style="margin: 0 auto" allowfullscreen></iframe>
         
         <p>
@@ -43,14 +43,14 @@
         
         <h3>X's and O's</h3>
         <a href="https://youtu.be/FmpDIaiMIeA?t=1m43s">
-          <img src="images/cnn1.png" style="width: 560px;" />
+          <img src="images/cnn1.png" style="width: 440px;" />
         </a>
         
         <p>
           To help guide our walk through a Convolutional Neural Network, we’ll stick with a very simplified example: determining whether an image is of an X or an O. This example is just rich enough to illustrate the principles behind CNNs, but simple enough to avoid getting bogged down in non-essential details. Our CNN has one job. Each time we hand it a picture, it has to decide whether it has an X or an O. It assumes there is always one or the other.
         </p>
         <a href="https://youtu.be/FmpDIaiMIeA?t=3m05s">
-          <img src="images/cnn2.png" style="width: 560px;" />
+          <img src="images/cnn2.png" style="width: 440px;" />
         </a>
         
         <p>
@@ -59,14 +59,14 @@
 
         <h3>Features, a.k.a Filters</h3>
         <a href="https://youtu.be/FmpDIaiMIeA?t=3m59s">
-          <img src="images/cnn3.png" style="width: 560px;" />
+          <img src="images/cnn3.png" style="width: 440px;" />
         </a>
         
         <p>
           CNNs compare images piece by piece. The pieces that it looks for are called features. By finding rough feature matches in roughly the same positions in two images, CNNs get a lot better at seeing similarity than whole-image matching schemes.
         </p>
         <a href="https://youtu.be/FmpDIaiMIeA?t=4m20s">
-          <img src="images/cnn4.png" style="width: 560px;"" />
+          <img src="images/cnn4.png" style="width: 440px;"" />
         </a>
         
         <p>
@@ -75,7 +75,7 @@
 
         <h3>Convolution</h3>
         <a href="https://youtu.be/FmpDIaiMIeA?t=4m55s">
-          <img src="images/cnn5.png" style="width: 560px;" />
+          <img src="images/cnn5.png" style="width: 440px;" />
         </a>
         
         <p>
@@ -85,14 +85,14 @@
           The math behind convolution is nothing that would make a sixth-grader uncomfortable. To calculate the match of a feature to a patch of the image, simply multiply each pixel value in the feature by the value of the corresponding pixel in the image. Then add up the answers and divide by the total number of pixels in the feature. If both pixels are white (a 1) then 1 * 1 = 1. If both are black, then (-1) * (-1) = 1. Either way, a matching pixel results in a 1. Similarly, any mismatch is a -1. If all the pixels in a 3x3 pixel feature match, then adding them up and dividing by the total number of pixels gives a 1. Similarly, if none of the pixels in a feature match the image patch, then the answer is a -1.
         </p>
         <a href="https://youtu.be/FmpDIaiMIeA?t=7m20s">
-          <img src="images/cnn6.png" style="width: 560px;" />
+          <img src="images/cnn6.png" style="width: 440px;" />
         </a>
         
         <p>
           To complete our convolution, we repeat this process, lining up the feature with every possible image patch. We can take the answer from each convolution and make a new two-dimensional array from it, based on where in the image each patch is located. This map of matches is also a filtered version of our original image. It’s a map of where in the image the feature is found. Values close to 1 show strong matches, values close to -1 show strong matches for the photographic negative of our feature, and values near zero show no match of any sort.
         </p>
         <a href="https://youtu.be/FmpDIaiMIeA?t=8m20s">
-          <img src="images/cnn7.png" style="width: 560px;" />
+          <img src="images/cnn7.png" style="width: 440px;" />
         </a>
         
         <p>
@@ -104,7 +104,7 @@
 
         <h3>Pooling</h3>
         <a href="https://youtu.be/FmpDIaiMIeA?t=9m20s">
-          <img src="images/cnn8.png" style="width: 560px;" />
+          <img src="images/cnn8.png" style="width: 440px;" />
         </a>
         
         <p>
@@ -114,7 +114,7 @@
           After pooling, an image has about a quarter as many pixels as it started with. Because it keeps the maximum value from each window, it preserves the best fits of each feature within the window. This means that it doesn’t care so much exactly where the feature fit as long as it fit somewhere within the window. The result of this is that CNNs can find whether a feature is in an image without worrying about where it is. This helps solve the problem of computers being hyper-literal.
         </p>
         <a href="https://youtube/FmpDIaiMIeA?t=11m31s">
-          <img src="images/cnn9.png" style="width: 560px;" />
+          <img src="images/cnn9.png" style="width: 440px;" />
         </a>
         
         <p>
@@ -123,14 +123,14 @@
 
         <h3>Rectified Linear Units</h3>
         <a href="https://youtu.be/FmpDIaiMIeA?t=11m46s">
-          <img src="images/cnn10.png" style="width: 560px;" />
+          <img src="images/cnn10.png" style="width: 440px;" />
         </a>
         
         <p>
           A small but important player in this process is the ReLU. It’s math is also very simple—wherever a negative number occurs, swap it out for a 0. This helps the CNN stay mathematically healthy by keeping learned values from getting stuck near 0 or blowing up toward infinity. It’s the axle grease of CNNs—not particularly glamorous, but without it they don’t get very far.
         </p>
         <a href="https://youtu.be/FmpDIaiMIeA?t=12m37s">
-          <img src="images/cnn11.png" astyle="width: 560px;" />
+          <img src="images/cnn11.png" astyle="width: 440px;" />
         </a>
         
         <p>
@@ -146,12 +146,12 @@
           You’ve probably noticed that the input to each layer (two-dimensional arrays) looks a lot like the output (two-dimensional arrays). Because of this, we can stack them like Lego bricks. Raw images get filtered, rectified and pooled to create a set of shrunken, feature-filtered images. These can be filtered and shrunken again and again. Each time, the features become larger and more complex, and the images become more compact. This lets lower layers represent simple aspects of the image, such as edges and bright spots. Higher layers can represent increasingly sophisticated aspects of the image, such as shapes and patterns. These tend to be readily recognizable. For instance, in a CNN trained on human faces, the highest layers represent patterns that are clearly face-like. <a href="#cite1">(1)</a>  
         </p>
         <a target="_self" href="#cite1">
-          <img src="images/cnn18.png" style="width: 560px;" />
+          <img src="images/cnn18.png" style="width: 440px;" />
         </a>
 
         <h3>Fully connected layers</h3>
         <a href="https://youtu.be/FmpDIaiMIeA?t=14m03s">
-          <img src="images/cnn13.png" style="width: 560px;" />
+          <img src="images/cnn13.png" style="width: 440px;" />
         </a>
         
         <p>
@@ -170,7 +170,7 @@
 
         <h3>Backpropagation</h3>
         <a href="https://youtu.be/FmpDIaiMIeA?t=18m13s">
-          <img src="images/cnn15.png" style="width: 560px;" />
+          <img src="images/cnn15.png" style="width: 440px;" />
         </a>
         
         <p>
@@ -204,14 +204,14 @@
         
         <h3>Beyond images</h3>
         <a href="https://youtu.be/FmpDIaiMIeA?t=21m26s">
-          <img src="images/cnn16.png" style="width: 560px;" />
+          <img src="images/cnn16.png" style="width: 440px;" />
         </a>
         
         <p>
           While our X and O example involves images, CNNs can be used to categorize other types of data too. The trick is, whatever data type you start with, to transform it to make it look like an image. For instance, audio signals can be chopped into short time chunks, and then each chunk broken up into bass, midrange, treble, or finer frequency bands. This can be represented as a two-dimensional array where each column is a time chunk and each row is a frequency band. “Pixels” in this fake picture that are close together are closely related. CNNs work well on this. Researchers have gotten quite creative. They have adapted text data for natural language processing and even chemical data for drug discovery.
         </p>
         <a href="https://youtu.be/FmpDIaiMIeA?t=23m36s">
-          <img src="images/cnn17.png" style="width: 560px;" />
+          <img src="images/cnn17.png" style="width: 440px;" />
         </a>
 
         <p>
@@ -226,7 +226,7 @@
 
         <h3>Learn more</h3>
         <a href="deep_learning_demystified.html">
-          <img src="images/deep_learning.png" alt="Deep learning" style="width: 560;" />
+          <img src="images/deep_learning.png" alt="Deep learning" style="width: 440;" />
         </a>
 
         <p>
@@ -269,6 +269,7 @@
         <p>
         If you found this helpful, I also recommend the
         <a href="blog.html">Data Science and Robots Blog</a>.
+        <br>
         I work at Microsoft, but my opinions are my own.
         </p>
         <p>
