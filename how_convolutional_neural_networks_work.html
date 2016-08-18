@@ -208,12 +208,51 @@
         </a>
         
         <p>
-          While our X and O example involves images, CNNs can be used to categorize other types of data too. The trick is, whatever data type you start with, to transform it to make it look like an image. For instance, audio signals can be chopped into short time chunks, and then each chunk broken up into bass, midrange, treble, or finer frequency bands. This can be represented as a two-dimensional array where each column is a time chunk and 
+          While our X and O example involves images, CNNs can be used to categorize other types of data too. The trick is, whatever data type you start with, to transform it to make it look like an image. For instance, audio signals can be chopped into short time chunks, and then each chunk broken up into bass, midrange, treble, or finer frequency bands. This can be represented as a two-dimensional array where each column is a time chunk and each row is a frequency band. “Pixels” in this fake picture that are close together are closely related. CNNs work well on this. Researchers have gotten quite creative. They have adapted text data for natural language processing and even chemical data for drug discovery.
         </p>
-
         <a href="https://youtu.be/FmpDIaiMIeA?t=23m36s">
           <img src="images/cnn17.png" style="width: 560px;" />
         </a>
+
+        <p>
+          An example of data that doesn’t fit this format is customer data, where each row in a table represents a customer, and each column represents information about them, such as name, address, email, purchases and browsing history. In this case, the location of rows and columns doesn’t really matter. Rows can be rearranged and columns can be re-ordered without losing any of the usefulness of the data. In contrast, rearranging the rows and columns of an image makes it largely useless.
+        </p>
+        <p>
+          A rule of thumb: If your data is just as useful after swapping any of your columns with each other, then you can’t use Convolutional Neural Networks.
+        </p>
+        <p>
+          However if you can make your problem look like finding patterns in an image, then CNNs may be exactly what you need.
+        </p>
+
+        <h3>Learn more</h3>
+        <a href="deep_learning_demystified.html">
+          <img src="images/deep_learning.png" alt="Deep learning" style="width: 560;" />
+        </a>
+
+        <p>
+          If you'd like to dig deeper into deep learning in general, check out my 
+          <a href="deep_learning_demystified.html">Demystifying Deep Learning post</a>.
+          I also recommend the 
+          <a href="http://cs231n.github.io/convolutional-networks/">notes from the Stanford CS 231 course</a> 
+          by Justin Johnson and Andrej Karpathy that provided inspiration for this post,
+          as well as the writings of
+          <a href="http://colah.github.io/archive.html">Christopher Olah</a>, an exceptionally clear writer on the subject of neural networks.
+
+          If you are one who loves to learn by doing, there are a number of popular deep learning tools available. Try them all! And then tell us what you think.
+          <ul>
+            <li><a href="http://caffe.berkeleyvision.org/">Caffe</a></li>
+            <li><a href="https://github.com/Microsoft/CNTK">CNTK</a></li>
+            <li><a href="https://en.wikipedia.org/wiki/Deeplearning4j">Deeplearning4j</a></li>
+            <li><a href="http://www.tensorflow.org/">TensorFlow</a></li>
+            <li><a href="https://en.wikipedia.org/wiki/Theano_(software)">Theano</a></li>
+            <li><a href="https://en.wikipedia.org/wiki/Torch_(machine_learning)">Torch</a></li>
+            <li><a href="http://deeplearning.net/software_links/">Many others</a></li>
+          </ul>
+        </p>
+        
+        <p>
+          I hope you've enjoyed our walk through the neighborhood of Convolutional Neural Networks. Feel free to comment or start up a conversation publicly or in a direct message.
+        </p>
         
         <p>
           <a href="http://brohrer.github.io/index.html">Brandon</a>
