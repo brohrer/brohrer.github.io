@@ -42,14 +42,14 @@
         
         <h3>X's and O's</h3>
         <a href="https://youtu.be/FmpDIaiMIeA?t=1m43s">
-          <img src="images/cnn1.png" alt="Becca" style="width: 560px;" />
+          <img src="images/cnn1.png" style="width: 560px;" />
         </a>
         
         <p>
           To help guide our walk through a Convolutional Neural Network, we’ll stick with a very simplified example: determining whether an image is of an X or an O. This example is just rich enough to illustrate the principles behind CNNs, but simple enough to avoid getting bogged down in non-essential details. Our CNN has one job. Each time we hand it a picture, it has to decide whether it has an X or an O. It assumes there is always one or the other.
         </p>
         <a href="https://youtu.be/FmpDIaiMIeA?t=3m05s">
-          <img src="images/cnn2.png" alt="Becca" style="width: 560px;" />
+          <img src="images/cnn2.png" style="width: 560px;" />
         </a>
         
         <p>
@@ -58,14 +58,14 @@
 
         <h3>Features, a.k.a Filters</h3>
         <a href="https://youtu.be/FmpDIaiMIeA?t=3m59s">
-          <img src="images/cnn3.png" alt="Becca" style="width: 560px;" />
+          <img src="images/cnn3.png" style="width: 560px;" />
         </a>
         
         <p>
           CNNs compare images piece by piece. The pieces that it looks for are called features. By finding rough feature matches in roughly the same positions in two images, CNNs get a lot better at seeing similarity than whole-image matching schemes.
         </p>
         <a href="https://youtu.be/FmpDIaiMIeA?t=4m20s">
-          <img src="images/cnn4.png" alt="Becca" style="width: 560px;"" />
+          <img src="images/cnn4.png" style="width: 560px;"" />
         </a>
         
         <p>
@@ -74,7 +74,7 @@
 
         <h3>Convolution</h3>
         <a href="https://youtu.be/FmpDIaiMIeA?t=4m55s">
-          <img src="images/cnn5.png" alt="Becca" style="height: 280px;" />
+          <img src="images/cnn5.png" style="width: 560px;" />
         </a>
         
         <p>
@@ -84,14 +84,14 @@
           The math behind convolution is nothing that would make a sixth-grader uncomfortable. To calculate the match of a feature to a patch of the image, simply multiply each pixel value in the feature by the value of the corresponding pixel in the image. Then add up the answers and divide by the total number of pixels in the feature. If both pixels are white (a 1) then 1 * 1 = 1. If both are black, then (-1) * (-1) = 1. Either way, a matching pixel results in a 1. Similarly, any mismatch is a -1. If all the pixels in a 3x3 pixel feature match, then adding them up and dividing by the total number of pixels gives a 1. Similarly, if none of the pixels in a feature match the image patch, then the answer is a -1.
         </p>
         <a href="https://youtu.be/FmpDIaiMIeA?t=7m20s">
-          <img src="images/cnn6.png" alt="Becca" style="height: 280px;" />
+          <img src="images/cnn6.png" style="width: 560px;" />
         </a>
         
         <p>
           To complete our convolution, we repeat this process, lining up the feature with every possible image patch. We can take the answer from each convolution and make a new two-dimensional array from it, based on where in the image each patch is located. This map of matches is also a filtered version of our original image. It’s a map of where in the image the feature is found. Values close to 1 show strong matches, values close to -1 show strong matches for the photographic negative of our feature, and values near zero show no match of any sort.
         </p>
         <a href="https://youtu.be/FmpDIaiMIeA?t=8m20s">
-          <img src="images/cnn7.png" alt="Becca" style="height: 280px;" />
+          <img src="images/cnn7.png" style="width: 560px;" />
         </a>
         
         <p>
@@ -103,7 +103,7 @@
 
         <h3>Pooling</h3>
         <a href="https://youtu.be/FmpDIaiMIeA?t=9m20s">
-          <img src="images/cnn8.png" alt="Becca" style="height: 280px;" />
+          <img src="images/cnn8.png" style="width: 560px;" />
         </a>
         
         <p>
@@ -113,7 +113,7 @@
           After pooling, an image has about a quarter as many pixels as it started with. Because it keeps the maximum value from each window, it preserves the best fits of each feature within the window. This means that it doesn’t care so much exactly where the feature fit as long as it fit somewhere within the window. The result of this is that CNNs can find whether a feature is in an image without worrying about where it is. This helps solve the problem of computers being hyper-literal.
         </p>
         <a href="https://youtube/FmpDIaiMIeA?t=11m31s">
-          <img src="images/cnn9.png" alt="Becca" style="height: 280px;" />
+          <img src="images/cnn9.png" style="width: 560px;" />
         </a>
         
         <p>
@@ -122,14 +122,14 @@
 
         <h3>Rectified Linear Units</h3>
         <a href="https://youtu.be/FmpDIaiMIeA?t=11m46s">
-          <img src="images/cnn10.png" alt="Becca" style="height: 280px;" />
+          <img src="images/cnn10.png" style="width: 560px;" />
         </a>
         
         <p>
           A small but important player in this process is the ReLU. It’s math is also very simple—wherever a negative number occurs, swap it out for a 0. This helps the CNN stay mathematically healthy by keeping learned values from getting stuck near 0 or blowing up toward infinity. It’s the axle grease of CNNs—not particularly glamorous, but without it they don’t get very far.
         </p>
         <a href="https://youtu.be/FmpDIaiMIeA?t=12m37s">
-          <img src="images/cnn11.png" alt="Becca" style="height: 280px;" />
+          <img src="images/cnn11.png" astyle="width: 560px;" />
         </a>
         
         <p>
@@ -138,19 +138,19 @@
 
         <h3>Deep learning</h3>
         <a href="https://youtu.be/FmpDIaiMIeA?t=12m51s">
-          <img src="images/cnn12.png" alt="Becca" style="height: 280px;" />
+          <img src="images/cnn12.png" style="width: 660px;" />
         </a>
         
         <p>
           You’ve probably noticed that the input to each layer (two-dimensional arrays) looks a lot like the output (two-dimensional arrays). Because of this, we can stack them like Lego bricks. Raw images get filtered, rectified and pooled to create a set of shrunken, feature-filtered images. These can be filtered and shrunken again and again. Each time, the features become larger and more complex, and the images become more compact. This lets lower layers represent simple aspects of the image, such as edges and bright spots. Higher layers can represent increasingly sophisticated aspects of the image, such as shapes and patterns. These tend to be readily recognizable. For instance, in a CNN trained on human faces, the highest layers represent patterns that are clearly face-like. <a href="#cite1">(1)</a>  
         </p>
         <a target="_self" href="#cite1">
-          <img src="images/cnn18.png" alt="Becca" style="height: 280px;" />
+          <img src="images/cnn18.png" style="width: 560px;" />
         </a>
 
         <h3>Fully connected layers</h3>
         <a href="https://youtu.be/FmpDIaiMIeA?t=14m03s">
-          <img src="images/cnn13.png" alt="Becca" style="height: 280px;" />
+          <img src="images/cnn13.png" style="width: 560px;" />
         </a>
         
         <p>
@@ -160,7 +160,7 @@
           When a new image is presented to the CNN, it percolates through the lower layers until it reaches the fully connected layer at the end. Then an election is held. The answer with the most votes wins and is declared the category of the input.
         </p>
         <a href="https://youtu.be/FmpDIaiMIeA?t=16m32s">
-          <img src="images/cnn14.png" alt="Becca" style="height: 280px;" />
+          <img src="images/cnn14.png" style="width: 660px;" />
         </a>
         
         <p>
@@ -169,7 +169,7 @@
 
         <h3>Backpropagation</h3>
         <a href="https://youtu.be/FmpDIaiMIeA?t=18m13s">
-          <img src="images/cnn15.png" alt="Becca" style="height: 280px;" />
+          <img src="images/cnn15.png" style="width: 560px;" />
         </a>
         
         <p>
@@ -203,7 +203,7 @@
         
         <h3>Beyond images</h3>
         <a href="https://youtu.be/FmpDIaiMIeA?t=21m26s">
-          <img src="images/cnn16.png" alt="Becca" style="height: 280px;" />
+          <img src="images/cnn16.png" style="width: 560px;" />
         </a>
         
         <p>
@@ -211,13 +211,15 @@
         </p>
 
         <a href="https://youtu.be/FmpDIaiMIeA?t=23m36s">
-          <img src="images/cnn17.png" alt="Becca" style="height: 280px;" />
+          <img src="images/cnn17.png" style="width: 560px;" />
         </a>
         
         <p>
           <a href="http://brohrer.github.io/index.html">Brandon</a>
           <br>
           <a href="https://twitter.com/_brohrer_">@_brohrer_</a>
+          <br>
+          <a href="https://www.facebook.com/DataScienceAndRobots/">Facebook</a>
           <br>
           <a href="https://www.linkedin.com/in/brohrer">LinkedIn</a>
           <br>
