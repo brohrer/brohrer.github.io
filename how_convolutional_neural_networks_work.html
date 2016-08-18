@@ -38,7 +38,7 @@
         
         <p>
         What’s especially cool about them is that they are easy to understand, at least when you 
-        break them down into their basic parts. I’ll walk you through it.
+        break them down into their basic parts. I’ll walk you through it. There's a video that talks through these images in greater detail. If at any point you get a bit lost, just click on an image and you'll jump to that part of the video.
         </p>
         
         <h3>X's and O's</h3>
@@ -47,7 +47,7 @@
         </a>
         
         <p>
-          To help guide our walk through a Convolutional Neural Network, we’ll stick with a very simplified example: determining whether an image is of an X or an O. This example is just rich enough to illustrate the principles behind CNNs, but simple enough to avoid getting bogged down in non-essential details. Our CNN has one job. Each time we hand it a picture, it has to decide whether it has an X or an O. It assumes there is always one or the other.
+          To help guide our walk through a Convolutional Neural Network, we’ll stick with a very simplified example: determining whether an image is of an X or an O. This example is just rich enough to illustrate the principles behind CNNs, but still simple enough to avoid getting bogged down in non-essential details. Our CNN has one job. Each time we hand it a picture, it has to decide whether it has an X or an O. It assumes there is always one or the other.
         </p>
         <a href="https://youtu.be/FmpDIaiMIeA?t=3m05s">
           <img src="images/cnn2.png" style="width: 440px;" />
@@ -57,7 +57,7 @@
           A naïve approach to solving this problem is to save an image of an X and an O and compare every new image to our exemplars to see which is the better match.  What makes this task tricky is that computers are extremely literal. To a computer, an image looks like a two-dimensional array of pixels (think giant checkerboard) with a number in each position. In our example a pixel value of 1 is white, and -1 is black.  When comparing two images, if any pixel values don’t match, then the images don’t match, at least to the computer. Ideally, we would like to be able to see X’s and O’s even if they’re shifted, shrunken, rotated or deformed. This is where CNNs come in.
         </p>
 
-        <h3>Features, a.k.a Filters</h3>
+        <h3>Features</h3>
         <a href="https://youtu.be/FmpDIaiMIeA?t=3m59s">
           <img src="images/cnn3.png" style="width: 440px;" />
         </a>
@@ -82,7 +82,7 @@
           When presented with a new image, the CNN doesn’t know exactly where these features will match so it tries them everywhere, in every possible position. In calculating the match to a feature across the whole image, we make it a filter. The math we use to do this is called convolution, from which Convolutional Neural Networks take their name.
         </p>
         <p>
-          The math behind convolution is nothing that would make a sixth-grader uncomfortable. To calculate the match of a feature to a patch of the image, simply multiply each pixel value in the feature by the value of the corresponding pixel in the image. Then add up the answers and divide by the total number of pixels in the feature. If both pixels are white (a 1) then 1 * 1 = 1. If both are black, then (-1) * (-1) = 1. Either way, a matching pixel results in a 1. Similarly, any mismatch is a -1. If all the pixels in a 3x3 pixel feature match, then adding them up and dividing by the total number of pixels gives a 1. Similarly, if none of the pixels in a feature match the image patch, then the answer is a -1.
+          The math behind convolution is nothing that would make a sixth-grader uncomfortable. To calculate the match of a feature to a patch of the image, simply multiply each pixel in the feature by the value of the corresponding pixel in the image. Then add up the answers and divide by the total number of pixels in the feature. If both pixels are white (a value of   1) then 1 * 1 = 1. If both are black, then (-1) * (-1) = 1. Either way, every matching pixel results in a 1. Similarly, any mismatch is a -1. If all the pixels in a feature match, then adding them up and dividing by the total number of pixels gives a 1. Similarly, if none of the pixels in a feature match the image patch, then the answer is a -1.
         </p>
         <a href="https://youtu.be/FmpDIaiMIeA?t=7m20s">
           <img src="images/cnn6.png" style="width: 440px;" />
@@ -127,7 +127,7 @@
         </a>
         
         <p>
-          A small but important player in this process is the ReLU. It’s math is also very simple—wherever a negative number occurs, swap it out for a 0. This helps the CNN stay mathematically healthy by keeping learned values from getting stuck near 0 or blowing up toward infinity. It’s the axle grease of CNNs—not particularly glamorous, but without it they don’t get very far.
+          A small but important player in this process is the Rectified Linear Unit or ReLU. It’s math is also very simple—wherever a negative number occurs, swap it out for a 0. This helps the CNN stay mathematically healthy by keeping learned values from getting stuck near 0 or blowing up toward infinity. It’s the axle grease of CNNs—not particularly glamorous, but without it they don’t get very far.
         </p>
         <a href="https://youtu.be/FmpDIaiMIeA?t=12m37s">
           <img src="images/cnn11.png" style="width: 440px;" />
