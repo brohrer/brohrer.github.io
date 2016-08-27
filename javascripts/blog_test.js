@@ -1,3 +1,3 @@
 document.write('\
-All the more blog words.
+All the more blog words.\
 ');
