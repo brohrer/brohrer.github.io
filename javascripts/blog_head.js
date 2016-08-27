@@ -1,5 +1,1 @@
-document.write('\
-    <p>\
-    Some test text.' + blog_title + ' \ 
-    </p>\
-');
+document.write(blog_title);
