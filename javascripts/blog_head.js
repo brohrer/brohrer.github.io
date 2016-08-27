@@ -1,5 +1,5 @@
 document.write('\
     <p>\
-    Some test text.' + blog_title ' \ 
+    Some test text.' + blog_title + ' \ 
     </p>\
 ');
