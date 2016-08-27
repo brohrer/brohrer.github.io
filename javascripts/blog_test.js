@@ -1,3 +1,3 @@
-document.write('
-All the blog words.
+document.write('\
+All the more blog words.\
 ');
