@@ -17,8 +17,6 @@ document.write('\
       <footer class="inner">\
         <section class="clearfix">\
           <a id="project_tagline" href="blog.html"><span>Data Science and Robots Blog</span></a>\
-          &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp\
-          <a id="project_tagline" href="index.html"><span>Home</span></a>\
         </section>\
       </footer>\
     </div>\
