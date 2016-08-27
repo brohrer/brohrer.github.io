@@ -9,15 +9,4 @@ document.write('\
           <br>\
           <a href="https://www.linkedin.com/in/brohrer">LinkedIn</a>\
         </p>\
-      </section>\
-    </div>\
-\
-    <!-- FOOTER  -->\
-    <div id="footer_wrap" class="outer">\
-      <footer class="inner">\
-        <section class="clearfix">\
-          <a id="project_tagline" href="blog.html"><span>Data Science and Robots Blog</span></a>\
-        </section>\
-      </footer>\
-    </div>\
 ');
