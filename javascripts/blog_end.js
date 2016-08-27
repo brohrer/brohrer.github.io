@@ -9,12 +9,6 @@ document.write('\
           <br>\
           <a href="https://www.linkedin.com/in/brohrer">LinkedIn</a>\
         </p>\
-        <p>\
-        If you found this helpful, I also recommend the\
-        <a href="blog.html">Data Science and Robots Blog</a>.\
-        <br>\
-        I work at Microsoft, but my opinions are my own.\
-        </p>\
       </section>\
     </div>\
 \
@@ -22,8 +16,8 @@ document.write('\
     <div id="footer_wrap" class="outer">\
       <footer class="inner">\
         <section class="clearfix">\
-          <a id="project_tagline" href="blog.html"><span>Blog</span></a>\
-          &nbsp &nbsp &nbsp\
+          <a id="project_tagline" href="blog.html"><span>Data Science and Robots Blog</span></a>\
+          &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp\
           <a id="project_tagline" href="index.html"><span>Home</span></a>\
         </section>\
       </footer>\
