@@ -6,7 +6,7 @@ document.write('\
           ' + publication_date + '\
           <br>\
           <a href="https://twitter.com/_brohrer_">\
-                <img title="@_brohrer_" src="images/twitter_logo.png" alt="Twitter profile" style="width: 200px;" />\
+                <img title="@_brohrer_" src="images/twitter_logo.jpg" alt="Twitter profile" style="width: 200px;" />\
           </a>\
           <br>\
           <a href="https://www.facebook.com/DataScienceAndRobots/">Facebook</a>\
