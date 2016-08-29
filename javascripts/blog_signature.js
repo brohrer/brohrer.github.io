@@ -5,14 +5,12 @@ document.write('\
           <br>\
           ' + publication_date + '\
           <br>\
-          <a href="https://twitter.com/_brohrer_">\
-            <img title="@_brohrer_" src="images/twitter_logo.png" alt="Twitter profile" style="width: 50px;" />\
-          </a>\
-          <br>\
           <a href="https://www.facebook.com/DataScienceAndRobots/">\
             <img title="Data Science and Robots Facebook page" src="images/facebook_icon.png" alt="Facebook page" style="width: 50px;" />\
           </a>\
-          <br>\
+          <a href="https://twitter.com/_brohrer_">\
+            <img title="@_brohrer_" src="images/twitter_logo.png" alt="Twitter profile" style="width: 50px;" />\
+          </a>\
           <a href="https://www.linkedin.com/in/brohrer">\
             <img title="LinkedIn profile" src="images/linkedin_icon.png" alt="LinkedIn profile" style="width: 50px;" />\
           </a>\
