@@ -3,6 +3,8 @@ document.write('\
         <p>\
           <a href="http://brohrer.github.io/index.html">Brandon</a>\
           <br>\
+          ' + publication_date + '\
+          <br>\
           <a href="https://twitter.com/_brohrer_">@_brohrer_</a>\
           <br>\
           <a href="https://www.facebook.com/DataScienceAndRobots/">Facebook</a>\
