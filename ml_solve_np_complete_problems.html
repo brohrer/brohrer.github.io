@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+  <script type="text/javascript">var blog_title = "Q: Can machine learning solve NP-Complete problems? A: No*";</script>
+  <script type="text/javascript">var publication_date = "October 14, 2016";</script>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
+    <base target="_blank">
+    <script type="text/javascript" src="javascripts/blog_head.js"></script>
+  </head>
+  <body>
+    <script type="text/javascript" src="javascripts/blog_header.js"></script>
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        
+        <p>
+          Hitesh U Vaidya (@hiteshvaidya2) asked a thought-provoking question.
+
+          Q: Will machine learning prove useful in solving NP Complete problems?
+          https://twitter.com/hiteshvaidya2/status/783917251497832448
+
+          A: The short answer is “If you’re an engineer, yes. If you’re a mathematician, no.” but there’s more to it.
+
+          Hitesh’s question caught my eye. “Solving” a problem means something very different to a mathematician than to an engineer. To oversimplify: A mathematical solution is complete, perfect and provable. An engineering solution is any approach that works pretty well most of the time. It’s a heuristic - a glorified hack that has proven itself useful. For NP-Complete problems, machine learning falls into this second category.
+
+          To illustrate the difference, picture yourself outdoors on a moonless night with nothing but a GPS altimeter. Your goal is to find whether any point in a fenced field that is at an elevation higher than a thousand meters. You can’t see more than a step in any direction.
+
+        <a href="https://www.flickr.com/photos/50663863@N02/25366514875">
+        </a>
+          rolling_hills.jpg
+          images/rolling_hills.jpg"
+          
+
+          An engineering solution is to walk upslope to the top of whatever hill you're on. You can also wander around the field at random in hopes of discovering other hills that you can summit.
+          If you’ve looked around for a while and all you've found are gently rolling hills a few meters high, then you can reasonably conclude that the terrain probably stays under a thousand meters. But this isn’t good enough for a mathematician. Until you check every spot on the field, you can’t be certain that there’s not a narrow tower somewhere jutting up into the sky. A good mathematical solution would also be able to bound how long it will take to repeat the process in a new field.
+
+          A problem can be solved in one sense, but not the other. The decision version of the Traveling Salesman problem (the poster child for NP-Complete problems) doesn’t have a provable solution, but there are tricks for finding approximate solutions quickly. On the other hand, the solution to nothing less than intelligence itself has been proven (under some assumptions, see https://arxiv.org/abs/cs/0004001), however we are still very far from a practical implementation.
+
+          There is precedent for engineering solutions paving the way for the math. PD-control of manufacturing robots had been implemented in production lines long before it was proved to be stable. Its practical success motivated mathematical work on the problem and inspired key insights. In this way, machine learning may yet be able to help make progress on mathematically solving NP Complete problems.
+
+        </p>
+
+        <script type="text/javascript" src="javascripts/blog_signature.js"></script>
+      </section>
+    </div>
+    <script type="text/javascript" src="javascripts/blog_footer.js"></script>
+    <script type="text/javascript">
+      var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+      document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+    <script type="text/javascript">
+      try {
+        var pageTracker = _gat._getTracker("UA-10180621-3");
+      pageTracker._trackPageview();
+      } catch(err) {}
+    </script>
+  </body>
+</html>
