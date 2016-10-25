@@ -37,7 +37,7 @@
         <h4>Bayesian inference at the movies</h4>
         
         <a href="https://youtu.be/FmpDIaiMIeA?t=1m43s">
-          <img src="images/cnn1.png" style="width: 440px;" />
+          <img src="images/bayesian_5.png" style="width: 440px;" />
         </a>
           [long hair photo, slide 5]
         <p>
@@ -46,12 +46,18 @@
         <p>
         Now consider a variation of the situation: this person is standing in line for the men’s restroom. With this additional piece of information, you would probably assume that this is a man. This use of common sense and background knowledge is something that we do without thinking. Bayesian inference is a way to capture this in math so that we can make more accurate predictions.
 
+        <a href="https://youtu.be/FmpDIaiMIeA?t=1m43s">
+          <img src="images/bayesian_11.png" style="width: 440px;" />
+        </a>
         [slide 11]
         </p>
         <p>
         To put numbers to our cinema dilemma, let’s assume that there are about half men and half women at the theater. Out of 100 people, 50 are men, 50 are women. Out of the women, half have long hair (25) and the other 25 have short hair. Out of the men, 48 have short hair and 2 have long hair. Since there are 25 long haired women and 2 long haired men, guessing that the ticket owner is a woman is a safe bet.
 
 
+        <a href="https://youtu.be/FmpDIaiMIeA?t=1m43s">
+          <img src="images/bayesian_12.png" style="width: 440px;" />
+        </a>
         [slide 12]
         </p>
         <p>
@@ -63,11 +69,17 @@
 
         <h4>Probabilities</h4>
 
+        <a href="https://youtu.be/FmpDIaiMIeA?t=1m43s">
+          <img src="images/bayesian_13.png" style="width: 440px;" />
+        </a>
         [slide 13]
         </p>
         <p>
         The probability of anything is the number of that thing divided by the total number of everything. The probability that a moviegoer is a woman is 50 women divided by 100 moviegoers, .5 or 50%. The same holds for men.
 
+        <a href="https://youtu.be/FmpDIaiMIeA?t=1m43s">
+          <img src="images/bayesian_14.png" style="width: 440px;" />
+        </a>
         [slide 14]
         </p>
         <p>
@@ -76,18 +88,27 @@
 
         <h4>Conditional probabilities</h4>
 
+        <a href="https://youtu.be/FmpDIaiMIeA?t=1m43s">
+          <img src="images/bayesian_15.png" style="width: 440px;" />
+        </a>
         [slide 15] 
         </p>
         <p>
         Conditional probabilities answer the question “If I know that a person is a woman, what is the probability that she has long hair?” Conditional probabilities are calculated the same way as straight probabilities, but they just look at a subset of all the examples - those meeting a certain condition. In this case, P(long hair | woman), the conditional probability that someone has long hair, given that she is a woman, is the number of women with long hair, divided by the number of women. This turns out to be .5, whether we are considering the men’s restroom line, or the theater overall. 
 
 
+        <a href="https://youtu.be/FmpDIaiMIeA?t=1m43s">
+          <img src="images/bayesian_17.png" style="width: 440px;" />
+        </a>
         [slide 17]
         </p>
         <p>
         By the same math, the conditional probability that someone has long hair, given that he is a man, P(long hair | man), is .96, whether or not they are in line.
 
 
+        <a href="https://youtu.be/FmpDIaiMIeA?t=1m43s">
+          <img src="images/bayesian_18.png" style="width: 440px;" />
+        </a>
         [slide 18]
         </p>
         <p>
@@ -95,16 +116,25 @@
 
         <h4>Joint probabilities</h4>
 
+        <a href="https://youtu.be/FmpDIaiMIeA?t=1m43s">
+          <img src="images/bayesian_19.png" style="width: 440px;" />
+        </a>
         [slide 19]
         </p>
         <p>
         Joint probabilities are useful for answering the question, “What is the probability that someone is a woman with short hair?” Finding this is a two-step process. First, we focus on the probability that someone is a woman, P(woman). Then, we bring in the probability that someone has short hair, given that she is a woman, P(short hair | woman). Combining these by multiplication gives the joint probability, P(woman with short hair) = P(woman) * P(short hair | woman). Using this approach, we can calculate what we already knew--that P(woman with long hair) among all moviegoers is .25, but that P(woman with long hair) in the men’s restroom line is .01. These are different because P(woman) is different in these two cases. 
 
+        <a href="https://youtu.be/FmpDIaiMIeA?t=1m43s">
+          <img src="images/bayesian_23.png" style="width: 440px;" />
+        </a>
         [slide 23]
         </p>
         <p>
         Similarly, P(man with long hair) is .02 among all moviegoers, but .04 in the men’s restroom line.
 
+        <a href="https://youtu.be/FmpDIaiMIeA?t=1m43s">
+          <img src="images/bayesian_25.png" style="width: 440px;" />
+        </a>
         [slide 25]
         </p>
         <p>
@@ -112,6 +142,9 @@
 
         <h4>Marginal probabilities</h4>
 
+        <a href="https://youtu.be/FmpDIaiMIeA?t=1m43s">
+          <img src="images/bayesian_26.png" style="width: 440px;" />
+        </a>
         [slide 26] 
         </p>
         <p>
@@ -126,6 +159,9 @@
         </p>
         <p>
         Luckily Thomas Bayes noticed something cool that can help us. 
+        <a href="https://youtu.be/FmpDIaiMIeA?t=1m43s">
+          <img src="images/bayesian_30.png" style="width: 440px;" />
+        </a>
         [slide 30]
         </p>
         <p>
@@ -135,21 +171,33 @@
         </p>
         <p>
         With a little bit of algebra, we can solve for the thing we care about, P(man | long hair).
+        <a href="https://youtu.be/FmpDIaiMIeA?t=1m43s">
+          <img src="images/bayesian_33.png" style="width: 440px;" />
+        </a>
         [slide 33]
 
         </p>
         <p>
         Expressed in terms of A and B, instead of “man” and “long hair” we get Bayes’ Theorem.
+        <a href="https://youtu.be/FmpDIaiMIeA?t=1m43s">
+          <img src="images/bayesian_35.png" style="width: 440px;" />
+        </a>
         [slide 35]
 
         </p>
         <p>
         Finally we are ready to go back and solve our movie ticket dilemma. We have Bayes’ Theorem applied to our problem.
+        <a href="https://youtu.be/FmpDIaiMIeA?t=1m43s">
+          <img src="images/bayesian_36.png" style="width: 440px;" />
+        </a>
         [slide 36]
 
         </p>
         <p>
         First we need to expand our marginal probability, P(long hair).
+        <a href="https://youtu.be/FmpDIaiMIeA?t=1m43s">
+          <img src="images/bayesian_37.png" style="width: 440px;" />
+        </a>
         [slide 37]
 
         </p>
@@ -162,46 +210,73 @@
         <p>
         Examples like the theater dilemma are good for explaining where Bayesian inference comes from and showing the mechanics in action. However, in data science applications, it most often used to interpret data. By pulling in prior knowledge about what we are measuring, we can draw stronger conclusions with small data sets. I’ll show how this works in detail, but first please bear with me for another side track. We need to get clear about what we mean by “probability distributions.”
 
+        <a href="https://youtu.be/FmpDIaiMIeA?t=1m43s">
+          <img src="images/bayesian_44.png" style="width: 440px;" />
+        </a>
         [slide 44]
         </p>
         <p>
         You can think of probability as a pot of coffee that has exactly enough left to fill one cup. If there’s only one cup to fill there’s no problem, but if you have more than one you have to decide how to distribute the coffee between the cups. You can split it however you like, as long as you pour out all the coffee into one cup or the other. At the movie theater, one mug might represent women and the other, men. 
 
-        [slide 45]
+        <a href="https://youtu.be/FmpDIaiMIeA?t=1m43s">
+          <img src="images/bayesian_44.png" style="width: 440px;" />
+        </a>
+        [slide 44]
         </p>
         <p>
         Or we could use four mugs to represent the distribution of all combinations of gender and hair length. In both cases, the total amount of coffee adds up to one cup.
 
+        <a href="https://youtu.be/FmpDIaiMIeA?t=1m43s">
+          <img src="images/bayesian_45.png" style="width: 440px;" />
+        </a>
         [slide 45]
         </p>
         <p>
         Usually, we set these mugs side by side and look at the amount of coffee in each as a histogram. It can be helpful to think of coffee as our belief, and its distribution shows how strongly we believe something to be the case.
 
+        <a href="https://youtu.be/FmpDIaiMIeA?t=1m43s">
+          <img src="images/bayesian_50.png" style="width: 440px;" />
+        </a>
         [slide 50]
         </p>
         <p>
         If I flip a coin and hide the result from you, then your belief will be evenly split between heads and tails.
 
+        <a href="https://youtu.be/FmpDIaiMIeA?t=1m43s">
+          <img src="images/bayesian_51.png" style="width: 440px;" />
+        </a>
         [slide 51]
         </p>
         <p>
         If I roll a die and hide the result from you, then your belief about the number on top will be evenly split between each of the six sides.
 
+        <a href="https://youtu.be/FmpDIaiMIeA?t=1m43s">
+          <img src="images/bayesian_52.png" style="width: 440px;" />
+        </a>
         [slide 52]
         </p>
         <p>
         If I buy a powerball ticket, your belief that it is a winner will probably be very close to zero. The coin flip, the die roll, the powerball outcome - these are each an example of measuring and collecting data.
 
+        <a href="https://youtu.be/FmpDIaiMIeA?t=1m43s">
+          <img src="images/bayesian_53.png" style="width: 440px;" />
+        </a>
         [slide 53]
         </p>
         <p>
         Not surprisingly, you can also hold beliefs about other collected data. Consider the height of adults in the US. If I tell you I have met and measured someone, then your beliefs about their height might look like the picture above. This shows a belief that this person is probably between 150 and 200 cm, and most likely between 180 and 190 cm.
 
+        <a href="https://youtu.be/FmpDIaiMIeA?t=1m43s">
+          <img src="images/bayesian_54.png" style="width: 440px;" />
+        </a>
         [slide 54]
         </p>
         <p>
         Distributions can be broken up into finer and finer bins. You can think of it as spreading less coffee across more cups to get a finer-grained set of beliefs. 
 
+        <a href="https://youtu.be/FmpDIaiMIeA?t=1m43s">
+          <img src="images/bayesian_57.png" style="width: 440px;" />
+        </a>
         [slide 57]
         </p>
         <p>
@@ -211,6 +286,9 @@
         <p>
         Thanks for your patience. Now with probability distributions described, we can use Bayes’ Theorem to interpret data. To illustrate this, we’ll weigh my dog.
 
+        <a href="https://youtu.be/FmpDIaiMIeA?t=1m43s">
+          <img src="images/bayesian_62.png" style="width: 440px;" />
+        </a>
         [slide 62]
 
         <h4>Bayesian inference at the veterinarian</h4>
@@ -223,6 +301,9 @@
         <p>
         On our last visit, we got three measurements before she became unmanageable: 13.9 lb, 17.5 lb and 14.1 lb. There is a standard statistical interpretation for this. We can calculate the mean, standard deviation and standard error for this set of numbers and create a distribution for Reign’s actual weight.   
 
+        <a href="https://youtu.be/FmpDIaiMIeA?t=1m43s">
+          <img src="images/bayesian_64.png" style="width: 440px;" />
+        </a>
         [slide 64]
         </p>
         <p>
@@ -233,7 +314,7 @@
         This is where Bayes’ Theorem comes in. It is useful in making the most out of small data sets. Before we apply it, it's useful to revisit the equation and look at the various terms. 
 
         <a href="https://github.com/brohrer/becca">
-          <img title="Bayes' Theorem, term by term" src="images/Bayes_Theorem.gif" alt="Bayes Theorem" style="width: 710px;" />
+          <img title="Bayes' Theorem, term by term" src="images/Bayes_Theorem.gif" alt="Bayes Theorem" style="width: 600px;" />
         </a>
         
         </p>
@@ -262,7 +343,7 @@
          It's not a terrible idea to start by being perfectly agnostic and making no assumptions about the result. In this case, we assume that Reign’s weight is equally likely to be 13 pounds or 15 pounds or 1 pound or 1,000,000 pounds and let the data speak. To do this, we assume a uniform prior, meaning that its probability distribution is a constant for all values. This lets us reduce Bayes’ Theorem to P(w | m) = P(m | w).
 
         <a href="https://github.com/brohrer/becca">
-          <img title="Bayesian inference with a uniform prior" src="images/Bayesian_uniform_prior.gif" alt="Bayesian uniform prior" style="width: 710px;" />
+          <img title="Bayesian inference with a uniform prior" src="images/Bayesian_uniform_prior.gif" alt="Bayesian uniform prior" style="width: 600px;" />
         </a>
 
         </p>
@@ -277,6 +358,9 @@
         <p>
         Although we used Bayes’ Theorem, we’re still no closer to a useful estimate. To get this, we will need to make our prior non-uniform. A prior distribution represents our beliefs about something before we take any measurements. A uniform prior shows that we believe every possible outcome is equally likely. This is rarely the case. We often know something about the quantity we are measuring. Ages are always greater than zero. Temperatures are always greater than -276 Celsius. Adult heights are rarely greater than 8 feet. And sometimes we have additional domain knowledge that some values are more likely to occur in others.
 
+        <a href="https://youtu.be/FmpDIaiMIeA?t=1m43s">
+          <img src="images/bayesian_84.png" style="width: 440px;" />
+        </a>
         [slide 84]
         </p>
         <p>
@@ -284,13 +368,16 @@
 
         
         <a href="https://github.com/brohrer/becca">
-          <img title="Bayesian inference with a non-uniform prior" src="images/Bayesian_nonuniform_prior.gif" alt="Bayesian nonuniform prior" style="width: 710px;" />
+          <img title="Bayesian inference with a non-uniform prior" src="images/Bayesian_nonuniform_prior.gif" alt="Bayesian nonuniform prior" style="width: 600px;" />
         </a>
 
         </p>
         <p>
           With a prior in place, we can repeat the process of calculating our posterior. To do this, we consider the possibility that Reign’s weight is a certain value, say 17 pounds. Then we multiply the likelihood that she is actually 17 pounds (according to our prior) by the conditional probability of getting the measurements we did if she was 17 pounds. Then we repeat this for every other possible weight. The effect of the prior is to squash is down some probabilities and amplify others. In our case, it puts more weight on measurements in the 13-15 pound range, and much less weight on measurements outside it. This is in contrast to the uniform prior. It gave a decent possibility that Reign’s actual weight was 17 pounds. With the non-uniform prior, 17 pounds falls toward the tail of the distribution. Multiplying by that possibility drives the likelihood of a 17 pound weight down very low.
 
+        <a href="https://youtu.be/FmpDIaiMIeA?t=1m43s">
+          <img src="images/bayesian_93.png" style="width: 440px;" />
+        </a>
           [slide 93]
         </p>
         <p>
@@ -318,12 +405,21 @@
         <p>
           Luckily, there is a way to hedge our bets and avoid blindly eliminating possibilities. That is to assign at least a small probability to every outcome. That way, if by some quirk of physics Reign actually did weigh 1,000 pounds, the measurements that we gathered would be able to reflect that in the posterior. This is one reason that normal distributions are commonly used as priors. They concentrate most of our belief around a small range of outcomes, but have very long tails that never become entirely zero no matter how far they stretch.
 
+        <a href="https://youtu.be/FmpDIaiMIeA?t=1m43s">
+          <img src="images/bayesian_97.png" style="width: 440px;" />
+        </a>
           [Red Queen]
+        </p>
+        <p>
           In this, the Red Queen provides a good role model:
-
-          "Alice laughed: "There's no use trying," she said; "one can't believe impossible things."
+        </p>
+        <blockquote>
+          Alice laughed: "There's no use trying," she said; "one can't believe impossible things."
+          <br>
           "I daresay you haven't had much practice," said the Queen. "When I was younger, I always did it for half an hour a day. Why, sometimes I've believed as many as six impossible things before breakfast." 
+          <br>
           - Lewis Carroll (Alice’s Adventures in Wonderland)
+        </blockquote>
 
         <script type="text/javascript" src="javascripts/blog_signature.js"></script>
       </section>
