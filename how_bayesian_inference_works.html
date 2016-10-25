@@ -19,12 +19,10 @@
         
         <iframe width="560" height="315" src="https://www.youtube.com/embed/5NMxiOGL39M"
                 frameborder="0" style="margin: 0 auto" allowfullscreen></iframe>
-        <iframe width="600" height="315" src="https://youtu.be/5NMxiOGL39M" 
-        frameborder="0" style="margin: 0 auto" allowfullscreen></iframe>
         <br>
         <a href="https://docs.google.com/presentation/d/1325yenZP_VdHoVj-tU0AnbQUxFwb8Fl1VdyAAUxEzfg/edit?usp=sharing">slides</a>
         <p>
-          Note: This content is also in video form. Clicking any of the images will open that topic in the video.
+          Note: This post is also in video. Click an image to jump to a video explanation.
         </p>
         <p>
           Bayesian inference is a way to get sharper predictions from your data. It’s particularly useful when you don’t have as much data as you would like and want to juice every last bit of predictive strength from it.
@@ -33,7 +31,9 @@
           Although it is sometimes described with reverence, Bayesian inference isn’t magic or mystical. And even though the math under the hood can get dense, the concepts behind it are completely accessible. In brief, Bayesian inference lets you draw stronger conclusions from your data by folding in what you already know about the answer.
         </p>
         <p>
-          Bayesian inference is based on the ideas of Thomas Bayes, a nonconformist Presbyterian minister in London about 300 years ago. He wrote two books, one on theology, and one on probability.  One of them contained his now famous Bayes Theorem, which has since been applied to the problem of inference, the technical term for educated guessing. It's hard to overstate <a href="http://onlinelibrary.wiley.com/doi/10.1111/j.1740-9713.2013.00638.x/full">the contribution of another minister, Richard Price</a>, to developing Bayes' ideas. He saw their significance, refined them and published them. It would be more accurate and historically just to call Bayes' Theorem the Bayes-Price Rule. 
+          Bayesian inference is based on the ideas of Thomas Bayes, a nonconformist Presbyterian minister in London about 300 years ago. He wrote two books, one on theology, and one on probability.  One of them contained his now famous Bayes Theorem, which has since been applied to the problem of inference, the technical term for educated guessing. It's hard to overstate
+          <a href="http://onlinelibrary.wiley.com/doi/10.1111/j.1740-9713.2013.00638.x/full">the contribution of another minister, Richard Price</a>,
+          to developing Bayes' ideas. He saw their significance, refined them and published them. It would be more accurate and historically just to call Bayes' Theorem the Bayes-Price Rule. 
         </p>
 
         <h4>Bayesian inference at the movies</h4>
@@ -41,27 +41,23 @@
         <a href="https://youtu.be/FmpDIaiMIeA?t=1m43s">
           <img src="images/bayesian_5.png" style="width: 440px;" />
         </a>
-          [long hair photo, slide 5]
         <p>
         Imagine you are at the movies and a fellow moviegoer drops their ticket. You want to get their attention. This is what they look like from behind. You can’t tell their gender, only that they have long hair. Do you call out “Excuse me ma’am!” or “Excuse me sir!” Given what you know about men’s and women’s hairstyles in your area, you might assume that this is a woman. (In this oversimplification, there are only two hair lengths and genders.)
         </p>
         <p>
         Now consider a variation of the situation: this person is standing in line for the men’s restroom. With this additional piece of information, you would probably assume that this is a man. This use of common sense and background knowledge is something that we do without thinking. Bayesian inference is a way to capture this in math so that we can make more accurate predictions.
+        </p>
 
         <a href="https://youtu.be/FmpDIaiMIeA?t=1m43s">
           <img src="images/bayesian_11.png" style="width: 440px;" />
         </a>
-        [slide 11]
-        </p>
         <p>
         To put numbers to our cinema dilemma, let’s assume that there are about half men and half women at the theater. Out of 100 people, 50 are men, 50 are women. Out of the women, half have long hair (25) and the other 25 have short hair. Out of the men, 48 have short hair and 2 have long hair. Since there are 25 long haired women and 2 long haired men, guessing that the ticket owner is a woman is a safe bet.
-
+        </p>
 
         <a href="https://youtu.be/FmpDIaiMIeA?t=1m43s">
           <img src="images/bayesian_12.png" style="width: 440px;" />
         </a>
-        [slide 12]
-        </p>
         <p>
         Out of 100 people in the men’s restroom line, however, there are 98 men and two women keeping their partners company. Half the women still have long hair and half have short hair, but here there are just one of each. The proportions of men with long and short hair are the same too, but since there are 98 of them, there are now 94 with short hair and 4 with long. Since there is 1 woman with long hair and four men, now the safe bet is that the ticket owner is a man. This is a concrete example of the principle under Bayesian inference. Knowing a key piece of information beforehand - that the ticket owner is in the men’s restroom line - allows us to update our prediction about them.
 
