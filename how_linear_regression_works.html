@@ -50,13 +50,13 @@
           <img src="images/linear_regression/linear_regression_4.png" style="width: 440px;" />
         </a>
         <p>
-          I can repeat this with the weights and pricess of all the other diamonds. 
+          I can repeat this with the weights and prices of all the other diamonds. 
         </p>
         <a href="https://youtu.be/fE0bnkNX77A?t=2m08s">
           <img src="images/linear_regression/linear_regression_5.png" style="width: 440px;" />
         </a>
         <p>
-          This turns my list of prices and weights into a picture. So far I haven't thrown any information away or added any. I've just changed it to another form. The data is now a picture. 
+          This turns my list of prices and weights into a picture. So far I haven't added any new information or thrown any information away. I've just changed it to another form. The data is now a picture. 
           
           The picture has an obvious shape to it. It looks like a wide fuzzy line going up and to the right. My next step is to draw a straight line through the middle of it. There are roughly equal numbers of data points on each side of the line, and it hugs the middle of the swath of data.
         </p>
@@ -64,21 +64,22 @@
           <img src="images/linear_regression/linear_regression_6.png" style="width: 440px;" />
         </a>
         <p>
-          Drawing a line through the data is a very significant step. Although the line may seem obvious to us, that is only because we have supercomputer-quantities of neural computing power dedicated to seeing patterns. By drawing a line, I've created a simplified cartoon version of the data. In this step, I actually do throw away some of the information in the data. But in return I get a simplified story that I can use to answer questions. Finding the curve that best fits your data is called regression, and when that curve is a straight line, it's called linear regression.
-          
+          Drawing a line through the data is a very significant step. Although the line may seem obvious to us, that is only because we have supercomputer-quantities of neural computing power dedicated to seeing patterns. By drawing a line, I've distilled a collection of points down to a simplified version of itself, the same way a cartoon is a simplified version of a realistic image. In this step, I actually do throw away some of the information in the data, but in return I get a simplified story that I can use to answer questions. Finding the curve that best fits your data is called regression, and when that curve is a straight line, it's called linear regression.
+        </p>
+        <p>          
           With a linear model in place, I can finally answer my question, "How much will a 1.35 carat diamond cost me?" To do this, I eyeball a vertical line up from the 1.35 carat point on the weight axis. From where it crosses my linear model, I eyeball a horizontal line over to the price axis. It hits at about the $8000 mark. Question answered! 
         </p>
         <a href="https://youtu.be/fE0bnkNX77A?t=5m24s">
           <img src="images/linear_regression/linear_regression_7.png" style="width: 440px;" />
         </a>
         <p>
-          To make the answer even more helpful, I note that most of the diamonds don't fall right on the line. That means my 1.35 carat diamond will probably not be exactly $8000. My next question is "How close to $8000 will it be?" To estimate this, I draw a wide envelope around my line that encompasses most (about 95%) of my data points. 
+          To make the answer even more helpful, I note that most of the diamonds don't fall right on the line. That means my 1.35 carat diamond will probably not cost exactly $8000. My obvious next question is "How close to $8000 will it be?" To estimate this, I draw a wide envelope around my line that encompasses most (about 95%) of my data points. 
         </p>
         <a href="https://youtu.be/fE0bnkNX77A?t=6m00s">
           <img src="images/linear_regression/linear_regression_8.png" style="width: 440px;" />
         </a>
         <p>
-          I'm pretty confident (about 95%) that any future diamonds I come across will fall somewhere in this envelope. To find out what this means for my diamond, I eyeball two more horizontal lines where the 1.35 carat line crosses it on the high and low side.
+          I'm pretty confident (about 95%) that any future diamonds I come across will fall somewhere in this envelope. To find out what this means for my diamond, I eyeball two more horizontal lines where the 1.35 carat line crosses my confidence envelope on the high and low side.
         </p>
         <a href="https://youtu.be/fE0bnkNX77A?t=6m44s">
           <img src="images/linear_regression/linear_regression_9.png" style="width: 440px;" />
