@@ -64,21 +64,33 @@
           <img src="images/linear_regression/linear_regression_6.png" style="width: 440px;" />
         </a>
         <p>
+          Drawing a line through the data is a very significant step. Although the line may seem obvious to us, that is only because we have supercomputer-quantities of neural computing power dedicated to seeing patterns. By drawing a line, I've created a simplified cartoon version of the data. In this step, I actually do throw away some of the information in the data. But in return I get a simplified story that I can use to answer questions. Finding the curve that best fits your data is called regression, and when that curve is a straight line, it's called linear regression.
+          
+          With a linear model in place, I can finally answer my question, "How much will a 1.35 carat diamond cost me?" To do this, I eyeball a vertical line up from the 1.35 carat point on the weight axis. From where it crosses my linear model, I eyeball a horizontal line over to the price axis. It hits at about the $8000 mark. Question answered! 
         </p>
         <a href="https://youtu.be/fE0bnkNX77A?t=5m24s">
           <img src="images/linear_regression/linear_regression_7.png" style="width: 440px;" />
         </a>
         <p>
+          To make the answer even more helpful, I note that most of the diamonds don't fall right on the line. That means my 1.35 carat diamond will probably not be exactly $8000. My next question is "How close to $8000 will it be?" To estimate this, I draw a wide envelope around my line that encompasses most (about 95%) of my data points. 
         </p>
         <a href="https://youtu.be/fE0bnkNX77A?t=6m00s">
           <img src="images/linear_regression/linear_regression_8.png" style="width: 440px;" />
         </a>
         <p>
+          I'm pretty confident (about 95%) that any future diamonds I come across will fall somewhere in this envelope. To find out what this means for my diamond, I eyeball two more horizontal lines where the 1.35 carat line crosses it on the high and low side.
         </p>
         <a href="https://youtu.be/fE0bnkNX77A?t=6m44s">
           <img src="images/linear_regression/linear_regression_9.png" style="width: 440px;" />
         </a>
         <p>
+          Now I see that I can be fairly confident that my diamond will cost more than $5800, but less than $10,200. Armed with this information, I can make a plan about how much to save from each paycheck for how long before I can restore my grandmother's ring.
+          
+          My goal with this example is to show that linear regression is simple, at least conceptually. It can be done with a pen, a napkin and a careful eye, no computers or math necessary. However, in practice math does come in handy.
+          
+          Say I recorded more information about the diamonds, such as color, clarity, cut and the number of inclusions. Then there would be 6 columns instead of 2, which is far more challenging to visualize. Math comes in handy when fitting a line (or the 6-dimensional equivalent of a line) to this richer data set.
+          
+          And say that instead of 17 diamonds, there were 17 hundred or 17 million. The problem quickly becomes impractical for even the most dedicated artist, but computers can make short work of it.
         </p>
        
 
