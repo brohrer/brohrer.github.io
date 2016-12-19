@@ -80,7 +80,7 @@
         The situation in men’s restroom line breaks down to .02 for women, .98 for men. 
         </p>
 
-        <h4>Conditional probabilities</h4>
+        <h4 id="conditional">Conditional probabilities</h4>
 
         <a href="https://youtu.be/5NMxiOGL39M?t=3m16s">
           <img src="images/bayesian_15.png" style="width: 550px;" />
@@ -101,7 +101,7 @@
         An important thing to remember about conditional probabilities is that P(A | B) is not the same as P(B | A). For example, P(cute | puppy) is different than P(puppy | cute). If the thing I’m holding is a puppy, the probability it is cute is very high. If the thing I’m holding is cute, the probability it is a puppy is only medium-low. It might also be kitten, a bunny, a hedgehog or even a tiny human.
         </p>
 
-        <h4>Joint probabilities</h4>
+        <h4 id="joint">Joint probabilities</h4>
 
         <a href="https://youtu.be/5NMxiOGL39M?t=5m2s">
           <img src="images/bayesian_19.png" style="width: 550px;" />
@@ -122,7 +122,7 @@
         Unlike conditional probabilities, joint probabilities don’t care about order. P(A and B) is the same as P(B and A). The probability that I am having milk and a jelly donut is the same as the probability that I am having a jelly donut and milk.
         </p>
 
-        <h4>Marginal probabilities</h4>
+        <h4 id="marginal">Marginal probabilities</h4>
 
         <a href="https://youtu.be/5NMxiOGL39M?t=6m16s">
           <img src="images/bayesian_26.png" style="width: 550px;" />
@@ -176,7 +176,7 @@
         Then we can plug in our numbers and calculate the probability that someone is a man, given that they have long hair. For moviegoers in the men’s restroom line, P(man | long hair) is .8. This confirms our intuition that the ticket dropper is probably a man. Bayes’ Theorem has captured our intuition about the situation. Most importantly, it has incorporated our pre-existing knowledge that there are far more men than women in the men’s restroom line. Using this prior knowledge, it updated our beliefs about the situation.
         </p>
 
-        <h4>Probability distributions</h4>
+        <h4 id="distribution">Probability distributions</h4>
 
         <p>
         Examples like the theater dilemma are good for explaining where Bayesian inference comes from and showing the mechanics in action. However, in data science applications it most often used to interpret data. By pulling in prior knowledge about what we are measuring, we can draw stronger conclusions with small data sets. I’ll show how this works in detail, but first please bear with me for one more side track. We need to get clear about what we mean by “probability distributions.”
