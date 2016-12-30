@@ -67,7 +67,7 @@
           <img src="images/how_to_do_data_science.png" alt="How to do data science" style="height: 400px;" />
         </a>
         
-        <h2>
+        <h2 id="organize_data">
         3. Put the Data in a Table
         </h2>
         <p>
@@ -83,7 +83,7 @@
         You may have to roll some data up to get it to fit. For instance, if your question is “How many lattes will I sell per day?” then you’ll want one day per row in your table, with a target column of number_of_lattes_sold. But your data may be recorded as a list of latte sales transaction with the time and date of each. In order to fit this into a one-day-per-row format, it is first necessary to roll up the data, that is, to combine a bunch of measurements into a single one. In this case, it means counting up the number of lattes sold on each date. Other information, such as the time each latte was sold, is lost in this process, but that’s OK. That data wasn’t going to help you answer your question.
         </p>
 
-        <h2>
+        <h2 id="clean_data">
         4. Check for Quality
         </h2>
         <h3>
@@ -126,7 +126,7 @@
         After you’ve replaced all your missing values, your data is “connected”. Every data point has a value for every feature. It is clean and ready to go to work on. Occasionally you may discover that after cleaning, you have little or no data left. This is a good thing. You just saved yourself the pain of building a model with bad data, getting a wrong result, getting laughed at by your customers and disgruntling your boss. Go back to Step 1 and Get More Data.
         </p>
 
-        <h2>
+        <h2 id="feature_engineering">
         5. Transform the Features
         </h2>
         <p>
@@ -198,7 +198,6 @@
         <a href="https://www.linkedin.com/in/brohrer">LinkedIn</a>
         </p>
         <p>
-        I work at Microsoft, but my opinions are my own.
         This post was originally published on 
         <a href="https://blogs.technet.microsoft.com/machinelearning/2016/03/28/how-to-do-data-science/">
         Microsoft's Cortana Intelligence and Machine Learning Blog</a>.
