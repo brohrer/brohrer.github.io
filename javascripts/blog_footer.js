@@ -3,6 +3,7 @@ document.write('\
     <div id="footer_wrap" class="outer">\
       <footer class="inner">\
         <section class="clearfix">\
+          <a href="donate.html">Vote for my next post topic</a>\
           <a id="project_tagline" href="blog.html"><span>Data Science and Robots Blog</span></a>\
           <p>\
             <br>\
