@@ -48,11 +48,16 @@ table {
 /*******************************************************************************
 Theme Styles
 *******************************************************************************/
+/*
+#04253a : dark blue
+#e1ddbf : tan
+#4c837a : green
+*/
 
 body {
   box-sizing: border-box;
   /*color:#373737;*/
-  color: #043758;
+  color: #04253a;
   background: #212121;
   font-size: 16px;
   font-family: 'Myriad Pro', Calibri, Helvetica, Arial, sans-serif;
@@ -64,7 +69,7 @@ h1, h2, h3, h4, h5, h6 {
   margin: 10px 0;
   font-weight: 700;
   /*color:#222222;*/
-  color: #043758;
+  color: #04253a;
   font-family: 'Lucida Grande', 'Calibri', Helvetica, Arial, sans-serif;
   letter-spacing: -1px;
 }
@@ -122,7 +127,8 @@ a {
 }
 
 a:visited {
-  color: #505050;
+  /* color: #505050; */
+  color: #4c837a;
 }
 
 a:hover, a:focus {
