@@ -79,25 +79,23 @@
           It’s worth noting that it this command returns a Series, the data structure that pandas uses to represent a column. If instead of a Series, we just wanted an array of the numbers that are in the 'summitted' column, then we add '.values' to the end of our command. This returns a numpy array containing [1953, 1954, 1955, and 1956].
         </p>
 
-        <img src="images/pandas_indexing_3.png" style="width: 550px;" />        
+        <img src="images/pandas_indexing_4.png" style="width: 550px;" />        
 
         <p>
           If we would only like to get a single row, then we use the .loc[] function again, this time specifying a row label, and putting a colon in the column position.
         </p>
 
-        <img src="images/pandas_indexing_4.png" style="width: 550px;" />        
+        <img src="images/pandas_indexing_5.png" style="width: 550px;" />        
 
         <p>
           If we only want a single value, for instance the year that K2 was summitted, then we can specify the labels for both the row and the column. The row always comes first.
         </p>
 
-        <img src="images/pandas_indexing_5.png" style="width: 550px;" />        
+        <img src="images/pandas_indexing_6.png" style="width: 550px;" />        
 
         <p>
           While it is true that you can get away with using only one argument in the .loc[] function, it is most straightforward to interpret if you always specify both row and column, even if it is with a colon.
         </p>
-
-        <img src="images/pandas_indexing_6.png" style="width: 550px;" />        
 
         <p>
           We don’t have to limit ourselves to a single row or single column using this method. Here, in the row position we pass a list of labels. This returns a set of rows, rather than just one. 
@@ -155,9 +153,17 @@
 
         <p>
           All of this can be summed up as follows.
-          Use .loc[] for label-based indexing
-          Use .iloc[] for position-based indexing, and
-          Explicitly designate both the rows and the columns even if it’s with a colon.
+          <ol>
+            <li>
+              Use .loc[] for label-based indexing
+            </li>
+            <li>
+              Use .iloc[] for position-based indexing, and
+            </li>
+            <li>
+              Explicitly designate both the rows and the columns even if it’s with a colon.
+            </li>
+          </ol>
         </p>
 
         <p>
