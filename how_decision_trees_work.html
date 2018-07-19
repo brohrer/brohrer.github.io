@@ -17,6 +17,19 @@
     <div id="main_content_wrap" class="outer">
       <section id="main_content" class="inner">
         
+        <iframe width="600" height="315" src="https://youtu.be/9w16p4QmkAI" 
+        frameborder="0" allow="autoplay; encrypted-media"
+        style="margin: 0 auto" allowfullscreen></iframe>
+        <br>
+        <p>
+          <a href="https://docs.google.com/presentation/d/1fyGhGxdGcwt_eg-xjlMKiVxstLhw42XfGz3wftSzRjc/edit?usp=sharing">
+            Get the slides</a>
+        </p>
+        <p>
+          <a href="https://github.com/brohrer/brohrer.github.io/blob/master/code/decision_tree.py">
+            Check out the code</a>
+        </p>
+        
         <p>
           Decision trees are one of my favorite models. They are simple, and they are powerful. In fact most high performing Kaggle entries are a combination of
           <a href="https://en.wikipedia.org/wiki/Xgboost">XGBoost</a>,
@@ -30,13 +43,13 @@
         <img src="images/decision_trees_0.png" style="width: 550px;" />
 
         <p>
-          You can summarize this pattern in a decision tree. The very first branching point is the question "Did departure occur before 8:15?" There are two branches, a yes and no. For consistency we will keep our yesses on the left. Placing this decision boundary divides the data up into two groups. Although there are some stragglers and exceptions, the overall pattern is captured placing by the decision boundary at 8:15. If you depart before 8:15, you can be reasonably sure of getting to work on time. If you depart after 8:15, you can be reasonably sure of being late.
+          You can summarize this pattern in a decision tree. The very first branching point is the question "Did departure occur before 8:15?" There are two branches, a yes and a no. For consistency we will keep our yesses on the left. Placing this decision boundary divides the data up into two groups. Although there are some stragglers and exceptions, the overall pattern is captured placing by the decision boundary at 8:15. If you depart before 8:15, you can be reasonably sure of getting to work on time. If you depart after 8:15, you can be reasonably sure of being late.
         </p>
 
         <img src="images/decision_trees_1.png" style="width: 550px;" />
 
         <p>
-          This is the simplest decision tree possible, a single branch. 
+          This is the simplest decision tree possible, a single pair of branches. 
         </p>
 
         <p>
@@ -54,19 +67,19 @@
         </p>
 
         <p>
-          We can extend this example to the case where there are two predictor variables. Consider both the departure time and the day of the week. We'll start counting at Monday = 1 so Saturday = 6 and Sunday = 7. Inspecting the data, we can see that on Saturday and Sunday, the green filled donuts extend further to the left. This means that leaving at 8:10 is probably sufficient to get you to work on time on a weekday, but probably not on the weekend.
+          We can extend this example to the case where there are two predictor variables. Consider both the departure time and the day of the week. We'll start counting at Monday = 1 so Saturday = 6 and Sunday = 7. Inspecting the data, we can see that on Saturday and Sunday the green filled donuts extend further to the left. This means that leaving at 8:10 is probably sufficient to get you to work on time on a weekday, but probably not on the weekend.
         </p>
 
         <img src="images/decision_trees_3.png" style="width: 550px;" />
 
         <p>
-          To represent this in a decision tree, we can start as we did before by putting a decision boundary at 8:15. Any departure times after 8:15 are likely to be late. Departure times before 815 are inconsistent. Before, we assumed they would be on time, but now we can see in the data that that is not entirely true.
+          To represent this in a decision tree, we can start as we did before by putting a decision boundary at 8:15. Any departure times after 8:15 are likely to be late. Departure times before 8:15 are inconsistent. Before, we assumed they would be on time, but now we can see in the data that that is not entirely true.
         </p>
 
         <img src="images/decision_trees_4.png" style="width: 550px;" />
 
         <p>
-          To make our estimate better on weekends, we can subdivide the before 8:15 departure times into weekday and weekend. Now a weekday departure before 8:15 is confidently on time. However weekend departures before 8:15 are mostly on time but not entirely. We have updated the decision tree with a node that reflect this new decision boundary.
+          To make our estimate better on weekends, we can subdivide the before 8:15 departure times into weekday and weekend. Now a weekday departure before 8:15 is confidently on time. However weekend departures before 8:15 are mostly on time, but not entirely. We have updated the decision tree with a node that reflects this new decision boundary.
         </p>
 
         <img src="images/decision_trees_5.png" style="width: 550px;" />
@@ -82,17 +95,17 @@
         </p>
 
         <p>
-          Now we can look at an example with a continuous target variable, rather than a categorical one. What a model is used to make predictions about continuous numerical variables, it’s also called a <i>regression tree</i>. So far we have looked at one and two dimensional classification trees. Now we will look at regression trees.
+          Now we can look at an example with a continuous target variable, rather than a categorical one. When a model is used to make predictions about continuous numerical variables, it’s also called a <em>regression tree</em>. So far we have looked at one and two dimensional classification trees. Now we will look at regression trees.
         </p>
 
         <p>
-          Let’s consider the question of what time someone wakes up, as predicted by their age. The root of our regression tree is an estimate for the entire data set. In this case, if you had to make an estimate without knowing someone’s age, a reasonable gas would be 6:25. This is the root of the decision tree.
+          Let’s consider the question of what time someone wakes up, as predicted by their age. The root of our regression tree is an estimate for the entire data set. In this case, if you had to make an estimate without knowing someone’s age, a reasonable guess would be 6:25. This is the root of the decision tree.
         </p>
 
         <img src="images/decision_trees_7.png" style="width: 550px;" />
 
         <p>
-          A reasonable first split is at age 25. On our on average, people younger than 25 wake up at 7:05, and people older than 25 wake up at 6 o’clock.
+          A reasonable first split is at age 25. On average, people younger than 25 wake up at 7:05, and people older than 25 wake up at 6 o’clock.
         </p>
 
         <img src="images/decision_trees_8.png" style="width: 550px;" />
@@ -108,23 +121,25 @@
         <img src="images/decision_trees_9.png" style="width: 550px;" />
 
         <p>
-          There is still a lot of variation in the youngest group so we can further subdivide it. By slicing again on age 8, we can refine the estimates to more closely fit the data. We can also subdivide the 40 to 70 group on the 58 year line. Notice that we are getting to where we only have one or two data points per leaf of our tree. This is a dangerous condition and can lead to overfitting which we’ll talk more about in a minute.
+          There is still a lot of variation in the youngest group so we can further subdivide it. By slicing again on age 8, we can refine the estimates to more closely fit the data. We can also subdivide the 40 to 70 group on the 58 year line. Notice that we are getting to where we only have one or two data points in some of the leaves of our tree. This is a dangerous condition and can lead to overfitting, which we’ll talk more about in a minute.
         </p>
 
         <img src="images/decision_trees_10.png" style="width: 550px;" />
 
         <p>
-          The resulting tree lets us make a numerical estimate, depending on someone’s age. If I need to estimate the wake up time for a 36-year-old, I can start at the top of the tree.  Are they younger than 25? No. Go to the right. Are they younger than 40? Yes. Go to the left. The estimate then become 6:10 AM. The structure of the decision tree lets you sort people of any age into their respective bin and make an estimate about their wake up time.
+          The resulting tree lets us make a numerical estimate, depending on someone’s age. If I need to estimate the wake up time for a 36-year-old, I can start at the top of the tree.  Are they younger than 25? No. Go to the right. Are they younger than 40? Yes. Go to the left. The estimate given by that leaf is 6:10 AM. The structure of the decision tree lets you sort people of any age into their respective bin and make an estimate about their wake up time.
         </p>
 
         <p>
-          We can also extend this regression tree example to have two predictor variables. If we consider not only someone’s age, but the month of the year as well. Then we can find even richer patterns. In North America, days are longer in summer months, and it gets lighter earlier in the morning. In this completely unrealistic example, children and teens are unburdened by the rigorous schedules of work and school, and have their wake up time driven by when the sun comes up. On the other hand, adults fall into more regular patterns, fluctuating only slightly with the seasons. Again, older people in this example tend to wake up a little earlier.
+          We can also extend a regression tree example that has two predictor variables. If we consider not only someone’s age, but the month of the year as well, then we can find even richer patterns. In North America, days are longer in summer months, and it gets lighter earlier in the morning. In this completely unrealistic example, children and teens are unburdened by the rigorous schedules of work and school, and have their wake up time driven by when the sun comes up. On the other hand, adults fall into more regular patterns, fluctuating only slightly with the seasons. Again, older people in this example tend to wake up a little earlier.
         </p>
 
         <img src="images/decision_trees_11.png" style="width: 550px;" />
 
         <p>
-          We construct this decision tree much the same as the last one. We start with the root, a single estimate that roughly fits the entire data set: 6:30.
+          We construct this decision tree much the same as the last one. We start with the root, a single estimate that roughly fits the entire data set: 6:30. (
+          <a href="https://github.com/brohrer/brohrer.github.io/blob/master/code/decision_tree.py">
+            Here's the matplotlib code for visualization.</a>
         </p>
 
         <img src="images/decision_trees_12.png" style="width: 550px;" />
@@ -158,7 +173,7 @@
         </p>
 
         <p>
-          The next cut continues this trend, focusing on dividing those younger than 35 in the summer months to those older and younger than 13. The shape of the model becomes even more similar to that of the data.
+          The next cut continues this trend, focusing on dividing those younger than 35 in the summer months into those older and younger than 13. The shape of the model becomes even more similar to that of the data.
         </p>
 
         <img src="images/decision_trees_19.png" style="width: 550px;" />
@@ -174,11 +189,11 @@
         <img src="images/decision_trees_20.png" style="width: 550px;" />
 
         <p>
-          When we get to this point, the decision tree explains and fits the data very well. It fits it too well. Not only does it capture the underlying trend, the smooth curve that the data follows, but it also catches the noise, the unmodeled variation, that is included in the measure data. If we were to take this model and use it to make predictions about new data, the noise from the training data would actually make our predictions less accurate. Ideally, we want a decision tree to capture the underlying trend, but not to capture the noise. One way to safeguard against this is to make sure that there are more than a handful of data points in each leaf of our decision tree. That way, any noise will be able to average itself out.
+          When we get to this point, the decision tree explains and fits the data very well. It fits it too well. Not only does it capture the underlying trend (the smooth curve that the data follows), but it also catches the noise (the unmodeled variation) that is included in the measured data. If we were to take this model and use it to make predictions about new data, the noise from the training data would actually make our predictions less accurate. Ideally, we want a decision tree to capture the underlying trend, but not to capture the noise. One way to safeguard against this is to make sure that there are more than a handful of data points in each leaf of our decision tree. That way, any noise will be able to average itself out.
         </p>
 
         <p>
-          Another thing to watch for is having lots of variables. We started with a one dimensional regression tree, then included "month" data to create a two dimensional regression tree. The method doesn’t care how many dimensions we have. We could for instance also add latitude, the amount of exercise someone gets on a given day, their body mass index, and any other variables that we think might be relevant. To visualize this we use a trick shared by Geoffrey Hinton, renowned deep neural network researcher. He recommends "To deal with hyperplanes in a fourteen dimensional space, visualize a 3-D space and say 'fourteen' to yourself very loudly."
+          Another thing to watch for is having lots of variables. We started with a one dimensional regression tree, then included "month" data to create a two dimensional regression tree. The method doesn’t care how many dimensions we have. We could, for instance, also add latitude, the amount of exercise someone gets on a given day, their body mass index, and any other variables that we think might be relevant. To visualize this we use a trick shared by Geoffrey Hinton, renowned deep neural network researcher. He recommends "To deal with hyperplanes in a fourteen dimensional space, visualize a 3-D space and say 'fourteen' to yourself very loudly."
         </p>
 
         <img src="images/decision_trees_21.png" style="width: 550px;" />
