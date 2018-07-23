@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
 
-  <script type="text/javascript">var blog_title = "New blog title";</script>
-  <script type="text/javascript">var publication_date = "January 2, 2005";</script>
+  <script type="text/javascript">var blog_title = "Data scientist archetypes";</script>
+  <script type="text/javascript">var publication_date = "July 25, 2018";</script>
   <head>
     <meta charset='utf-8'>
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
@@ -25,16 +25,12 @@
           <a href="https://docs.google.com/presentation/d/1fyGhGxdGcwt_eg-xjlMKiVxstLhw42XfGz3wftSzRjc/edit?usp=sharing">
             Get the slides</a>
         </p>
-        <p>
-          <a href="https://github.com/brohrer/brohrer.github.io/blob/master/code/decision_tree.py">
-            Check out the code</a>
-        </p>
         
-        <img src="images/decision_trees_0.png" style="width: 550px;" />
-
         <p>
           I wanted to take a few minutes to talk about different types of data scientist. When you come to the field for the first time, or even if you’ve been in it for a while, you can be easily overwhelmed by the number of tools and the vast range of skills required. Reading a blog posts about what it takes to become a data scientist becomes an exercise in reading laundry list of skills you don’t have yet and tools you haven’t learned yet. This is discouraging. And it’s counterproductive.
         </p>
+
+        <img src="images/data_scientist_archetypes_1.png" style="width: 550px;" />
 
         <p>
           My goal here is to give you a map for navigating the sprawling terrain of data science. It’s to help you prioritize what you want to learn and what you want to do, so you don’t feel lost. 
@@ -44,9 +40,13 @@
           These ideas are not mine alone. They are based on a series of interviews with the data scientists listed here, who are from several different companies, as well as contributors from academic data science programs. The underlying ideas are captured in a public document, offered as a resource to academic data science programs from industry data scientists—an attempt at a virtual industry advisory committee. Any insights that you get from this, I credit to the group, and any errors or inaccuracies are probably due to me alone. Overall this a compilation of a lot of people’s ideas who have thought deeply about it.
         </p>
 
+        <img src="images/data_scientist_archetypes_0.png" style="width: 550px;" />
+
         <p>
           The reason data science feels so big is because it’s no longer a single field. There are actually three separate pillars. There is <strong>data analysis</strong>, taking raw information and turning it into knowledge that can be acted on or that can drive a decision. There is <strong>data modeling</strong>, using the data that we have to estimate the data that we wish we had. And then there is <strong>data engineering</strong>, which is taking these analysis and modeling activities and making everything work faster, more fault tolerant, and able to work on larger quantities of data.
         </p>
+
+        <img src="images/data_scientist_archetypes_2.png" style="width: 550px;" />
 
         <p>
           These three areas are all distinct. They require different skills and different sets of tools. Let’s dive a little deeper into each one.
@@ -57,6 +57,8 @@
         <p>
           There are several aspects of data analysis, the process of taking data and turning it into information that we can use to make a decision.
         </p>
+
+        <img src="images/data_scientist_archetypes_3.png" style="width: 550px;" />
 
         <p>
           <strong>Domain knowledge</strong> is the ability to translate a business need or a practical concern to a question. It involves making trade-offs between how accurate the answer should be and how much time and money you want to spend finding it. 
@@ -76,6 +78,8 @@
         <p>
           Data modeling also has several major subcategories. This is often referred to as machine learning. It is no more or less than creating a simplified description of your data that you can use to make estimates for data that you have not measured. Three main sub classes of machine learning are supervised, unsupervised, and then what we will call custom development or modeling.
         </p>
+
+        <img src="images/data_scientist_archetypes_4.png" style="width: 550px;" />
 
         <p>
           <strong>Supervised learning</strong> uses labeled examples to discover patterns. These can be categorical labels, for example: Did this customer re-visit our website within the month after making a purchase, yes or no?  Examples can also be labeled with numbers. For example: How many views did a video receive? Using a large collection of labeled examples, accompanied either by their category or value, supervised learning algorithms can distill the underlying patterns out. If the labels are categorical, this is called <em>classification</em>. If those labels are numerical, this is called <em>regression</em>. Also, sometimes the goal is not to make a specific prediction about future examples, but simply to determine whether they are in line with previously seen patterns. This is called <em>anomaly detection</em>.
@@ -102,6 +106,8 @@
           Data engineering is the third pillar of data science. It has a few major areas. <strong>Data management</strong> is the exercise of storing, moving, and handling data. It is trivial for data sets of a few thousand or even a few million data points. But when individual data points become very complex, like an individual’s genome, or the number of data points gets into the billions trillions, data no longer fits inside RAM on a laptop, and an entirely new set of tools needs to be used.
         </p>
 
+        <img src="images/data_scientist_archetypes_5.png" style="width: 550px;" />
+
         <p>
           Another big task of data engineers is taking code that works well in a prototype and making it ready for operation in the wider world.  It is one thing to build a model in a Jupyter notebook, but to be able to use that to process to filter process every incoming customer request, it needs the code needs to be made compatible with the rest of the company’s code base, and it needs to be able to ingest data and publish results compatibly. Any glitches or failures need to be handled gracefully, and the system needs to be made secure against mischievous or malicious users. The gap between smoothly running prototype and <strong>production code</strong> is a big one and part of data engineering os the process of closing it.
         </p>
@@ -116,6 +122,8 @@
           There’s also a surprise pillar number four, data mechanics. This is the dirty work that everyone needs to do but nobody likes to talk about. It includes things like <strong>data formatting</strong>, making sure your types are consistent, getting the information you want out of strings, making sure the strings in use are valid, handling errors gracefully. It also includes <strong>value interpretation</strong>, handling dates and times in an interpretable and consistent way, responding correctly to missing values, making sure units of measurement are consistent and documented. And it includes the fundamentals of <strong>data handling</strong>: querying, slicing, and joining. This lets you pull the subset of data that you want for an operation from the great lake of what you have available.
         </p>
 
+        <img src="images/data_scientist_archetypes_6.png" style="width: 550px;" />
+
         <p>
           Now we have our four pillars in place: data analysis, data modeling, data engineering, and data mechanics. What does this mean for you as a data scientist? These areas are all very different. I propose that a data scientist is someone who has at the very least exposure to all these skill areas. That means that you’re not necessarily an expert, or even good at them, but you know what they are, and you know the right questions to ask and right Google searches to run. 
         </p>
@@ -123,6 +131,8 @@
         <p>
           A beginner data scientist might have just a little bit of experience in each of these pillars. 
         </p>
+
+        <img src="images/data_scientist_archetypes_7.png" style="width: 550px;" />
 
         <p>
           With this as a base we can walk through some data scientist archetypes. It’s my hope is that these will be helpful to you in planning out your training and career trajectory. 
@@ -134,9 +144,13 @@
           One path forward is to become a data science <strong>Generalist</strong>- to develop a solid mixture of proficiency in analysis, modeling, engineering, and mechanics. A nice balance across the board gives you have a broad view of problems of varying scopes. It may mean that you’ll need to collaborate with specialists for some projects. But it sets you up very well to be a technical leader or data executive.
         </p>
 
+        <img src="images/data_scientist_archetypes_8.png" style="width: 550px;" />
+
         <p>
           Just a word of caution: there maybe a tendency to neglect data mechanics or to assume that someone else will do it. Someone who does this is a data scientist <strong>Diva</strong>. This is an anti-pattern. This is someone you do not want to be and you do not want to hire. Mechanics can get gritty. Some days it will occupy the majority of your time. But you never outgrow the need to do it. Embrace mechanics tasks, learn the skills you need to do them adequately, and get on with it.
         </p>
+
+        <img src="images/data_scientist_archetypes_9.png" style="width: 550px;" />
 
         <p>
           There are specialist archetypes as well, emphasizing each of the three main pillars. 
@@ -146,27 +160,41 @@
           If you choose to emphasize data analysis, you can become a <strong>Detective</strong>, a master in discovering the right data and using it to draw conclusions. A detective is familiar with modeling and engineering methods, and uses them in a lightweight way, but analysis is really their focus.
         </p>
 
+        <img src="images/data_scientist_archetypes_10.png" style="width: 550px;" />
+
         <p>
           Another data scientist archetype is the <strong>Oracle</strong>, someone who has mastered the skills of modeling and the tools of machine learning model. They will have had exposure to analysis and engineering but their focus will be on modeling—either general machine learning models or custom, domain specific models. 
         </p>
 
+        <img src="images/data_scientist_archetypes_11.png" style="width: 550px;" />
+
         <p>
           Finally, you can choose to emphasize data engineering, and become a <strong>Maker</strong>. This is the person who helps everything work fast and reliably. Their work will require still some analysis of some modeling, and definitely mechanics, they will be focused on engineering tasks. Makers are the ones who transform good ideas into concrete machinery.
         </p>
+
+        <img src="images/data_scientist_archetypes_12.png" style="width: 550px;" />
 
         <p>
           Finally, there is the <strong>Unicorn</strong>. This person is a master in every pillar. This is the data science ideal. Except of course that it doesn’t exist. Becoming a master of one pillar is a significant portion of a career.  Becoming a master in all three is essentially stacking three careers on top of each other. It’s not impossible to do, but it’s a long road, and the path down it passes through one of the other archetypes as a starting point.
         </p>
 
         <p>
-          The archetypes that are useful for career planning are the Generalist, proficient at everything, the Detective, a master of analysis, the Oracle, a master of modeling, and a Maker, a master of engineering. 
+          The archetypes that are useful for career planning are
+          <ul>
+            <li>The Generalist, proficient at everything,</li>
+            <li>The Detective, a master of analysis,</li>
+            <li>The Oracle, a master of modeling, and</li>
+            <li>The Maker, a master of engineering.</li>
+          </ul>
         </p>
 
         <p>
           Another way to represent these is in a 3-D plot with axes for analysis, modeling, and engineering. You can see the Detective, Oracle, and Maker each lying close to an axis. The Generalist is a balance of three, sitting in the middle of the space.  I want to be completely clear that I’m not implying any hierarchy or value judgement between the archetypes. They are each invaluable and serve different functions. Let your preferences and interests guide you as you choose between them. 
         </p>
 
-          <h3>Job postings</h3>
+        <img src="images/data_scientist_archetypes_13.png" style="width: 550px;" />
+
+        <h3>Job postings</h3>
 
         <p>
           There is not common taxonomy for data science specializations. When looking for a job, I recommend ignoring the job titles. There’s no reliable way to translate between job title and archetype. I also recommend not worrying too much about the specific tools listed. Instead, look at this skills implied. Read between the lines to discover which archetype they want. Does the posting sound more like a Maker? A Generalist? a Detective? Based on this, you can decide whether this particular posting is a good match for you.
