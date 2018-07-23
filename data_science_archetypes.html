@@ -43,7 +43,7 @@
         <img src="images/data_scientist_archetypes_0.png" style="width: 600px;" />
 
         <p>
-          The reason data science feels so big is because it’s no longer a single field. There are actually three separate pillars. There is <strong>data analysis</strong>, taking raw information and turning it into knowledge that can be acted on or that can drive a decision. There is <strong>data modeling</strong>, using the data that we have to estimate the data that we wish we had. And then there is <strong>data engineering</strong>, which is taking these analysis and modeling activities and making everything work faster, more fault tolerant, and able to work on larger quantities of data.
+          The reason data science feels so big is because it’s no longer a single field. There are actually three separate pillars. There is <strong>data analysis</strong>, taking raw information and turning it into knowledge that can be acted on or that can drive a decision. There is <strong>data modeling</strong>, using the data that we have to estimate the data that we wish we had. And then there is <strong>data engineering</strong>, which is taking these analysis and modeling activities and making everything work faster, more robustly, and on larger quantities of data.
         </p>
 
         <img src="images/data_scientist_archetypes_2.png" style="width: 600px;" />
@@ -76,7 +76,7 @@
         <h3>Data modeling</h3>
 
         <p>
-          Data modeling also has several major subcategories. This is often referred to as machine learning. It is no more or less than creating a simplified description of your data that you can use to make estimates for data that you have not measured. Three main sub classes of machine learning are supervised, unsupervised, and then what we will call custom development or modeling.
+          Data modeling also has several major subcategories. This is often referred to as machine learning. It is no more or less than creating a simplified description of your data that you can use to make estimates for data that you have not measured. Three main sub classes of machine learning are supervised, unsupervised, and custom model development.
         </p>
 
         <img src="images/data_scientist_archetypes_4.png" style="width: 500px;" />
@@ -98,22 +98,22 @@
         </p>
 
         <p>
-          However, in practical applications it is often the case that we don’t have nearly as much data as we would like, and we don’t have enough to rely on naïve machine learning techniques. When this happens, we get to do custom algorithm development. We build in information that we know, or feel comfortable assuming, about the domain. For instance, one important modeling problem in agriculture industry is to predict the yield for a field of corn. This is an unfathomably complex system, with soil texture and chemistry, genetics, temperature, and moisture interacting. And it takes a year to collect a single data point. There is no feasible way to learn a complete crop model using naïve machine learning methods. However, geologist, chemists, biologists, meteorologist, and geneticists have all investigated and described the pieces of this system. By assembling what is known and making some reasonable assumptions, a tractable crop model can be created.
+          However, in practical applications it is often the case that we don’t have nearly as much data as we would like, and we don’t have enough to rely on naïve machine learning techniques. When this happens, we get to do custom algorithm development. We build in information that we know, or feel comfortable assuming, about the domain. For instance, one important modeling problem in the agriculture industry is to predict the yield for a field of corn, the total weight of the harvested grain. This is an unfathomably complex system, with soil texture and chemistry, genetics, temperature, and moisture interacting. And it takes a year to collect a single data point. There is no feasible way to learn a complete crop model using naïve machine learning methods. However, geologist, chemists, biologists, meteorologist, and geneticists have all investigated and described the pieces of this system. By assembling what is known and making some reasonable assumptions, a tractable crop model can be created.
         </p>
 
         <h3>Data engineering</h3>
         <p>
-          Data engineering is the third pillar of data science. It has a few major areas. <strong>Data management</strong> is the exercise of storing, moving, and handling data. It is trivial for data sets of a few thousand or even a few million data points. But when individual data points become very complex, like an individual’s genome, or the number of data points gets into the billions trillions, data no longer fits inside RAM on a laptop, and an entirely new set of tools needs to be used.
+          Data engineering is the third pillar of data science. It has a few major areas. <strong>Data management</strong> is the exercise of storing, moving, and handling data. It is trivial for data sets of a few thousand or even a few million data points. But when individual data points become very complex, like an individual’s genome, or the number of data points gets into the billions or trillions, data no longer fits inside RAM on a laptop, and an entirely new set of tools needs to be used.
         </p>
 
         <img src="images/data_scientist_archetypes_5.png" style="width: 600px;" />
 
         <p>
-          Another big task of data engineers is taking code that works well in a prototype and making it ready for operation in the wider world.  It is one thing to build a model in a Jupyter notebook, but to be able to use that to process to filter process every incoming customer request, it needs the code needs to be made compatible with the rest of the company’s code base, and it needs to be able to ingest data and publish results compatibly. Any glitches or failures need to be handled gracefully, and the system needs to be made secure against mischievous or malicious users. The gap between smoothly running prototype and <strong>production code</strong> is a big one and part of data engineering os the process of closing it.
+          Another big task of data engineers is taking code that works well in a prototype and making it ready for operation in the wider world.  It is one thing to build a model in a Jupyter notebook, but to be able to use that to process to filter process every incoming customer request, the code needs to be made compatible with the rest of the company’s code base, and it needs to be able to ingest data and publish results in the appropriate formats. Any glitches or failures need to be handled gracefully, and the system needs to be made secure against mischievous or malicious users. The gap between a smoothly running prototype and <strong>production</strong> code is a big one and part of data engineering is the process of closing it.
         </p>
 
         <p>
-          In both data management and production, <strong>software engineering</strong> plays a key role. It’s the act of building things out of code that not only do what you want as fast as you want, but also can be shared and maintained across your current team, adapted to future changes, and scaled up or down as needs evolve. This is a craft and comes with a large collection of tools and specialized skills.
+          In both data management and production, <strong>software engineering</strong> plays an important role. It’s the act of building things out of code that not only do what you want as fast as you want, but also can be shared and maintained across your current team, adapted to future changes, and scaled up or down as needs evolve. This is a craft and comes with a large collection of tools and specialized skills.
         </p>
 
         <h3>Data mechanics</h3>
@@ -135,19 +135,19 @@
         <img src="images/data_scientist_archetypes_7.png" style="width: 600px;" />
 
         <p>
-          With this as a base we can walk through some data scientist archetypes. It’s my hope is that these will be helpful to you in planning out your training and career trajectory. 
+          With this as a base we can walk through some data scientist archetypes. It’s my hope that these will be helpful to you in planning out your training and career trajectory. 
         </p>
 
           <h3>Archetypes</h3>
 
         <p>
-          One path forward is to become a data science <strong>Generalist</strong>- to develop a solid mixture of proficiency in analysis, modeling, engineering, and mechanics. A nice balance across the board gives you have a broad view of problems of varying scopes. It may mean that you’ll need to collaborate with specialists for some projects. But it sets you up very well to be a technical leader or data executive.
+          One path forward is to become a data science <strong>Generalist</strong>- to develop a solid mixture of proficiency in analysis, modeling, engineering, and mechanics. A nice balance across the board gives you a broad view of problems of varying scopes. It may mean that you’ll need to collaborate with specialists for some projects. But it sets you up very well to be a technical leader or data executive.
         </p>
 
         <img src="images/data_scientist_archetypes_8.png" style="width: 600px;" />
 
         <p>
-          Just a word of caution: there maybe a tendency to neglect data mechanics or to assume that someone else will do it. Someone who does this is a data scientist <strong>Diva</strong>. This is an anti-pattern. This is someone you do not want to be and you do not want to hire. Mechanics can get gritty. Some days it will occupy the majority of your time. But you never outgrow the need to do it. Embrace mechanics tasks, learn the skills you need to do them adequately, and get on with it.
+          Just a word of caution: there may be a tendency to neglect data mechanics or to assume that someone more junior will take care of it. The person who does this is a data scientist <strong>Diva</strong>. This is an anti-pattern. This is someone you do not want to be and you do not want to hire. Mechanics can get gritty. Some days it will occupy the majority of your time. But you never outgrow the need to do it. Embrace mechanics tasks, learn the skills you need to do them adequately, and get on with it.
         </p>
 
         <img src="images/data_scientist_archetypes_9.png" style="width: 600px;" />
@@ -157,31 +157,31 @@
         </p>
 
         <p>
-          If you choose to emphasize data analysis, you can become a <strong>Detective</strong>, a master in discovering the right data and using it to draw conclusions. A detective is familiar with modeling and engineering methods, and uses them in a lightweight way, but analysis is really their focus.
+          If you choose to emphasize data analysis, you can become a <strong>Detective</strong>, a master in discovering the right data and using it to draw conclusions. A detective is familiar with modeling and engineering methods, and uses them in a lightweight way. Analysis is their focus.
         </p>
 
         <img src="images/data_scientist_archetypes_10.png" style="width: 600px;" />
 
         <p>
-          Another data scientist archetype is the <strong>Oracle</strong>, someone who has mastered the skills of modeling and the tools of machine learning model. They will have had exposure to analysis and engineering but their focus will be on modeling—either general machine learning models or custom, domain specific models. 
+          Another data scientist archetype is the <strong>Oracle</strong>, someone who has mastered the skills of modeling and the tools of machine learning. They will have had exposure to analysis and engineering but their focus will be on modeling—either general machine learning models or custom, domain specific models. 
         </p>
 
         <img src="images/data_scientist_archetypes_11.png" style="width: 600px;" />
 
         <p>
-          Finally, you can choose to emphasize data engineering, and become a <strong>Maker</strong>. This is the person who helps everything work fast and reliably. Their work will require still some analysis of some modeling, and definitely mechanics, they will be focused on engineering tasks. Makers are the ones who transform good ideas into concrete machinery.
+          Finally, you can choose to emphasize data engineering, and become a <strong>Maker</strong>. This is the person who helps everything work fast and reliably. Their work will still require some analysis and some modeling, and definitely some mechanics, but they will be focused on engineering tasks. Makers are the ones who transform good ideas into concrete machinery.
         </p>
 
         <img src="images/data_scientist_archetypes_12.png" style="width: 600px;" />
 
         <p>
-          Finally, there is the <strong>Unicorn</strong>. This person is a master in every pillar. This is the data science ideal. Except of course that it doesn’t exist. Becoming a master of one pillar is a significant portion of a career.  Becoming a master in all three is essentially stacking three careers on top of each other. It’s not impossible to do, but it’s a long road, and the path down it passes through one of the other archetypes as a starting point.
+          Finally, there is the <strong>Unicorn</strong>. This person is a master in every pillar. This is the data science ideal. Except of course that it doesn’t exist. Becoming a master of one pillar takes a long time.  Becoming a master in all three is essentially stacking three careers on top of each other. It’s not impossible to do, but it’s a long road, and the path down it passes through one of the other archetypes as a waypoint.
         </p>
 
         <img src="images/data_scientist_archetypes_13.png" style="width: 600px;" />
 
         <p>
-          The archetypes that are useful for career planning are
+          The archetypes that are most useful for career planning, then, are
           <ul>
             <li>The Generalist, proficient at everything,</li>
             <li>The Detective, a master of analysis,</li>
@@ -199,11 +199,11 @@
         <h3>Job postings</h3>
 
         <p>
-          There is not common taxonomy for data science specializations. When looking for a job, I recommend ignoring the job titles. There’s no reliable way to translate between job title and archetype. I also recommend not worrying too much about the specific tools listed. Instead, look at this skills implied. Read between the lines to discover which archetype they want. Does the posting sound more like a Maker? A Generalist? a Detective? Based on this, you can decide whether this particular posting is a good match for you.
+          There is not a commonly accepted taxonomy for data science specializations. When looking for a job, I recommend ignoring the job titles. There’s no reliable way to translate between job title and archetype. I also recommend not worrying too much about the specific tools listed. Instead, look at this skills implied. Read between the lines to discover which archetype they want. Does the posting sound more like a Maker? A Generalist? a Detective? Based on this, you can decide whether this particular posting is a good match for you.
         </p>
 
         <p>
-          Also, when posting a job ask for specific skills. Don’t ask for all of them. And don’t ask for a Unicorn. You won’t find one.
+          Also, when posting a job, ask for specific skills. Don’t ask for all of them. And don’t ask for a Unicorn. You won’t find one.
         </p>
 
         <p>
