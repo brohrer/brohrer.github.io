@@ -41,6 +41,8 @@
         <h3>1. combine()</h3>
         <pre>
           <code>
+import datetime
+
 # (hours, minutes)
 start_time = datetime.time(7, 0)
 # (year, month, day)
@@ -64,12 +66,14 @@ start_datetime = datetime.datetime.combine(start_date, start_time)
 
         <h3>2. timedelta</h3>
         <pre>
-          <code># Differences between datetimes are timedelta objects. 
+          <code>
+# Differences between datetimes are timedelta objects. 
 timedelta_total = end_datetime - start_datetime
 # timedeltas have days, seconds, and microseconds
 # They can be used to increment dates and times,
 # accounting for quirks of dates and timezones.
-end_datetime = start_datetime + timedelta_total</code>
+end_datetime = start_datetime + timedelta_total
+          </code>
         </pre>
 
         <p>
@@ -81,16 +85,43 @@ end_datetime = start_datetime + timedelta_total</code>
         </p>
 
         <h3>3. Timestamps</h3>
+        <pre>
+          <code>
+# Number of seconds from 12:00 am, January 1, 1970, UTC
+# is a computer-friendly way to handle time.
+unix_epoch = timestamp(start_datetime)
+start_datetime = fromtimestamp(1457453760)
+          </code>
+        </pre>
         <p>
           The third trick for getting the most out of datetimes is the use of timestamps. Working in days, hours, minutes, and seconds is awkward for computers. There are rules and corner cases to check and lots of branching logic. In order to make dates and times easier to work with, the notion of a UNIX epoch was created. This is the number of seconds that have passed since 12:00 AM, January 1, 1970 in Coordinated Universal Time (the UTC +0 time zone). This allows any date and time to be represented by a single, commonly interpretable, floating point number. The only drawback is that it is not intuitive to a human reader. The functions fromtimestamp() and timestamp() allow our human-interpretable datetime object to be converted to and from a UNIX epoch for ease of computation.
         </p>
 
         <h3>4. weekday()</h3>
+        <pre>
+          <code>
+# Gets the day of the week for a given date.
+# Monday is 0, Sunday is 6
+weekday_number = start_datetime.date().weekday()
+          </code>
+        </pre>
         <p>
           Trick number four in our bag is the weekday() function. For any given date, it calculates the day of the week. To use it, call the date() function on your datetime. This isolates the date object, and ignores the time portion. And then call its weekday() function. This returns a number from 0 to 6, where is zero is Monday, one is Tuesday, etc., and six is Sunday. It handles all of the quirks of keeping track of days of the week so that you don’t have to.
         </p>
 
         <h3>5. Date strings</h3>
+        <pre>
+          <code>
+# Pass a date string and a code for interpreting it.
+new_datetime = datetime.datetime.strptime(
+    '2018-06-21', '%Y-%m-%d')
+# Turn a datetime into a date string.
+datestr = new_datetime.strftime('%Y-%m-%d')
+print(datestr)
+
+>> "2018-06-21"
+          </code>
+        </pre>
         <p>
           Finally, we come to trick number five, which is converting a date to and from a string. This is particularly helpful when we are ingesting data from a text file, and want to turn text dates into datetime objects. It is also helpful when we want to expose our datetime object to a user, or export it to a text file.
         </p>
