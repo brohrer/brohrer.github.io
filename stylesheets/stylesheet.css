@@ -204,6 +204,7 @@ code {
 }
 
 pre code {
+  padding: 2px;
   display: block;
   box-shadow: none;
 }
