@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 
-  <script type="text/javascript">var blog_title = "Python's datetime";</script>
+  <script type="text/javascript">var blog_title = "How to use datetime";</script>
   <script type="text/javascript">var publication_date = "July 31, 2018";</script>
   <head>
     <meta charset='utf-8'>
@@ -50,7 +50,7 @@ start_datetime = datetime.datetime.combine(
     start_date, start_time)</code></pre>
         
         <p>
-          The first trick for working with datetimes is to be able to create them by combine date and time objects. We start by creating a time, passing it the hour of 7 and the minute 0. This represents 7 o’clock. Because we didn’t supply the second or the microsecond, these are assumed to be zero. Then we create a date by passing the year, month, and day.
+          The first trick for working with datetimes is to be able to create them by combining date and time objects. We start by creating a time, passing it the hour of 7 and the minute 0. This represents 7 o’clock. Because we didn’t supply the second or the microsecond, these are assumed to be zero. Then we create a date by passing the year, month, and day.
         </p>
 
         <p>
@@ -58,7 +58,7 @@ start_datetime = datetime.datetime.combine(
         </p>
 
         <p>
-          Because of the naming convention, calls to datetime can be confusing. Datetime is the name of the package, a module within the package, and the object. So when we combine our date and time we call it with the apparently redundant <strong>datetime.datetime</strong> prefix. The first <strong>datetime</strong> references the package, the second <strong>datetime</strong> references the module, and <strong>combine()</strong> is a function within that module.
+          Because of the naming convention, calls to datetime can be confusing. Datetime is the name of the package, a module within the package, and the object. So when we combine our date and time, we call it with the apparently redundant <strong>datetime.datetime</strong> prefix. The first <strong>datetime</strong> references the package, the second <strong>datetime</strong> references the module, and <strong>combine()</strong> is a function within that module.
         </p>
 
         <h3>2. timedelta</h3>
@@ -70,7 +70,7 @@ timedelta_total = end_datetime - start_datetime
 end_datetime = start_datetime + timedelta_total</code></pre>
 
         <p>
-          The second trick is using datetimes is a type called timedelta. This represents the difference between two datetimes. A timedelta has just three values: days, seconds and microseconds. The difference between any two datestimes can be uniquely represented in this way.
+          The second trick for using datetimes is a type called timedelta. This represents the difference between two datetimes. A timedelta has just three values: days, seconds and microseconds. The difference between any two datetimes can be uniquely represented in this way.
         </p>
 
         <p>
@@ -83,7 +83,7 @@ end_datetime = start_datetime + timedelta_total</code></pre>
 unix_epoch = timestamp(start_datetime)
 start_datetime = fromtimestamp(1457453760)</code></pre>
         <p>
-          The third trick for getting the most out of datetimes is the use of timestamps. Working in days, hours, minutes, and seconds is awkward for computers. There are rules and corner cases to check and lots of branching logic. In order to make dates and times easier to work with, the notion of a <a href="https://en.wikipedia.org/wiki/Unix_time">UNIX epoch</a> was created. This is the number of seconds that have passed since 12:00 AM, January 1, 1970 in <a href="https://en.wikipedia.org/wiki/Coordinated_Universal_Time">Coordinated Universal Time</a> (the UTC +0 time zone). This allows any date and time to be represented by a single, commonly interpretable, floating point number. The only drawback is that it is not intuitive to a human reader. The functions <strong>timestamp()</strong> and <strong>fromtimestamp()</strong> allow our human-interpretable datetime object to be converted to and from a UNIX epoch for ease of computation.
+          The third trick for getting the most out of datetimes is the use of timestamps. Working in days, hours, minutes, and seconds is awkward for computers. There are rules and corner cases to check. In order to make dates and times easier to work with, the notion of a <a href="https://en.wikipedia.org/wiki/Unix_time">UNIX epoch</a> was created. This is the number of seconds that have passed since 12:00 AM, January 1, 1970 in <a href="https://en.wikipedia.org/wiki/Coordinated_Universal_Time">Coordinated Universal Time</a> (the UTC +0 time zone). This allows any date and time to be represented by a single, commonly interpretable, floating point number. The only drawback is that it is not intuitive to a human reader. The functions <strong>timestamp()</strong> and <strong>fromtimestamp()</strong> allow our human-interpretable datetime object to be converted to and from a UNIX epoch for ease of computation.
         </p>
 
         <h3>4. weekday()</h3>
@@ -112,7 +112,7 @@ print(datestr)
         </p>
 
         <p>
-          As a side note, there is actually one correct way to represent years, months, and days in dates. An international standard, <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a>, established this in 1988. I highly recommend whenever you are given the choice to format your dates in this way for ease of interpretability and compatibility. However, be warned that there exist a multitude of a date formats in the wild. Be prepared to perform some twisted conversions in order to get all of the data you ingest into that format.
+          As a side note, there is actually one correct way to represent years, months, and days in dates: 'YYYY-MM-DD'. (An international standard, <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a>, established this in 1988.) In this format, for example, July 31, 2018 would be '2018-07-31'.  I highly recommend whenever you are given the choice to format your dates in this way for ease of interpretability and compatibility. However, be warned that there exist a multitude of a date formats in the wild. Be prepared to perform some twisted conversions in order to get all of the data you ingest into that format.
         </p>
 
         <p>
