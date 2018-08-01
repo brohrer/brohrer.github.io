@@ -64,14 +64,12 @@ start_datetime = datetime.datetime.combine(start_date, start_time)
 
         <h3>2. timedelta</h3>
         <pre>
-          <code>
-# Differences between datetimes are timedelta objects. 
+          <code># Differences between datetimes are timedelta objects. 
 timedelta_total = end_datetime - start_datetime
 # timedeltas have days, seconds, and microseconds
 # They can be used to increment dates and times,
 # accounting for quirks of dates and timezones.
-end_datetime = start_datetime + timedelta_total
-          </code>
+end_datetime = start_datetime + timedelta_total</code>
         </pre>
 
         <p>
