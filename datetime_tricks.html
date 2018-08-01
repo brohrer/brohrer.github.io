@@ -38,19 +38,19 @@
           <img src="images/datetime_attributes.png" style="width: 600px;" />
         </p>
 
-        <h4>1. combine()</h4>
+        <h3>1. combine()</h3>
         <p>
           <code>
             # (hours, minutes)
-
+            <br>
             start_time = datetime.time(7, 0)
-
+            <br>
             # (year, month, day)
-
+            <br>
             start_date = datetime.date(2015, 5, 1)
-            
+            <br>
             # Create a datetime object
-            
+            <br>
             start_datetime = datetime.datetime.combine(start_date, start_time)
           </code>
         </p>
@@ -67,7 +67,7 @@
           Because of the naming convention, calls to datetime can be confusing. Datetime is the name of the package, a module within the package, and the object. So when we combine our date and time we call it with the apparently redundant datetime.datetime prefix. The first datetime references the package, the second datetime references the module, and combine() is a function within that module.
         </p>
 
-        <h4>2. timedelta</h4>
+        <h3>2. timedelta</h3>
         <p>
           The second trick is using datetimes is a type called timedelta. This represents the difference between two datetimes. A timedelta has just three values: days, seconds and microseconds. The difference between any two datestimes can be uniquely represented in this way.
         </p>
@@ -76,17 +76,17 @@
           Timedeltas are incredibly useful because they allow us to do simple addition and subtraction arithmetic on datetimes. They remove the need to think about things like how many days are in a month, how many seconds are in a day, and leap years. 
         </p>
 
-        <h4>3. Timestamps</h4>
+        <h3>3. Timestamps</h3>
         <p>
           The third trick for getting the most out of datetimes is the use of timestamps. Working in days, hours, minutes, and seconds is awkward for computers. There are rules and corner cases to check and lots of branching logic. In order to make dates and times easier to work with, the notion of a UNIX epoch was created. This is the number of seconds that have passed since 12:00 AM, January 1, 1970 in Coordinated Universal Time (the UTC +0 time zone). This allows any date and time to be represented by a single, commonly interpretable, floating point number. The only drawback is that it is not intuitive to a human reader. The functions fromtimestamp() and timestamp() allow our human-interpretable datetime object to be converted to and from a UNIX epoch for ease of computation.
         </p>
 
-        <h4>4. weekday()</h4>
+        <h3>4. weekday()</h3>
         <p>
           Trick number four in our bag is the weekday() function. For any given date, it calculates the day of the week. To use it, call the date() function on your datetime. This isolates the date object, and ignores the time portion. And then call its weekday() function. This returns a number from 0 to 6, where is zero is Monday, one is Tuesday, etc., and six is Sunday. It handles all of the quirks of keeping track of days of the week so that you don’t have to.
         </p>
 
-        <h4>5. Date strings</h4>
+        <h3>5. Date strings</h3>
         <p>
           Finally, we come to trick number five, which is converting a date to and from a string. This is particularly helpful when we are ingesting data from a text file, and want to turn text dates into datetime objects. It is also helpful when we want to expose our datetime object to a user, or export it to a text file.
         </p>
