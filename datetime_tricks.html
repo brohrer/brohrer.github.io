@@ -38,7 +38,7 @@
           <img src="images/datetime_attributes.png" style="width: 600px;" />
         </p>
 
-        <h3>1. combine()</h3>
+        <h3>1. <strong>combine()</strong></h3>
         <pre><code>import datetime
 
 # (hours, minutes)
@@ -58,7 +58,7 @@ start_datetime = datetime.datetime.combine(
         </p>
 
         <p>
-          Because of the naming convention, calls to datetime can be confusing. Datetime is the name of the package, a module within the package, and the object. So when we combine our date and time we call it with the apparently redundant datetime.datetime prefix. The first datetime references the package, the second datetime references the module, and combine() is a function within that module.
+          Because of the naming convention, calls to datetime can be confusing. Datetime is the name of the package, a module within the package, and the object. So when we combine our date and time we call it with the apparently redundant <strong>datetime.datetime</strong> prefix. The first <strong>datetime</strong> references the package, the second <strong>datetime</strong> references the module, and <strong>combine()</strong> is a function within that module.
         </p>
 
         <h3>2. timedelta</h3>
@@ -83,7 +83,7 @@ end_datetime = start_datetime + timedelta_total</code></pre>
 unix_epoch = timestamp(start_datetime)
 start_datetime = fromtimestamp(1457453760)</code></pre>
         <p>
-          The third trick for getting the most out of datetimes is the use of timestamps. Working in days, hours, minutes, and seconds is awkward for computers. There are rules and corner cases to check and lots of branching logic. In order to make dates and times easier to work with, the notion of a <a href="https://en.wikipedia.org/wiki/Unix_time">UNIX epoch</a> was created. This is the number of seconds that have passed since 12:00 AM, January 1, 1970 in <a href="https://en.wikipedia.org/wiki/Coordinated_Universal_Time">Coordinated Universal Time</a> (the UTC +0 time zone). This allows any date and time to be represented by a single, commonly interpretable, floating point number. The only drawback is that it is not intuitive to a human reader. The functions fromtimestamp() and timestamp() allow our human-interpretable datetime object to be converted to and from a UNIX epoch for ease of computation.
+          The third trick for getting the most out of datetimes is the use of timestamps. Working in days, hours, minutes, and seconds is awkward for computers. There are rules and corner cases to check and lots of branching logic. In order to make dates and times easier to work with, the notion of a <a href="https://en.wikipedia.org/wiki/Unix_time">UNIX epoch</a> was created. This is the number of seconds that have passed since 12:00 AM, January 1, 1970 in <a href="https://en.wikipedia.org/wiki/Coordinated_Universal_Time">Coordinated Universal Time</a> (the UTC +0 time zone). This allows any date and time to be represented by a single, commonly interpretable, floating point number. The only drawback is that it is not intuitive to a human reader. The functions <strong>timestamp()</strong> and <strong>fromtimestamp()</strong> allow our human-interpretable datetime object to be converted to and from a UNIX epoch for ease of computation.
         </p>
 
         <h3>4. weekday()</h3>
@@ -91,7 +91,7 @@ start_datetime = fromtimestamp(1457453760)</code></pre>
 # Monday is 0, Sunday is 6
 weekday_number = start_datetime.date().weekday()</code></pre>
         <p>
-          Trick number four in our bag is the weekday() function. For any given date, it calculates the day of the week. To use it, call the date() function on your datetime. This isolates the date object, and ignores the time portion. And then call its weekday() function. This returns a number from 0 to 6, where is zero is Monday, one is Tuesday, etc., and six is Sunday. It handles all of the quirks of keeping track of days of the week so that you don’t have to.
+          Trick number four in our bag is the <strong>weekday()</strong> function. For any given date, it calculates the day of the week. To use it, call the <strong>date()</strong> function on your datetime. This isolates the date object, and ignores the time portion. And then call its <strong>weekday()</strong> function. This returns a number from 0 to 6, where is zero is Monday, one is Tuesday, etc., and six is Sunday. It handles all of the quirks of keeping track of days of the week so that you don’t have to.
         </p>
 
         <h3>5. Date strings</h3>
@@ -108,7 +108,7 @@ print(datestr)
         </p>
 
         <p>
-          To do this, we use the strptime() and strftime() functions. When making a conversion in either direction, we have to supply a string that specifies the format. In this code snippet, '%Y' represents the year, '%m' the two digit month, and '%d' the two digit day.
+          To do this, we use the <strong>strptime()</strong> and <strong>strftime()</strong> functions. When making a conversion in either direction, we have to supply a string that specifies the format. In this code snippet, '%Y' represents the year, '%m' the two digit month, and '%d' the two digit day.
         </p>
 
         <p>
@@ -120,7 +120,7 @@ print(datestr)
         </p>
         <ol>
           <li>
-            combine()
+            <strong>combine()</strong>
           </li>
           <li>
             timedelta,
@@ -129,7 +129,7 @@ print(datestr)
             converting to and from time stamps,
           </li>
           <li>
-            weekday(), and
+            <strong>weekday()</strong>, and
           </li>
           <li>
             string formatting.
