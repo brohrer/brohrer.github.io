@@ -83,7 +83,7 @@ end_datetime = start_datetime + timedelta_total</code></pre>
 unix_epoch = timestamp(start_datetime)
 start_datetime = fromtimestamp(1457453760)</code></pre>
         <p>
-          The third trick for getting the most out of datetimes is the use of timestamps. Working in days, hours, minutes, and seconds is awkward for computers. There are rules and corner cases to check and lots of branching logic. In order to make dates and times easier to work with, the notion of a UNIX epoch was created. This is the number of seconds that have passed since 12:00 AM, January 1, 1970 in Coordinated Universal Time (the UTC +0 time zone). This allows any date and time to be represented by a single, commonly interpretable, floating point number. The only drawback is that it is not intuitive to a human reader. The functions fromtimestamp() and timestamp() allow our human-interpretable datetime object to be converted to and from a UNIX epoch for ease of computation.
+          The third trick for getting the most out of datetimes is the use of timestamps. Working in days, hours, minutes, and seconds is awkward for computers. There are rules and corner cases to check and lots of branching logic. In order to make dates and times easier to work with, the notion of a <a href="https://en.wikipedia.org/wiki/Unix_time">UNIX epoch</a> was created. This is the number of seconds that have passed since 12:00 AM, January 1, 1970 in <a href="https://en.wikipedia.org/wiki/Coordinated_Universal_Time">Coordinated Universal Time</a> (the UTC +0 time zone). This allows any date and time to be represented by a single, commonly interpretable, floating point number. The only drawback is that it is not intuitive to a human reader. The functions fromtimestamp() and timestamp() allow our human-interpretable datetime object to be converted to and from a UNIX epoch for ease of computation.
         </p>
 
         <h3>4. weekday()</h3>
@@ -112,7 +112,7 @@ print(datestr)
         </p>
 
         <p>
-          As a side note, there is actually one correct way to represent years, months, and days in dates. An international standard, ISO 8601, established this in 1988. I highly recommend whenever you are given the choice to format your dates in this way for ease of interpretability and compatibility. However, be warned that there exist a multitude of a date formats in the wild. Be prepared to perform some twisted conversions in order to get all of the data you ingest into that format.
+          As a side note, there is actually one correct way to represent years, months, and days in dates. An international standard, <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a>, established this in 1988. I highly recommend whenever you are given the choice to format your dates in this way for ease of interpretability and compatibility. However, be warned that there exist a multitude of a date formats in the wild. Be prepared to perform some twisted conversions in order to get all of the data you ingest into that format.
         </p>
 
         <p>
