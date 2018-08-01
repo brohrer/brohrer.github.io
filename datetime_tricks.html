@@ -26,9 +26,20 @@
           Before jumping in, it’s helpful to look at how datetime is put together. The fundamental building block is a datetime object. Not surprisingly, this is a combination of a date object and a time object. A date object is just a set of values for the year, the month, the day, and a collection of functions that knows how to handle them. A time object is structured in a similar way. It has values for the hour, the minute, the second, the microsecond, and the time zone. Any time can be represented by choosing these values appropriately.
         </p>
 
-        <img src="images/datetime_attributes.png" style="width: 600px;" />
+        <p>
+          <img src="images/datetime_attributes.png" style="width: 600px;" />
+        </p>
 
         <h4>1. combine()</h4>
+        <code>
+        # (hours, minutes)
+        start_time = datetime.time(7, 0)
+        # (year, month, day)
+        start_date = datetime.date(2015, 5, 1)
+        # Create a datetime object
+        start_datetime = datetime.datetime.combine(start_date, start_time)
+        </code>
+        
         <p>
           The first trick for working with datetimes is to be able to create them by combine date and time objects. We start by creating a time, passing it the hour of 7 and the minute 0. This represents 7 o’clock. Because we didn’t supply the second or the microsecond, these are assumed to be zero. Then we create a date by passing the year, month, and day.
         </p>
