@@ -20,53 +20,81 @@
           Get the slides</a>
         <p>
           <a href="https://docs.python.org/3/library/datetime.html">Python's datetime package</a> provides a convenient set of tools for working with dates and times. The rules for working with dates and times aren't overly complex, but they can be tricky to juggle gracefully all at once. For instance, several catastrophic bugs have come just from improperly handling time zones. While it is certainly feasible, and occasionally desirable, to handle dates and times explicitly in your code, the datetime package can be an incredible convenience. With just the five tricks that I’m about to show you, you can handle most of your datetime processing needs.
+        </p>
 
+        <p>
           Before jumping in, it’s helpful to look at how datetime is put together. The fundamental building block is a datetime object. Not surprisingly, this is a combination of a date object and a time object. A date object is just a set of values for the year, the month, the day, and a collection of functions that knows how to handle them. A time object is structured in a similar way. It has values for the hour, the minute, the second, the microsecond, and the time zone. Any time can be represented by choosing these values appropriately.
+        </p>
 
-          <img src="images/datetime_attributes.png" style="width: 600px;" />
+        <img src="images/datetime_attributes.png" style="width: 600px;" />
 
-          <h4><code>combine()</code></h4>
-          The first trick for working with datetimes is to be able to create them by combine date and time objects. We start by creating a time, passing it the hour of 7 and the minute 0. This represents 7 o’clock. Because we didn’t supply the second or the microsecond, these are assumed to be zero.
+        <h4>1. combine()</h4>
+        <p>
+          The first trick for working with datetimes is to be able to create them by combine date and time objects. We start by creating a time, passing it the hour of 7 and the minute 0. This represents 7 o’clock. Because we didn’t supply the second or the microsecond, these are assumed to be zero. Then we create a date by passing the year, month, and day.
+        </p>
 
-          Then we create a date by passing the year, month, and day.
+        <p>
+          Creating a datetime is straightforward. We use the <strong>combine()</strong> function, and pass it the date object and the time object that we want to build our datetime out of.
+        </p>
 
-          Creating a datetime is straightforward. We use the combine() function, and pass it the date object and the time object that we want to build our datetime out of.
-
+        <p>
           Because of the naming convention, calls to datetime can be confusing. Datetime is the name of the package, a module within the package, and the object. So when we combine our date and time we call it with the apparently redundant datetime.datetime prefix. The first datetime references the package, the second datetime references the module, and combine() is a function within that module.
+        </p>
 
+        <h4>2. timedelta</h4>
+        <p>
           The second trick is using datetimes is a type called timedelta. This represents the difference between two datetimes. A timedelta has just three values: days, seconds and microseconds. The difference between any two datestimes can be uniquely represented in this way.
+        </p>
 
+        <p>
           Timedeltas are incredibly useful because they allow us to do simple addition and subtraction arithmetic on datetimes. They remove the need to think about things like how many days are in a month, how many seconds are in a day, and leap years. 
+        </p>
 
+        <h4>3. Timestamps</h4>
+        <p>
           The third trick for getting the most out of datetimes is the use of timestamps. Working in days, hours, minutes, and seconds is awkward for computers. There are rules and corner cases to check and lots of branching logic. In order to make dates and times easier to work with, the notion of a UNIX epoch was created. This is the number of seconds that have passed since 12:00 AM, January 1, 1970 in Coordinated Universal Time (the UTC +0 time zone). This allows any date and time to be represented by a single, commonly interpretable, floating point number. The only drawback is that it is not intuitive to a human reader. The functions fromtimestamp() and timestamp() allow our human-interpretable datetime object to be converted to and from a UNIX epoch for ease of computation.
+        </p>
 
+        <h4>4. weekday()</h4>
+        <p>
           Trick number four in our bag is the weekday() function. For any given date, it calculates the day of the week. To use it, call the date() function on your datetime. This isolates the date object, and ignores the time portion. And then call its weekday() function. This returns a number from 0 to 6, where is zero is Monday, one is Tuesday, etc., and six is Sunday. It handles all of the quirks of keeping track of days of the week so that you don’t have to.
+        </p>
 
+        <h4>5. Date strings</h4>
+        <p>
           Finally, we come to trick number five, which is converting a date to and from a string. This is particularly helpful when we are ingesting data from a text file, and want to turn text dates into datetime objects. It is also helpful when we want to expose our datetime object to a user, or export it to a text file.
+        </p>
 
+        <p>
           To do this, we use the strptime() and strftime() functions. When making a conversion in either direction, we have to supply a string that specifies the format. In this code snippet, '%Y' represents the year, '%m' the two digit month, and '%d' the two digit day.
+        </p>
 
+        <p>
           As a side note, there is actually one correct way to represent years, months, and days in dates. An international standard, ISO 8601, established this in 1988. I highly recommend whenever you are given the choice to format your dates in this way for ease of interpretability and compatibility. However, be warned that there exist a multitude of a date formats in the wild. Be prepared to perform some twisted conversions in order to get all of the data you ingest into that format.
+        </p>
 
+        <p>
           So now you are armed with the five most useful datetime tricks.
-          <ol>
-            <li>
-              combine()
-            </li>
-            <li>
-              timedelta,
-            </li>
-            <li>
-              converting to and from time stamps,
-            </li>
-            <li>
-              weekday(), and
-            </li>
-            <li>
-              string formatting.
-            </li>
-          </ol>
+        </p>
+        <ol>
+          <li>
+            combine()
+          </li>
+          <li>
+            timedelta,
+          </li>
+          <li>
+            converting to and from time stamps,
+          </li>
+          <li>
+            weekday(), and
+          </li>
+          <li>
+            string formatting.
+          </li>
+        </ol>
 
+        <p>
           With these in your toolbox you're 90% of the way toward solving all of the date and time challenges in your next python project. Good luck and may it serve you well.
         </p>
 
