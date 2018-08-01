@@ -16,10 +16,18 @@
     <!-- MAIN CONTENT -->
     <div id="main_content_wrap" class="outer">
       <section id="main_content" class="inner">
-        <a href="https://docs.google.com/presentation/d/1bVK3T0_5mshXNmPNB5ClACOqBTyyXMreZpGRNryHKRg/edit?usp=sharing">
-          Get the slides</a>
+
+        <iframe width="600" height="315" src="https://www.youtube.com/embed/UvcVv1UT7dM" 
+        frameborder="0" allow="autoplay; encrypted-media"
+        style="margin: 0 auto" allowfullscreen></iframe>
+        <br>
         <p>
-          <a href="https://docs.python.org/3/library/datetime.html">Python's datetime package</a> provides a convenient set of tools for working with dates and times. The rules for working with dates and times aren't overly complex, but they can be tricky to juggle gracefully all at once. For instance, several catastrophic bugs have come just from improperly handling time zones. While it is certainly feasible, and occasionally desirable, to handle dates and times explicitly in your code, the datetime package can be an incredible convenience. With just the five tricks that I’m about to show you, you can handle most of your datetime processing needs.
+          <a href="https://docs.google.com/presentation/d/1bVK3T0_5mshXNmPNB5ClACOqBTyyXMreZpGRNryHKRg/edit?usp=sharing">
+            Get the slides</a>
+        </p>
+
+        <p>
+          <a href="https://docs.python.org/3/library/datetime.html">Python's datetime package</a> is a convenient set of tools for working with dates and times. With just the five tricks that I’m about to show you, you can handle most of your datetime processing needs.
         </p>
 
         <p>
@@ -31,14 +39,21 @@
         </p>
 
         <h4>1. combine()</h4>
-        <code>
-        # (hours, minutes)
-        start_time = datetime.time(7, 0)
-        # (year, month, day)
-        start_date = datetime.date(2015, 5, 1)
-        # Create a datetime object
-        start_datetime = datetime.datetime.combine(start_date, start_time)
-        </code>
+        <p>
+          <code>
+            # (hours, minutes)
+
+            start_time = datetime.time(7, 0)
+
+            # (year, month, day)
+
+            start_date = datetime.date(2015, 5, 1)
+            
+            # Create a datetime object
+            
+            start_datetime = datetime.datetime.combine(start_date, start_time)
+          </code>
+        </p>
         
         <p>
           The first trick for working with datetimes is to be able to create them by combine date and time objects. We start by creating a time, passing it the hour of 7 and the minute 0. This represents 7 o’clock. Because we didn’t supply the second or the microsecond, these are assumed to be zero. Then we create a date by passing the year, month, and day.
