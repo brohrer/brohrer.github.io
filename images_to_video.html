@@ -19,14 +19,10 @@
         
         <h3>Stitch images into a movie</h3>
 
-        <code>
-ffmpeg -pattern_type glob -i '*.png' -y -c:v libx264 movie_name.mp4
-        </code>
+        <code>ffmpeg -pattern_type glob -i '*.png' -y -c:v libx264 movie_name.mp4</code>
 
         <h3>Break a movie frames out into images</h3>
-        <code>
-ffmpeg -pattern_type glob -i '*.png' -y -c:v libx264 movie_name.mp4
-        </code>
+        <code>ffmpeg -i movie_name.mp4 img_%05d.png</code>
         
         <iframe width="400" height="210" src="https://www.youtube.com/embed/BowxUMkbnrI" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
