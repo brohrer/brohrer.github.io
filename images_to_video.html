@@ -17,29 +17,38 @@
     <div id="main_content_wrap" class="outer">
       <section id="main_content" class="inner">
         
-        <iframe width="400" height="210" src="https://youtu.be/BowxUMkbnrI" 
-          frameborder="0" allow="autoplay; encrypted-media"
-          style="margin: 0 auto" allowfullscreen></iframe>
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/BowxUMkbnrI" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-        <p>
-          Video is a natural way for us to understand three dimensional information. It's how we navigate the world.
-          Converting images to video is a great way to level up your data science results.
-          It helps you to communicate more clearly and it gives you eye-catching GIFs in the process.
-          Here is a quick way to do it.
-        
-        
-        <p>
-          <img src="images/im_to_video_before_0.png" style="height: 175px;" />
-          <img src="images/im_to_video_before_1.png" style="height: 175px;" />
-          <img src="images/im_to_video_before_2.png" style="height: 175px;" />
-          <img src="images/im_to_video_before_3.png" style="height: 175px;" />
-        </p>
-        
         <h3>Stitch images into a movie</h3>
 
         <code>
 ffmpeg -pattern_type glob -i '*.png' -y -c:v libx264 movie_name.mp4
         </code>
+
+        <h3>Break a movie frames out into images</h3>
+        <code>
+ffmpeg -pattern_type glob -i '*.png' -y -c:v libx264 movie_name.mp4
+        </code>
+        
+        <iframe width="400" height="210" src="https://www.youtube.com/embed/BowxUMkbnrI" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+
+        <p>
+          Video is a natural way for us to understand three dimensional information. It's how we navigate the world.
+          Converting images to video is a great way to level up your data science results.
+          It helps you to communicate more clearly and it gives you eye-catching GIFs in the process.
+          Here is a quick way to do it.
+        </p>
+        
+        <p>
+          <img src="images/im_to_video_before_0.png" style="height: 100px;" />
+          <img src="images/im_to_video_before_1.png" style="height: 100px;" />
+          <img src="images/im_to_video_before_2.png" style="height: 100px;" />
+          <img src="images/im_to_video_before_3.png" style="height: 100px;" />
+        </p>
+        
+        <p>
+          You can go the other direction too. This is helpful if you want to do frame-by-frame analysis on video
+          in machine learning applications.
+        </p>
+        
         
         <h4>Prerequisites</h4>
         <ul>
@@ -62,15 +71,6 @@ ffmpeg -pattern_type glob -i '*.png' -y -c:v libx264 movie_name.mp4
         Use a different video filetype? Add music? Just read through
         <a href="https://ffmpeg.org/ffmpeg.html">the ffmpeg documentation</a>.
 
-        <h3>Break a movie frames out into images</h3>
-        <p>
-          You can go the other direction too. This is helpful if you want to do frame-by-frame analysis on video
-          in machine learning applications.
-        </p>
-        <code>
-ffmpeg -pattern_type glob -i '*.png' -y -c:v libx264 movie_name.mp4
-        </code>
-        
         <h4>You can help keep open source open</h4>
         <p>
           If this solution works for you, consider
@@ -81,6 +81,7 @@ ffmpeg -pattern_type glob -i '*.png' -y -c:v libx264 movie_name.mp4
         <p>
           Good luck in your video production!
         </p>
+
         <script type="text/javascript" src="javascripts/blog_signature.js"></script>
       </section>
     </div>
