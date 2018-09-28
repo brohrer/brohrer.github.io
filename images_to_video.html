@@ -17,11 +17,11 @@
     <div id="main_content_wrap" class="outer">
       <section id="main_content" class="inner">
         
-        <h3>Stitch images into a movie</h3>
+        <h3>You can stitch images into a movie</h3>
 
         <code>ffmpeg -pattern_type glob -i '*.png' -y -c:v libx264 movie_name.mp4</code>
 
-        <h3>Break a movie frames out into images</h3>
+        <h3>Or break a movie frames out into images</h3>
         <code>ffmpeg -i movie_name.mp4 img_%05d.png</code>
         
         <p>
