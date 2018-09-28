@@ -17,6 +17,8 @@
     <div id="main_content_wrap" class="outer">
       <section id="main_content" class="inner">
         
+        
+        
         <p>
           Video is a natural way for us to understand three dimensional information. It's how we navigate the world.
           Converting images to video is a great way to level up your data science results.
@@ -24,11 +26,18 @@
           Here is a quick way to do it.
         </p>
         
-        before
+        <img src="images/im_to_video_before_0.png" style="height: 175px;" />
+        <img src="images/im_to_video_before_1.png" style="height: 175px;" />
+        <img src="images/im_to_video_before_2.png" style="height: 175px;" />
+        <img src="images/im_to_video_before_3.png" style="height: 175px;" />
         
-        frames to video incantation
+        <iframe width="400" height="210" src="https://youtu.be/BowxUMkbnrI" 
+          frameborder="0" allow="autoplay; encrypted-media"
+          style="margin: 0 auto" allowfullscreen></iframe>
         
-        illustrated
+        <code>
+          ffmpeg -pattern_type glob -i '*.png' -y -c:v libx264 movie_name.mp4
+        </code>
         
         prerequisites
         
