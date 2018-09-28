@@ -21,9 +21,10 @@
 
         <code>ffmpeg -pattern_type glob -i '*.png' -y -c:v libx264 movie_name.mp4</code>
 
-        <h3>Or break a movie frames out into images</h3>
+        <h3>Or break a movie's frames out into images</h3>
         <code>ffmpeg -i movie_name.mp4 img_%05d.png</code>
-        
+        <br>
+        <br>
         <p>
           <img src="images/im_to_video_before_0.png" style="height: 150px;" />
           <img src="images/im_to_video_before_1.png" style="height: 150px;" />
@@ -47,7 +48,6 @@
           in machine learning applications.
         </p>
         
-        
         <h4>Prerequisites</h4>
         <ul>
           <li>
@@ -57,7 +57,7 @@
             It's available on Linux, MacOS, and Windows. 
           </li>
           <li>
-            Make sure all the images are the same size--that they have the same number of pixel rows and columns.
+            Make sure all the images are the same size - that they have the same number of pixel rows and columns.
           </li>
           <li>
             Put all the <code>.png</code> images you want to use as video frames into a directory by themselves.
