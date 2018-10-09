@@ -17,6 +17,29 @@
     <div id="main_content_wrap" class="outer">
       <section id="main_content" class="inner">
 
+        <ul>
+          <li>
+            <a href="how_optimization_works_1.html">Part 1: Optimization methods [post]</a>
+            <a href="">[video]</a>
+          </li>
+          <li>
+            <a href="how_optimization_works_2.html">Part 2: Optimizing a central tendency model [post]</a>
+            <a href="">[video]</a>
+          </li>
+          <li>
+            <a href="how_optimization_works_3.html">Part 3: Optimizing a linear model [post]</a>
+            <a href="">[video]</a>
+          </li>
+          <li>
+            <a href="how_optimization_works_4.html">Part 4: Optimizing complex models [post]</a>
+            <a href="">[video]</a>
+          </li>
+          <li>
+            <a href="https://docs.google.com/presentation/d/1zKufm-OsGn6UVxiRq2gvlpN22mang-bW-YwZScuPWTo/edit?usp=sharing">
+              [slides]</a>
+          </li>
+        </ul>
+        
         <p>
           Optimization is a fancy word for "finding the best way." We can see how it works if we take a closer look at drinking tea.
         </p>
@@ -28,7 +51,7 @@
         <img src="images/how_optimization_works/img_0.png" style="width: 600px;" />
 
         <p>
-          This happy medium is what we try to find in optimization. That’s what Goldilocks was looking for when she tried Papa Bear's bed and found it too hard, tried mama bear's bed and found it too soft, then tried baby bear's bed and found it to be just right.
+          This happy medium is what we try to find in optimization. That’s what Goldilocks was looking for when she tried Papa Bear's bed and found it too hard, tried Mama Bear's bed and found it too soft, then tried Baby Bear's bed and found it to be just right.
         </p>
 
         <p>
@@ -146,18 +169,26 @@
           There are a lot of ways that this drop-a-marble approach can fail. If there is more than one valley for a marble to roll into, we might miss the deepest one. Each of these little bowls is called a local minimum. We are interested in finding the global minimum, the deepest of all the bowls. Imagine that we are testing our tea temperatures on a hot day. It may be that once tea becomes cold enough, it makes a great iced tea, which is even more popular. We would never find that out by gradient descent alone.
         </p>
 
+        <img src="images/how_optimization_works/img_13.png" style="width: 600px;" />
+          
         <p>
           If the error function is not smooth, there are lots of places a marble could get stuck. This could happen if our tea drinkers' enjoyment was heavily impacted by passing trains. The periodic occurrence of trains could introduce a wiggle into our data.
         </p>
 
+        <img src="images/how_optimization_works/img_14.png" style="width: 600px;" />
+          
         <p>
           If the error function you are trying to optimize makes discrete jumps, that presents a challenge. Marbles don't roll down stairs well. This could happen if our tea drinkers have to rate their enjoyment on a 10-point scale. 
         </p>
 
+        <img src="images/how_optimization_works/img_15.png" style="width: 600px;" />
+          
         <p>
           If the error function is mostly a plateau, but has a bottom that is narrow and deep, then the marble is unlikely to find it. Perhaps our tea drinkers absolutely despise all tea that is anything but perfect.
         </p>
 
+        <img src="images/how_optimization_works/img_16.png" style="width: 600px;" />
+          
         <p>
           All of these occur in real machine learning optimization problems.
         </p>
@@ -172,8 +203,12 @@
           Optimization algorithms that rely gradient descent are like Formula One race cars. They are extremely fast and efficient, but require a very well behaved track (error function) to work well. A poorly-placed speed bump could wreck it. The more robust methods are like four-wheel-drive pickup trucks. They don't go nearly as fast, but they can handle a lot more variability in the terrain. And exhaustive search is like traveling on foot. You can get absolutely anywhere, but it may take you  <em>really</em> long time. They are each invaluable in different situations.
         </p>
 
+        <img src="images/how_optimization_works/img_17.png" style="width: 600px;" />
+          
         <p>
-          Now that we've talked about how optimization works, let's jump into part 2 where we step through an example of optimization in a machine learning model.
+          Now that we've talked about how optimization works,
+          <a href="how_optimization_works_2.html">let's jump into part 2</a>
+          where we step through an example of optimization in a machine learning model.
         </p>
           
         <script type="text/javascript" src="javascripts/blog_signature.js"></script>
