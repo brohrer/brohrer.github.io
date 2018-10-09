@@ -48,8 +48,15 @@
         <h3>Exhaustive search</h3>
 
         <p>
-          There are a handful of ways to go about finding the best temperature for serving tea. The most obvious is just to look at the curve and pick the lowest point. Unfortunately, we don't actually know what the curve is when we start out. That is implicit in the optimization problem. But we can make use of our original idea and just measure the curve. We can prepare a cup of tea at a given temperature, serve it, and ask our unwitting test subject how they enjoyed it. Then we can repeat this process for every temperature across the whole range we care about. By the time we're done with this, we do know what the whole curve looks like, and then we can just pick temperature for which our tea drinker reported the most enjoyment, that is, the least suffering.
+          There are a handful of ways to go about finding the best temperature for serving tea. The most obvious is just to look at the curve and pick the lowest point. Unfortunately, we don't actually know what the curve is when we start out. That is implicit in the optimization problem.
         </p>
+        
+        <img src="images/how_optimization_works/img_2.png" style="width: 600px;" />
+        <p>
+          But we can make use of our original idea and just measure the curve. We can prepare a cup of tea at a given temperature, serve it, and ask our unwitting test subject how they enjoyed it. Then we can repeat this process for every temperature across the whole range we care about. By the time we're done with this, we do know what the whole curve looks like, and then we can just pick temperature for which our tea drinker reported the most enjoyment, that is, the least suffering.
+        </p>
+        
+        <img src="images/how_optimization_works/img_3.png" style="width: 600px;" />
 
         <p>
           This way of finding the best tea temperature is called exhaustive search. It is straightforward and effective, but may take a while. If our time is limited, it's worth it to check out a few other methods.
@@ -65,8 +72,34 @@
           To use gradient descent we start at an arbitrary temperature. Before beginning, we don't know anything about our curve, so we make a random guess. We brew a cup of tea at that temperature and see how well our tea drinker likes it.
         </p>
 
+        <img src="images/how_optimization_works/img_4.png" style="width: 600px;" />
+
         <p>
-          From there, the next trick is to figure out which direction is downhill and which is up. To figure this out, we choose a direction, and choose a new temperature a very small distance away. Let's say we choose a temperature to the left. Then we brew up another cup of tea at this slightly cooler temperature and see whether or not it is better than the first. We discover that it is actually inferior. Now we know that "downhill" is to the right - that we need to make our next cup warmer to make it better. We take a larger step in the direction of warmer tea, brew up a new cup, and start the process over again. We repeat this until we get to the very best temperature for tea. The steeper the slope, the larger the step we can take. We will know we are all done when we take a small step away and get the exact same level of enjoyment from our tea drinker. This can only happen at the bottom of the bowl, where it is flat and there is no downhill.
+          From there, the next trick is to figure out which direction is downhill and which is up. To figure this out, we choose a direction, and choose a new temperature a very small distance away. Let's say we choose a temperature to the left. Then we brew up another cup of tea at this slightly cooler temperature and see whether or not it is better than the first. We discover that it is actually inferior. Now we know that "downhill" is to the right - that we need to make our next cup warmer to make it better.
+        </p>
+        
+        <img src="images/how_optimization_works/img_5.png" style="width: 600px;" />
+
+        <p>
+          We take a larger step in the direction of warmer tea, brew up a new cup, and start the process over again.
+        </p>
+        
+        <img src="images/how_optimization_works/img_6.png" style="width: 600px;" />
+
+        <p>
+          We repeat this until we get to the very best temperature for tea.
+        </p>
+        
+        <img src="images/how_optimization_works/img_7.png" style="width: 600px;" />
+
+        <p>
+          The steeper the slope, the larger the step we can take. The shallower the slope, the smaller the step.
+        </p>
+        
+        <img src="images/how_optimization_works/img_8.png" style="width: 600px;" />
+
+        <p>
+          We will know we are all done when we take a small step away and get the exact same level of enjoyment from our tea drinker. This can only happen at the bottom of the bowl, where it is flat and there is no downhill.
         </p>
 
         <p>
@@ -76,13 +109,29 @@
         <h3>Including curvature</h3>
 
         <p>
-          One of the tricks to find the bottom in the bowl in fewer steps is to use not just slope, but also curvature, when deciding how big of a step to take. As the marble starts to roll down the side of the bowl, is the slope getting steeper? If so, then the bottom is probably still far away. Take a big step.
+          One of the tricks to find the bottom in the bowl in fewer steps is to use not just slope, but also curvature, when deciding how big of a step to take. As the marble starts to roll down the side of the bowl, is the slope getting steeper?
         </p>
+
+        <img src="images/how_optimization_works/img_9.png" style="width: 600px;" />
 
         <p>
-          Or is the slope getting shallower and starting to bottom out? If so, the bottom is probably getting closer. Take smaller steps now.
+          If so, then the bottom is probably still far away. Take a big step.
         </p>
 
+        <img src="images/how_optimization_works/img_10.png" style="width: 600px;" />
+
+        <p>
+          Or is the slope getting shallower and starting to bottom out?
+        </p>
+        
+        <img src="images/how_optimization_works/img_11.png" style="width: 600px;" />
+          
+        <p>
+          If so, the bottom is probably getting closer. Take smaller steps now.
+        </p>
+
+        <img src="images/how_optimization_works/img_12.png" style="width: 600px;" />
+          
         <p>
           Curvature, this slope-of-the-slope or Hessian, to give it its rightful name, can be very helpful if you are trying to take as few steps as possible, however it can also be much more expensive to compute. This is a trade-off that comes up a lot in optimization. We end up choosing between the number of steps we have to take and how hard it is to compute where the next step should be.
         </p>
