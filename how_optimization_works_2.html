@@ -25,6 +25,7 @@
           <li>
             <a href="how_optimization_works_2.html">Part 2: Optimizing a central tendency model [post]</a>
             <a href="">[video]</a>
+            <a href="https://github.com/brohrer/how_optimization_works/blob/master/mnm_counts.py">[code]</a>
           </li>
           <li>
             <a href="how_optimization_works_3.html">Part 3: Optimizing a linear model [post]</a>
@@ -45,7 +46,7 @@
           Whenever we are engaged in the first part, fitting a model to some data, there is some optimization going on.  It is built into the foundation. It comes to the foreground particularly when training deep neural networks. It’s worth taking a look at couple of examples. 
         </p>
 
-        <h3>Counting M\&Ms</h3>
+        <h3>Counting M&Ms</h3>
 
         <p>
           We'll start with a model that is so simple, we usually don't think of it as a model. We'll try to answer the question "How many M&Ms come in a bag?"
@@ -55,20 +56,29 @@
           Finding an answer to this is easy. I bought a bag of M&Ms, counted them, and ate them. The answer was 53 M&Ms in a bag.
         </p>
 
-        <img src="images/how_optimization_works/img_18.png" style="width: 600px;" />
-        
+        <img src="images/how_optimization_works/img_18.png" style="width: 600px;" />        
 
         <p>
-          Then I bought a second bag. It had 57 M&Ms in it. Now I'm in a tight spot. If I answer 53, I'm only right half the time. If I answer 57, I'm still only right half the time. If I answer 55, right in the middle, I'm not right at all. There is no longer a right answer. It's like the situation described by the saying, "A person with a watch always knows what time it is. A person with two watches is never sure."
+          Then I bought a second bag. It had 57 M&Ms in it. Now I'm in a tight spot. If I answer 53, I'm only right half the time. If I answer 57, I'm still only right half the time.
+        </p>
+        
+        <img src="images/how_optimization_works/img_19.png" style="width: 600px;" />        
+
+        <p>
+          If I answer 55, right in the middle, I'm not right at all. There is no longer a right answer. It's like the situation described by the saying, "A person with a watch always knows what time it is. A person with two watches is never sure."
         </p>
 
         <p>
           Counting more bags of M&Ms didn't help. The more I ate, the more I saw that there was no right answer. It became clear that being right was impossible. I changed my goal to being less wrong. "What is the least wrong estimate I can make about how many M&Ms come in a bag?"
         </p>
 
+        <img src="images/how_optimization_works/img_20.png" style="width: 600px;" />        
+
         <p>
-          This is a question I have a shot at answering. First, I had to make it very specific. I had to translate it to math. For a given guess and a given bag of M&Ms, the difference between them is d. If I number each bag of M&Ms then the difference between my guess and the count of bag 1 is d1, the difference between my guess and the count of bag 2 is d2, the difference between my guess and the count of bag i is d_i. d is often called the deviation.
+          This is a question I have a shot at answering. First, I had to make it very specific. I had to translate it to math. For a given guess and a given bag of M&Ms, the difference between them is d. If I number each bag of M&Ms then the difference between my guess and the count of bag 1 is d_1, the difference between my guess and the count of bag 2 is d_2, the difference between my guess and the count of bag i is d_i. d is often called the deviation.
         </p>
+
+        <img src="images/how_optimization_works/img_21.png" style="width: 600px;" />        
 
         <p>
           The next thing I need to decide is, if I'm off by a certain deviation, how much do I care? What is the cost to me? There are lots of valid ways to answer this question, and they all result in different answers. The most common is to take the deviation and square it. If a bag is twice as far from the estimate as another, it incurs 4 times the cost. This squared cost function cares more about the points that are way off than the ones that are close to correct.
@@ -82,6 +92,8 @@
           There are lots of other options. For instance, the square root of the deviation or 10 raised to the power of the absolute value of the deviation could also work. In all these cases, the cost goes up as the estimate gets further away from the actual count in the bag.
         </p>
 
+        <img src="images/how_optimization_works/img_22.png" style="width: 600px;" />        
+
         <p>
           For our purposes, we'll start with the squared deviation as our cost function. Calculating the total cost is straightforward. Another name for cost is loss, which comes with a cool curly L symbol, so we'll switch to that.
         </p>
@@ -90,14 +102,21 @@
           The total loss for a given estimate can be calculated by adding up the cost associated with each bag. This is the square of the distance between the estimate and the number of M&Ms in each bag. In this form we can calculate it.
         </p>
 
+        <img src="images/how_optimization_works/img_23.png" style="width: 600px;" />        
+
+        <h3>Exhaustive search</a>
         <p>
-          With a little python code, we can run an exhaustive search on this problem and calculate the loss function for a wide range of estimates. There are Links to the code for this below. Then all we have to do is pick off the M&M count that corresponds to the lowest value on the loss curve--the least wrong option. In this case, about 55 and a half M&Ms.
+          With <a href="https://github.com/brohrer/how_optimization_works/blob/master/mnm_counts.py">
+          a little python code</a>, we can run an exhaustive search on this problem and calculate the loss function for a wide range of estimates. Then all we have to do is pick off the M&M count that corresponds to the lowest value on the loss curve, the least wrong option. In this case, about 55 and a half M&Ms.
         </p>
 
+        <img src="images/how_optimization_works/img_24.png" style="width: 600px;" />        
+
         <p>
-          As you may or may not find interesting, there is another way to get at this estimate. Because this model is so simple, we can work out the math and find an analytic solution. There's going to be some lightweight calculus, so if that gives you the heebie-jeebies, feel free to skip to the next section.
+          As you may or may not find interesting, there is another way to get at this estimate. Because this model is so simple, we can work out the math and find an analytic solution. There's going to be some lightweight calculus, so if that makes you uncomfortable, feel free to skip it.
         </p>
 
+        <h3>Analytic solution</a>
         <p>
           We are lucky to have a nice equation for the loss function. We know we are looking for the lowest point, and that this is the only place where the curve is flat, where it has a slope of zero. We can use this to solve for the estimate of n at this lowest point.
         </p>
@@ -110,13 +129,20 @@
           We take advantage of the fact that the derivative of a sum is the sum of the derivatives of all its parts. Then we can take the derivative of each part. The exponent 2 comes down in front. Because this whole expression is already equal to zero, we can divide both sides by 2. Then what's left is still equal to zero.
         </p>
 
+        <img src="images/how_optimization_works/img_25.png" style="width: 600px;" />        
+
         <p>
           We can break out the sum into its pieces. We have a total of m bags of mnms. If we add up n_est m times, we end up with m times n_est. Then we can subtract this term from both sides and move it to the other side of the equals sign. And finally we can divide by m. What we are left with is, magically, the sum of all the data values, divided by the total number of data points, that is, the average of our counts. This unexpectedly slick result at the end of such a long path is one of the reasons optimization is so popular.
         </p>
 
+        <img src="images/how_optimization_works/img_26.png" style="width: 600px;" />        
+
         <p>
           OK, calculus is over. Back to the modeling discussion.
-          Although it may not look like it, this is a model. It's a model of central tendency. It has all the hallmarks of a model. It is a simplified representation of our data. Instead of having to remember every single bag of M&Ms we counted, we created a single, imaginary, ideal, Platonic, typical, representative bag of M&Ms. It is like a cartoon in that it resembles the originals, but is far less complex. This is exactly what a model does.
+        </p>
+        
+        <p>
+           Although it may not look like it, this is a model. It's a model of central tendency. It has all the hallmarks of a model. It is a simplified representation of our data. Instead of having to remember every single bag of M&Ms we counted, we created a single, imaginary, ideal, Platonic, typical, representative bag of M&Ms. It is like a cartoon in that it resembles the originals, but is far less complex. This is exactly what a model does.
         </p>
 
         <p>
@@ -136,11 +162,7 @@
         </p>
 
         <p>
-          This example showed how optimization works single parameter machine learning model. Click the link below to join me for part 3, where we use optimization to fit a two-parameter model.  
-        </p>
-
-        <p>
-          Now
+          This example showed how optimization works single parameter machine learning model. Now
           <a href="how_optimization_works_3.html">let's move on to part 3</a>
           where we take on a linear model.
         </p>
