@@ -55,6 +55,8 @@
           When we plot the average M&M weight in a package against the manufacturing date of that package, we see that there is probably a small difference. There are three questions this data could help us answer: what was the typical M&M weight before the change? What was the typical M&M weight After the change? When did the change occur? 
         </p>
 
+        <img src="images/how_optimization_works/img_29.png" style="width: 600px;" />        
+
         <p>
           There are lots of generic models available. These are models like linear regression or decision trees that don't know anything about where our data came from or what it means or how we got it. In this example, we can do better than these naive models. We have some extra information that helps us to make a better guess at what our model should look like. Given what we know, it's reasonable to hypothesize a model with a constant M&M weight before and after the equipment change, and a step change between them. This is a three parameter model. There are three numbers we need to define it completely. The weight before the change, the weight after, and the date of the change.
         </p>
