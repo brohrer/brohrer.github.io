@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 
-  <script type="text/javascript">var blog_title = "How optimization for machine learning works, Part 2";</script>
+  <script type="text/javascript">var blog_title = "How optimization for machine learning works, Part 3";</script>
   <script type="text/javascript">var publication_date = "October 20, 2018";</script>
   <head>
     <meta charset='utf-8'>
@@ -30,142 +30,83 @@
           <li>
             <a href="how_optimization_works_3.html">Part 3: Optimizing a linear model [post]</a>
             <a href="">[video]</a>
+            <a href="https://github.com/brohrer/how_optimization_works/blob/master/mnm_weights.py">[code]</a>
           </li>
           <li>
             <a href="how_optimization_works_4.html">Part 4: Optimizing complex models [post]</a>
             <a href="">[video]</a>
+            <a href="https://github.com/brohrer/how_optimization_works/blob/master/mnm_change.py">[code]</a>
           </li>
           <li>
             <a href="https://docs.google.com/presentation/d/1zKufm-OsGn6UVxiRq2gvlpN22mang-bW-YwZScuPWTo/edit?usp=sharing">
               [slides]</a>
           </li>
         </ul>
-        
-        <p>
-          One way to think about machine learning is as a way to convert raw data to a simplified, cartoon-like representation, a model, and to use that representation to make predictions and estimates. 
-          Whenever we are engaged in the first part, fitting a model to some data, there is some optimization going on.  It is built into the foundation. It comes to the foreground particularly when training deep neural networks. It’s worth taking a look at couple of examples. 
-        </p>
-
-        <h3>Counting M&Ms</h3>
 
         <p>
-          We'll start with a model that is so simple, we usually don't think of it as a model. We'll try to answer the question "How many M&Ms come in a bag?"
+          In part two, our measure of central tendency for M&M weight was a single parameter model. There was just one number we could adjust to change the result. Just one slider to slide. Just one knob to turn. Let’s take a look at how this works with a two parameter model. 
         </p>
 
         <p>
-          Finding an answer to this is easy. I bought a bag of M&Ms, counted them, and ate them. The answer was 53 M&Ms in a bag.
+          Let’s consider another set of M&M data points. This time around we carefully weighed the bag before opening it and counting the M&Ms inside. We can represent the counts and weights of each bag in a two dimensional plot. This scatterplot shows all the bags we ate.
         </p>
 
-        <img src="images/how_optimization_works/img_18.png" style="width: 600px;" />        
+        <img src="images/how_optimization_works/img_27.png" style="width: 600px;" />        
 
         <p>
-          Then I bought a second bag. It had 57 M&Ms in it. Now I'm in a tight spot. If I answer 53, I'm only right half the time. If I answer 57, I'm still only right half the time.
-        </p>
-        
-        <img src="images/how_optimization_works/img_19.png" style="width: 600px;" />        
-
-        <p>
-          If I answer 55, right in the middle, I'm not right at all. There is no longer a right answer. It's like the situation described by the saying, "A person with a watch always knows what time it is. A person with two watches is never sure."
+          There is a clear pattern here. Visually you can draw a diagonal line right through the middle of these points. This makes sense when you consider how very uniform in size M&M are (the plain ones, not the peanut ones). If all M&Ms had exactly the same weight (as did all the paper paper packaging) these points would be exactly on the same line. Since there is some variation, that introduces a bit of scatter. 
         </p>
 
         <p>
-          Counting more bags of M&Ms didn't help. The more I ate, the more I saw that there was no right answer. It became clear that being right was impossible. I changed my goal to being less wrong. "What is the least wrong estimate I can make about how many M&Ms come in a bag?"
-        </p>
-
-        <img src="images/how_optimization_works/img_20.png" style="width: 600px;" />        
-
-        <p>
-          This is a question I have a shot at answering. First, I had to make it very specific. I had to translate it to math. For a given guess and a given bag of M&Ms, the difference between them is d. If I number each bag of M&Ms then the difference between my guess and the count of bag 1 is d_1, the difference between my guess and the count of bag 2 is d_2, the difference between my guess and the count of bag i is d_i. d is often called the deviation.
-        </p>
-
-        <img src="images/how_optimization_works/img_21.png" style="width: 600px;" />        
-
-        <p>
-          The next thing I need to decide is, if I'm off by a certain deviation, how much do I care? What is the cost to me? There are lots of valid ways to answer this question, and they all result in different answers. The most common is to take the deviation and square it. If a bag is twice as far from the estimate as another, it incurs 4 times the cost. This squared cost function cares more about the points that are way off than the ones that are close to correct.
+          Because this appears so linear, let’s fit a straight line model to it. The equation of a line is "the y value is equal to the x  value times the slope plus the y intercept".  For this data, x is the M&M count and y is the bag weight. The slope and the intercept are now our two parameters, our two dials that we get to adjust to improve the fit of our model.
         </p>
 
         <p>
-          Another common cost function is the absolute value of the deviation. That way, if a bag is twice as far away from the estimate, it incurs just twice the cost. For some problems this cost function makes the most sense.
+          For convenience, we will continue to use our squared deviation as our cost function. It just so happens that when fitting a line with a squared deviation cost function there is another very elegant analytic solution for the best parameters, just like there was for the central tendency, when we learned that we could jump straight to it by calculating the mean. However, we will ignore the analytic solution for now so that we can play with two parameter optimization.
         </p>
 
         <p>
-          There are lots of other options. For instance, the square root of the deviation or 10 raised to the power of the absolute value of the deviation could also work. In all these cases, the cost goes up as the estimate gets further away from the actual count in the bag.
+          We have the luxury once again of being able to do an exhaustive search. This gives us a birds eye view of how the loss function varies across the parameter space.  Looking at the loss function, we see that for this particular model and data, it is not so much a bowl as it is a narrow valley that is slightly deeper in the middle. It looks like a bowl that has been squished sideways. The plateau on the top is not actually part of the loss function, it’s just where we chopped it so that we could focus on the valley, which is the most interesting bit. The loss function continues to get higher and steeper the farther it gets away from the bottom of that valley.
         </p>
 
-        <img src="images/how_optimization_works/img_22.png" style="width: 600px;" />        
+        <img src="images/how_optimization_works/img_28.png" style="width: 600px;" />        
 
         <p>
-          For our purposes, we'll start with the squared deviation as our cost function. Calculating the total cost is straightforward. Another name for cost is loss, which comes with a cool curly L symbol, so we'll switch to that.
-        </p>
-
-        <p>
-          The total loss for a given estimate can be calculated by adding up the cost associated with each bag. This is the square of the distance between the estimate and the number of M&Ms in each bag. In this form we can calculate it.
-        </p>
-
-        <img src="images/how_optimization_works/img_23.png" style="width: 600px;" />        
-
-        <h3>Exhaustive search</h3>
-        <p>
-          With <a href="https://github.com/brohrer/how_optimization_works/blob/master/mnm_counts.py">
-          a little python code</a>, we can run an exhaustive search on this problem and calculate the loss function for a wide range of estimates. Then all we have to do is pick off the M&M count that corresponds to the lowest value on the loss curve, the least wrong option. In this case, about 55 and a half M&Ms.
-        </p>
-
-        <img src="images/how_optimization_works/img_24.png" style="width: 600px;" />        
-
-        <p>
-          As you may or may not find interesting, there is another way to get at this estimate. Because this model is so simple, we can work out the math and find an analytic solution. There's going to be some lightweight calculus, so if that makes you uncomfortable, feel free to skip it.
-        </p>
-
-        <h3>Analytic solution</h3>
-        <p>
-          We are lucky to have a nice equation for the loss function. We know we are looking for the lowest point, and that this is the only place where the curve is flat, where it has a slope of zero. We can use this to solve for the estimate of n at this lowest point.
+          We are going to bypass the second obvious solution to this problem and just choose the lowest point out of all of them. We’re going to pretend for now that we don’t know where the lowest point is.
         </p>
 
         <p>
-          We find the slope of the loss function with respect to estimated number of M&Ms by taking its derivative, and set it equal to zero. We then just have to find the place where this is true, and that will show us our best estimate of n.
+          We start by picking an arbitrary point in the parameter space. It corresponds to a single value of the slope and intercept, and there is one particular line that it corresponds to. We can show that together with our data points.
         </p>
 
         <p>
-          We take advantage of the fact that the derivative of a sum is the sum of the derivatives of all its parts. Then we can take the derivative of each part. The exponent 2 comes down in front. Because this whole expression is already equal to zero, we can divide both sides by 2. Then what's left is still equal to zero.
-        </p>
-
-        <img src="images/how_optimization_works/img_25.png" style="width: 600px;" />        
-
-        <p>
-          We can break out the sum into its pieces. We have a total of m bags of M&Ms. If we add up n_est m times, we end up with m times n_est. Then we can subtract this term from both sides and move it to the other side of the equals sign. And finally we can divide by m. What we are left with is, magically, the sum of all the data values, divided by the total number of data points, that is, the average of our counts. This unexpectedly slick result at the end of such a long path is one of the reasons optimization is so popular.
-        </p>
-
-        <img src="images/how_optimization_works/img_26.png" style="width: 600px;" />        
-
-        <p>
-          OK, calculus is over. Back to the modeling discussion.
-        </p>
-        
-        <h3>A one-parameter model</h3>
-        <p>
-           Although it may not look like it, this is a model. It's a model of central tendency. It has all the hallmarks of a model. It is a simplified representation of our data. Instead of having to remember every single bag of M&Ms we counted, we created a single, imaginary, ideal, Platonic, typical, representative bag of M&Ms. It is like a cartoon in that it resembles the originals, but is far less complex. This is exactly what a model does.
+          Then, we can adjust one of our dials.We can shift the intercept up and down . Notice that as the line passes through the data points, the loss gets lower, and once the line moves past the data points, the loss climbs again. There’s a point in the middle at which it is quite low, but that is still not quite the lowest value of the loss function across the entire parameter space.
         </p>
 
         <p>
-          It also allows us to make predictions. If someone asks us how many M&Ms are in the bag they are about to open, we can answer with confidence "55.48!" We know that we are not correct. It's rare to find .48 of an M&M. But we know that our answer is less wrong than any other answer we could give.
+          We can change gears and play with the second parameter, the slope. This corresponds to moving in a different direction in the parameter space. In our model, It results in wiggling the line back-and-forth. Again, we see that, depending on the value of the slope, the value the lost function goes up and down, but it never quite reaches the bottom, its lowest possible value.
         </p>
 
         <p>
-          Although it was simple, this was a complete example of optimization for machine learning. Our model (central tendency) had a single parameter (estimated number of M&Ms) that was adjusted to minimize a loss function. Most machine learning models have more parameters than this (many-layered neural networks can have millions), but the underlying process is the same.
+          It’s possible to move both parameters at once. Again we can see that the value of the loss function jumps up and down, tracking the combination of parameter values we have chosen.
         </p>
 
         <p>
-          The number of all possible combinations of parameter values a model can have is called its parameter space. Exhaustive search requires visiting and evaluating every point in a model's parameter space—trying out every possible combination of parameter values.  Because the central tendency model's parameter space was so small, we were able to get away with that, but it's often not the case.
+          At this point, It’s probably clear what needs to happen. Our point in parameter space needs to roll down to the bottom of the bowl, until it finds the deepest part. This is exactly what gradient descent does for us. We can start off away up high and make a step, headed down the hill, with the size of the step being related to the steepness of the slope. This moves us closer to the bottom of the valley, but doesn’t get us there yet, so we repeat it, Stepping down the slope, whichever direction that is, again and again, with the stepsize related to the steepness.
         </p>
 
         <p>
-          It's also worth noting that the beautiful shortcut we found (using the mean of the data points to find the optimal estimate) via the mathematical long-cut (the analytical derivation) is special. We can't expect to do such things or find such nice results most of the time. Being able to do that depends both on the simplicity of the model and on the exact choice of our loss function. For instance, if we had chosen absolute-deviation-loss, rather than squared-deviation-loss, the mean is no longer the shortcut to get the best answer. In that case, it just so happens that the median is the right shortcut. But if we had chosen square-root-absolute-deviation loss I have no idea whether there would be be any viable shortcut or what it would be. Most of the time, there will be no clean analytical solution and no shortcut for calculating optimal parameter values. We will have to find them using gradient descent or some slower-but-tougher method. 
+          Then finally we're there. We've found the best pair of parameters. The best-fitting offset is 4.2 and the best fitting slope is .915. It's worth noting that the offset in our model is the weight of the paper packaging. It is the weight of a package when the M&M count is zero, where x is zero. The slope is the change in weight when the count increases by one--the weight of a single M&M.
         </p>
 
         <p>
-          This example showed how optimization works single parameter machine learning model. Now
-          <a href="how_optimization_works_3.html">let's move on to part 3</a>
-          where we take on a linear model.
+          Looking at our linear-fit example, we can start to see how optimization works when used with more complicated models. Click the link below to join me for the fourth and final part of this series where we show how optimization extends to many-parameter models including deep neural networks.
+        </p>
+
+        <p>
+          Now that we've seen how to apply optimization to a two-parameter model, 
+          <a href="how_optimization_works_4.html">let's extend it even further in part 4</a>
+          to 3-and-higher parameter models.
         </p>
           
         <script type="text/javascript" src="javascripts/blog_signature.js"></script>
