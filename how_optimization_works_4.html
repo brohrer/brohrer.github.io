@@ -43,78 +43,87 @@
           </li>
         </ul>
 
+        <p>
+          Now that we have laid all the groundwork, we can take things up a level and see how to apply optimization in a three parameter model by looking at another M&M data set. We noticed when fitting our line that not every bag had identical M&M weights. Some of them were noticeably higher and some noticeably lower than the others. We suspect there may an underlying pattern here. Our suspicions are further aroused when we talk to some of our friends that work at the M&M factory. We learned that they upgraded some of their equipment during the period that our M&Ms were sampled from, but we don't know exactly when.
+        </p>
+
+        <p>
+          If there was a change in M&M weight due to the change in equipment, we would expect to see a jump at some point, with the M&Ms coming after the jump having a consistently higher or lower weight.
+        </p>
+
+        <p>
+          When we plot the average M&M weight in a package against the manufacturing date of that package, we see that there is probably a small difference. There are three questions this data could help us answer: what was the typical M&M weight before the change? What was the typical M&M weight After the change? When did the change occur? 
+        </p>
+
+        <p>
+          There are lots of generic models available. These are models like linear regression or decision trees that don't know anything about where our data came from or what it means or how we got it. In this example, we can do better than these naive models. We have some extra information that helps us to make a better guess at what our model should look like. Given what we know, it's reasonable to hypothesize a model with a constant M&M weight before and after the equipment change, and a step change between them. This is a three parameter model. There are three numbers we need to define it completely. The weight before the change, the weight after, and the date of the change.
+        </p>
+
+        <p>
+          For consistency, we'll keep our loss measure as the square of the deviation between our model and the data. We can now perform an exhaustive search again over all possible combinations of all plausible parameter values (but it's taking a lot longer to compute with each additional parameter!) and get a four-dimensional loss function. Plotting a three dimensional function is tricky. Plotting a four dimensional function is really hard.
+        </p>
+
+        <p>
+          Let's give a try. One trick we can use is to choose a specific value for one of our parameters. What’s left is a three dimensional loss function. This lets us experiment and get a feel for how those two parameters interact and where the sweet spot is for both of them. We can see, at least for this value of the third parameter, what combination of the other two parameters produces the lowest loss. In our case, we have fixed the day on which the equipment was swapped out, and are varying the other two parameters, the weight of an M&M before the change, and the weight of an M&M after. The loss function helps us see what the best estimates for these are, at least if we assume this particular equipment shift day. 
+        </p>
+
         <iframe width="560" height="315" src="https://www.youtube.com/embed/GCKl-UW2vWU" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
         <iframe width="560" height="315" src="https://www.youtube.com/embed/U3Ktz37ZVic" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
         
+        <p>
+          Another trick we can use is to take the parameter that we chose a fixed value for, our shift day, increment it just a little bit. We can do this again and again and get a series of three dimensional plots. What this does is to take one of our dimensions and spread it out across time. We can use time to represent our fourth dimension.
+        </p>
+
         <iframe width="560" height="315" src="https://www.youtube.com/embed/_SaIPVvC2Eo" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
         
         <p>
-          In part two, our measure of central tendency for M&M weight was a single parameter model. There was just one number we could adjust to change the result. Just one slider to slide. Just one knob to turn. Let’s take a look at how this works with a two parameter model. 
+          If you look very carefully as the shift day progresses through its values, you can see the bottom of our bowl jump up and down. This shows how the lowest possible value for the loss function changes, depending on the shift day. We are looking for the very lowest of all possible values. That is the optimal estimate. It depends not only on our estimate for M&M weight before and after the shift day but on our choice for the shift day. There are three separate choices we have to make, three separate dials we have to spin, to find the best answer.
         </p>
 
         <p>
-          Let’s consider another set of M&M data points. This time around we carefully weighed the bag before opening it and counting the M&Ms inside. We can represent the counts and weights of each bag in a two dimensional plot. This scatterplot shows all the bags we ate.
-        </p>
-
-        <img src="images/how_optimization_works/img_27.png" style="width: 600px;" />        
-
-        <p>
-          There is a clear pattern here. Visually you can draw a diagonal line right through the middle of these points. This makes sense when you consider how very uniform in size M&M are (the plain ones, not the peanut ones). If all M&Ms had exactly the same weight (as did all the paper paper packaging) these points would be exactly on the same line. Since there is some variation, that introduces a bit of scatter. 
+          If you watch the bottom of the bowl very carefully as the shift day progresses, you can see that it reaches a low point, then jumps back up again, then reaches another low point. There is more than one low point in our loss function, more than one local minimum. That means that gradient descent will give us different answers, depending on where we start from. The answer is sensitive to our initial guess. This is an example of a non-convex loss function. 
         </p>
 
         <p>
-          Because this appears so linear, let’s fit a straight line model to it. The equation of a line is "the y value is equal to the x  value times the slope plus the y intercept".  For this data, x is the M&M count and y is the bag weight. The slope and the intercept are now our two parameters, our two dials that we get to adjust to improve the fit of our model.
+          As we mentioned before, there are a few ways to handle this. we won’t go into them in detail here, but one method that’s good to have in your bag of tricks is a scattershot approach. That involves choosing several random starting points and running gradient descent from each of them. Once you discover that several of them are ending up in the same place, or that several of them are giving the same minimum value, then you can be reasonably confident that you have a good answer. The more random starting points you pick and the more times the more times you choose a random starting point and try again, the better your chances of finding the global optimum, although you will never be able to guarantee that you have the absolute best answer.
         </p>
 
         <p>
-          For convenience, we will continue to use our squared deviation as our cost function. It just so happens that when fitting a line with a squared deviation cost function there is another very elegant analytic solution for the best parameters, just like there was for the central tendency, when we learned that we could jump straight to it by calculating the mean. However, we will ignore the analytic solution for now so that we can play with two parameter optimization.
+          It’s worth keeping in mind however that in machine learning applications, we are dealing with data that is assumed to have some noise on it, and we will be applying our model to future data points they will have their own unique patterns of noise in them. It’s not worth our time to worry about getting the exact perfect global optimum. For our purposes, getting an answer that is just as good as we can get is good enough.
         </p>
 
         <p>
-          We have the luxury once again of being able to do an exhaustive search. This gives us a birds eye view of how the loss function varies across the parameter space.  Looking at the loss function, we see that for this particular model and data, it is not so much a bowl as it is a narrow valley that is slightly deeper in the middle. It looks like a bowl that has been squished sideways. The plateau on the top is not actually part of the loss function, it’s just where we chopped it so that we could focus on the valley, which is the most interesting bit. The loss function continues to get higher and steeper the farther it gets away from the bottom of that valley.
-        </p>
-
-        <img src="images/how_optimization_works/img_28.png" style="width: 600px;" />        
-
-        <p>
-          We are going to bypass the second obvious solution to this problem and just choose the lowest point out of all of them. We’re going to pretend for now that we don’t know where the lowest point is.
+          This one concept, of looking for the lowest point in an error function, is all you need to survive in optimization for machine learning. It takes a lot of different forms. It can extend to many more parameters.
         </p>
 
         <p>
-          We start by picking an arbitrary point in the parameter space. It corresponds to a single value of the slope and intercept, and there is one particular line that it corresponds to. We can show that together with our data points.
+          It can be used with generic models, like logistic regression, where there can be just a few parameters, or dozens of them. It can be used in very domain specific models, such as macro economics, or agriculture. The optimization method doesn’t know the difference. In either case, all it does is tries to find the right combination of values for getting the lowest loss.
         </p>
 
         <p>
-          Then, we can adjust one of our dials.We can shift the intercept up and down . Notice that as the line passes through the data points, the loss gets lower, and once the line moves past the data points, the loss climbs again. There’s a point in the middle at which it is quite low, but that is still not quite the lowest value of the loss function across the entire parameter space.
-        </p>
-
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/AbSpI5wGHfc" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-        
-        <p>
-          We can change gears and play with the second parameter, the slope. This corresponds to moving in a different direction in the parameter space. In our model, It results in wiggling the line back-and-forth. Again, we see that, depending on the value of the slope, the value the lost function goes up and down, but it never quite reaches the bottom, its lowest possible value.
-        </p>
-
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/1XP-sQ7zAsg" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-        
-        <p>
-          It’s possible to move both parameters at once. Again we can see that the value of the loss function jumps up and down, tracking the combination of parameter values we have chosen.
-        </p>
-
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/zm_66PtnS0I" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-        
-        <p>
-          At this point, It’s probably clear what needs to happen. Our point in parameter space needs to roll down to the bottom of the bowl, until it finds the deepest part. This is exactly what gradient descent does for us. We can start off away up high and make a step, headed down the hill, with the size of the step being related to the steepness of the slope. This moves us closer to the bottom of the valley, but doesn’t get us there yet, so we repeat it, Stepping down the slope, whichever direction that is, again and again, with the stepsize related to the steepness.
+          Optimization is also at the heart of deep neural networks’ Success. It is how all of the weights making all of the between layer connections from node to node are chosen. In these models, there can be thousands or even millions of parameters. The loss function is not only impossible to draw on a sheet of paper, it’s mind boggling to even contemplate. But the math behind optimization carries on anyway, doing it’s thing and seeking out the lowest points of the loss function that it can find. A quirky thing about optimization in deep neural networks is that the loss function is known to have many dips, like a many- dimensional egg crate mattress. Depending on where you drop a marble, it will very likely land in a different divot every time. Deep neural networks can take a long time to train, and in practice they are often trained only once, starting from a single random set of initial weights. That means that of all of the millions of low points available in the loss function, we are only going to find one. This may be one of the reasons that training neural networks is such an art.
         </p>
 
         <p>
-          When finally reach the bottom, we've found the best pair of parameters. The best fitting offset is 4.2 and the best fitting slope is .915. It's worth noting that the offset in our model is the weight of the paper packaging. It is the weight of a package when the M&M count is zero, where x is zero. The slope is the change in weight when the count increases by one - the weight of a single M&M.
+          It’s not quite as bleak as it sounds however. Recent research suggests that most of these divots have the same depth, like an actual egg-crate mattress, at least for certain types of neural networks. So maybe the multitude of local minima is not as much of an issue as it might appear at first glance.
         </p>
 
         <p>
-          Now that we've seen how to apply optimization to a two-parameter linear fit model, 
-          <a href="how_optimization_works_4.html">let's extend it even further in part 4</a>
-          to 3-and-higher parameter models, including deep neural networks.
+          Another part to the art of deep neural networks is the alphabet soup of gradient descent methods. As you read about it, you will hear names like SGD (stochastic gradient descent), NAG (Nesterov Accelerated Gradient), Adam, Adagrad. All of these are embellishments of gradient descent. They differ in the fine details about exactly how far to step in precisely which direction. Some work a little better for some problems than others. But mostly, they just change is how fast the neural network converges to the final answer. In every case, the underlying goal is the same. Starting from a random place in a many dimensional landscape of hills and valleys, find the lowest point in the nearest valley going downhill.
+        </p>
+
+        <p>
+          The other type of optimization that comes up in neural networks is hyper parameter tuning. This is still just optimization, but instead of optimizing the many parameters in the model, it’s actually optimizing the values of some high-level settings that determine how the model works. If decorating a house, you can think of model training as optimization where you are choosing exactly where within a room the couch and the bookshelf and the picture should be and how they should be oriented. Hyperparameter tuning is the next level up. It is deciding which room they should even be in to start with.
+        </p>
+
+        <p>
+          Because testing a new set of hyper parameter values requires re-training the model entirely from scratch, it takes a long time and usually a lot of computers. Computational intensity has driven creative machine learning practitioners to find ways to try as few hyperparameter combinations as possible. However, the underlying goal and the underlying problem are still the same. Find the combination of values that gives the 
+          lowest loss. Get to the bottom of the deepest valley you can find.
+        </p>
+
+        <p>
+          Great job sticking in there to the end! Thanks for hanging in there with me. I hope The concept of optimization is a little bit less scary now and that you have an intuitive sense of what’s going on under the hood when the machine learning algorithm is being trained. Good luck on your next project!
         </p>
           
         <script type="text/javascript" src="javascripts/blog_signature.js"></script>
