@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+
+  <script type="text/javascript">var blog_title = "How optimization for machine learning works, Part 4";</script>
+  <script type="text/javascript">var publication_date = "October 20, 2018";</script>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
+    <base target="_blank">
+    <script type="text/javascript" src="javascripts/blog_head.js"></script>
+  </head>
+  <body>
+    <script type="text/javascript" src="javascripts/blog_header.js"></script>
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+
+        <ul>
+          <li>
+            <a href="how_optimization_works_1.html">Part 1: Optimization methods [post]</a>
+            <a href="">[video]</a>
+          </li>
+          <li>
+            <a href="how_optimization_works_2.html">Part 2: Optimizing a central tendency model [post]</a>
+            <a href="">[video]</a>
+            <a href="https://github.com/brohrer/how_optimization_works/blob/master/mnm_counts.py">[code]</a>
+          </li>
+          <li>
+            <a href="how_optimization_works_3.html">Part 3: Optimizing a linear model [post]</a>
+            <a href="">[video]</a>
+            <a href="https://github.com/brohrer/how_optimization_works/blob/master/mnm_weights.py">[code]</a>
+          </li>
+          <li>
+            <a href="how_optimization_works_4.html">Part 4: Optimizing complex models [post]</a>
+            <a href="">[video]</a>
+            <a href="https://github.com/brohrer/how_optimization_works/blob/master/mnm_change.py">[code]</a>
+          </li>
+          <li>
+            <a href="https://docs.google.com/presentation/d/1zKufm-OsGn6UVxiRq2gvlpN22mang-bW-YwZScuPWTo/edit?usp=sharing">
+              [slides]</a>
+          </li>
+        </ul>
+
+        <p>
+          In part two, our measure of central tendency for M&M weight was a single parameter model. There was just one number we could adjust to change the result. Just one slider to slide. Just one knob to turn. Let’s take a look at how this works with a two parameter model. 
+        </p>
+
+        <p>
+          Let’s consider another set of M&M data points. This time around we carefully weighed the bag before opening it and counting the M&Ms inside. We can represent the counts and weights of each bag in a two dimensional plot. This scatterplot shows all the bags we ate.
+        </p>
+
+        <img src="images/how_optimization_works/img_27.png" style="width: 600px;" />        
+
+        <p>
+          There is a clear pattern here. Visually you can draw a diagonal line right through the middle of these points. This makes sense when you consider how very uniform in size M&M are (the plain ones, not the peanut ones). If all M&Ms had exactly the same weight (as did all the paper paper packaging) these points would be exactly on the same line. Since there is some variation, that introduces a bit of scatter. 
+        </p>
+
+        <p>
+          Because this appears so linear, let’s fit a straight line model to it. The equation of a line is "the y value is equal to the x  value times the slope plus the y intercept".  For this data, x is the M&M count and y is the bag weight. The slope and the intercept are now our two parameters, our two dials that we get to adjust to improve the fit of our model.
+        </p>
+
+        <p>
+          For convenience, we will continue to use our squared deviation as our cost function. It just so happens that when fitting a line with a squared deviation cost function there is another very elegant analytic solution for the best parameters, just like there was for the central tendency, when we learned that we could jump straight to it by calculating the mean. However, we will ignore the analytic solution for now so that we can play with two parameter optimization.
+        </p>
+
+        <p>
+          We have the luxury once again of being able to do an exhaustive search. This gives us a birds eye view of how the loss function varies across the parameter space.  Looking at the loss function, we see that for this particular model and data, it is not so much a bowl as it is a narrow valley that is slightly deeper in the middle. It looks like a bowl that has been squished sideways. The plateau on the top is not actually part of the loss function, it’s just where we chopped it so that we could focus on the valley, which is the most interesting bit. The loss function continues to get higher and steeper the farther it gets away from the bottom of that valley.
+        </p>
+
+        <img src="images/how_optimization_works/img_28.png" style="width: 600px;" />        
+
+        <p>
+          We are going to bypass the second obvious solution to this problem and just choose the lowest point out of all of them. We’re going to pretend for now that we don’t know where the lowest point is.
+        </p>
+
+        <p>
+          We start by picking an arbitrary point in the parameter space. It corresponds to a single value of the slope and intercept, and there is one particular line that it corresponds to. We can show that together with our data points.
+        </p>
+
+        <p>
+          Then, we can adjust one of our dials.We can shift the intercept up and down . Notice that as the line passes through the data points, the loss gets lower, and once the line moves past the data points, the loss climbs again. There’s a point in the middle at which it is quite low, but that is still not quite the lowest value of the loss function across the entire parameter space.
+        </p>
+
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/AbSpI5wGHfc" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        
+        <p>
+          We can change gears and play with the second parameter, the slope. This corresponds to moving in a different direction in the parameter space. In our model, It results in wiggling the line back-and-forth. Again, we see that, depending on the value of the slope, the value the lost function goes up and down, but it never quite reaches the bottom, its lowest possible value.
+        </p>
+
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/1XP-sQ7zAsg" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        
+        <p>
+          It’s possible to move both parameters at once. Again we can see that the value of the loss function jumps up and down, tracking the combination of parameter values we have chosen.
+        </p>
+
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/zm_66PtnS0I" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        
+        <p>
+          At this point, It’s probably clear what needs to happen. Our point in parameter space needs to roll down to the bottom of the bowl, until it finds the deepest part. This is exactly what gradient descent does for us. We can start off away up high and make a step, headed down the hill, with the size of the step being related to the steepness of the slope. This moves us closer to the bottom of the valley, but doesn’t get us there yet, so we repeat it, Stepping down the slope, whichever direction that is, again and again, with the stepsize related to the steepness.
+        </p>
+
+        <p>
+          When finally reach the bottom, we've found the best pair of parameters. The best fitting offset is 4.2 and the best fitting slope is .915. It's worth noting that the offset in our model is the weight of the paper packaging. It is the weight of a package when the M&M count is zero, where x is zero. The slope is the change in weight when the count increases by one - the weight of a single M&M.
+        </p>
+
+        <p>
+          Now that we've seen how to apply optimization to a two-parameter linear fit model, 
+          <a href="how_optimization_works_4.html">let's extend it even further in part 4</a>
+          to 3-and-higher parameter models, including deep neural networks.
+        </p>
+          
+        <script type="text/javascript" src="javascripts/blog_signature.js"></script>
+      </section>
+    </div>
+    <script type="text/javascript" src="javascripts/blog_footer.js"></script>
+    <script type="text/javascript">
+      var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+      document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+    <script type="text/javascript">
+      try {
+        var pageTracker = _gat._getTracker("UA-10180621-3");
+      pageTracker._trackPageview();
+      } catch(err) {}
+    </script>
+  </body>
+</html>
