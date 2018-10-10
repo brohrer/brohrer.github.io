@@ -83,30 +83,32 @@
           Then, we can adjust one of our dials.We can shift the intercept up and down . Notice that as the line passes through the data points, the loss gets lower, and once the line moves past the data points, the loss climbs again. There’s a point in the middle at which it is quite low, but that is still not quite the lowest value of the loss function across the entire parameter space.
         </p>
 
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/AbSpI5wGHfc" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        
         <p>
           We can change gears and play with the second parameter, the slope. This corresponds to moving in a different direction in the parameter space. In our model, It results in wiggling the line back-and-forth. Again, we see that, depending on the value of the slope, the value the lost function goes up and down, but it never quite reaches the bottom, its lowest possible value.
         </p>
 
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/1XP-sQ7zAsg" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        
         <p>
           It’s possible to move both parameters at once. Again we can see that the value of the loss function jumps up and down, tracking the combination of parameter values we have chosen.
         </p>
 
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/zm_66PtnS0I" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        
         <p>
           At this point, It’s probably clear what needs to happen. Our point in parameter space needs to roll down to the bottom of the bowl, until it finds the deepest part. This is exactly what gradient descent does for us. We can start off away up high and make a step, headed down the hill, with the size of the step being related to the steepness of the slope. This moves us closer to the bottom of the valley, but doesn’t get us there yet, so we repeat it, Stepping down the slope, whichever direction that is, again and again, with the stepsize related to the steepness.
         </p>
 
         <p>
-          Then finally we're there. We've found the best pair of parameters. The best-fitting offset is 4.2 and the best fitting slope is .915. It's worth noting that the offset in our model is the weight of the paper packaging. It is the weight of a package when the M&M count is zero, where x is zero. The slope is the change in weight when the count increases by one--the weight of a single M&M.
+          When finally reach the bottom, we've found the best pair of parameters. The best fitting offset is 4.2 and the best fitting slope is .915. It's worth noting that the offset in our model is the weight of the paper packaging. It is the weight of a package when the M&M count is zero, where x is zero. The slope is the change in weight when the count increases by one - the weight of a single M&M.
         </p>
 
         <p>
-          Looking at our linear-fit example, we can start to see how optimization works when used with more complicated models. Click the link below to join me for the fourth and final part of this series where we show how optimization extends to many-parameter models including deep neural networks.
-        </p>
-
-        <p>
-          Now that we've seen how to apply optimization to a two-parameter model, 
+          Now that we've seen how to apply optimization to a two-parameter linear fit model, 
           <a href="how_optimization_works_4.html">let's extend it even further in part 4</a>
-          to 3-and-higher parameter models.
+          to 3-and-higher parameter models, including deep neural networks.
         </p>
           
         <script type="text/javascript" src="javascripts/blog_signature.js"></script>
