@@ -43,25 +43,98 @@
         </ul>
         
         <p>
-          Optimization is a fancy word for "finding the best way." We can see how it works if we take a closer look at drinking tea.
-        </p>
-
-        <p>
-          There is a best temperature for tea. If your tea is too hot, it will scald your tongue and you won't be able to taste anything for three days. If it’s lukewarm, it’s entirely unsatisfying. There is a sweet spot in the middle where it is comfortably hot, warming you from the inside out all the way down your throat and radiating through your belly. This is the ideal temperature for tea.
+	  Let’s fit a model to some data. These are the annual temperatures for the last 120 years in a fictional Midwestern town. There’s one point per year, the annual median of the daily high temperatures. When we look at it, our eye is really good at pulling out a pattern. There’s a clear lift toward the right hand side. We would like to capture that in a model.
         </p>
 
         <img src="images/how_modeling_works/Typical_daily_highs.png" style="width: 600px;" />
+
+        <p>
+	  There are a lot of models that can represent this. A really nice starting point, because it so simple, is a straight line. Here’s what the best fit straight line looks like. It does a pretty good job. We can see that it definitely captures the upward tilt of the data. But it doesn’t capture the bend in it. It’s clear when we examine it, that a straight line doesn’t do quite as well as we would like.
+        </p>
+
         <img src="images/how_modeling_works/Linear_model.png" style="width: 600px;" />
+
+        <p>
+	  Luckily, we have a lot of other options. A reasonable next candidate is a quadratic, a polynomial with a squared term instead of just a linear term. These have curvature to them. We can see that the best fit quadratic clearly captures the lift at the right hand side of the plot and the bend in the middle, but it also imposes a little lift on the left-hand side of the plot which is not obviously reflected in the data.
+        </p>
+
         <img src="images/how_modeling_works/Quadratic_model.png" style="width: 600px;" />
+
+        <p>
+	  So, we can try other options. We can try polynomials with cubic terms, powers of three.
+        </p>
+
         <img src="images/how_modeling_works/Cubic_model.png" style="width: 600px;" />
+
+        <p>
+	  Or we can look at a polynomial with quartic terms, powers of four.
+	</p>
+	 
         <img src="images/how_modeling_works/Quartic_model.png" style="width: 600px;" />
-        <img src="images/how_modeling_works/Exponential_model.png" style="width: 600px;" />
+
+	<p>
+	  We can also make models fit models that our polynomials of order five,
+	</p>
+	
+        <img src="images/how_modeling_works/Quartic_model.png" style="width: 600px;" />
+	
+	<p>
+	  polynomials of order six,
+	</p>
+	
+        <img src="images/how_modeling_works/Quartic_model.png" style="width: 600px;" />
+	
+	<p>
+	  seventh order polynomials,
+	</p>
+	
+        <img src="images/how_modeling_works/Quartic_model.png" style="width: 600px;" />
+
+	<p>
+	  and eighth order polynomials, also called <em>octic polynomials</em> (a fact that is a useful tidbit for filling lulls in conversation at parties).
+        </p>
+
+        <img src="images/how_modeling_works/Quartic_model.png" style="width: 600px;" />
+
+        <p>
+	  Now, if it appears to be getting better, but the line is taking on extra personality. It’s adopting wiggles.
+	  If we take this to an extreme, we can imagine a model that passes through every single data point perfectly. This model would have zero error, zero deviation from our measured data. So does that make it the best fit model?
+        </p>
+
         <img src="images/how_modeling_works/Interpolation_model.png" style="width: 600px;" />
+
+        <p>
+	  Models are useful because they allow us to generalize from one situation to another. When we use a model, we’re working under the assumption that there is some underlying pattern we want to measure, but it has some error on top of it. The goal of a good model is to look through the error and find the pattern.
+        </p>
+
+        <p>
+	  The most common way to do this, is to split our data into two groups. We can use one group to train our model, and then we can test it to see how closely it fits the second group. The first group is the training data set, in the second group is the testing data set. There are lots of ways to do that, And we will revisit them later, but for now, we will randomly sort our years into two bins. We’ll put 70% of them into our training data set, and 30% of them into our testing data set.
+        </p>
+
+	Show fit against training set and fit against testing set.
+
+        <p>
+	  Then, we can go back to our collection of model candidates and try them one by one. Here’s a plot showing the error on the training and testing data sets for each model. Looking at this, it’s clear that the quartic model does the best job of fitting the underlying data. At higher orders of polynomials, the error on the test data set gets hire. The more wiggly the line gets, the more it captures the quirks of the data, rather than the underlying pattern that we are interested in.
+        </p>
+
+        <p>
+	  Congratulations to us! We chose a pretty good model for our data. But there still are some pretty important ideas that we haven’t talked about yet, so
+          <a href="how_modeling_works_2.html">join me for part 2</a>.
+        </p>
+
+
+        <p>
+	Write general polynomial models.
+	Plot higher order polynomial fits.
+	Generator training and testing data set lost for all models.
+	Plot training and testing data sad loss against polynomial order.
+        </p>
+
+        <img src="images/how_modeling_works/Exponential_model.png" style="width: 600px;" />
           
         <p>
-          Now that we've talked about how optimization works,
-          <a href="how_optimization_works_2.html">let's jump into part 2</a>
-          where we step through an example of optimization in a machine learning model.
+          
+          
         </p>
           
         <script type="text/javascript" src="javascripts/blog_signature.js"></script>
