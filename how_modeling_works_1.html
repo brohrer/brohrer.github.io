@@ -120,15 +120,20 @@
         <img src="images/how_modeling_works/Cubic_model_test.png" style="width: 400px;" />
         <img src="images/how_modeling_works/Quintic_model_test.png" style="width: 400px;" />
         <img src="images/how_modeling_works/Octic_model_test.png" style="width: 400px;" />
+
+        <p>
+	  As the models get higher order, we can see that the wiggles they have developed may have been helpful for fitting the training data, but don't necessarily help them fit the testing data better. We can see an extreme example of this in the full interpolation model, where we just connect all the training data points with straight lines. It really struggles to match the testing data points
+	</p>
+
         <img src="images/how_modeling_works/Interpolation_model_test.png" style="width: 400px;" />
 
 	<p>
-	  Here’s a plot showing the error on the training and testing data sets for each model.
+	  It's helpful to look at the error on the training and testing data sets for each model lined up side by side.
 	</p>
 	
         <img src="images/how_modeling_works/fit_errors.png" style="width: 600px;" />
 	<p>
-	  Looking at the errors on the training data set, it appears that the error on the fifth order polynomial model is the lowest. All the higher order models are low too, but just a little higher. But careful inspection of testing error shows that the fourth-order model does the best job. At higher orders of polynomials, the error on the test data set gets higher. The more wiggly the line gets in fifth-and-higher order poklynomial models, the more it captures the quirks of the training data, rather than the underlying pattern of the testing data that we are interested in.
+	  Looking at the errors on the training data set, it appears that the error on the fifth order polynomial model is the lowest. The differences are subtle so you might have to squint. All the higher order models are low too, but just a little higher. But careful inspection of testing error shows that the fourth-order model does the best job. At higher orders of polynomials, the error on the test data set gets higher. The more wiggly the line gets in fifth-and-higher order poklynomial models, the more it captures the quirks of the training data, rather than the underlying pattern of the testing data that we are interested in.
         </p>
 
         <p>
