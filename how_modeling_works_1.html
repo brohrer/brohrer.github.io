@@ -133,15 +133,29 @@
 	
         <img src="images/how_modeling_works/fit_errors.png" style="width: 600px;" />
 	<p>
-	  Looking at the errors on the training data set, it appears that the error on the fifth order polynomial model is the lowest. The differences are subtle so you might have to squint. All the higher order models are low too, but just a little higher. But careful inspection of testing error shows that the fourth-order model does the best job. At higher orders of polynomials, the error on the test data set gets higher. The more wiggly the line gets in fifth-and-higher order poklynomial models, the more it captures the quirks of the training data, rather than the underlying pattern of the testing data that we are interested in.
+	  Looking at the errors on the training data set, a few things jump right out. First is the wide gap between the training errors (hollow circles) and testing errors (solid circles). Right away we can see that there is a substantial difference between the two data sets.
+	</p>
+	
+	<p>
+	  Second, there is a precipitous drop in error going from a linear to a quadratic model (order-1 to order-2 polynomial). This makes sense. When we were eyeballing it, we could see that the linear fit failed to capture the curvature of that data, one of its most prominent features.
+	</p>
+	  
+	<p>
+	  So which model fits best? When we look carefully at the errors on the training data, it appears that the error on the fifth order polynomial model is the lowest. The differences are subtle so you might have to squint.
+	  All the higher order models have low error too, but they are just a little higher than an order-5 polynomial. But as we mentioned, that's not the ultimate test. It's the error on the testing data that we really care about.
+	</p>
+	  
+	<p>
+	  Careful inspection of testing error shows that the fourth-order model does the best job. At higher orders of polynomials, the error on the test data set goes up.
+	  The more wiggly the line gets in fifth-and-higher order poklynomial models, the more it captures the quirks of the training data, rather than the underlying pattern of the testing data that we are interested in.
         </p>
 
         <p>
-	  Based on this split-and-test approach we have a clear winner: of all the models we tried, the fourth-order polynomial is best.
+	  Based on this train-and-test approach we have a clear winner: of all the models we tried, the fourth-order polynomial is best.
         </p>
 
         <p>
-	  Congratulations to us! We chose a pretty good model for our data. But there still are some pretty important ideas that we haven’t talked about yet.
+	  Congratulations to us! We chose a pretty good model for our data. But don't leave just yet! There some pretty important ideas still to mention.
           <a href="how_modeling_works_2.html">Join me for part 2</a> where we'll talk in more depth about what we want in a model.
         </p>
 
