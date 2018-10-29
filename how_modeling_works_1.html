@@ -123,29 +123,23 @@
         <img src="images/how_modeling_works/Interpolation_model_test.png" style="width: 400px;" />
 
 	<p>
-	  Here’s a plot showing the error on the training and testing data sets for each model. Looking at this, it’s clear that the quartic model does the best job of fitting the underlying data. At higher orders of polynomials, the error on the test data set gets hire. The more wiggly the line gets, the more it captures the quirks of the data, rather than the underlying pattern that we are interested in.
+	  Here’s a plot showing the error on the training and testing data sets for each model.
+	</p>
+	
+        <img src="images/how_modeling_works/fit_errors.png" style="width: 600px;" />
+	<p>
+	  Looking at the errors on the training data set, it appears that the error on the fifth order polynomial model is the lowest. All the higher order models are low too, but just a little higher. But careful inspection of testing error shows that the fourth-order model does the best job. At higher orders of polynomials, the error on the test data set gets higher. The more wiggly the line gets in fifth-and-higher order poklynomial models, the more it captures the quirks of the training data, rather than the underlying pattern of the testing data that we are interested in.
         </p>
 
         <p>
-	  Congratulations to us! We chose a pretty good model for our data. But there still are some pretty important ideas that we haven’t talked about yet, so
-          <a href="how_modeling_works_2.html">join me for part 2</a>.
+	  Based on this split-and-test approach we have a clear winner: of all the models we tried, the fourth-order polynomial is best.
         </p>
-
 
         <p>
-	Write general polynomial models.
-	Plot higher order polynomial fits.
-	Generator training and testing data set lost for all models.
-	Plot training and testing data sad loss against polynomial order.
+	  Congratulations to us! We chose a pretty good model for our data. But there still are some pretty important ideas that we haven’t talked about yet.
+          <a href="how_modeling_works_2.html">Join me for part 2</a> where we'll talk in more depth about what we want in a model.
         </p>
 
-        <img src="images/how_modeling_works/Exponential_model.png" style="width: 600px;" />
-          
-        <p>
-          
-          
-        </p>
-          
         <script type="text/javascript" src="javascripts/blog_signature.js"></script>
       </section>
     </div>
