@@ -86,7 +86,7 @@
 	  Now our temperature predictions are being used in television forecasts. Our viewers don’t expect the predictions to be exact, so if they are off by a little bit there is no penalty. This gives us a "don’t care" region. There is no cost to being wrong by a small amount. However if the temperatures are off by much more than that, then viewers become very upset and are likely to switch to another television station for their weather reports.  A quadratic curve gives us the steeply increasing cost associated with this.
  	</p>
 
-        <img src="images/how_modeling_works/squared_deviation_with_deadzone.png" style="width: 600px;" />
+        <img src="images/how_modeling_works/squared_deviation_with_dead_zone.png" style="width: 600px;" />
 
 	<h4>Use case: custom error function</h4>
         <p>
@@ -119,8 +119,8 @@
 	  After we do that, the new error plots look like this.
  	</p>
 
-        <img src="images/how_modeling_works/fit_errors.png" style="width: 400px;" />
-        <img src="images/how_modeling_works/fit_errors_with_complexity_penalty.png" style="width: 400px;" />
+        <img src="images/how_modeling_works/fit_errors.png" style="width: 600px;" />
+        <img src="images/how_modeling_works/fit_errors_with_complexity_penalty.png" style="width: 600px;" />
 
         <p>
 	When adding in a cost-of-computation complexity penalty, the fourth order model is no longer worth the small improvement that it gives over the second order model. Now the quadratic model gives us the best trade off between error and computational cost.
