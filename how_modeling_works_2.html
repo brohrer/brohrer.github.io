@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+
+  <script type="text/javascript">var blog_title = "How model selection works 2: Separating signal from noise";</script>
+  <script type="text/javascript">var publication_date = "November 10, 2018";</script>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
+    <base target="_blank">
+    <script type="text/javascript" src="javascripts/blog_head.js"></script>
+  </head>
+  <body>
+    <script type="text/javascript" src="javascripts/blog_header.js"></script>
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+
+
+        <ul>
+          <li>
+            <a href="how_modeling_works_1.html">Part 1: Choosing between models [post]</a> &nbsp
+            <a href="">[video]</a> &nbsp
+          </li>
+          <li>
+            <a href="how_modeling_works_2.html">Part 2: Choosing a loss function [post]</a> &nbsp
+            <a href="">[video]</a> &nbsp
+          </li>
+          <li>
+            <a href="how_modeling_works_3.html">Part 3: Splitting the data [post]</a> &nbsp
+            <a href="">[video]</a> &nbsp
+          </li>
+          <li>
+            <a href="how_modeling_works_4.html">Part 4: Hypothesis-driven modeling [post]</a> &nbsp
+            <a href="">[video]</a> &nbsp
+          </li>
+          <li>
+            <a href="https://docs.google.com/presentation/d/1SUS4Sd-RJQBZhwO4rYEt6xYJGey7EBfNO1zBfrqGHF0/edit?usp=sharing">
+              [slides]</a>
+            <a href="https://github.com/brohrer/how_modeling_works/">[code]</a>
+          </li>
+        </ul>
+        
+        <p>
+	  A model is a story we tell about our data. It is always different from the data itself. It is a simplified version, a cartoon picture, with bold edges and even shading. There are always many stories that can’t be told by the same data set.
+        </p>
+
+        <p>
+	  When we are building a model, we are making the assumption that our data has two parts, signal and noise. Signal is the real pattern, the repeatable process that we hope to capture and describe. It is the information that we care about. The signal is what lets the model generalize to new situations.
+        </p>
+
+        <p>
+	  The noise is everything else that gets in the way of that. It is imperfections in our sensors, typing things in wrong, variations driven by forces that we can’t or don’t try to model. It is all the other stuff.
+        </p>
+
+        <p>
+	  It’s easy to picture the difference between signal and noise if you imagine listening to your favorite playlist in the middle of winter while there is a heater running nearby. The music is the signal. That’s the thing that you want to track and absorb. The heater fan is noise. It is additional variation piled on top of the signal. And if it gets too loud, it becomes impossible to follow the flow of the signal.
+        </p>
+
+        <p>
+	  It is the goal of models to describe the signal, despite the noise.
+        </p>
+
+        <p>
+	  A perfect model describes the signal exactly, and ignores all of the noise. If a model fails to capture all of the signal, that type of error is called bias . If a model captures of some of the noise, that type of error is called variance. Too much bias in our model means that it will perform poorly in all situations because it hasn’t captured the signal well. You may also hear this called underfitting.
+	  This was the case when we fit a straight line to our temperature data. It didn’t capture the underlying pattern well, and because of that, had a much higher error then the rest of our candidates.
+        </p>
+
+        <img src="images/how_modeling_works/Linear_model.png" style="width: 600px;" />
+
+        <p>
+	  A linear model fit to this data has high bias.
+        </p>
+
+        <p>
+	  Too much variance in our model will also cause it to fail. It won’t generalize well. Instead of capturing just the pattern we care about, it will also capture a lot of extraneous noise that we don’t care about. The patterns in the noise will be different from situation to situation. When we tried to generalize, and apply or model to a new situation, it will have extra error. This is also called overfitting. The more complex our model, the greater the risk of overfitting. This was the case in the connect-the-dots interpolation model.
+        </p>
+
+        <img src="images/how_modeling_works/Interpolation_model.png" style="width: 600px;" />
+
+        <p>
+	  Overfitting is tempting. Don’t fall for it.
+        </p>
+
+        <p>
+	  <img src="images/how_modeling_works/xkcd_linear_regression.png" style="width: 600px;" />
+	  The 95% confidence interval suggests Rexthor's dog could also be a cat, or possibly a teapot.
+	  (<a href="https://xkcd.com/1725/">https://xkcd.com/1725/</a>)
+        </p>
+
+        <p>
+	  The way to protect against underfitting is to try several different types of models. Each model has its own strengths and weaknesses, patterns that it finds more easily and more accurately, and other patterns that it struggles with. By trying a variety of models, we have the best chance at pulling out the patterns hidden in our data. Our best defense against bias is a rich pool of candidate models.
+        </p>
+
+        <p>
+	  To protect against overfitting, we make sure to test how well each trained model generalizes. After training it on one set of observations, we then use it to predict the pattern in another set of observations. If the predictions are accurate, then we know our model is good, and our variance is low. If it makes much worse predictions on the test data set then on the training data set, then we know that the model overfitted the training data, that it captured a lot of noise, rather than just signal.
+        </p>
+
+        <p>
+	  We're really getting warmed up now. Next,
+          <a href="how_modeling_works_3.html">in part 3</a> we will consider a question that can make or break our model selection: choosing the right error fuction.
+        </p>
+
+        <script type="text/javascript" src="javascripts/blog_signature.js"></script>
+      </section>
+    </div>
+    <script type="text/javascript" src="javascripts/blog_footer.js"></script>
+    <script type="text/javascript">
+      var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+      document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+    <script type="text/javascript">
+      try {
+        var pageTracker = _gat._getTracker("UA-10180621-3");
+      pageTracker._trackPageview();
+      } catch(err) {}
+    </script>
+  </body>
+</html>
