@@ -3,6 +3,9 @@ document.write('\
     <div id="footer_wrap" class="outer">\
       <footer class="inner">\
         <section class="clearfix">\
+          <p>\
+            Need to procrastinate? Check out the rest of the\
+          </p>\
           <a id="project_tagline" href="blog.html"><span>Data Science and Robots Blog</span></a>\
           <p>\
             <br>\
