@@ -49,7 +49,7 @@
  	</p>
 
         <p>
-	  The difference between a model and a measured data point is called deviation. The error function expresses how much we care about a deviation of a certain size. Are small errors OK, but large errors really bad? Or is being off by a little just as bad as being off by a lot? In business terms, we can think of the error function as how much is costs us in dollars to be wrong be a certain amount. In fact, error functions are also called cost functions.
+	  The difference between a model and a measured data point is called deviation. The error function expresses how much we care about a deviation of a certain size. Are small errors OK, but large errors really bad? Or is being off by a little just as bad as being off by a lot? In business terms, we can think of the error function as how much is costs us in dollars to be wrong by a certain amount. In fact, error functions are also called cost functions.
  	</p>
 
         <p>
@@ -68,18 +68,18 @@
 	  Now, we are designing greenhouse again, but this time including heaters and coolers. That means we will be able to modulate the temperature in order to make it suitable for the plants, but the more heating and cooling we do, the more energy we will have to buy, the more money we will have to spend on it. The cost of being off in our prediction is related to how much it costs to correct for it, the energy cost to bring the temperature back to the appropriate range. This suggests an error function where the cost is proportional to the absolute value of the deviation.
  	</p>
 
+        <p>
+	  All the models fit to our temperature data in part 1 used an absolute deviation error function.
+ 	</p>
+
         <img src="images/how_modeling_works/absolute_deviation.png" style="width: 600px;" />
 
 	<h4>Use case: Absolute deviation with saturation</h4>
         <p>
-	  Our temperature forecasts are being used to make decisions about when to pre-heat or pre-cool an office building for a workday. Pre-heating and pre-cooling during the night allows a lower energy price and saves the company money. The cost of any deviations is the additional cost of daytime peak energy. This is proportional to the amount of time the equipment is runs during the day, which in turn is directly proportional to the prediction error. However, above a certain prediction threshold no amount of the time heating or cooling will fully make up the difference, so the cost has a ceiling. The equipment just runs all day. This suggest an absolute error with saturation.
+	  Our temperature forecasts are being used to make decisions about when to pre-heat or pre-cool an office building for a workday. Pre-heating and pre-cooling during the night allows a lower energy price and saves the company money. The cost of any deviations is the additional cost of daytime peak energy. This is proportional to the amount of time the equipment runs during the day, which in turn is directly proportional to the prediction error. However, above a certain prediction threshold no amount of the time heating or cooling will fully make up the difference, so the cost has a ceiling. The equipment just runs all day. This suggests an error function of absolute deviation with saturation.
  	</p>
 
         <img src="images/how_modeling_works/absolute_deviation_with_saturation.png" style="width: 600px;" />
-
-        <p>
-	  All the models fit to our temperature data in part 1 used an absolute deviation error function.
- 	</p>
 
 	<h4>Use case: Squared deviation with a don’t care region</h4>
         <p>
@@ -105,7 +105,7 @@
  	</p>
 
         <p>
-	  Keep your eyes open for squared deviation as an error function. It’s a very common choice. So common in fact, that inexperienced modelers might assume it's the only choice. It has some very nice properties for mathematical analysis, and for that reason is favored for theoretical analysis. But other than that, there is nothing that makes it special. Chances are it's not right for your application.
+	  Keep your eyes open for squared deviation as an error function. It’s a very common choice. So common in fact, that inexperienced modelers might assume it's the only choice. It has some very nice properties for mathematical analysis, and for that reason is favored for theoretical and academic work. But other than that, there is nothing that makes it special. Chances are it's not right for your application. Any time you spend carefully choosing your error function will be richly rewarded.
  	</p>
 
         <p>

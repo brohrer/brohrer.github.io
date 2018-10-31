@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+
+  <script type="text/javascript">var blog_title = "How model selection works 4: Splitting the data";</script>
+  <script type="text/javascript">var publication_date = "November 10, 2018";</script>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
+    <base target="_blank">
+    <script type="text/javascript" src="javascripts/blog_head.js"></script>
+  </head>
+  <body>
+    <script type="text/javascript" src="javascripts/blog_header.js"></script>
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+
+
+        <ul>
+          <li>
+            <a href="how_modeling_works_1.html">Part 1: Choosing between models [post]</a> &nbsp
+            <a href="">[video]</a> &nbsp
+          </li>
+          <li>
+            <a href="how_modeling_works_2.html">Part 2: Choosing a loss function [post]</a> &nbsp
+            <a href="">[video]</a> &nbsp
+          </li>
+          <li>
+            <a href="how_modeling_works_3.html">Part 3: Splitting the data [post]</a> &nbsp
+            <a href="">[video]</a> &nbsp
+          </li>
+          <li>
+            <a href="how_modeling_works_4.html">Part 4: Hypothesis-driven modeling [post]</a> &nbsp
+            <a href="">[video]</a> &nbsp
+          </li>
+          <li>
+            <a href="https://docs.google.com/presentation/d/1SUS4Sd-RJQBZhwO4rYEt6xYJGey7EBfNO1zBfrqGHF0/edit?usp=sharing">
+              [slides]</a>
+            <a href="https://github.com/brohrer/how_modeling_works/">[code]</a>
+          </li>
+        </ul>
+        
+	<h3>Splitting the data into training and testing sets</h3>
+        <p>
+	  Most often, we are not handed separate training and testing data sets, but rather one big grab bag of data. When this is the case, we are responsible for splitting it ourselves.
+ 	</p>
+
+        <p>
+	  When we do this we have to keep in mind that there are two different broad categories of generalization, interpolation and extrapolation. Depending on which we are interested in, we will divide the data differently.
+ 	</p>
+
+        <p>
+	  An example of <strong>interpolation</strong> is if we want to estimate the value of annual temperatures that are missing from the middle of our data set. In this case, we know several values both before and after. An example of <strong>extrapolation</strong> would be if we wanted to make estimates outside of the range of our original data - either for dates that come before or dates that come after. Another type of extrapolation would be applying the pattern to a different town nearby. In both cases, we would try to infer something about the world that extended beyond the reach of what we had measured.
+ 	</p>
+
+        <img src="images/how_modeling_works/interpolation.png" style="width: 600px;" />
+        <img src="images/how_modeling_works/extrapolation.png" style="width: 600px;" />
+
+        <p>
+	  If we wanted to divide our data set to test for interpolation performance, it would be straightforward. We could randomly sort every year's data into one of two bins, testing or training. This is what we did in part 1.
+ 	</p>
+
+        <p>
+	  However, if we wanted to divide our data set to test for extrapolation, that would require a little more subtlety.
+	  If we were interested in making predictions about the future, for instance, we would have to make sure to test the model on data from the future that it had never seen and had not been trained on.
+	  Otherwise, it would have an unfair advantage. Knowing what the temperature will be in two years helps to make a better prediction about what it will be next year.
+	  Knowing future years' temperatures would tip the model off to any upcoming trends or changes in the temperature pattern.
+	  Most importantly, this is an advantage that the model will not have when we put it into practice.
+	  To honestly split the data into training and testing sets for extrapolation, we would have to divide it by date, training on all the data that came before, and testing on all the data that came after. This would give us a more realistic assessment.
+ 	</p>
+
+	<h4>Independent testing data</h4>
+        <p>
+	  More generally, when dividing data into training and testing sets, we want the data in the testing data set to be independent of all of the data in the training set.  Otherwise, it’s not a true test of the model's ability to generalize. There are subtle ways that data can be dependent on each other, ways that knowing some bits can give you an unfair advantage when trying to predict other bits. Determining what constitutes independence often requires domain knowledge.
+ 	</p>
+
+        <p>
+	  For example, if we wanted to test the generalizability of our model, we could test it on to the temperature data from another town, but we would have to be careful. 
+	  Our model's ability to predict the pattern in annual temperatures for a town that was only one kilometer away wouldn't be sufficient.
+	  That data would not be independent. One kilometer is so close that the two towns would share not only underlying weather patterns, but also hyperlocal quirks.
+	  Using measurements from one to protect the other would not test the model's generalizability.
+	  However, if we tested the model on temperatures from a town that was 100 kilometers away, that might be far enough away to be considered independent, and would provide a better assessment of the model's generalizability.
+ 	</p>
+
+        <p>
+	  The ultimate measure of whether a train/test split is appropriate is how the model will be used in practice.
+	  Is the training-testing split representative of the conditions the model will experience when it’s implemented?
+	  If so, you are good to go. If not, then your testing error may be artificially low, giving you a false sense of security about how well your model is performing.
+	  In high consequence applications, being blind to your model's weaknesses can lead to some very uncomfortable situations.
+	  Taking a close look about how you split your data into training and testing sets can save you this pain.
+ 	</p>
+
+        <p>
+	  So, now that we’ve covered all of the fundamentals of choosing a good model,
+          <a href="how_modeling_works_5.html">join me for part 5</a>
+	  where we talk about how all this ties in to hypothesis-driven and theory-driven modeling.
+ 	</p>
+
+        <script type="text/javascript" src="javascripts/blog_signature.js"></script>
+      </section>
+    </div>
+    <script type="text/javascript" src="javascripts/blog_footer.js"></script>
+    <script type="text/javascript">
+      var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+      document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+    <script type="text/javascript">
+      try {
+        var pageTracker = _gat._getTracker("UA-10180621-3");
+      pageTracker._trackPageview();
+      } catch(err) {}
+    </script>
+  </body>
+</html>
