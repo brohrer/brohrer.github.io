@@ -197,11 +197,12 @@
 	</p>
 
 	<p>
-	  T tests, ANOVA, and other statistical tools are ways to get around having to do separate training and testing. They make assumptions about the underlying model and noise distributions, then use these to estimate how the model would perform on many hypothetical test data sets. They trade assumptions for inferential power. They are particularly helpful when you have few data points and can’t afford to divide the into testing and training. .
+	  Student t-tests, ANOVA, and other statistical tools are ways to get around having to do separate training and testing. They make assumptions about the underlying model and noise distributions, then use these to estimate how the model would perform on many hypothetical test data sets. They trade assumptions for inferential power. They are particularly helpful when you have few data points and can’t afford to divide the into testing and training.
 	</p>
 
 	<p>
-	  Caution: many of the common assumptions: independence, identitical distribution, Normal distribution, homoscedasticity, stationarity,— are routinely violated by the data we are working with. Some violations are consequential and others aren’t, but if you turn a blind eye to them all, you are likely to get poor results.
+	  Caution: many of the common statistical assumptions - independence, identitical distribution, Normal distribution, homoscedasticity, stationarity — are routinely violated by the data we work with.
+	  Some violations are consequential and others aren’t, but if you turn a blind eye to them all, you are likely to get poor results.
 	</p>
 
 	<p>
@@ -209,7 +210,7 @@
 	</p>
 
 	<p>
-	  <em>Anti tip</em>: if you want to be a statistics asshole, point out to everyone that their entire analysis is invalid because of unmet assumptions.
+	  <em>Anti-tip</em>: if you want to be a statistics asshole, point out to everyone that their entire analysis is invalid because of unmet assumptions.
 	</p>
 
 
@@ -220,30 +221,49 @@
 	</p>
 
 	<p>
-	  For example,  consider a model of regional differences in income Cuyama broken out by filled. There already exists income services nationwide income surveys by field. It’s reasonable to expect that regional differences will be modest in the local wages of, for example, a Carpenter, will not be radically different than the national average, perhaps higher or lower by 50% but not 10 times. With this bit of prior knowledge, we can hire them kraft a distribution showing. Our best gas for wear these with these wages will be. This gives us a running start. Using bays law, add link here, we can Cleverley use each new data point to update this distribution. It’s not wrong to think of this as a representation of our believes. We start with hey Vega believe that in any given region, a Carpenter makes somewhere in the neighborhood of the national average, and then as we collect data for each region, this believe gets updated and shifted and takes on the characteristics of the data more completely. The magic of the beige and approach is that it reaches a confident estimate with fewer data points that it would have taken otherwise. Again, we have the option to trade some assumptions for increased confidence. Again, the pitfall is that if we start out with the wrong assumptions, we can actually make our life much harder, and require many more data points to reach the same level of confidence.
+	  For example, consider a model of regional differences in income broken out by field.
+	  There are already nationwide income surveys by field.
+	  It’s reasonable to expect that regional differences in the wages of, say, a carpenter, will not be radically different than the national average,
+	  perhaps higher or lower by 50%, but not 10 times.
+	  With this bit of prior knowledge, we can craft a distribution showing our best guess for where these what these wages will be.
+	  This gives us a running start. Using
+	  <a href="how_bayesian_inference_works.html">Bayes Theorem</a>
+	 we can cleverly use each new data point to update this distribution.
+	 It’s useful to think of this as a representation of our beliefs.
+	 We start with the vague belief that in any given region, a carpenter makes somewhere in the neighborhood of the national average, and then as we collect data for each region, this belief gets updated and shifted and takes on the characteristics of the data more completely.
+	 The magic of the Bayesian approach is that it reaches a confident estimate with fewer data points that it would have taken otherwise. Again, we have the option to trade some assumptions for increased confidence. Again, the pitfall is that if we start out with the wrong assumptions, we can actually make our life much harder, and require many more data points to reach the same level of confidence.
 	</p>
-
 	<p>
-	  <strong>Bayesian approach</strong>
 	  Those who favor the Bayesian modeling approach and those who don’t trade (usually good natured) criticisms and jokes. They just represent different sets of assumptions. Each is appropriate for different goals and different data sets.
 	</p>
 
-
-
 	<h4>Other useful assumptions: causal relationships </h4>
-
 	<p>
-	  Another type of structure we could add to our models is causal relationships. These are Good for answering questions about why something happened, what to do, what would have happened if another decision had been made. Causal relationships are a special classes of assumptions, because bay Most statistical and machine learning models don’t say anything directly about causality. They can, at best, hint at it through careful experiment design. But there is a small and growing body of work around models that explicitly represent causal relationships. They let you answer questions like what if I had not made this decision? What if this event had not happened?. These are called counterfactual, and as you can imagine, this type of analysis lens itself very well too making decisions and evaluating them. If you want to go deeper into this topic, I recommend Book of Why Judea Pearl gives an excellent in depth tour
+	  Another type of structure we could add to our models is causality.
+	  This extraordinarily helpful for answering questions about why something happened, what to do, what would have happened if another decision had been made.
+	  Causal relationships are a special class of assumptions.
+	  Most statistical and machine learning models don’t say anything about causality directly.
+	  They can, at best, hint at it through careful experiment design.
+	  But there is a small and growing body of work around models that explicitly represent causal relationships.
+	  They let you answer questions like "What if I had not made this decision? What if this event had not happened?"
+	  These are called counterfactuals, and as you can imagine, this type of analysis lends itself very well to making decisions and evaluating them.
+	  If you want to go deeper into this topic, I recommend 
+	  <a href="https://www.portersquarebooks.com/book/9780465097609">The Book of Why</a> by Judea Pearl. He is a pioneer in the field and gives an excellent in depth tour.
 	</p>
 
 	<p>
-	  Causal relationships are similar to the other assumptions we have discussed. If you are justified in assuming them, they add a lot of power to your analysis, and help you reach confident conclusions more quickly. However if the assumption is unjustified, send making it will hurt you more than it helps you, no matter how much you like the results.
+	  Causal relationships are similar to the other assumptions we have discussed.
+	  If you are justified in assuming them, they add a lot of power to your analysis, and help you reach confident conclusions more quickly.
+	  However if the assumption is unjustified, making it will hurt you more than it helps you, no matter how much you like the results.
 	</p>
 
 	<h4> The three A’s of modeling </h4>
-
 	<p>
-	  So, returning to the question at hand, which model candidates should you try? The answer, as always, is entirely dependent on what you are trying to do.  But the one invariant, your single guiding principle in the process, is be mindful of your assumptions. You can’t get rid of them, if you ignore them they will bite you. But if you pay attention to them, and thoughtfully prune them, they will repay you with the strongest possible foundation for your analysis.
+	  So, returning to the question at hand, which model candidates should you try?
+	  The answer, as always, is entirely dependent on what you are trying to do. 
+	  But the one invariant, your single guiding principle in the process, is to be mindful of your assumptions.
+	  You can’t get rid of them. If you ignore them they will bite you.
+	  But if you pay attention to them, and thoughtfully prune them, they will repay you with the strongest possible foundation for your analysis.
 	</p>
 
         <script type="text/javascript" src="javascripts/blog_signature.js"></script>
