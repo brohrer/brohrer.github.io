@@ -54,18 +54,19 @@
 	  <a href="https://www.xkcd.com/2048/">https://www.xkcd.com/2048/</a>
 	</p>
 
-	<h4>Reason to try <em>all</em> the models: <strong>Lower bias</strong></h4>
+	<h4>Reason to try <em>all</em> of the models: <strong>Lower bias</strong></h4>
 
 	</p>
-	  In part one, we stepped through the process of choosing a model: train all the candidates on the training data, evaluate them on the testing data, and the one with the lowest testing error wins. Another term for this is exploratory analysis. The goal is to find a concise representation of the patterns in the data, without regard to quote form they take.
+	  In part one, we stepped through the process of choosing a model: train all the candidates on the training data, evaluate them on the testing data, and the one with the lowest testing error wins.
+	  Another term for this is exploratory analysis. The goal is to find a concise representation of the patterns in the data, without regard to what form they take.
 	  This process helps us avoid overfitting, that is, finding a model that captures too much noise.
 	</p>
 
 	<p>
-	  However, this doesn't protect against underfitting. It doesn't guarantee that the model we found is the best one possible. There might be other models out there that would capture the signal even better and result in a lower testing error. We have know way to know. Unless we try them all.
+	  However, this doesn't protect against underfitting. It doesn't guarantee that the model we found is the best one possible. There might be other models out there that would capture the signal even better and result in a lower testing error. We have no way to know. Unless we try them all.
 	</p>
 
-	<h4>Reasons to only try some of models: <strong>Not enough time</strong></h4>
+	<h4>Reason to only try <em>some</em> of the models: <strong>Not enough time</strong></h4>
 	<p>
 	  However, we have to balance this with the fact that there is literally an infinity of models to choose from. There's no way to try them all. It's not even practical to try all the common ones. Running them all, in all their published manifestations, is likely to take so long that we no longer care about the answer, and that's not even considering the time it would take to get them all running in the same codebase. We're going to have to make some tough decisions.
 	</p>
@@ -74,7 +75,7 @@
 	  Despite these practical difficulties, the "try them all" approach is conceptually quite reasonable. The <a href="https://www.automl.org/">AutoML</a> community is committed to making it feasible to try a lot of models at once, even if it can't try all of them. This is a great way to make sure that you are getting a broad selection of different model candidates. But it’s important to keep in mind that for every model candidate included in an AutoML tool’s library, there are a million that aren’t. With that one caveat, AutoML is a great way to balance time with the breadth of your candidate pool.
 	</p>
 
-	<h4>Reasons to only try some of models: <strong>Not enough data</strong></h4>
+	<h4>Reason to only try <em>some</em> of the models: <strong>Not enough data</strong></h4>
 	<p>
 	  One way to describe a model’s complexity is to count the number of separate settings and parameter values that get adjusted during model fitting. These are all quantities that need to be inferred from data. It doesn’t make sense to try to learn 50 parameter values from 10 data points. For a well behaved and responsibly fit model, it takes from somewhere from 3 to 30 data points independent data points per perimeter. if we consider 10 middle of the road guideline, van that means a bottle with 100 parameters would require at least 1000 data points to fit well. This also assumes that the data points are scattered relatively evenly across the range that you are trying to model F, as is usually the case, there are dents clusters of data points and vast wildernesses containing almost 9, then the amount of data you need may go up much further still.
 	</p>
@@ -83,7 +84,7 @@
 	  Using this guideline of tendinitis 10 uniformly distributed data points per perimeter, a straight line, a model with two parameters, would require 20 data points To fit confidently. Multivariate linear regression‘s can have dozens of parameters, decision forests random forests can have thousands, and deep and you’re own networks can have millions. The number of data points you have can be a powerful limitation on the types of models available to you. If you only have 100 data points, It just won’t be worth your time to try training a deep neural network.
 	</p>
 
-	<h4>Reasons to only try a single model: <strong>Community practice</strong></h4>
+	<h4>Reason to only try <em>one</em> model: <strong>Community practice</strong></h4>
 	<p>
 	  Sometimes, we have a good reason to only tried one type of model. One such case is when your research community has reached a consensus about which model is most successful any given application.
 	</p>
@@ -92,7 +93,7 @@
 	  For example, for the problem of image classification, very particular architectures of convolution on their own networks have been shown to be quite successful. It is completely reasonable to re-purpose one of these without doing a broad comparison across different models. The number of possible models in the universe is so large that it is vanishingly unlikely that this particular convolution on your network is the best solution to the problem. However, a thousand diligent PhD‘s trying tens of thousands of variants have failed to come up with anything much better so far, so it’s not a bad starting place.
 	</p>
 
-	<h4>Reasons to only try a single model: <strong>Domain knowledge</strong></h4>
+	<h4>Reason to only try <em>one</em> model: <strong>Domain knowledge</strong></h4>
 	<p>
 	  Sometimes, it’s safe to stick with a single bottle because we are highly confident that it reflects what’s going on in the world. For instance, consider that we are watching a baseball game and we like to predict wear a pop fly is going to land. A naive  approach would be to measure The position and velocity of the ball many times per second for every pop fly for many hundreds of games, and then fit all of that data to a model predicting the final location of the ball.
 	</p>
@@ -105,7 +106,7 @@
 	  Incorporating domain knowledge where ever we can is a great way to limit to the set of models we have to consider, and often it helps us make a confident predictions with many fewer data points
 	</p>
 
-	<h4>Reasons to only try a single model: <strong>Testing a hypothesis</strong></h4>
+	<h4>Reason to only try <em>one</em> model: <strong>Testing a hypothesis</strong></h4>
 	<p>
 	  If we are looking at our data in order to answer a specific question, as is the case when we are testing a scientific hypothesis, then the model only needs to be focused on teasing out that particular information. In this sense, a model is like a spotlight. Each model is capable of revealing different aspects of the data.  By choosing a particular model, we are effectively asking a particular question, or set of questions, of the data. When we’re testing a hypothesis, that question can be very pointed indeed. For instance, the classic “R the means of these two samples significantly different? “ suggests a very specific model.
 	</p>
