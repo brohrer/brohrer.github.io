@@ -70,7 +70,7 @@
 
 	<h4>Use case: absolute deviation</h4>
         <p>
-	  Now, we are designing greenhouse again, but this time including heaters and coolers. That means we will be able to modulate the temperature in order to make it suitable for the plants, but the more heating and cooling we do, the more energy we will have to buy, the more money we will have to spend on it. The cost of being off in our prediction is related to how much it costs to correct for it, the energy cost to bring the temperature back to the appropriate range. This suggests an error function where the cost is proportional to the absolute value of the deviation.
+	  Now, we are designing a greenhouse again, but this time including heaters and coolers. That means we will be able to modulate the temperature in order to make it suitable for the plants, but the more heating and cooling we do, the more energy we will have to buy, the more money we will have to spend on it. The cost of being off in our prediction is related to how much it costs to correct for it, the energy cost to bring the temperature back to the appropriate range. This suggests an error function where the cost is proportional to the absolute value of the deviation.
  	</p>
 
         <p>
@@ -81,7 +81,7 @@
 
 	<h4>Use case: Absolute deviation with saturation</h4>
         <p>
-	  Our temperature forecasts are being used to make decisions about when to pre-heat or pre-cool an office building for a workday. Pre-heating and pre-cooling during the night allows a lower energy price and saves the company money. The cost of any deviations is the additional cost of daytime peak energy. This is proportional to the amount of time the equipment runs during the day, which in turn is directly proportional to the prediction error. However, above a certain prediction threshold no amount of the time heating or cooling will fully make up the difference, so the cost has a ceiling. The equipment just runs all day. This suggests an error function of absolute deviation with saturation.
+	  Our temperature forecasts are now being used to make decisions about when to pre-heat or pre-cool an office building for a workday. Pre-heating and pre-cooling during the night allows a lower energy price and saves the company money. The cost of any deviations is the additional cost of daytime peak energy. This is proportional to the amount of time the equipment runs during the day, which in turn is directly proportional to the prediction error. However, above a certain prediction threshold no amount of the time heating or cooling will fully make up the difference, so the cost has a ceiling. The equipment just runs all day. This suggests an error function of absolute deviation with saturation.
  	</p>
 
         <img src="images/how_modeling_works/absolute_deviation_with_saturation.png" style="width: 600px;" />

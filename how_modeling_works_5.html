@@ -70,7 +70,7 @@
 	  However, this doesn't protect against underfitting. It doesn't guarantee that the model we found is the best one possible. There might be other models out there that would capture the signal even better and result in a lower testing error. We have no way to know. Unless we try them all.
 	</p>
 
-	<h4>Reason to only try <em>some</em> of the models: <strong>Not enough time</strong></h4>
+	<h4>Reason to try only <em>some</em> of the models: <strong>Not enough time</strong></h4>
 	<p>
 	  However, we have to balance this with the fact that there is literally an infinity of models to choose from. There's no way to try them all. It's not even practical to try all the common ones.
 	  Running them all, in all their published manifestations, is likely to take so long that we no longer care about the answer, and that's not even considering the time it would take to get them all running in the same code base.
@@ -78,31 +78,31 @@
 	</p>
 
 	<p>
-	  Despite these practical difficulties, the "try them all" approach is conceptually quite reasonable.
+	  Despite these practical difficulties, the "try them all" approach is conceptually sound.
 	  The <a href="https://www.automl.org/">AutoML</a> community is committed to making it feasible to try a lot of models at once.
 	  This is a great way to make sure that you are getting a broad selection of different model candidates.
 	  But it’s important to keep in mind that for every model candidate included in an AutoML library, there are a million that aren’t.
 	  With that one caveat, AutoML is a great way to balance time with the breadth of your candidate pool.
 	</p>
 
-	<h4>Reason to only try <em>some</em> of the models: <strong>Not enough data</strong></h4>
+	<h4>Reason to try only <em>some</em> of the models: <strong>Not enough data</strong></h4>
 	<p>
-	  One way to describe a model’s complexity is to count the number of separate settings and parameter values that get adjusted during model fitting. These are all quantities that need to be inferred from data.
-	  It doesn’t make sense to try to learn 50 parameter values from 10 data points.
-	  For a well behaved and responsibly fit model, it takes somewhere between 3 to 30 data independent measurements per parameter.
+	  One way to describe a model’s complexity is to count the number of separate parameter values that get adjusted during model fitting. These are all quantities that need to be inferred from data.
+	  It doesn’t make sense to try to learn 50 parameter from 10 data points.
+	  For a well behaved and responsibly fit model, it takes somewhere between 3 to 30 independent measurements per parameter.
 	  If we consider 10 to be a middle of the road guideline, that means a model with 100 parameters would require at least 1000 data points to fit well.
 	  This also assumes that the data points are scattered relatively evenly across the range that you are trying to model.
 	  If, as is usually the case, there are dense clusters of data points and vast wildernesses around them containing almost none, then the amount of data you need may go up much further still.
 	</p>
 
 	<p>
-	  Using this guideline of 10 uniformly distributed data points per parameter, a straight line, a model with two parameters, would require 20 data points to fit confidently.
+	  Using this guideline, a straight line, which has two parameters, would require ten data points to fit confidently. (That's 20 measurements, ten of x and ten of y.)
 	  Multivariate linear regressions can have dozens of parameters, random forests can have thousands, and deep neural networks can have millions. The number of data points you have can be a dominant limitation on the types of models available to you. If you only have 100 data points, it just won’t be worth your time to try training a deep neural network.
 	</p>
 
-	<h4>Reason to only try <em>one</em> model: <strong>Community practice</strong></h4>
+	<h4>Reason to try only <em>one</em> model: <strong>Community practice</strong></h4>
 	<p>
-	  Sometimes, we have a good reason to only try one type of model. One such case is when your research community has reached a consensus about which model is most successful in a certain application.
+	  Sometimes, we have a good reason to try only one type of model. One such case is when your research community has reached a consensus about which model is most successful in a certain application.
 	</p>
 
 	<p>
@@ -111,7 +111,7 @@
 	  However, a thousand diligent PhDs trying tens of thousands of variants have failed to come up with anything much better so far, so it’s not a bad starting place.
 	</p>
 
-	<h4>Reason to only try <em>one</em> model: <strong>Domain knowledge</strong></h4>
+	<h4>Reason to try only <em>one</em> model: <strong>Domain knowledge</strong></h4>
 	<p>
 	  Sometimes, it’s safe to stick with a single model because we are highly confident that it reflects what’s going on in the world.
 	  For instance, imagine that we are watching a baseball game and we'd like to predict where a pop fly is going to land.
@@ -120,15 +120,15 @@
 
 	<p>
 	  A shortcut to this process is to rely on all of the people who have already made careful measurements and predictions about objects flying through the air, and have found a beautifully concise model to describe them.
-	  In its simplest form, a ballistic trajectory model in three dimensions has only six parameters. A single observation of the ball gives us the values of six different measurements, position and velocity in the X, Y, and Z directions. Depending on our measurement accuracy, two or three observations would be enough to accurately determine the final location of the ball.
+	  In its simplest form, a ballistic trajectory model in three dimensions has only six parameters. A single observation of the ball gives us the values of six different measurements, position and velocity in the X, Y, and Z directions. Depending on our measurement accuracy, two or three observations might be enough to accurately determine the final location of the ball.
 	  This is probably why veteran outfielders can catch a brief glimpse of the ball shooting into the air, then turn their back to it and sprint toward where they know it will land.
 	</p>
 
 	<p>
-	  Incorporating domain knowledge wherever we can is a great way to limit to the set of models we have to consider, and often it helps us make a confident predictions with many fewer data points.
+	  Incorporating domain knowledge wherever we can is a great way to limit the set of models we have to consider, and often it helps us make confident predictions with many fewer data points.
 	</p>
 
-	<h4>Reason to only try <em>one</em> model: <strong>Testing a hypothesis</strong></h4>
+	<h4>Reason to try only <em>one</em> model: <strong>Testing a hypothesis</strong></h4>
 	<p>
 	  If we are looking at our data in order to answer a specific question, as is the case when we are testing a scientific hypothesis, then the model only needs to be focused on teasing out that particular information.
 	  In this sense, a model is like a spotlight. Each model is capable of revealing different aspects of the data. 
@@ -136,7 +136,7 @@
 	  When we’re testing a hypothesis, that question can be very pointed.
 	  For instance, the classic “Are the means of these two samples significantly different?" suggests a very specific model.
 	  Other, more complex hypotheses may result in more complex models, but the connection between the form of the model and the hypothesis it is testing remains.
-	  Hypothesis-driven testing is well suited for clarifying the details of how our system works, or using data to help us make a decision.
+	  Hypothesis-driven testing is well suited to clarifying the details of how our system works, or using data to help us make a decision.
 	</p>
 
 	<p>
@@ -149,7 +149,7 @@
 
 	<p>
 	  However, imagine another researcher studying the effects of solar radiation on climate. They would likely be more interested in identifying cyclical patterns in the temperature data.
-	  For them, any multi-decade trend would be noise. They would choose a model that isolated repeatable patterns on the 8-11 year scale.
+	  For them, any multi-decade trend would be noise. They would choose a model that isolates repeatable patterns on the 8-11 year scale.
 	</p>
 
 	<h4>The assumptions trade-off</h4>
@@ -165,7 +165,7 @@
 
 	<p>
 	  More assumptions get us started fast but they also put strong bounds on how far we can go and how much we can learn.
-	  When we make fewer assumptions, we give the data more latitude to tell us it’s own story, to reveal patterns that we hadn’t anticipated and to answer questions that we hadn’t thought to ask.
+	  When we make fewer assumptions, we give the data more latitude to tell us its own story, to reveal patterns that we hadn’t anticipated and to answer questions that we hadn’t thought to ask.
 	</p>
 
 	<p>
@@ -175,7 +175,7 @@
 	</p>
 
 	<p>
-	  And this is a best case scenario. In practice we are constrained even further by the scarcity of our data.
+	  And it gets worse. In practice we are constrained even further by the paucity of our data.
 	  We are often forced to rely on assumption-laden domain models simply because it is prohibitively expensive or entirely impossible to gather additional data.
 	  And so, we forge ahead with as much grace as we can muster, staying aware of the limitations we have knowingly self-imposed, keeping in mind that our analysis is only as strong as our poorest assumption, and staying vigilant for hints that one of them is irredeemably wrong.
 	</p>
@@ -188,19 +188,19 @@
 	</p>
 
 	<p>
-	  Student t-tests, ANOVA, and other statistical tools are ways to get around having to do separate training and testing. They make assumptions about the underlying model and noise distributions, then use these to estimate how the model would perform on many hypothetical test data sets. They trade assumptions for inferential power. They are particularly helpful when you have few data points and can’t afford to divide the into testing and training.
+	  Student t-tests, ANOVA, and other statistical tools are ways to get around having to do separate training and testing. They make assumptions about the underlying model and noise distributions, then use these to estimate how the model would perform on many hypothetical test data sets. They trade assumptions for inferential power. They are particularly helpful when you have few data points and can’t afford to divide them into testing and training.
 	  Based on the training data and fitting errors alone you can tell, to whatever level of confidence you want, what range the testing data will fall into.
 	</p>
 
 	<p>
 	  Even though this statistics-heavy approach looks very different on the surface,
 	  it’s just another way to do what we have been doing all along:
-	  Finding the model that best captures the signal, and determining how well the generalizes.
+	  Finding the model that best captures the signal, and determining how well it generalizes.
 	  The difference here is that the generalization performance is estimated, rather than measured directly.
 	</p>
 
 	<p>
-	Step carefully. Many of the common statistical assumptions &mdash independence, identitical distribution, Normal distribution, homoscedasticity, stationarity &mdash are routinely violated by the data we work with.
+	Step carefully. Many of the common statistical assumptions -- independence, identitical distribution, Normal distribution, homoscedasticity, stationarity -- are routinely violated by the data we work with.
 	  Some violations are consequential and others aren’t, but if you turn a blind eye to them all, you are likely to get poor results.
 	</p>
 
