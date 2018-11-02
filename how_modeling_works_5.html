@@ -45,7 +45,7 @@
 	<h3>Choosing model candidates</h3>
 
 	<p>
-	  Finally we've reached the question that probably brought you here: Which models should I fit to my data?
+	  Finally we've reached the question that probably brought you here: Which models should I try to fit to my data?
 	</p>
 
 	<img src="images/how_modeling_works/xkcd_curve_fitting.png" style="width: 400px;" />
@@ -58,7 +58,7 @@
 
 	</p>
 	  In part one, we stepped through the process of choosing a model: train all the candidates on the training data, evaluate them on the testing data, and the one with the lowest testing error wins.
-	  Another term for this is exploratory analysis. The goal is to find a concise representation of the patterns in the data, without regard to what form they take.
+	  The goal of this exploratory analysisis is to find a concise representation of the patterns in the data, without regard to what form they take.
 	  This process helps us avoid overfitting, that is, finding a model that captures too much noise.
 	</p>
 
@@ -93,7 +93,7 @@
 
 	<p>
 	  Using this guideline of 10 uniformly distributed data points per parameter, a straight line, a model with two parameters, would require 20 data points to fit confidently.
-	  Multivariate linear regressions can have dozens of parameters, random forests can have thousands, and deep neural networks can have millions. The number of data points you have can be a dominany limitation on the types of models available to you. If you only have 100 data points, it just won’t be worth your time to try training a deep neural network.
+	  Multivariate linear regressions can have dozens of parameters, random forests can have thousands, and deep neural networks can have millions. The number of data points you have can be a dominant limitation on the types of models available to you. If you only have 100 data points, it just won’t be worth your time to try training a deep neural network.
 	</p>
 
 	<h4>Reason to only try <em>one</em> model: <strong>Community practice</strong></h4>
@@ -121,7 +121,7 @@
 	</p>
 
 	<p>
-	  Incorporating domain knowledge whereever we can is a great way to limit to the set of models we have to consider, and often it helps us make a confident predictions with many fewer data points.
+	  Incorporating domain knowledge wherever we can is a great way to limit to the set of models we have to consider, and often it helps us make a confident predictions with many fewer data points.
 	</p>
 
 	<h4>Reason to only try <em>one</em> model: <strong>Testing a hypothesis</strong></h4>
@@ -132,20 +132,20 @@
 	  When we’re testing a hypothesis, that question can be very pointed.
 	  For instance, the classic “Are the means of these two samples significantly different?" suggests a very specific model.
 	  Other, more complex hypotheses may result in more complex models, but the connection between the form of the model and the hypothesis it is testing remains.
-	  Hypothesis driven testing is well-suited for clarifying the details of how our system works, or using data to help us make a decision.
+	  Hypothesis-driven testing is well suited for clarifying the details of how our system works, or using data to help us make a decision.
 	</p>
 
 	<p>
 	  Hypothesis testing helps to shed light on a subtle point that we have glossed over so far:
-	  One person's signal is another's noise. Consider are temperature data set from part one. A climate change scientist may approach the data with one question,
+	  One person's signal is another's noise. Consider our temperature data set from part one. A climate change scientist may approach the data with one question,
 	  "Are the temperatures of the last 20 years significantly higher then the temperatures that came during the hundred years previous?"
 	  In this case, a straightforward model that chops the temperature data into two samples and compares the means of both would be a reasonable approach.
-	  This is the signal they need to extract. All other variation from this deviation from this is noise to them.
+	  This is the signal they need to extract. All other deviation from this is noise to them.
 	</p>
 
 	<p>
-	  However, imagine another is researcher studying the effects of solar radiation on climate. They would likely be more interested in identifying cyclical patterns in the temperature data.
-	  For them, any multi-decade trend would be noise,. They would choose a model that isolated repeatable patterns on the 8-11 year scale.
+	  However, imagine another researcher studying the effects of solar radiation on climate. They would likely be more interested in identifying cyclical patterns in the temperature data.
+	  For them, any multi-decade trend would be noise. They would choose a model that isolated repeatable patterns on the 8-11 year scale.
 	</p>
 
 	<h4>The assumptions trade-off</h4>
@@ -173,7 +173,7 @@
 	<p>
 	  And this is a best case scenario. In practice we are constrained even further by the scarcity of our data.
 	  We are often forced to rely on assumption-laden domain models simply because it is prohibitively expensive or entirely impossible to gather additional data.
-	  And so, we forge ahead with as much grace as we could muster, staying aware of the limitations we have knowingly self-imposed, keeping in mind that our analysis is only as strong as our poorest assumption, and staying vigilant for hints that one of them is irredeemably wrong.
+	  And so, we forge ahead with as much grace as we can muster, staying aware of the limitations we have knowingly self-imposed, keeping in mind that our analysis is only as strong as our poorest assumption, and staying vigilant for hints that one of them is irredeemably wrong.
 	</p>
 
 	<h4>Other useful assumptions: Structure of noise</h4>
