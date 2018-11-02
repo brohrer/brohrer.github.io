@@ -178,35 +178,30 @@
 
 	<h4>Other useful assumptions: Structure of noise</h4>
 	<p>
-	  On that note, let’s look at some other assumptions that can prove extremely useful. A lot of statistical models get their power from additionally assuming that the noise has some particular properties, for example, that it is normally distributed, identical, and independent for every measurement.
+	  On that note, let’s look at some other assumptions that can prove useful. A lot of statistical models get their power from additionally assuming that the noise has some particular properties, for example, that it is normally distributed, identical, and independent for every measurement.
 	  With these in place, statisticians have been able to derive powerful results.
+	  For several families of models, you don’t need to have a testing data set at all.
 	</p>
 
 	<p>
-	  These assumptions help us determine how our model generalizes without training and testing.
-	  For example, confidence intervals are an explicit representation for how we expect our model to generalize.
-	  With these assumptions in place, you don’t need to have a testing data set at all,
-	  based on the training data alone you can tell, to whatever level of confidence you want, what range the testing data will fall into.
+	  Student t-tests, ANOVA, and other statistical tools are ways to get around having to do separate training and testing. They make assumptions about the underlying model and noise distributions, then use these to estimate how the model would perform on many hypothetical test data sets. They trade assumptions for inferential power. They are particularly helpful when you have few data points and can’t afford to divide the into testing and training.
+	  Based on the training data and fitting errors alone you can tell, to whatever level of confidence you want, what range the testing data will fall into.
 	</p>
 
 	<p>
-	  Even though this statistics heavy approach looks very different on the surface,
+	  Even though this statistics-heavy approach looks very different on the surface,
 	  it’s just another way to do what we have been doing all along:
 	  Finding the model that best captures the signal, and determining how well the generalizes.
 	  The difference here is that the generalization performance is estimated, rather than measured directly.
 	</p>
 
 	<p>
-	  Student t-tests, ANOVA, and other statistical tools are ways to get around having to do separate training and testing. They make assumptions about the underlying model and noise distributions, then use these to estimate how the model would perform on many hypothetical test data sets. They trade assumptions for inferential power. They are particularly helpful when you have few data points and can’t afford to divide the into testing and training.
-	</p>
-
-	<p>
-	  Caution: many of the common statistical assumptions - independence, identitical distribution, Normal distribution, homoscedasticity, stationarity — are routinely violated by the data we work with.
+	Step carefully. Many of the common statistical assumptions &mdash independence, identitical distribution, Normal distribution, homoscedasticity, stationarity &mdash are routinely violated by the data we work with.
 	  Some violations are consequential and others aren’t, but if you turn a blind eye to them all, you are likely to get poor results.
 	</p>
 
 	<p>
-	  <em>Tip:</em> If you want to be a thoughtful colleague to your fellow analysts, help them carefully think through the standard assumptions and figure out whether any of them need to be double checked.
+	  <em>Tip:</em> If you want to be a thoughtful colleague, help your fellows carefully think through the standard assumptions and figure out whether any of them need to be double checked in their analysis.
 	</p>
 
 	<p>
@@ -217,31 +212,35 @@
 	<h4>Other useful assumptions: Parameter distributions</h4>
 
 	<p>
-	  Sometimes, when incorporating domain knowledge into our models, we can comfortably assume not only the models structure, but also we know something about the parameter values themselves.
+	  Sometimes, when incorporating domain knowledge into our models, we can comfortably assume something about the parameter values themselves, in addition to the model structure.
 	</p>
 
 	<p>
-	  For example, consider a model of regional differences in income broken out by field.
-	  There are already nationwide income surveys by field.
+	  For example, consider a model of regional differences in income, broken out by profession.
+	  There are already nationwide income surveys by profession.
 	  It’s reasonable to expect that regional differences in the wages of, say, a carpenter, will not be radically different than the national average,
-	  perhaps higher or lower by 50%, but not 10 times.
-	  With this bit of prior knowledge, we can craft a distribution showing our best guess for where these what these wages will be.
-	  This gives us a running start. Using
+	  perhaps higher or lower by 50%, but not a factor of ten.
+	  This gives us a running start.
+	  With this bit of prior knowledge, we can craft a distribution showing our best guess for what these wages will be.
+	</p>
+	  
+	<p>
+	  Using
 	  <a href="how_bayesian_inference_works.html">Bayes Theorem</a>
 	 we can cleverly use each new data point to update this distribution.
 	 It’s useful to think of this as a representation of our beliefs.
-	 We start with the vague belief that in any given region, a carpenter makes somewhere in the neighborhood of the national average, and then as we collect data for each region, this belief gets updated and shifted and takes on the characteristics of the data more completely.
+	 We start with the vague belief that in any given region, a carpenter makes somewhere in the neighborhood of the national average, and then as we collect data for each region, this belief gets updated and shifted and takes on the characteristics of the local data more completely.
 	 The magic of the Bayesian approach is that it reaches a confident estimate with fewer data points that it would have taken otherwise. Again, we have the option to trade some assumptions for increased confidence. Again, the pitfall is that if we start out with the wrong assumptions, we can actually make our life much harder, and require many more data points to reach the same level of confidence.
 	</p>
 	<p>
 	  Those who favor the Bayesian modeling approach and those who don’t trade (usually good natured) criticisms and jokes. They just represent different sets of assumptions. Each is appropriate for different goals and different data sets.
 	</p>
 
-	<h4>Other useful assumptions: causal relationships </h4>
+	<h4>Other useful assumptions: Causal relationships </h4>
 	<p>
-	  Another type of structure we could add to our models is causality.
-	  This extraordinarily helpful for answering questions about why something happened, what to do, what would have happened if another decision had been made.
-	  Causal relationships are a special class of assumptions.
+	  Another type of structure we could add to our models is <strong>causality</strong>.
+	  This is extraordinarily helpful for answering questions about why something happened and what would have happened if another decision had been made.
+	  Causal relationships are in a class of their own.
 	  Most statistical and machine learning models don’t say anything about causality directly.
 	  They can, at best, hint at it through careful experiment design.
 	  But there is a small and growing body of work around models that explicitly represent causal relationships.
@@ -263,7 +262,7 @@
 	  The answer, as always, is entirely dependent on what you are trying to do. 
 	  But the one invariant, your single guiding principle in the process, is to be mindful of your assumptions.
 	  You can’t get rid of them. If you ignore them they will bite you.
-	  But if you pay attention to them, and thoughtfully prune them, they will repay you with the strongest possible foundation for your analysis.
+	  But if you pay attention to them and thoughtfully prune them, they will repay you with the strongest possible foundation for your analysis.
 	</p>
 
         <script type="text/javascript" src="javascripts/blog_signature.js"></script>
