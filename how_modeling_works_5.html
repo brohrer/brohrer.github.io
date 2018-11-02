@@ -68,29 +68,43 @@
 
 	<h4>Reason to only try <em>some</em> of the models: <strong>Not enough time</strong></h4>
 	<p>
-	  However, we have to balance this with the fact that there is literally an infinity of models to choose from. There's no way to try them all. It's not even practical to try all the common ones. Running them all, in all their published manifestations, is likely to take so long that we no longer care about the answer, and that's not even considering the time it would take to get them all running in the same codebase. We're going to have to make some tough decisions.
+	  However, we have to balance this with the fact that there is literally an infinity of models to choose from. There's no way to try them all. It's not even practical to try all the common ones.
+	  Running them all, in all their published manifestations, is likely to take so long that we no longer care about the answer, and that's not even considering the time it would take to get them all running in the same code base.
+	  We're going to have to make some tough decisions.
 	</p>
 
 	<p>
-	  Despite these practical difficulties, the "try them all" approach is conceptually quite reasonable. The <a href="https://www.automl.org/">AutoML</a> community is committed to making it feasible to try a lot of models at once, even if it can't try all of them. This is a great way to make sure that you are getting a broad selection of different model candidates. But it’s important to keep in mind that for every model candidate included in an AutoML tool’s library, there are a million that aren’t. With that one caveat, AutoML is a great way to balance time with the breadth of your candidate pool.
+	  Despite these practical difficulties, the "try them all" approach is conceptually quite reasonable.
+	  The <a href="https://www.automl.org/">AutoML</a> community is committed to making it feasible to try a lot of models at once.
+	  This is a great way to make sure that you are getting a broad selection of different model candidates.
+	  But it’s important to keep in mind that for every model candidate included in an AutoML library, there are a million that aren’t.
+	  With that one caveat, AutoML is a great way to balance time with the breadth of your candidate pool.
 	</p>
 
 	<h4>Reason to only try <em>some</em> of the models: <strong>Not enough data</strong></h4>
 	<p>
-	  One way to describe a model’s complexity is to count the number of separate settings and parameter values that get adjusted during model fitting. These are all quantities that need to be inferred from data. It doesn’t make sense to try to learn 50 parameter values from 10 data points. For a well behaved and responsibly fit model, it takes from somewhere from 3 to 30 data points independent data points per perimeter. if we consider 10 middle of the road guideline, van that means a bottle with 100 parameters would require at least 1000 data points to fit well. This also assumes that the data points are scattered relatively evenly across the range that you are trying to model F, as is usually the case, there are dents clusters of data points and vast wildernesses containing almost 9, then the amount of data you need may go up much further still.
+	  One way to describe a model’s complexity is to count the number of separate settings and parameter values that get adjusted during model fitting. These are all quantities that need to be inferred from data.
+	  It doesn’t make sense to try to learn 50 parameter values from 10 data points.
+	  For a well behaved and responsibly fit model, it takes somewhere between 3 to 30 data independent measurements per parameter.
+	  If we consider 10 to be a middle of the road guideline, that means a model with 100 parameters would require at least 1000 data points to fit well.
+	  This also assumes that the data points are scattered relatively evenly across the range that you are trying to model.
+	  If, as is usually the case, there are dense clusters of data points and vast wildernesses around them containing almost none, then the amount of data you need may go up much further still.
 	</p>
 
 	<p>
-	  Using this guideline of tendinitis 10 uniformly distributed data points per perimeter, a straight line, a model with two parameters, would require 20 data points To fit confidently. Multivariate linear regression‘s can have dozens of parameters, decision forests random forests can have thousands, and deep and you’re own networks can have millions. The number of data points you have can be a powerful limitation on the types of models available to you. If you only have 100 data points, It just won’t be worth your time to try training a deep neural network.
+	  Using this guideline of 10 uniformly distributed data points per parameter, a straight line, a model with two parameters, would require 20 data points to fit confidently.
+	  Multivariate linear regressions can have dozens of parameters, random forests can have thousands, and deep neural networks can have millions. The number of data points you have can be a dominany limitation on the types of models available to you. If you only have 100 data points, it just won’t be worth your time to try training a deep neural network.
 	</p>
 
 	<h4>Reason to only try <em>one</em> model: <strong>Community practice</strong></h4>
 	<p>
-	  Sometimes, we have a good reason to only tried one type of model. One such case is when your research community has reached a consensus about which model is most successful any given application.
+	  Sometimes, we have a good reason to only try one type of model. One such case is when your research community has reached a consensus about which model is most successful in a certain application.
 	</p>
 
 	<p>
-	  For example, for the problem of image classification, very particular architectures of convolution on their own networks have been shown to be quite successful. It is completely reasonable to re-purpose one of these without doing a broad comparison across different models. The number of possible models in the universe is so large that it is vanishingly unlikely that this particular convolution on your network is the best solution to the problem. However, a thousand diligent PhD‘s trying tens of thousands of variants have failed to come up with anything much better so far, so it’s not a bad starting place.
+	  For example, in the problem of image classification very particular architectures of convolutional neural networks have been shown to be quite successful. It is completely reasonable to re-purpose one of these without doing a broad comparison across different models.
+	  The number of possible models in the universe is so large that it is vanishingly unlikely that a particular published convolutional neural network is the best solution to the problem.
+	  However, a thousand diligent PhDs trying tens of thousands of variants have failed to come up with anything much better so far, so it’s not a bad starting place.
 	</p>
 
 	<h4>Reason to only try <em>one</em> model: <strong>Domain knowledge</strong></h4>
