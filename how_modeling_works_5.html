@@ -42,19 +42,194 @@
           </li>
         </ul>
         
-	<h3>Splitting the data</h3>
+	<h3>Choosing model candidates</h3>
 
-        <p>
- 	</p>
+	<p>
+	  Finally we've reached the question that probably brought you here: Which models should I fit to my data?
+	</p>
+
+	<img src="images/how_modeling_works/xkcd_curve_fitting.png" style="width: 400px;" />
+
+	<p>
+	  <a href="https://www.xkcd.com/2048/">https://www.xkcd.com/2048/</a>
+	</p>
+
+	<h4>Reason to try <em>all</em> the models: <strong>Lower bias</strong></h4>
+
+	</p>
+	  In part one, we stepped through the process of choosing a model: train all the candidates on the training data, evaluate them on the testing data, and the one with the lowest testing error wins. Another term for this is exploratory analysis. The goal is to find a concise representation of the patterns in the data, without regard to quote form they take.
+	  This process helps us avoid overfitting, that is, finding a model that captures too much noise.
+	</p>
+
+	<p>
+	  However, this doesn't protect against underfitting. It doesn't guarantee that the model we found is the best one possible. There might be other models out there that would capture the signal even better and result in a lower testing error. We have know way to know. Unless we try them all.
+	</p>
+
+	<h4>Reasons to only try some of models: <strong>Not enough time</strong></h4>
+	<p>
+	  However, we have to balance this with the fact that there is literally an infinity of models to choose from. There's no way to try them all. It's not even practical to try all the common ones. Running them all, in all their published manifestations, is likely to take so long that we no longer care about the answer, and that's not even considering the time it would take to get them all running in the same codebase. We're going to have to make some tough decisions.
+	</p>
+
+	<p>
+	  Despite these practical difficulties, the "try them all" approach is conceptually quite reasonable. The <a href="https://www.automl.org/">AutoML</a> community is committed to making it feasible to try a lot of models at once, even if it can't try all of them. This is a great way to make sure that you are getting a broad selection of different model candidates. But it’s important to keep in mind that for every model candidate included in an AutoML tool’s library, there are a million that aren’t. With that one caveat, AutoML is a great way to balance time with the breadth of your candidate pool.
+	</p>
+
+	<h4>Reasons to only try some of models: <strong>Not enough data</strong></h4>
+	<p>
+	  One way to describe a model’s complexity is to count the number of separate settings and parameter values that get adjusted during model fitting. These are all quantities that need to be inferred from data. It doesn’t make sense to try to learn 50 parameter values from 10 data points. For a well behaved and responsibly fit model, it takes from somewhere from 3 to 30 data points independent data points per perimeter. if we consider 10 middle of the road guideline, van that means a bottle with 100 parameters would require at least 1000 data points to fit well. This also assumes that the data points are scattered relatively evenly across the range that you are trying to model F, as is usually the case, there are dents clusters of data points and vast wildernesses containing almost 9, then the amount of data you need may go up much further still.
+	</p>
+
+	<p>
+	  Using this guideline of tendinitis 10 uniformly distributed data points per perimeter, a straight line, a model with two parameters, would require 20 data points To fit confidently. Multivariate linear regression‘s can have dozens of parameters, decision forests random forests can have thousands, and deep and you’re own networks can have millions. The number of data points you have can be a powerful limitation on the types of models available to you. If you only have 100 data points, It just won’t be worth your time to try training a deep neural network.
+	</p>
+
+	<h4>Reasons to only try a single model: <strong>Community practice</strong></h4>
+	<p>
+	  Sometimes, we have a good reason to only tried one type of model. One such case is when your research community has reached a consensus about which model is most successful any given application.
+	</p>
+
+	<p>
+	  For example, for the problem of image classification, very particular architectures of convolution on their own networks have been shown to be quite successful. It is completely reasonable to re-purpose one of these without doing a broad comparison across different models. The number of possible models in the universe is so large that it is vanishingly unlikely that this particular convolution on your network is the best solution to the problem. However, a thousand diligent PhD‘s trying tens of thousands of variants have failed to come up with anything much better so far, so it’s not a bad starting place.
+	</p>
+
+	<h4>Reasons to only try a single model: <strong>Domain knowledge</strong></h4>
+	<p>
+	  Sometimes, it’s safe to stick with a single bottle because we are highly confident that it reflects what’s going on in the world. For instance, consider that we are watching a baseball game and we like to predict wear a pop fly is going to land. A naive  approach would be to measure The position and velocity of the ball many times per second for every pop fly for many hundreds of games, and then fit all of that data to a model predicting the final location of the ball.
+	</p>
+
+	<p>
+	  Shortcut is to rely on all of the people who have already made careful measurements and predictions about objects flying through the air, and have found a beautifully concise model to describe them. In its simplest form, a ballistic trajectory model in three dimensions has only six parameters. A single observation of the ball gives as the values of six different variables, position and velocity in the X, Y, and Z directions. Depending on our measurement accuracy, two or three observations would be enough to accurately determine the final location of the ball. This is probably why veteran outfielders can catch a brief glimpse of the ball shooting into the air, then turn their backs to it and sprint toward the location where it will land.
+	</p>
+
+	<p>
+	  Incorporating domain knowledge where ever we can is a great way to limit to the set of models we have to consider, and often it helps us make a confident predictions with many fewer data points
+	</p>
+
+	<h4>Reasons to only try a single model: <strong>Testing a hypothesis</strong></h4>
+	<p>
+	  If we are looking at our data in order to answer a specific question, as is the case when we are testing a scientific hypothesis, then the model only needs to be focused on teasing out that particular information. In this sense, a model is like a spotlight. Each model is capable of revealing different aspects of the data.  By choosing a particular model, we are effectively asking a particular question, or set of questions, of the data. When we’re testing a hypothesis, that question can be very pointed indeed. For instance, the classic “R the means of these two samples significantly different? “ suggests a very specific model.
+	</p>
+
+	<p>
+	  Other, more complex hypotheses Mae results in more complex models, but the connection between the form of the model and the hypothesis it is testing remains.
+	</p>
+
+	<p>
+	  Hypothesis driven testing is well-suited for clarifying the details of how our system works, or using data to help us make a decision.
+	</p>
+
+	<p>
+	  We can come with the particular question in mind. For instance our temperatures rising over time? This seemingly innocuous question actually raises a lot of problems for us. How can we tell if the temperature is increasing over time? It’s clear that it goes up and down some quiet from year to year. which year to year differences do we care about the most?
+	</p>
+
+	<p>
+	  Or maybe we can chop the data set up into a before and after and determine what is the temperature increases between the two. But where do we chop? How many different places do we try? What if some show the temperature going up and some show the temperature going down? How much would it have to change for us to care about it?
+	</p>
+
+	<p>
+	  We will have to get much more specific before we can answer this question concretely. We will in a minute, but for now we will let these questions hang. This is an example of hypothesis driven research.
+	</p>
+
+	<p>
+	  Hypothesis testing helps to shed light on a saddle point that we have glassed over so far:
+	  One person's signal is another's noise. consider are temperature data set from part one. A climate change scientist may approach the data with one question, are the temperatures of the last 20 years significantly higher then the temperatures that came during the hundred years previous? in this case, a straightforward model that chops the temperature data into two samples and compares the means of both would be a reasonable approach. This is the signal they need to extract. All other variation from this deviation from this is noise to them.
+	</p>
+
+	<p>
+	  However, another is researcher studying the effects of solar radiation on climate might be more interested in identifying cyclical patters in the temperature data. For them, any multi-decade to trend would be noise,. They would want to choose a model that isolated reputable patterns on the 8-11 year scale.
+	</p>
 
 
-	<h4>Use case: squared deviation</h4>
+	<h4>The trade-off of assumptions</h4>
 
-        <img src="images/how_modeling_works/squared_deviation.png" style="width: 600px;" />
+	<p>
+	  As we saw when we incorporated domain knowledge into our pop fly model, making more assumptions allowed us to reach confident conclusions with a lot less data. This is part of a recurring theme in machine learning. Many decisions, I’ve models, of methods, even of the questions we ask and the day that we use, boiled down to a trade-off between The number of assumptions we are willing to make and how quickly we want to arrive at a confident answer. The benefits of making additional assumptions are obvious. Ricci conclusions with just a few data points can save a great deal of effort and money.
+	</p>
 
-        <p>
-          <a href="how_modeling_works_5.html">in part 5</a>
- 	</p>
+	<p>
+	  However, the downside is considerable. Each assumption is a potential point of failure. If that assumption happens to be wrong, then we could end up very confidently reaching a conclusion that is entirely false. This might be embarrassing, in the case of an academic publication, or it could be catastrophic, in the case of planning for extreme weather events.
+
+	</p>
+	<p>
+	  More assumptions get us started fast but they also put strong bounds on how far we can go  and how much we can learn.
+	  When we make fewer assumptions, we give the data more latitude to tell us it’s own story, to review patterns that we hadn’t anticipated and to answer questions that we hadn’t thought to ask.
+	</p>
+
+	<p>
+	  Unfortunately, assumptions or Faustian deal we can’t escape. The essence of inference requires some bases for using the observations we’ve already made to set expectations about the ones to come. And every method for doing this comes with its own training of assumptions. Some are explicit, some are quite subtle, but no method is entirely agnostic.
+	</p>
+
+	<p>
+	  And this is a best case scenario. And practice we are constrained even further but the scarcity have our data. We are often forced to rely on assumption laden domain models simply because it is prohibitively expensive or entirely impossible to gather additional data.
+	</p>
+
+	<p>
+	  and so, we forge ahead with as much grace as we could muster, sting aware of the limitations we have knowingly self imposed on our analysis, keeping in mind that we are only are analysis is only as strong as our weakest as are poorest assumption, and staying vigilant for hits that one of them is irredeemably wrong. Our irredeemably wrong.staying vigilant for hints that our assumptions
+	</p>
+
+
+	<h4>Other useful assumptions: Structure of noise</h4>
+	<p>
+	  On that note, let’s look at some other assumptions that can prove extremely useful. A lot of Statistical models get their power from additionally assuming that the noise has some particular properties, for example, that it is normally distributed, identical, and independent for every measurement. With these in place, statisticians have been able to derive powerful results
+	</p>
+
+	<p>
+	  These assumptions help us determine the generalization of our model without training and testing. Whole idea of a confidence interval is an explicit representation for how we expect our model to generalize. With these assumptions in place, you don’t need to have a testing data set at all, based on the training data alone you can tell, to whatever level of confidence you want, but range the testing data will fall in in two.
+	</p>
+
+	<p>
+	  Even though this statistic heavy analysis looks very different on the surface, it’s just another way to do what we have been doingsll along: Finding the model that best captures the signal, and determining how well the generalizes. The difference here is that the generalization performance is estimated, rather than measured directly.
+	</p>
+
+	<p>
+	  T tests, ANOVA, and other statistical tools are ways to get around having to do separate training and testing. They make assumptions about the underlying model and noise distributions, then use these to estimate how the model would perform on many hypothetical test data sets. They trade assumptions for inferential power. They are particularly helpful when you have few data points and can’t afford to divide the into testing and training. .
+	</p>
+
+	<p>
+	  Caution: many of the common assumptions: independence, identitical distribution, Normal distribution, homoscedasticity, stationarity,— are routinely violated by the data we are working with. Some violations are consequential and others aren’t, but if you turn a blind eye to them all, you are likely to get poor results.
+	</p>
+
+	<p>
+	  <em>Tip:</em> If you want to be a thoughtful colleague to your fellow analysts, help them carefully think through the standard assumptions and figure out whether any of them need to be double checked.
+	</p>
+
+	<p>
+	  <em>Anti tip</em>: if you want to be a statistics asshole, point out to everyone that their entire analysis is invalid because of unmet assumptions.
+	</p>
+
+
+	<h4>Other useful assumptions: Parameter distributions</h4>
+
+	<p>
+	  Sometimes, when incorporating domain knowledge into our models, we can comfortably assume not only the models structure, but also we know something about the parameter values themselves.
+	</p>
+
+	<p>
+	  For example,  consider a model of regional differences in income Cuyama broken out by filled. There already exists income services nationwide income surveys by field. It’s reasonable to expect that regional differences will be modest in the local wages of, for example, a Carpenter, will not be radically different than the national average, perhaps higher or lower by 50% but not 10 times. With this bit of prior knowledge, we can hire them kraft a distribution showing. Our best gas for wear these with these wages will be. This gives us a running start. Using bays law, add link here, we can Cleverley use each new data point to update this distribution. It’s not wrong to think of this as a representation of our believes. We start with hey Vega believe that in any given region, a Carpenter makes somewhere in the neighborhood of the national average, and then as we collect data for each region, this believe gets updated and shifted and takes on the characteristics of the data more completely. The magic of the beige and approach is that it reaches a confident estimate with fewer data points that it would have taken otherwise. Again, we have the option to trade some assumptions for increased confidence. Again, the pitfall is that if we start out with the wrong assumptions, we can actually make our life much harder, and require many more data points to reach the same level of confidence.
+	</p>
+
+	<p>
+	  <strong>Bayesian approach</strong>
+	  Those who favor the Bayesian modeling approach and those who don’t trade (usually good natured) criticisms and jokes. They just represent different sets of assumptions. Each is appropriate for different goals and different data sets.
+	</p>
+
+
+
+	<h4>Other useful assumptions: causal relationships </h4>
+
+	<p>
+	  Another type of structure we could add to our models is causal relationships. These are Good for answering questions about why something happened, what to do, what would have happened if another decision had been made. Causal relationships are a special classes of assumptions, because bay Most statistical and machine learning models don’t say anything directly about causality. They can, at best, hint at it through careful experiment design. But there is a small and growing body of work around models that explicitly represent causal relationships. They let you answer questions like what if I had not made this decision? What if this event had not happened?. These are called counterfactual, and as you can imagine, this type of analysis lens itself very well too making decisions and evaluating them. If you want to go deeper into this topic, I recommend Book of Why Judea Pearl gives an excellent in depth tour
+	</p>
+
+	<p>
+	  Causal relationships are similar to the other assumptions we have discussed. If you are justified in assuming them, they add a lot of power to your analysis, and help you reach confident conclusions more quickly. However if the assumption is unjustified, send making it will hurt you more than it helps you, no matter how much you like the results.
+	</p>
+
+	<h4> The three A’s of modeling </h4>
+
+	<p>
+	  So, returning to the question at hand, which model candidates should you try? The answer, as always, is entirely dependent on what you are trying to do.  But the one invariant, your single guiding principle in the process, is be mindful of your assumptions. You can’t get rid of them, if you ignore them they will bite you. But if you pay attention to them, and thoughtfully prune them, they will repay you with the strongest possible foundation for your analysis.
+	</p>
 
         <script type="text/javascript" src="javascripts/blog_signature.js"></script>
       </section>
