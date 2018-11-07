@@ -54,7 +54,7 @@
  	</p>
 
         <p>
-	  The difference between a model and a measured data point is called deviation. The error function expresses how much we care about a deviation of a certain size. Are small errors OK, but large errors really bad? Or is being off by a little just as bad as being off by a lot? In business terms, we can think of the error function as how much is costs us in dollars to be wrong by a certain amount. In fact, error functions are also called cost functions.
+	  The difference between a model and a measured data point is called deviation. The error function expresses how much we care about a deviation of a certain size. Are small errors OK, but large errors really bad? Or is being off by a little just as bad as being off by a lot? In business terms, we can think of the error function as how much it costs us in dollars to be wrong by a certain amount. In fact, error functions are also called cost functions.
  	</p>
 
         <p>
@@ -63,7 +63,7 @@
 
 	<h4>Use case: squared deviation</h4>
         <p>
-	  Our temperature predictions are being used to design a greenhouse. The thickness of the glass and the amount of insulation at the base are carefully selected to create an ideal growing environment. There won’t be any heaters or air-conditioners to modulate the temperature, just the passive heat flow, determined by the design of the greenhouse. The plants are hearty and can tolerate being off by a few degrees in any direction fairly well. It stunts them a little, but not catastrophically. However, the further the temperature gets from ideal, the more detrimental it is to the plants and quickly the effects become more severe. This suggests that the cost function is something like the square of the deviation.
+	  Imagine our temperature predictions are being used to design a greenhouse. The thickness of the glass and the amount of insulation at the base are carefully selected to create an ideal growing environment. There won’t be any heaters or air-conditioners to modulate the temperature, just the passive heat flow, determined by the design of the greenhouse. The plants are hearty and can tolerate being off by a few degrees in any direction fairly well. It stunts them a little, but not catastrophically. However, the further the temperature gets from ideal, the more detrimental it is to the plants and quickly the effects become more severe. This suggests that the cost function is something like the square of the deviation.
  	</p>
 
         <img src="images/how_modeling_works/squared_deviation.png" style="width: 600px;" />
@@ -110,7 +110,7 @@
  	</p>
 
         <p>
-	  Keep your eyes open for squared deviation as an error function. It’s a very common choice. So common in fact, that inexperienced modelers might assume it's the only choice. It has some very nice properties for mathematical analysis, and for that reason is favored for theoretical and academic work. But other than that, there is nothing that makes it special. Chances are it's not right for your application. Any time you spend carefully choosing your error function will be richly rewarded.
+	  Keep your eyes open for squared deviation as an error function. It’s a very common choice. So common in fact, that inexperienced modelers might assume it's the only choice. It has some very nice properties for mathematical analysis, and for that reason is favored for theoretical and academic work. But other than that, there is nothing that makes it special. Chances are it's not right for your application. If you spend some time carefully choosing your error function, you will ba glad you did.
  	</p>
 
         <p>
