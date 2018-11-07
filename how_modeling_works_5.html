@@ -67,12 +67,12 @@
 	</p>
 
 	<p>
-	  However, this doesn't protect against underfitting. It doesn't guarantee that the model we found is the best one possible. There might be other models out there that would capture the signal even better and result in a lower testing error. We have no way to know. Unless we try them all.
+	  This approach is a good start, but it doesn't protect against underfitting. It doesn't guarantee that the model we found is the best one possible. There might be other models out there that would capture the signal even better and result in a lower testing error. We have no way to know. Unless we try them all.
 	</p>
 
 	<h4>Reason to try only <em>some</em> of the models: <strong>Not enough time</strong></h4>
 	<p>
-	  However, we have to balance this with the fact that there is literally an infinity of models to choose from. There's no way to try them all. It's not even practical to try all the common ones.
+	  Trying all the models is a fine goal, but we have to balance it with the fact that there is literally an infinity of models to choose from. There's no way to try them all. It's not even practical to try all the common ones.
 	  Running them all, in all their published manifestations, is likely to take so long that we no longer care about the answer, and that's not even considering the time it would take to get them all running in the same code base.
 	  We're going to have to make some tough decisions.
 	</p>
@@ -175,7 +175,7 @@
 	</p>
 
 	<p>
-	  And it gets worse. In practice we are constrained even further by the paucity of our data.
+	  And it gets worse. In practice we are constrained even further by how little data we have.
 	  We are often forced to rely on assumption-laden domain models simply because it is prohibitively expensive or entirely impossible to gather additional data.
 	  And so, we forge ahead with as much grace as we can muster, staying aware of the limitations we have knowingly self-imposed, keeping in mind that our analysis is only as strong as our poorest assumption, and staying vigilant for hints that one of them is irredeemably wrong.
 	</p>
@@ -209,9 +209,8 @@
 	</p>
 
 	<p>
-	  <em>Anti-tip</em>: if you want to be a statistics asshole, point out to everyone that their entire analysis is invalid because of unmet assumptions.
+	  <em>Anti-tip</em>: if you want to be a statistics asshole, tell everyone that their entire analysis is invalidated by their assumptions.
 	</p>
-
 
 	<h4>Other useful assumptions: Parameter distributions</h4>
 
@@ -260,7 +259,7 @@
 	  However if the assumption is unjustified, making it will hurt you more than it helps you, no matter how much you like the results.
 	</p>
 
-	<h4> The three A’s of modeling </h4>
+	<h4> The three A’s of modeling: Assumptions, assumptions, assumptions</h4>
 	<p>
 	  So, returning to the question at hand, which model candidates should you try?
 	  The answer, as always, is entirely dependent on what you are trying to do. 
