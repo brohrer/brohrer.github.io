@@ -68,35 +68,55 @@
         </p>
 
         <p>
-          There’s no reason we have to limit ourselves to just one input variable; we can add an additional one. Now we have an X_0, X_1 and an X_2. We draw an edge between X_2 and our summation with the weight W_20.  x_2 times W_20 is again u_20 and all of our u's get added together to make a V_0.
+          There’s no reason we have to limit ourselves to just one input variable; we can add an additional one. Now we have an <em>x_0</em>, <em>x_1</em> and an <em>x_2</em>. We draw an edge between <em>x_2</em> and our summation with the weight <em>w_20</em>.  <em>x_2</em> times <em>w_20</em> is again <em>u_20</em> and all of our <em>u</em>'s get added together to make a <em>v_0</em>.
         </p>
 
+         linear, 2 in, 1 out, 1 layer diagram image
+        
         <p>
-          And we could add more inputs. As many as we want. This is still a linear equation, but Instead of being two dimensional, we can make it three dimensional or higher. Writing this out mathematically could get very tedious, so we will use a shortcut. Will substitute the subscript I for the number of the input. That allows us to write u_i0, where our u_i0 equals X_I times W_i0 and then again our output V_0 is just the summation, over all values of I, for u_i0.
+          And we could add more inputs. As many as we want. This is still a linear equation, but instead of being two dimensional, we can make it three dimensional or higher. Writing this out mathematically could get very tedious, so we will use a shortcut. We'll substitute the subscript <em>i<\em> for the index of the input--the number of the input we are talking about. That allows us to write <em>u_i0<\em>, where our <em>u_i0<\em> equals <em>x_i<\em> times <em>w_i0<\em>, and again our output <em>V_0<\em> is just the summation, over all values of <em>i<\em>, of <em>u_i0<\em>.
         </p>
+          
+        network equations with i subscripts
 
         <p>
-          For this three dimensional case, we can again look at the models that emerge when we randomly choose our W_i0’s, our weights. As we would expect we still get the three dimensional equivalent of a line, a plane. And if we were to extend this to more inputs, we would get the m-dimensional equivalent of a line, which is called an m-dimensional hyperplane.
+          For this three dimensional case, we can again look at the models that emerge when we randomly choose our <em>w_i0<\em>’s, our weights. As we would expect we still get the three dimensional equivalent of a line, a plane. And if we were to extend this to more inputs, we would get the m-dimensional equivalent of a line, which is called an m-dimensional hyperplane.
         </p>
 
+        examples of linear 2 in, 1 out, 1 layer functions gif
+          
         <p>
-          So far so good. Now we can start to get fancier. Our input, X_1, looks a lot like our output, V0. In fact, there is nothing to prevent us from taking our output and then using it as an input to another network like this one. Now we have two separate identical layers. We can add a subscript Roman numeral 1 and a subscript Roman numeral II to our equations depending on which layer we are referring to. And we just have to remember that our x_1 in layer two is the same as our v_0 in layer one. 
+          So far so good. Now we can start to get fancier. Our input, <em>x_1<\em>, looks a lot like our output, <em>v_0<\em>. In fact, there is nothing to prevent us from taking our output and then using it as an input to another network like this one.
         </p>
+        
+        linear 1 in, 1 hidden, 1 out, 2 layer network diagram
+          
+        <p>
+          Now we have two separate identical layers. We can add a subscript Roman numeral <em>I<\em> and a subscript Roman numeral <em>II<\em> to our equations depending on which layer we are referring to. And we just have to remember that our <em>x_1<\em> in layer two is the same as our <em>v_0<\em> in layer one. 
+        </p>
+          
+        network equations with I subscripts
 
         <p>
           Because these equations are identical, and each of our layers work just the same, we can reduce this to one set of equations, adding a subscript capital L to represent which layer we’re talking about. As we continue here, we will be assuming that all the layers are identical, and to keep the equations cleaner, will leave out the L. But just keep in mind that if we are going to be completely correct and verbose, we would add the L subscript onto the end of everything to specify the layer it belongs to.
         </p>
 
-        <p>
-          Now that we have two layers, there is no reason that we can’t connect them in more than one place. Instead of our first layer just generating one output, we can make several outputs. In our diagram, we will add a second output, V_1. And we will connect this to a third input into our second layer, X_2. Keep in mind that the X_0 input to every layer will always be equal to one. That bias node shows up again in every layer.
-        </p>
+        network equations with L subscripts
 
         <p>
-          Now there are two nodes shared by both layers. We can modify our equations accordingly, to specify which of the shared nodes we are talking about. They behave exactly the same, so we can be efficient and reuse our equation, but we can specify subscript J to indicate which output we are talking about. So now if I am connecting the ith input to the Jth output that I and J will determine which weight is applied and which u's get added together to create the output v_j.
+          Now that we have two layers, there is no reason that we can’t connect them in more than one place. Instead of our first layer just generating one output, we can make several outputs. In our diagram, we will add a second output, <em>v_1</em>. And we will connect this to a third input into our second layer, <em>x_2</em>. Keep in mind that the <em>x_0</em> input to every layer will always be equal to one. That bias node shows up again in every layer.
         </p>
 
+          linear 1 in, 2 hidden, 1 out, 2 layer network diagram
+          
+       <p>
+          Now there are two nodes shared by both layers. We can modify our equations accordingly, to specify which of the shared nodes we are talking about. They behave exactly the same, so we can be efficient and reuse our equation, but we can specify subscript <em>j</em> to indicate which output we are talking about. So now if I am connecting the <em>i</em>th input to the <em>j</em>th output that <em>i</em> and <em>j</em> will determine which weight is applied and which <em>u</em>'s get added together to create the output <em>v_j</em>.
+        </p>
+
+         network equations with j subscripts
+
         <p>
-          And we can do this as many times as we want. We can add as many of these shared nodes as we care to. The model as a whole only knows about the input X1 into the first layer and the output v_0 of the last layer. From the point of view of someone sitting outside the model, the shared nodes between layer one layer two are hidden. They are inside the black box. Because of this, they are called hidden nodes.
+          And we can do this as many times as we want. We can add as many of these shared nodes as we care to. The model as a whole only knows about the input <em>x_1</em> into the first layer and the output <em>v_0</em> of the last layer. From the point of view of someone sitting outside the model, the shared nodes between layer one layer two are hidden. They are inside the black box. Because of this, they are called hidden nodes.
         </p>
 
         <p>
