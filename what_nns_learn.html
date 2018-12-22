@@ -125,6 +125,7 @@
 
         linear, 2 layer, one inp, one out, results gif
           
+        <h3>Logistic regression</h3>
         <p>
           In order to get more sophisticated models, we are going to need to add some nonlinearity. We will modify our linear equation here. After we calculate our output <em>v_0</em>, we subject it to another function <em>f()</em>, which is not linear, and we'll call the result <em>y_0</em>.
         </p>
@@ -169,6 +170,7 @@
         
         logistic function, 2 in, 1 out, 1 layer results gif
         
+        <h3>Perceptrons</h3>
         <p>
           Another popular non-linear function is the hyperbolic tangent. It is closely related to the logistic function, and can be written in a very symmetric way.
         </p>
@@ -221,6 +223,7 @@
 
         MLP network diagram
 
+        <h3>Fully-connected neural networks</h3>
         <p>
           This representation is helpful because it makes every single operation explicit. However, it’s visually cluttered and difficult to work with. Because of this, it's most often simplified to look like circles connected by lines. This implies all of the operations that we saw in the previous diagram. Connecting lines each have a weight associated with them. Hidden nodes and output nodes perform summation and nonlinear squashing. But in this diagram all of that is implied.
         </p>
@@ -266,7 +269,7 @@
         </p>
 
         <p>
-          Also, notice that these functions all tend to be smooth. They have hills and dips and valleys and wiggles even points and wells, but all of it happens relatively smoothly. If we hope to fit a function with many jagged jumps and drops, this neural network might not be able to do a very good job of it.
+          Also, notice that these functions all tend to be smooth. They have hills and dips and valleys and wiggles even points and wells, but all of it happens relatively smoothly. If we hope to fit a function with many jagged jumps and drops, this neural netwohttps://brohrer.github.io/imposter_syndrome.htmlrk might not be able to do a very good job of it.
         </p>
 
         <p>
@@ -310,7 +313,7 @@
         tanh function, 1 in, 3 out, 3 layer classifier example 
 
         <p>
-          Using this trick, we are no longer limited to two categories. We can create as many output nodes as we want, and learn and chop up the input space into that many categories.
+          Using this trick, we are no longer limited to two categories. We can create as many output nodes as we want, and learn and chop up the input space into that many categories. It's worth pointing out that the winning category may not be the best by very much. In some cases they are very close. One category will be declared the winner, but the next-runner up may be almost as good a fit.
         </p>
 
         tanh function, 2 in, 1 out, 3 layer results gif
@@ -331,9 +334,31 @@
           The one limitation we can see looking at it this way is that the boundaries are all smoothly curved. Sometimes those curves are quite sharp, but usually they are gentle and rounded. This shows the natural preference that neural networks with hyperbolic tangent activation functions has for smooth functions and smooth boundaries.
         </p>
 
+        <h3>Takeaways</h3>
         <p>
           The goal of this exploration was to get an intuitive sense for what types of functions and category boundaries neural networks can learn when used for regression or classification. We have seen both their power, and their distinct preference for smoothness. We have only looked at two nonlinear activation functions, logistic and hyperbolic tangent, both of which are very closely related. There are lots of others, and some of them do a bit better at capturing sharp nonlinearities. Rectified linear units (ReLU's), for instance, produce surfaces and boundaries that are quite a bit sharper. But my hope was to seed your intuition with some examples of what’s actually going on under the hood when you train your neural network.
         </p>
+        
+        <p>
+          Here are the most important things to walk away with:
+        </p>
+        <ul>
+          <li>
+            &#8226 Neural networks learn functions, and can be used for regression. Some activation functions limit the output range, but as long as that matches the expected range of your outputs it's not a problem. 
+          </li>
+          <li>
+            &#8226 Neural networks are most often used for 
+          </li>
+          <li>
+            &#8226 Neural networks tend to create smooth functions when used for regression, and smooth category boundaries when used for classification.
+          </li>
+          <li>
+            &#8226 For most 
+          </li>
+          <li>
+            &#8226
+          </li>
+        </ul>
 
         <p>
           I hope this helps as you jump into your next project. Happy building!
