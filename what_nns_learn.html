@@ -17,6 +17,27 @@
     <div id="main_content_wrap" class="outer">
       <section id="main_content" class="inner">
         <p>
+          Punchline first--Here are the most important things to walk away with:
+        </p>
+        <ul>
+          <li>
+            &#8226 Neural networks learn functions and can be used for regression. Some activation functions limit the output range, but as long as that matches the expected range of your outputs it's not a problem. 
+          </li>
+          <li>
+            &#8226 Neural networks are most often used for classifiation. They've proven themselves to be good at it.
+          </li>
+          <li>
+            &#8226 Neural networks tend to create smooth functions when used for regression and smooth category boundaries when used for classification.
+          </li>
+          <li>
+            &#8226 For fully connected (vanilla) networks, a two-layer network can learn any function a deep (many-layered) network can learn, <em>however</em> a deep network might be able to learn it with fewer nodes.
+          </li>
+          <li>
+            &#8226 Making sure that inputs are normalized (have a mean of near zero and a standard deviation of less than one) helps neural networks to be more sensitive to their relationships.
+          </li>
+        </ul>
+
+        <p>
           Neural networks are famously difficult to interpret. It’s hard to know what they are actually learning when we train them. Let’s take a closer look and see if we can build a good picture of what’s going on inside.
         </p>
 
@@ -29,7 +50,7 @@
           Linear regression assumes a straight line relationship between an input variable <em>x</em> and an output variable <em>y</em>. <em>x</em> is multiplied by a constant, <em>m</em>, which also happens to be the slope of the line, and it’s added to another constant, <em>b</em>, which happens to be where the line crosses the <em>y</em> axis.
         </p>
         
-        y = mx + b equation image
+        <img src="images/what_nns_learn/eqn_100.png" style="width: 100px;" />
 
         <p>
           We can represent this in a picture. Our input value <em>x</em> is multiplied by <em>m</em>. Our constant <em>b</em>, is multiplied by one. And then they are added together to get <em>y</em>. This is a graphical representation of <em>y</em> equals <em>mx</em> plus <em>b</em>.
@@ -347,16 +368,16 @@
             &#8226 Neural networks learn functions, and can be used for regression. Some activation functions limit the output range, but as long as that matches the expected range of your outputs it's not a problem. 
           </li>
           <li>
-            &#8226 Neural networks are most often used for 
+            &#8226 Neural networks are most often used for classifiation. They've proven good at it.
           </li>
           <li>
             &#8226 Neural networks tend to create smooth functions when used for regression, and smooth category boundaries when used for classification.
           </li>
           <li>
-            &#8226 For most 
+            &#8226 For fully connected (vanilla) networks, a two-layer network can learn any function a deep (many-layered) network can learn, <em>however</em> a deep network might be able to learn it with fewer nodes.
           </li>
           <li>
-            &#8226
+            &#8226 Making sure that inputs are normalized (have a mean of near zero and a standard deviation of less than one) helps neural networks to be more sensitive to their relationships.
           </li>
         </ul>
 
