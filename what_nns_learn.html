@@ -50,7 +50,7 @@
           We can change the names of all the symbols for a different representation. 
         </p>
 
-        <img src="images/what_nns_learn/eqn_110.png" style="width: 150px;" />
+        <img src="images/what_nns_learn/eqn_110.png" style="width: 200px;" />
 
         <img src="images/what_nns_learn/drawing_110.png" style="width: 350px;" />
         
@@ -66,7 +66,7 @@
           We can get a sense of the type of models that this network is capable of learning by choosing random values for the weights, <em>w_00</em> and <em>w_10</em>, then seeing what relationships pop out between <em>x_1</em> and <em>v_0</em>. Remember that we set <em>x_0</em> to 1 and are holding it there always. It is a special node called the bias node.
         </p>
 
-        <img src="videos/what_nns_learn/linear_1-layer_1-input_1-output_plots.gif" style="width: 450px;" />
+        <img src="videos/what_nns_learn/linear_1-layer_1-input_1-output_plots.gif" style="width: 550px;" />
         
         <p>
           It should come as no surprise that the relationships that come out of this linear model are all straight lines. After all, we’ve taken our equation for the line and rearranged it, but we haven’t changed it in any substantial way.
@@ -77,23 +77,27 @@
         </p>
 
          linear, 2 in, 1 out, 1 layer diagram image
-        
+        <img src="images/what_nns_learn/drawing_120.png" style="width: 350px;" />
+                
         <p>
           And we could add more inputs. As many as we want. This is still a linear equation, but instead of being two dimensional, we can make it three dimensional or higher. Writing this out mathematically could get very tedious, so we will use a shortcut. We'll substitute the subscript <em>i</em> for the index of the input--the number of the input we are talking about. That allows us to write <em>u_i0</em>, where our <em>u_i0</em> equals <em>x_i</em> times <em>w_i0</em>, and again our output <em>V_0</em> is just the summation, over all values of <em>i</em>, of <em>u_i0</em>.
         </p>
           
         network equations with i subscripts
+        <img src="images/what_nns_learn/eqn_120.png" style="width: 200px;" />
 
         <p>
           For this three dimensional case, we can again look at the models that emerge when we randomly choose our <em>w_i0</em>’s, our weights. As we would expect we still get the three dimensional equivalent of a line, a plane. And if we were to extend this to more inputs, we would get the m-dimensional equivalent of a line, which is called an m-dimensional hyperplane.
         </p>
 
+        <img src="videos/what_nns_learn/linear_1-layer_2-input_1-output_plots.gif" style="width: 550px;" />
         examples of linear 2 in, 1 out, 1 layer functions gif
           
         <p>
           So far so good. Now we can start to get fancier. Our input, <em>x_1</em>, looks a lot like our output, <em>v_0</em>. In fact, there is nothing to prevent us from taking our output and then using it as an input to another network like this one.
         </p>
         
+        <img src="images/what_nns_learn/drawing_130.png" style="width: 350px;" />
         linear 1 in, 1 hidden, 1 out, 2 layer network diagram
           
         <p>
@@ -101,24 +105,28 @@
         </p>
           
         network equations with I subscripts
+        <img src="images/what_nns_learn/eqn_130.png" style="width: 200px;" />
 
         <p>
           Because these equations are identical, and each of our layers work just the same, we can reduce this to one set of equations, adding a subscript capital L to represent which layer we’re talking about. As we continue here, we will be assuming that all the layers are identical, and to keep the equations cleaner, will leave out the L. But just keep in mind that if we are going to be completely correct and verbose, we would add the L subscript onto the end of everything to specify the layer it belongs to.
         </p>
 
         network equations with L subscripts
+        <img src="images/what_nns_learn/eqn_140.png" style="width: 200px;" />
 
         <p>
           Now that we have two layers, there is no reason that we can’t connect them in more than one place. Instead of our first layer just generating one output, we can make several outputs. In our diagram, we will add a second output, <em>v_1</em>. And we will connect this to a third input into our second layer, <em>x_2</em>. Keep in mind that the <em>x_0</em> input to every layer will always be equal to one. That bias node shows up again in every layer.
         </p>
 
           linear 1 in, 2 hidden, 1 out, 2 layer network diagram
+        <img src="images/what_nns_learn/drawing_140.png" style="width: 350px;" />
           
-       <p>
+        <p>
           Now there are two nodes shared by both layers. We can modify our equations accordingly, to specify which of the shared nodes we are talking about. They behave exactly the same, so we can be efficient and reuse our equation, but we can specify subscript <em>j</em> to indicate which output we are talking about. So now if I am connecting the <em>i</em>th input to the <em>j</em>th output that <em>i</em> and <em>j</em> will determine which weight is applied and which <em>u</em>'s get added together to create the output <em>v_j</em>.
         </p>
 
          network equations with j subscripts
+        <img src="images/what_nns_learn/eqn_150.png" style="width: 200px;" />
 
         <p>
           And we can do this as many times as we want. We can add as many of these shared nodes as we care to. The model as a whole only knows about the input <em>x_1</em> into the first layer and the output <em>v_0</em> of the last layer. From the point of view of someone sitting outside the model, the shared nodes between layer one layer two are hidden. They are inside the black box. Because of this, they are called hidden nodes.
@@ -129,25 +137,29 @@
         </p>
 
         linear, 2 layer, one inp, one out, results gif
-          
+        <img src="videos/what_nns_learn/linear_2-layer_1-input_1-output_plots.gif" style="width: 550px;" />
+       
         <h3>Logistic regression</h3>
         <p>
           In order to get more sophisticated models, we are going to need to add some nonlinearity. We will modify our linear equation here. After we calculate our output <em>v_0</em>, we subject it to another function <em>f()</em>, which is not linear, and we'll call the result <em>y_0</em>.
         </p>
 
         nonlinear 1 layer, 1 in, 1 out network diagram
+        <img src="images/what_nns_learn/drawing_150.png" style="width: 350px;" />
           
         <p>
           One really common non-linear function to add here is the logistic function. It is <em>S</em> shaped, so sometimes it is called a sigmoid function too, although that can be confusing, because technically any function shaped like an <em>S</em> is a sigmoid.
         </p>
         
-          nonlinear network equations, logistic function
+        nonlinear network equations, logistic function
+        <img src="images/what_nns_learn/eqn_160.png" style="width: 200px;" />
           
         <p>
           We can get a sense what logistic functions look like by choosing random weights for this one input-one output-one layer network and meeting the family.
         </p>
 
         logistic function, 1 layer, 1 in, 1 out results gif
+        <img src="videos/what_nns_learn/logistic_1-layer_1-input_1-output_plots.gif" style="width: 550px;" />
           
         <p>
           One notable characteristic is that logistic functions are always between zero and one. For this reason, they are also called squashing functions. You can imagine taking a straight line and then squashing the edges and bending them down so that the whole thing fits between zero and one no matter how far out you go.
@@ -162,18 +174,21 @@
         </p>
         
         logistic regression image
+        <img src="images/what_nns_learn/drawing_160.png" style="width: 350px;" />
 
         <p>
           As with linear functions, there’s no reason not to add more inputs. We know that logistic regression can work with many input variables, and we can represent that in our graph as well. Here we just add one, in order to keep the plot three dimensional, but we could add as many as we want.
         </p>
         
         logistic function, 2 in 1 out, 1 layer network diagram
+        <img src="images/what_nns_learn/drawing_170.png" style="width: 350px;" />
 
         <p>
           To see what type of functions are created we can choose a bunch of random values for the weights. As you might have expected, the functions we create are still <em>S</em> shaped, but now three dimensional. They look like a tablecloth laid across two tables of unequal height. Most importantly, If you look at the contour lines projected down onto the floor of the plot, you can see that they are all perfectly straight. The result of this is that any threshold we choose for doing classification will split our input space up into two halves, with the divider being a straight line. This is why logistic regression is described as a linear classifier. Whatever the number of inputs you have, whatever dimensional space you are working in, logistic regression will always split it into two halves using a line or a plane or hyperplane of the appropriate dimensions.
         </p>
         
         logistic function, 2 in, 1 out, 1 layer results gif
+        <img src="videos/what_nns_learn/logistic_1-layer_2-input_1-output_plots.gif" style="width: 550px;" />
         
         <h3>Perceptrons</h3>
         <p>
@@ -181,36 +196,42 @@
         </p>
         
         network equations with tanh
-
+        <img src="images/what_nns_learn/eqn_170.png" style="width: 200px;" />
+        
         <p>
           We can see, when we choose some random weights and look at examples, that hyperbolic tangent curves look just like logistic curves, except that they vary between minus one and plus one.
         </p>
 
         tanh function, 2 in, 1 out, 1 layer results gif
+        <img src="videos/what_nns_learn/hyperbolic_tangent_1-layer_2-input_1-output_plots.gif" style="width: 550px;" />
         
         <p>
           Just like we tried to do before with linear functions, we can use the output of one layer as the input to another layer. We can stack them in this way and we can even add hidden nodes the same way we did before. Here we just show two hidden nodes, in order to keep the diagram simple, but we can add as many as we want.
         </p>
 
         tanh, 1 in, 2 hidden, 1 out, 2 layer network diagram
+        <img src="images/what_nns_learn/drawing_180.png" style="width: 350px;" />
         
         <p>
           When we choose random weights for this network and look at the output, we find that things get interesting. We have left the realm of the linear. Because hyperbolic tangents are non-linear, when we add them together we get something that doesn’t necessarily look anything like a hyperbolic tangent. We get curves, wiggles, peaks, valleys, a much wider variety of behavior then we saw with single layer networks.
         </p>
 
         tanh function, 1 in, 1 out, 2 layer results gif
+        <img src="videos/what_nns_learn/hyperbolic_tangent_2-layer_1-input_1-output_plots.gif" style="width: 550px;" />
         
         <p>
           We can take the next step, and add another layer to our network. Now we have a set of hidden nodes between layer one in layer two and another set of hidden nodes between layer two and layer three.
         </p>
 
         tanh, 1 in, 2 hidden, 2 hidden, 1 out, 3 layer network diagram
+        <img src="images/what_nns_learn/drawing_190.png" style="width: 350px;" />
         
         <p>
           Again we choose random values for all the weights and look at the types of curves it can produce. Again, we see wiggles, peaks, valleys, and a broad selection of shapes. If it is hard to tell the difference between these curves and the curves generated by a two layer network, that is because they are mathematically identical. We won’t try to prove it here, but there is a cool result that shows that any curve you can create using a many layered network, you can also create using a two layered network, as long as you have enough hidden nodes. The advantage of having a many layered network is that it can help you create more complex curves using fewer total nodes.
         </p>
 
-        tanh function, 1 in, 1 out, 2 layer results gif
+        tanh function, 1 in, 1 out, 3 layer results gif
+        <img src="videos/what_nns_learn/hyperbolic_tangent_3-layer_1-input_1-output_plots.gif" style="width: 550px;" />
         
         <p>
           For instance, in our two layer network we used a hundred hidden nodes. In our three layer network we used 11 hidden nodes in the first layer and nine hidden nodes in the second layer. That’s only a fifth of the total number we used in the two layer network, but the curves it produces show similar richness.
@@ -221,12 +242,14 @@
         </p>
           
         MLP perceptron illustration image        
+        <img src="images/what_nns_learn/drawing_200.png" style="width: 350px;" />
         
         <p>
           What distinguishes these nonlinear classifiers from linear ones is that they don’t just split the space into two halves. In this example, regions of A and B are interleaved. Building a classifier around a multi-layer nonlinear network gives it a lot more flexibility. It can learn more complex relations. This particular combination of multi-layer network with hyperbolic tangent non-linear function has its own name, a multi-layer perceptron. As you can guess, when you only have one layer, it's just called a perceptron. In that case, you don't even need to add the non-linear function to make it work. The function will still cross the x axis at all the same places. Here is the full network diagram of a multi-layer perceptron. 
         </p>
 
         MLP network diagram
+        <img src="images/what_nns_learn/drawing_190.png" style="width: 350px;" />
 
         <h3>Fully-connected neural networks</h3>
         <p>
@@ -234,36 +257,42 @@
         </p>
         
         Simplified MLP network diagram with bias
+        <img src="images/what_nns_learn/drawing_220.png" style="width: 350px;" />
 
         <p>
           In fact, our bias nodes, the nodes that always have a value of one in each layer, are also left out most of the time. So our original network reduces to this. The bias nodes are still present, and their operation hasn’t changed at all, but they are omitted for visual clarity.
         </p>
 
         Simplified MLP network diagram without bias
+        <img src="images/what_nns_learn/drawing_230.png" style="width: 350px;" />
 
         <p>
           We only show two hidden nodes from each layer here, but in practice we used quite a few more. Again, to make the diagram as clean as possible, we often don’t show all the hidden nodes, we just show a few, and the rest are implied. 
         </p>
 
         Simplified MLP network diagram without bias, no layer boxes
+        <img src="images/what_nns_learn/drawing_240.png" style="width: 350px;" />
 
         <p>
           Here is a generic diagram then for a three layer single input, single output network. Notice that if we specify the number of inputs, the number of outputs, the number of layers, and the number of hidden nodes in each layer, we can fully define our neural network.
         </p>
 
         1 input 1 output neural network diagram
+        <img src="images/what_nns_learn/drawing_250.png" style="width: 350px;" />
 
         <p>
           We can also take a look at a two input single output neural network.
         </p>
           
         2 input 1 output neural network diagram
+        <img src="images/what_nns_learn/drawing_260.png" style="width: 350px;" />
 
         <p>          
           Because it has two inputs, it’s outputs will be a three dimensional curve. We can once again choose random weights and generate curves to see what types of functions this neural network might be able to represent.
         </p>
 
         tanh function, 2 in, 1 out, 3 layer results gif
+        <img src="videos/what_nns_learn/hyperbolic_tangent_3-layer_2-input_1-output_plots.gif" style="width: 550px;" />
         
         <p>
           This is where it really gets fun. With multiple inputs, multiple layers, and nonlinear activation functions, neural networks can make really crazy shapes. It’s almost correct to say that they could make any shape you want. It’s worth taking a moment to notice what its limitations are.
@@ -286,42 +315,49 @@
         </p>
           
         1 input 2 output neural network diagram
+        <img src="images/what_nns_learn/drawing_270.png" style="width: 350px;" />
 
         <p>
           Outputs of a three layer one input, two output neural network look like this. We can see that in many cases the two curves cross and in some instances take they cross in several places.
         </p>
 
         tanh function, 1 in, 2 out, 3 layer results gif
+        <img src="videos/what_nns_learn/hyperbolic_tangent_3-layer_1-input_2-output_plots.gif" style="width: 550px;" />
         
         <p>
           We can use this to make a classifier. Wherever the one output is greater than another, it can signify that one category dominates another. Graphically, wherever the two output functions cross, we can draw vertical line. This chops up the input space into regions. In each region one output is greater than the other. For instance, wherever the blue line is greater, we can assign that to be category A.  Then, wherever the peach colored line is greater, those regions are category B. Just like a multilayer perceptron, this lets us chop the space up in more complex ways than a linear classifier could. Regions of category A and category B can be shuffled together arbitrarily.
         </p>
 
         tanh function, 1 in, 2 out, 3 layer classifier example
+        <img src="images/what_nns_learn/drawing_280.png" style="width: 350px;" />
         
         <p>
           When you only have two outputs, the advantages of doing it this way over a multilayer perceptron with just one output are not at all clear. However, if you move to three or more outputs, the story changes.
         </p>
 
         1 input 3 output neural network diagram
+        <img src="images/what_nns_learn/drawing_285.png" style="width: 350px;" />
 
         <p>
           Now, we have three separate output functions. 
         <p>
 
-          tanh function, 1 in, 3 out, 3 layer results gif
+        tanh function, 1 in, 3 out, 3 layer results gif
+        <img src="videos/what_nns_learn/hyperbolic_tangent_3-layer_1-input_3-output_plots.gif" style="width: 550px;" />
           
         <p>
           We can use our same criterion of letting the function with the maximum value determine the category. We start by chopping up the input space according to which function has the highest value. Each function represents one of our categories. We’re going to assign our first function to be category A, and label every region where it is greatest as category A. Then we can do the same with our second function and our third.
         </p>
 
         tanh function, 1 in, 3 out, 3 layer classifier example 
+        <img src="images/what_nns_learn/drawing_290.png" style="width: 350px;" />
 
         <p>
           Using this trick, we are no longer limited to two categories. We can create as many output nodes as we want, and learn and chop up the input space into that many categories. It's worth pointing out that the winning category may not be the best by very much. In some cases they are very close. One category will be declared the winner, but the next-runner up may be almost as good a fit.
         </p>
 
         tanh function, 2 in, 1 out, 3 layer results gif
+        <img src="videos/what_nns_learn/hyperbolic_tangent_3-layer_2-input_1-output_plots.gif" style="width: 550px;" />
         
         <p>
           There is no reason that we can’t extend this approach to two or more inputs. Unfortunately it does get harder to visualize. You have to imagine several of these lumpy landscape plots on top of each other. In some regions, one will be greater than the others. In that region, that category associated with that output will be dominant.
