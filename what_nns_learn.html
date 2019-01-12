@@ -17,11 +17,11 @@
     <div id="main_content_wrap" class="outer">
       <section id="main_content" class="inner">
         <p>
-          Neural networks are famously difficult to interpret. It’s hard to know what they are actually learning when we train them. Let’s take a closer look and see if we can build a good picture of what’s going on inside.
+          Neural networks are famously difficult to interpret. It’s hard to know what they are actually learning when we train them. Let’s take a closer look and see whether we can build a good picture of what’s going on inside.
         </p>
 
         <p>
-          Just like every other supervised machine learning model, neural networks learn relationships between input variables and output variables. In fact, we can even see how it’s related to the most iconic model of all, linear regression
+          Just like every other supervised machine learning model, neural networks learn relationships between input variables and output variables. In fact, we can even see how it’s related to the most iconic model of all, linear regression.
         </p>
 
         <h3>Linear regression</h3>
@@ -54,7 +54,7 @@
         </p>
 
         <p>
-          At this point, we have turned a straight line equation into a network. A network is anything that has nodes connected by edges. In this case <em>x_0</em> and <em>x_1</em> are our input nodes <em>v_0</em> is an output node and our weights connecting them are edges.  The mathematical term for a construct like this is a graph. This is not the traditional sense of a graph, meaning a plot, or a grid like in a graphing calculator or graph paper. It’s just the formal word for a network, for nodes connected by edges. Some other pieces of terminology you might hear are directed acyclic graphs, abbreviated as DAG. A directed graph is one where the edges just go in one direction. In our case, input goes to output, but output never goes back to input. Our edges are directed. Acyclic means that you can’t ever draw a loop. Once you have visited in node, there is no way to jump from edges to nodes to get back to that node to where you started. Everything flows in one direction through the graph.
+          At this point, we have turned a straight line equation into a network. A network is anything that has nodes connected by edges. In this case <em>x_0</em> and <em>x_1</em> are our input nodes, <em>v_0</em> is an output node, and our weights connecting them are edges.  The mathematical term for a construct like this is a graph. This is not the traditional sense of a graph, meaning a plot, or a grid like in a graphing calculator or graph paper. It’s just the formal word for a network, for nodes connected by edges. Another piece of terminology you might hear is <em>directed acyclic graph</em>, abbreviated as DAG. A directed graph is one where the edges just go in one direction. In our case, input goes to output, but output never goes back to input. Our edges are directed. Acyclic means that you can’t ever draw a loop. Once you have visited a node, there is no way to jump from edges to nodes to get back to where you started. Everything flows in one direction through the graph.
         </p>
 
         <p>
@@ -68,19 +68,19 @@
         </p>
 
         <p>
-          There’s no reason we have to limit ourselves to just one input variable; we can add an additional one. Now we have an <em>x_0</em>, <em>x_1</em> and an <em>x_2</em>. We draw an edge between <em>x_2</em> and our summation with the weight <em>w_20</em>.  <em>x_2</em> times <em>w_20</em> is again <em>u_20</em> and all of our <em>u</em>'s get added together to make a <em>v_0</em>.
+          There’s no reason we have to limit ourselves to just one input variable; we can add an additional one. Now we have an <em>x_0</em>, an <em>x_1</em>, and an <em>x_2</em>. We draw an edge between <em>x_2</em> and our summation with the weight <em>w_20</em>.  <em>x_2</em> times <em>w_20</em> is again <em>u_20</em> and all of our <em>u</em>'s get added together to make a <em>v_0</em>.
         </p>
 
         <img src="images/what_nns_learn/drawing_120.png" style="width: 350px;" />
                 
         <p>
-          And we could add more inputs. As many as we want. This is still a linear equation, but instead of being two dimensional, we can make it three dimensional or higher. Writing this out mathematically could get very tedious, so we will use a shortcut. We'll substitute the subscript <em>i</em> for the index of the input--the number of the input we are talking about. That allows us to write <em>u_i0</em>, where our <em>u_i0</em> equals <em>x_i</em> times <em>w_i0</em>, and again our output <em>V_0</em> is just the summation, over all values of <em>i</em>, of <em>u_i0</em>.
+          And we could add more inputs. As many as we want. This is still a linear equation, but instead of being two dimensional, we can make it three dimensional or higher. Writing this out mathematically could get very tedious, so we will use a shortcut. We'll substitute the subscript <em>i</em> for the index of the input; it's the number of the input we are talking about. That allows us to write <em>u_i0</em>, where our <em>u_i0</em> equals <em>x_i</em> times <em>w_i0</em>, and again our output <em>V_0</em> is just the summation, over all values of <em>i</em>, of <em>u_i0</em>.
         </p>
           
         <img src="images/what_nns_learn/eqn_120.png" style="width: 200px;" />
 
         <p>
-          For this three dimensional case, we can again look at the models that emerge when we randomly choose our <em>w_i0</em>’s, our weights. As we would expect we still get the three dimensional equivalent of a line, a plane. And if we were to extend this to more inputs, we would get the m-dimensional equivalent of a line, which is called an m-dimensional hyperplane.
+          For this three dimensional case, we can again look at the models that emerge when we randomly choose our <em>w_i0</em>’s, our weights. As we would expect, we still get the three dimensional equivalent of a line, a plane. And if we were to extend this to more inputs, we would get the m-dimensional equivalent of a line, which is called an m-dimensional hyperplane.
         </p>
 
         <img src="videos/what_nns_learn/linear_1-layer_2-input_1-output_plots.gif" style="width: 550px;" />
@@ -120,14 +120,14 @@
         </p>
 
         <p>
-          We can take this two layer linear network, and create 100 hidden nodes, and set all of the weights randomly, and see what model is it produces. Even after adding all of this structure, the resulting models are still straight lines. In fact, it doesn’t matter how many layers you have and how many hidden nodes each layer has, any combination of these linear elements with weights and sums will always produce a straight line result. This is actually one of the traits of linear computation that makes it so easy to work with. Unfortunately for us, it also makes for a really boring models. Sometimes a straight line is good enough, but that’s not why we go to neural networks. We’re going to want something a lot more sophisticated.
+          We can take this two layer linear network, create 100 hidden nodes, set all of the weights randomly, and see what model is it produces. Even after adding all of this structure, the resulting models are still straight lines. In fact, it doesn’t matter how many layers you have and how many hidden nodes each layer has, any combination of these linear elements with weights and sums will always produce a straight line result. This is actually one of the traits of linear computation that makes it so easy to work with. Unfortunately for us, it also makes really boring models. Sometimes a straight line is good enough, but that’s not why we go to neural networks. We’re going to want something more sophisticated.
         </p>
 
         <img src="videos/what_nns_learn/linear_2-layer_1-input_1-output_plots.gif" style="width: 550px;" />
        
         <h3>Logistic regression</h3>
         <p>
-          In order to get more sophisticated models, we are going to need to add some nonlinearity. We will modify our linear equation here. After we calculate our output <em>v_0</em>, we subject it to another function <em>f()</em>, which is not linear, and we'll call the result <em>y_0</em>.
+          In order to get more flexible models, we are going to need to add some nonlinearity. We will modify our linear equation here. After we calculate our output <em>v_0</em>, we subject it to another function <em>f()</em>, which is not linear, and we'll call the result <em>y_0</em>.
         </p>
 
         <img src="images/what_nns_learn/drawing_150.png" style="width: 350px;" />
@@ -139,13 +139,13 @@
         <img src="images/what_nns_learn/eqn_160.png" style="width: 200px;" />
           
         <p>
-          We can get a sense what logistic functions look like by choosing random weights for this one input-one output-one layer network and meeting the family.
+          We can get a sense what logistic functions look like by choosing random weights for this one input, one output, one layer network and meeting the family.
         </p>
 
         <img src="videos/what_nns_learn/logistic_1-layer_1-input_1-output_plots.gif" style="width: 550px;" />
           
         <p>
-          One notable characteristic is that logistic functions are always between zero and one. For this reason, they are also called squashing functions. You can imagine taking a straight line and then squashing the edges and bending them down so that the whole thing fits between zero and one no matter how far out you go.
+          One notable characteristic of logistic functions is that they live between zero and one. For this reason, they are also called squashing functions. You can imagine taking a straight line and then squashing the edges and bending them down so that the whole thing fits between zero and one no matter how far out you go.
         </p>
 
         <p>
@@ -165,7 +165,7 @@
         <img src="images/what_nns_learn/drawing_170.png" style="width: 350px;" />
 
         <p>
-          To see what type of functions are created we can choose a bunch of random values for the weights. As you might have expected, the functions we create are still <em>S</em> shaped, but now three dimensional. They look like a tablecloth laid across two tables of unequal height. Most importantly, If you look at the contour lines projected down onto the floor of the plot, you can see that they are all perfectly straight. The result of this is that any threshold we choose for doing classification will split our input space up into two halves, with the divider being a straight line. This is why logistic regression is described as a linear classifier. Whatever the number of inputs you have, whatever dimensional space you are working in, logistic regression will always split it into two halves using a line or a plane or hyperplane of the appropriate dimensions.
+          To see what type of functions this network can create, we can choose a bunch of random values for the weights. As you might have expected, the functions we create are still <em>S</em> shaped, but now three dimensional. They look like a tablecloth laid across two tables of unequal height. Most importantly, If you look at the contour lines projected down onto the floor of the plot, you can see that they are all perfectly straight. The result of this is that any threshold we choose for doing classification will split our input space up into two halves, with the divider being a straight line. This is why logistic regression is described as a linear classifier. Whatever the number of inputs you have, whatever dimensional space you are working in, logistic regression will always split it into two halves using a line or a plane or hyperplane of the appropriate dimensions.
         </p>
         
         <img src="videos/what_nns_learn/logistic_1-layer_2-input_1-output_plots.gif" style="width: 550px;" />
@@ -249,13 +249,13 @@
         <img src="images/what_nns_learn/drawing_250.png" style="width: 450px;" />
 
         <p>
-          We can also take a look at a two input single output neural network.
+          We can also take a look at a two input, single output neural network.
         </p>
           
         <img src="images/what_nns_learn/drawing_260.png" style="width: 450px;" />
 
         <p>          
-          Because it has two inputs, it’s outputs will be a three dimensional curve. We can once again choose random weights and generate curves to see what types of functions this neural network might be able to represent.
+          Because it has two inputs, its outputs will be a three dimensional curve. We can once again choose random weights and generate curves to see what types of functions this neural network might be able to represent.
         </p>
 
         <img src="videos/what_nns_learn/hyperbolic_tangent_3-layer_2-input_1-output_plots.gif" style="width: 550px;" />
@@ -269,7 +269,7 @@
         </p>
 
         <p>
-          Also, notice that these functions all tend to be smooth. They have hills and dips and valleys and wiggles even points and wells, but all of it happens relatively smoothly. If we hope to fit a function with many jagged jumps and drops, this neural netwohttps://brohrer.github.io/imposter_syndrome.htmlrk might not be able to do a very good job of it.
+          Also, notice that these functions all tend to be smooth. They have hills and dips and valleys and wiggles even points and wells, but all of it happens relatively smoothly. If we hope to fit a function with many jagged jumps and drops, this neural network might not be able to do a very good job of it.
         </p>
 
         <p>
@@ -283,7 +283,7 @@
         <img src="images/what_nns_learn/drawing_270.png" style="width: 450px;" />
 
         <p>
-          Outputs of a three layer one input, two output neural network look like this. We can see that in many cases the two curves cross and in some instances take they cross in several places.
+          Outputs of a three layer, one input, two output neural network look like this. We can see that in many cases the two curves cross and in some instances take they cross in several places.
         </p>
 
         <img src="videos/what_nns_learn/hyperbolic_tangent_3-layer_1-input_2-output_plots.gif" style="width: 550px;" />
@@ -302,7 +302,7 @@
 
         <p>
           Now, we have three separate output functions. 
-        <p>
+        </p>
 
         <img src="videos/what_nns_learn/hyperbolic_tangent_3-layer_1-input_3-output_plots.gif" style="width: 550px;" />
           
@@ -316,12 +316,12 @@
           Using this trick, we are no longer limited to two categories. We can create as many output nodes as we want, and learn and chop up the input space into that many categories. It's worth pointing out that the winning category may not be the best by very much. In some cases they are very close. One category will be declared the winner, but the next-runner up may be almost as good a fit.
         </p>
 
-        <img src="videos/what_nns_learn/hyperbolic_tangent_3-layer_2-input_1-output_plots.gif" style="width: 550px;" />
-        
         <p>
           There is no reason that we can’t extend this approach to two or more inputs. Unfortunately it does get harder to visualize. You have to imagine several of these lumpy landscape plots on top of each other. In some regions, one will be greater than the others. In that region, that category associated with that output will be dominant.
         </p>
 
+        <img src="videos/what_nns_learn/hyperbolic_tangent_3-layer_2-input_1-output_plots.gif" style="width: 550px;" />
+        
         <p>
           To get a qualitative sense for what these regions might look like, you can look at the projected contours on the floor of these plots. In the case of a multi layer perceptron, these plots are sliced at the <em>y = 0</em> level. That means, if you look at the floor of the plot, everything in any shade of green will be one category and everything in any shade of red will be the other category.
         </p>
@@ -344,19 +344,19 @@
         </p>
         <ul>
           <li>
-            &#8226 Neural networks learn functions, and can be used for regression. Some activation functions limit the output range, but as long as that matches the expected range of your outputs it's not a problem. 
+            &#8226 &nbsp Neural networks learn functions, and can be used for regression. Some activation functions limit the output range, but as long as that matches the expected range of your outputs it's not a problem. 
           </li>
           <li>
-            &#8226 Neural networks are most often used for classifiation. They've proven good at it.
+            &#8226 &nbsp Neural networks are most often used for classifiation. They've proven good at it.
           </li>
           <li>
-            &#8226 Neural networks tend to create smooth functions when used for regression, and smooth category boundaries when used for classification.
+            &#8226 &nbsp Neural networks tend to create smooth functions when used for regression, and smooth category boundaries when used for classification.
           </li>
           <li>
-            &#8226 For fully connected (vanilla) networks, a two-layer network can learn any function a deep (many-layered) network can learn, <em>however</em> a deep network might be able to learn it with fewer nodes.
+            &#8226 &nbsp For fully connected (vanilla) networks, a two-layer network can learn any function a deep (many-layered) network can learn, <em>however</em> a deep network might be able to learn it with fewer nodes.
           </li>
           <li>
-            &#8226 Making sure that inputs are normalized (have a mean of near zero and a standard deviation of less than one) helps neural networks to be more sensitive to their relationships.
+            &#8226 &nbsp Making sure that inputs are normalized (have a mean of near zero and a standard deviation of less than one) helps neural networks to be more sensitive to their relationships.
           </li>
         </ul>
 
