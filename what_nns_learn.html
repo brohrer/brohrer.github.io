@@ -17,11 +17,6 @@
     <div id="main_content_wrap" class="outer">
       <section id="main_content" class="inner">
         <p>
-          <small>
-          <a href="https://github.com/brohrer/what_nns_learn">[Code for generating the plots]</a>
-          </small>
-        </p>
-        <p>
           Neural networks are famously difficult to interpret. It’s hard to know what they are actually learning when we train them. Let’s take a closer look and see if we can build a good picture of what’s going on inside.
         </p>
 
@@ -329,7 +324,7 @@
         </p>
 
         tanh function, 1 in, 2 out, 3 layer classifier example
-        <img src="images/what_nns_learn/drawing_280.png" style="width: 450px;" />
+        <img src="images/what_nns_learn/drawing_280.png" style="width: 550px;" />
         
         <p>
           When you only have two outputs, the advantages of doing it this way over a multilayer perceptron with just one output are not at all clear. However, if you move to three or more outputs, the story changes.
@@ -350,7 +345,7 @@
         </p>
 
         tanh function, 1 in, 3 out, 3 layer classifier example 
-        <img src="images/what_nns_learn/drawing_290.png" style="width: 450px;" />
+        <img src="images/what_nns_learn/drawing_290.png" style="width: 550px;" />
 
         <p>
           Using this trick, we are no longer limited to two categories. We can create as many output nodes as we want, and learn and chop up the input space into that many categories. It's worth pointing out that the winning category may not be the best by very much. In some cases they are very close. One category will be declared the winner, but the next-runner up may be almost as good a fit.
@@ -407,6 +402,27 @@
           It is under the MIT license, which means you can re-use it for just about anything.
           I hope this helps as you jump into your next project. Happy building!
         </p>
+        
+        <h4>Production notes</h4>
+        <ul>
+          <li>
+            <small>
+              The code for generating the plots and gif frames is all in python, using numpy and matplotlib.
+              The neural network code is from scratch.
+            </small>
+          </li>        
+          <li>
+            <small>
+              The gifs were generated using <a href=https://ffmpeg.org/">FFmpeg</a>, called from python scripts. 
+            </small>
+          </li>        
+          <li>
+            <small>
+              All the code, images, and gifs are freely available in 
+              <a href="https://github.com/brohrer/what_nns_learn">this GitHub repository</a>.
+            </small>
+          </li>        
+        </ul>
 
         <script type="text/javascript" src="javascripts/blog_signature.js"></script>
       </section>
