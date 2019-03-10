@@ -6,7 +6,7 @@ document.write('\
           <p>\
             Need to procrastinate? Check out the rest of the\
           </p>\
-          <a id="project_tagline" href="blog.html"><span>Data Science and Robots Blog</span></a>\
+          <a id="project_tagline" href="blog.html"><span>End-to-End Machine Learning Blog</span></a>\
           <p>\
             <br>\
             <a href="https://creativecommons.org/publicdomain/zero/1.0/">\
