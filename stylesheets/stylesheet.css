@@ -114,9 +114,10 @@ footer p {
 a {
   text-decoration: none;
   text-shadow: none;
-  font-weight: 700;
-  color: #000000;
-
+  /*font-weight: 700;
+  color: #000000; */
+  color: #4c837a;
+  
   transition: color 0.5s ease;
   transition: text-shadow 0.5s ease;
   -webkit-transition: color 0.5s ease;
@@ -130,12 +131,13 @@ a {
 }
 
 a:visited {
-  /* color: #505050; */
-  color: #4c837a;
+  /* color: #505050; 
+  color: #4c837a;*/
+  color: #04253a;
 }
 
 a:hover, a:focus {
-  color: #303030;
+  /*color: #303030;*/
   text-decoration: underline;
 }
 
