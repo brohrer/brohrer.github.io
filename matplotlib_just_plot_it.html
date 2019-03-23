@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 
-  <script type="text/javascript">var blog_title = "Taming Matplotlib: Just Plot It";</script>
+  <script type="text/javascript">var blog_title = "Get plotting in Matplotlib";</script>
   <script type="text/javascript">var publication_date = "March 29, 2019";</script>
   <head>
     <meta charset='utf-8'>
@@ -17,24 +17,56 @@
     <div id="main_content_wrap" class="outer">
       <section id="main_content" class="inner">
         
-        <img title="line plot"
-          src="https://github.com/brohrer/taming_matplotlib/raw/master/images/thumbnail_matplotlib_just_plot_it.png"
-          alt="line plot of a sinc function" style="width: 600px;" />
+        <table>
+          <tr>
+            <td>
+              <img title="line plot"
+                src="https://github.com/brohrer/taming_matplotlib/raw/master/images/line_plot.png"
+                alt="thumbnail of line plot of a sinc function"
+                style="height: 100px;">
+            </td>
+            <td>
+              <code>plt.plot(x, y)</code>
+            </td>
+          </tr>
+            <td>
+              <img title="scatter plot"
+                src="https://github.com/brohrer/taming_matplotlib/raw/master/images/scatter_plot.png"
+                alt="thumbnail of scatter plot showing a trend"
+                style="height: 100px;">
+            </td>
+            <td>
+              <code>plt.scatter(x, y)</code>
+            </td>
+          </tr>
+          
+        </table>
 
-        <h3>Matplotlib the easy way</h3>
+        <h3>Shortcut to plotting in Matplotlib</h3>
         <p>
-          Matplotlib has a well deserved reputation for being complicated. It has lots of dark twisting passageways, some of which lead to dead ends. In this series I’ll guide you along the paths I’ve discovered to get where you want to go as directly as I know how, all while steering clear of horned monsters. 
+          Matplotlib has a well deserved reputation for being a labyrinth.
+          It has dark twisted passageways. Some lead to dead ends.
+          It also has shortcuts to glory and freedom. 
+          In this series I’ll help
+          you get where you want to go as directly as I know how,
+          while steering clear of horned monsters. 
         </p>
 
         <p>
-          Part of Matplotlib is a simplified interface called <tt>pyplot</tt> that doesn't require you to know about the innards of the system. For the most common tasks, it gives a convenient set of commands. We'll take advantage of it.
+          Part of Matplotlib is a simplified interface called <var>pyplot</var>
+          that doesn't require you to know about the innards of the system.
+          For the most common tasks, it gives a convenient set of commands.
+          We'll take advantage of it.
         </p>
-
+        <code>
+import numpy as np
+import matplotlib.pyplot as plt
+        </code>
         <p>
-          To use <tt>pyplot</tt> in a script, first we import it. We also import <tt>numpy</tt>
+          To use <var>pyplot</var> in a script, first we import it.
+          We also import <var>numpy</var>, a numerical processing library
+          that is great for working with data of any sort.
         </p>
-
-
 
 
         <h3>Plotting lines and curves</h3>
