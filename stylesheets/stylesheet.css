@@ -178,17 +178,15 @@ p img {
   border: none;
 }
 
+pre, code, var {
+  font-family: Monaco, "Bitstream Vera Sans Mono", "Lucida Console", Terminal, monospace;
+}
+
 pre, code {
   width: 100%;
-  /*
-  color: #222;
-  background-color: #fff;
-  */
   color: #4c837a;
   background: #04253a;
-  font-family: Monaco, "Bitstream Vera Sans Mono", "Lucida Console", Terminal, monospace;
   font-size: 16px;
-
   border-radius: 2px;
   -moz-border-radius: 2px;
   -webkit-border-radius: 2px;

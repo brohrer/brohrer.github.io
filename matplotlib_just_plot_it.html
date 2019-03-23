@@ -58,10 +58,8 @@
           For the most common tasks, it gives a convenient set of commands.
           We'll take advantage of it.
         </p>
-        <pre><code>
-import numpy as np
-import matplotlib.pyplot as plt
-        </code></pre>
+        <pre><code>import numpy as np
+import matplotlib.pyplot as plt</code></pre>
         <p>
           To use <var>pyplot</var> in a script, first we import it.
           We also import <var>numpy</var>, a numerical processing library
@@ -70,6 +68,30 @@ import matplotlib.pyplot as plt
 
 
         <h3>Plotting lines and curves</h3>
+
+        <p>
+          The most common thing to do in Matplotlib is plot a line.
+          First we have to create one.
+        </p>
+
+        <pre><code>x_line = np.linspace(-2 * np.pi, 2 * np.pi, 500)
+y_line = np.sinc(x_line)</code></pre>
+
+        <p>
+          We create the x values for our line using <var>numpy</var>'s
+          <var>linspace</var> function. The way we called it, it returns
+          an array of 500 evenly spaced values between -2*pi and 2*pi.
+        </p>
+
+        <p>
+          Then we create the y values using <var>numpy</var>'s
+          <var><a href="https://en.wikipedia.org/wiki/Sinc_function">
+            sinc</a></var>
+          function. It's a curve with some personality,
+          so it illustrates the plotting quite well.
+        </p>
+
+
         <img title="line plot"
           src="https://github.com/brohrer/taming_matplotlib/raw/master/images/line_plot.png"
           alt="line plot of a sinc function" style="width: 440px;" />
