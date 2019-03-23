@@ -80,7 +80,7 @@ y_line = np.sinc(x_line)</code></pre>
         <p>
           We create the x values for our line using <var>numpy</var>'s
           <var>linspace()</var> function. The way we called it, it returns
-          an array of 500 evenly spaced values between -2*pi and 2*pi.
+          an array of 500 evenly spaced values between -2 pi and 2 pi.
         </p>
 
         <p>
@@ -91,12 +91,42 @@ y_line = np.sinc(x_line)</code></pre>
           so it illustrates the plotting quite well.
         </p>
 
+<pre><code>plt.figure()
+plt.plot(x_line, y_line)
+plt.show()</code></pre>
+
+        <p>
+          This bit
+          <ol>
+            <li>initializes the figure,</li>
+            <li>draws the line described by our x and y, and</li>
+            <li>displays it on the screen.</li>
+          <ol>
+        </p>
 
         <img title="line plot"
           src="https://github.com/brohrer/taming_matplotlib/raw/master/images/line_plot.png"
           alt="line plot of a sinc function" style="width: 440px;" />
 
+        <p>
+          And that's it! You just plotted a line in python.
+          One of the very best things about Matplotlib is how it streamlines
+          common tasks. Once we had our data, it only took three lines
+          of code to make a plot.
+        </p>
+
         <h3>Plotting points</h3>
+
+        <p>
+          The second most common plotting task is show points in a scatter
+          plot. This is streamlined too.
+        </p>
+
+<pre><code>x_scatter = np.linspace(-1, 1)
+y_scatter = x_scatter + np.random.normal(size=x_scatter.size)</code></pre>
+
+
+
         <img title="scatter plot"
           src="https://github.com/brohrer/taming_matplotlib/raw/master/images/scatter_plot.png"
           alt="scatter plot of points showing an upward trend" style="width: 440px;" />
