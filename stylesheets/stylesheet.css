@@ -180,13 +180,18 @@ p img {
 
 pre, code, var {
   font-family: Monaco, "Bitstream Vera Sans Mono", "Lucida Console", Terminal, monospace;
+  font-size: 14px;
+}
+
+var {
+  color: #4c837a;
 }
 
 pre, code {
   width: 100%;
-  color: #4c837a;
+  /* color: #4c837a; */
+  color: #e1ddbf; 
   background: #04253a;
-  font-size: 16px;
   border-radius: 2px;
   -moz-border-radius: 2px;
   -webkit-border-radius: 2px;
@@ -379,7 +384,6 @@ Full-Width Styles
 }
 <!--
 #main_content_wrap {
-  /* background: #f2f2f2; */
   background: #e1ddbf;
   border-top: 1px solid #111;
   border-bottom: 1px solid #111;
@@ -390,7 +394,6 @@ Full-Width Styles
 }
 
 #footer_wrap {
-  /* background: #212121; */
   background: #04253a;
   text-decoration: none;
 }
