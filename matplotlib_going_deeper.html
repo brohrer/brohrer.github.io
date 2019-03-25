@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 
-  <script type="text/javascript">var blog_title = "Level up in Matplotlib";</script>
+  <script type="text/javascript">var blog_title = "Level up in matplotlib";</script>
   <script type="text/javascript">var publication_date = "March 29, 2019";</script>
   <head>
     <meta charset='utf-8'>
@@ -27,63 +27,77 @@
           easier:
         </p>
 
-
-        <h3>1. Figures hold Axes objects</h3>
-
+        <h3>1. <var>Figure</var>s hold <var>Axes</var> objects</h3>
         <p>
-          Everything is objects.
-        </p>
-        <p>
-          Every Matplotlib plot exercise begins with a <var>Figure</var>.
-          This is exactly what it sounds like, a rectangular blank slate
-          that contains everything else. 
-        </p>
-        <p>
-          The name of the Axes object can be pretty confusing.
-        </p>
-
-        <h3>2. Axes hold almost everything else</h3>
-
-
-        <h3>3. Making plots is a complicated business</h3>
-
-        <h3>Method in the madness</h3>
-        <p>
-          The complexity in Matplotlib is there for good reason.
-          Making attractive interactive images on every type of screen
-          in every operating system is hard.
-          Enabling customization for all our various aesthetics and
-          formatting requirements is also hard.
-          On top of that, making a simplified interface to this complexity
-          that doesn’t scare us all away, but still preserves
-          the most useful functionality is harder still.
+          In matplotlib everything is made of objects.
+          There is an object called <var>Figure</var>,
+          and one called <var>Axes</var>.
+          There are objects called <var>Line2D</var>, <var>Patch</var>,
+          <var>Text</var>, <var>Artist</var>, and many others.
+          Some objects are children of others, and members of yet others.
+          It can get hard to keep track of which objects do which functions.
         </p>
 
         <p>
-          With this in mind, it’s no mean feat that Matplotlib contributors
-          have achieved. Started by
-          <a href="https://en.wikipedia.org/wiki/John_D._Hunter">
-            John D. Hunter</a>,
-          with the lead developer role passing to Michael Droettboom,
-          then to Thomas Caswell, working with a small army of developers,
-          Matplotlib's contributors have built, maintain, and expand this tool.
-          And every single one of them is a volunteer.
+          The most important useful relationship to understand is that
+          <var>Figure</var> objects contain <var>Axes</var> objects.
+          A <var>Figure</var> is just what it sounds like,
+          a rectangular blank canvas on which a plot is constructed.
+          <var>Axes</var> objects are where all the plotting action happens.
+          You can have more than one <var>Axes</var> in a <var>Figure</var>,
+          and you can place them wherever you want.
         </p>
 
         <p>
-          Matplotlib has enjoyed organic growth.
-          Like so many tools that follow this path,
-          it has developed a rich set of features,
-          including how large number of shortcuts and labor saving
-          syntactic sugar. 
-          While the end result is fascinating from a development perspective,
-          it’s not always straightforward to work with.
-          In this section, we'll walk through a handlful of concepts
-          you can use as landmarks as you navigate the terrain.
+          To keep things as clean as possible in our code examples,
+          we will usually work directly with the <var>Figure</var>
+          and <var>Axes</var> objects, rather than using the <var>pyplot</var>
+          simplifications that gloss over them. It turns out that
+          if we want to do much customization, this makes our job a lot easier.
+        </p>
+
+<pre><code>fig = pyplot.figure()
+ax = fig.gca()</code></pre>
+
+        <p>
+           In the first line, we use the pyplot command.
+           We deviate from our only-working-with-objects policy
+           to initialize a new figure. Then we get the current <var>Axes</var>
+           object with <code>gca()</code>. In this case, this is the
+           <var>Axes</var> object that is created by default when we
+           make our figure.
+        </p>
+
+
+        <h3>2. <var>Axes</var> hold almost everything else</h3>
+        <p>
+          Aside from providing locatoins for <var>Axes</var> objects
+          and generating finished plots, most of the action takes place
+          in an <var>Axes</var> object.
         </p>
 
         <p>
-          Matplotlib has several ways to do most things,
+          To make this explicit in our code, we will make sure
+          to work on <var>Axes</var> objects directly rather than
+          using pyplot simplifications. This helps keep things clear
+          when we have more than one <var>Axes</var> object in a
+          <var>Figure</var>.
+        </p>
+
+        <p>
+          For example, when plotting we’ll Use
+        </p>
+
+<pre><code>ax.plot (x, y)</pre></code>
+
+        <p>
+          Rather than the <code>pyplot.plot(x,y)</code> because
+          the latter obscures the relationship between <var>Axes</var>
+          and plotting.
+        </p>
+
+        <p>
+          matplotlib has several ways to do most things,
           and while they provide the experienced user convenience,
           they can also create a lot of confusion. 
           Throughout these examples, we will stick to one way of doing things.
@@ -94,6 +108,98 @@
           the number of things we have to remember.
         </p>
 
+        <h4>Heads up</h4>
+        <p>
+          The name "Axes" is a little misleading. An <var>Axes</var>
+          object contains both an x-axis and a y-axis (which are
+          themselves objects in their own right).
+        </p>
+
+        <h3>3. Making plots is a complicated business</h3>
+
+          Depending on whether you want to create a file, plot to the screen,
+          or in a web browser, depending on what operating system and graphics
+          drivers you are
+          running, there are lots of of things matplotlib has to consider when
+          creating your plot. This last mile in making the plot concrete is
+          handled by part of the matplotlib code called a backend, and as you
+          might imagine, there
+          are lots of them. Occasionally not everything plays together
+          perfectly and something won't plot or render correctly on some
+          combination of backend your particular setup.
+
+          In order to avoid these frustrations, I've found an approach that
+          seems pretty robust. Instead of displaying plots to the screen, I
+          save them as <var>.png</var> files. Then you get to use whatever 
+          tools your local system likes to look at them.
+          There is a high-performance backend called AGG (based on
+          the Anti-Grain Geometry
+          Engine) that works on every system and platform that I've tried it
+          on. It makes beautiful <var>.png</var> files.
+          This approach is great even if you're working on a headless server
+          and would like to generate visualizations or reports to look at
+          elsewhere.
+
+<pre><code>import matplotlib
+matplotlib.use("agg")</code></pre>
+
+          Invoking these two lines *at the very beginning* of a python script
+          sets up the AGG backend. Due to a quirk of the process, if you try
+          to do this after importing pyplot, it will fail to update the
+          backend.
+
+          Then, you can proceed as usual to import pyplot and numpy and
+          anything else you might need.
+
+<pre><code>import matplotlib.pyplot as plt
+import numpy as np</code></pre>
+
+          When it comes time to "display" a plot, you just need to save it to a
+          file.
+
+<pre><code>fig.savefig("my_new_plot.png")</code></pre>
+
+          Passing the path of the image file to <code>savefig()</code> gets the
+          job done.
+
+        <h4>Method in the madness</h4>
+        <p>
+          The complexity in matplotlib is there for good reason.
+          Making attractive interactive images on every type of screen
+          in every operating system is hard.
+          Enabling customization for all our various aesthetics and
+          formatting requirements is also hard.
+          On top of that, making a simplified interface to this complexity
+          that doesn’t scare us all away, but still preserves
+          the most useful functionality is harder still.
+        </p>
+
+        <p>
+          With this in mind, it’s no mean feat that matplotlib contributors
+          have achieved. Started by
+          <a href="https://en.wikipedia.org/wiki/John_D._Hunter">
+            John D. Hunter</a>,
+          with the lead developer role passing to Michael Droettboom,
+          then to Thomas Caswell, working with a small army of developers,
+          matplotlib's contributors have built, maintain, and expand this tool.
+          And every single one of them is a volunteer.
+        </p>
+
+        <p>
+          If you find this background fascintating and would like to take it to
+          the next level, I recommend
+          <a href="http://www.aosabook.org/en/matplotlib.html">
+            this article by Hunter and Droettboom 
+          </a>. It gives more of matplotlib's origin story, as well as more of
+          the details on how it is architected and why.
+        </p>
+
+        <br>
+
+        <p>
+          With these three ground rules in place, we are ready to lay down
+          some straighforward examples. Come take a look.
+        </p>
         
         <script type="text/javascript" src="javascripts/blog_signature.js"></script>
       </section>
