@@ -35,11 +35,11 @@
           There are objects called <var>Line2D</var>, <var>Patch</var>,
           <var>Text</var>, <var>Artist</var>, and many others.
           Some objects are children of others, and members of yet others.
-          It can get hard to keep track of which objects do which functions.
+          It can get hard to keep track of which objects do what.
         </p>
 
         <p>
-          The most important useful relationship to understand is that
+          The most useful relationship to understand is that
           <var>Figure</var> objects contain <var>Axes</var> objects.
           A <var>Figure</var> is just what it sounds like,
           a rectangular blank canvas on which a plot is constructed.
@@ -60,40 +60,12 @@
 ax = fig.gca()</code></pre>
 
         <p>
-           In the first line, we use the pyplot command.
+           In the first line, we use the <var>pyplot</var> interface.
            We deviate from our only-working-with-objects policy
            to initialize a new figure. Then we get the current <var>Axes</var>
            object with <code>gca()</code>. In this case, this is the
            <var>Axes</var> object that is created by default when we
            make our figure.
-        </p>
-
-
-        <h3>2. <var>Axes</var> hold almost everything else</h3>
-        <p>
-          Aside from providing locatoins for <var>Axes</var> objects
-          and generating finished plots, most of the action takes place
-          in an <var>Axes</var> object.
-        </p>
-
-        <p>
-          To make this explicit in our code, we will make sure
-          to work on <var>Axes</var> objects directly rather than
-          using pyplot simplifications. This helps keep things clear
-          when we have more than one <var>Axes</var> object in a
-          <var>Figure</var>.
-        </p>
-
-        <p>
-          For example, when plotting we’ll Use
-        </p>
-
-<pre><code>ax.plot (x, y)</pre></code>
-
-        <p>
-          Rather than the <code>pyplot.plot(x,y)</code> because
-          the latter obscures the relationship between <var>Axes</var>
-          and plotting.
         </p>
 
         <p>
@@ -108,11 +80,42 @@ ax = fig.gca()</code></pre>
           the number of things we have to remember.
         </p>
 
+        <h3>2. <var>Axes</var> hold almost everything else</h3>
+        <p>
+          Aside from providing locations for <var>Axes</var> objects
+          and generating finished plots, most of the action takes place
+          in an <var>Axes</var> object.
+        </p>
+
+        <p>
+          To make this explicit in our code, we will make sure
+          to work on <var>Axes</var> objects directly rather than
+          using the <var>pyplot</var> interface. This helps keep things clear
+          when we have more than one <var>Axes</var> object in a
+          <var>Figure</var>.
+        </p>
+
+        <p>
+          For example, when plotting we’ll use
+        </p>
+
+<pre><code>ax.plot(x, y)</pre></code>
+
+        <p>
+          Rather than the <code>pyplot.plot(x,y)</code> because
+          the latter obscures the relationship between <var>Axes</var>
+          and plotting.
+        </p>
+
         <h4>Heads up</h4>
         <p>
           The name "Axes" is a little misleading. An <var>Axes</var>
           object contains both an x-axis and a y-axis (which are
-          themselves objects in their own right).
+          themselves objects in their own right), as well as lines, patches,
+          text annotations, and the region in which these are displayed.
+          Throughout these examples, I'll try to be consistent about referring
+          to an Axes object as <var>Axes</var> and an x- and y-axis pair as
+          axes, lowercase. 
         </p>
 
         <h3>3. Making plots is a complicated business</h3>
