@@ -77,31 +77,6 @@ h1, h2, h3, h4, h5, h6 {
   letter-spacing: -1px;
 }
 
-h1 {
-  font-size: 36px;
-  font-weight: 700;
-}
-
-h2 {
-  padding-bottom: 10px;
-  font-size: 32px;
-}
-
-h3 {
-  font-size: 24px;
-}
-
-h4 {
-  font-size: 21px;
-}
-
-h5 {
-  font-size: 18px;
-}
-
-h6 {
-  font-size: 16px;
-}
 
 p {
   margin: 10px 0 15px 0;
@@ -213,6 +188,32 @@ code {
 pre code {
   display: block;
   box-shadow: none;
+}
+
+h1 {
+  font-size: 36px;
+  font-weight: 700;
+}
+
+h2 {
+  padding-bottom: 10px;
+  font-size: 32px;
+}
+
+h3 {
+  font-size: 24px;
+}
+
+h4 {
+  font-size: 21px;
+}
+
+h5 {
+  font-size: 18px;
+}
+
+h6 {
+  font-size: 16px;
 }
 
 blockquote {
