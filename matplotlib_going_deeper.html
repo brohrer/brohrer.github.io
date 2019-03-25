@@ -70,8 +70,8 @@ ax = fig.gca()</code></pre>
 
         <p>
           matplotlib has several ways to do most things,
-          and while they provide the experienced user convenience,
-          they can also create a lot of confusion. 
+          and while this can provide convenience,
+          it can also create a lot of confusion. 
           Throughout these examples, we will stick to one way of doing things.
           We will choose the one that most clearly reflects
           the underlying structure, rather than the one that results
@@ -83,7 +83,8 @@ ax = fig.gca()</code></pre>
         <h3>2. <var>Axes</var> hold almost everything else</h3>
         <p>
           Aside from providing locations for <var>Axes</var> objects
-          and generating finished plots, most of the action takes place
+          and generating finished plots, a <var>Figure</var> doesn't do much.
+          Most of the action takes place
           in an <var>Axes</var> object.
         </p>
 
@@ -102,7 +103,7 @@ ax = fig.gca()</code></pre>
 <pre><code>ax.plot(x, y)</pre></code>
 
         <p>
-          Rather than the <code>pyplot.plot(x,y)</code> because
+          Rather than the <code>pyplot.plot(x, y)</code> because
           the latter obscures the relationship between <var>Axes</var>
           and plotting.
         </p>
@@ -111,7 +112,7 @@ ax = fig.gca()</code></pre>
         <p>
           The name "Axes" is a little misleading. An <var>Axes</var>
           object contains both an x-axis and a y-axis (which are
-          themselves objects in their own right), as well as lines, patches,
+          objects in their own right), as well as lines, patches,
           text annotations, and the region in which these are displayed.
           Throughout these examples, I'll try to be consistent about referring
           to an Axes object as <var>Axes</var> and an x- and y-axis pair as
@@ -120,6 +121,7 @@ ax = fig.gca()</code></pre>
 
         <h3>3. Making plots is a complicated business</h3>
 
+        <p>
           Depending on whether you want to create a file, plot to the screen,
           or in a web browser, depending on what operating system and graphics
           drivers you are
@@ -130,40 +132,57 @@ ax = fig.gca()</code></pre>
           are lots of them. Occasionally not everything plays together
           perfectly and something won't plot or render correctly on some
           combination of backend your particular setup.
+        </p>
 
+        <p>
           In order to avoid these frustrations, I've found an approach that
           seems pretty robust. Instead of displaying plots to the screen, I
-          save them as <var>.png</var> files. Then you get to use whatever 
-          tools your local system likes to look at them.
+          save them as <var>.png</var> files. Then you can look at them
+          using whatever 
+          tool you want.
+        </p>
+
+        <p>
           There is a high-performance backend called AGG (based on
           the Anti-Grain Geometry
-          Engine) that works on every system and platform that I've tried it
+          Engine) that works on every system and platform I've tried it
           on. It makes beautiful <var>.png</var> files.
           This approach is great even if you're working on a headless server
           and would like to generate visualizations or reports to look at
           elsewhere.
+        </p>
 
 <pre><code>import matplotlib
 matplotlib.use("agg")</code></pre>
 
-          Invoking these two lines *at the very beginning* of a python script
+        <p>
+          Invoking these two lines <em>at the very beginning</em> of a python script
           sets up the AGG backend. Due to a quirk of the process, if you try
-          to do this after importing pyplot, it will fail to update the
+          to do this after importing <var>pyplot</var>, it will fail to update the
           backend.
+        </p>
 
-          Then, you can proceed as usual to import pyplot and numpy and
+        <p>
+          After setting the backend to "agg",
+          you can proceed as usual to import <var>pyplot</var> and
+          <var>numpy</var> and
           anything else you might need.
+        </p>
 
 <pre><code>import matplotlib.pyplot as plt
 import numpy as np</code></pre>
 
+        <p>
           When it comes time to "display" a plot, you just need to save it to a
           file.
+        </p>
 
 <pre><code>fig.savefig("my_new_plot.png")</code></pre>
 
-          Passing the path of the image file to <code>savefig()</code> gets the
+        <p>
+          Passing in the path and name of the new image file to <code>savefig()</code> gets the
           job done.
+        </p>
 
         <h4>Method in the madness</h4>
         <p>
@@ -200,7 +219,7 @@ import numpy as np</code></pre>
         <br>
 
         <p>
-          With these three ground rules in place, we are ready to lay down
+          With these three ground rules and code patterns in place, we are ready to lay down
           some straighforward examples. Come take a look.
         </p>
         
