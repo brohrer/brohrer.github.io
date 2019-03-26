@@ -26,8 +26,12 @@
           If you remember just these three things, your plotting life will be much
           easier:
         </p>
+        <ol>
+          <li><a href="#fig_section">Figures hold Axes</a></li>
+          <li><a href="#axes_section">Axes hold almost everything else</a></li>
+          <li><a href="#agg_section">Backends do the heavy lifting</a></li>
 
-        <h3>1. <var>Figure</var>s hold <var>Axes</var> objects</h3>
+        <h3 label="fig_section">1. <var>Figure</var>s hold <var>Axes</var> objects</h3>
         <p>
           In matplotlib everything is made of objects.
           There is an object called <var>Figure</var>,
@@ -48,39 +52,19 @@
           and you can place them wherever you want.
         </p>
 
-        <p>
-          To keep things as clean as possible in our code examples,
-          we will usually work directly with the <var>Figure</var>
-          and <var>Axes</var> objects, rather than using the <var>pyplot</var>
-          simplifications that gloss over them. It turns out that
-          if we want to do much customization, this makes our job a lot easier.
-        </p>
-
 <pre><code>fig = pyplot.figure()
 ax = fig.gca()</code></pre>
 
         <p>
-           In the first line, we use the <var>pyplot</var> interface.
-           We deviate from our only-working-with-objects policy
+           In the first line, we use the <var>pyplot</var> interface
            to initialize a new figure. Then we get the current <var>Axes</var>
            object with <code>gca()</code>. In this case, this is the
            <var>Axes</var> object that is created by default when we
            make our figure.
         </p>
 
-        <p>
-          matplotlib has several ways to do most things,
-          and while this can provide convenience,
-          it can also create a lot of confusion. 
-          Throughout these examples, we will stick to one way of doing things.
-          We will choose the one that most clearly reflects
-          the underlying structure, rather than the one that results
-          in the shortest code. By picking one way of doing things and
-          sticking to it, we'll minimize
-          the number of things we have to remember.
-        </p>
 
-        <h3>2. <var>Axes</var> hold almost everything else</h3>
+        <h3 label="axes_section">2. <var>Axes</var> hold almost everything else</h3>
         <p>
           Aside from providing locations for <var>Axes</var> objects
           and generating finished plots, a <var>Figure</var> doesn't do much.
@@ -119,7 +103,7 @@ ax = fig.gca()</code></pre>
           axes, lowercase. 
         </p>
 
-        <h3>3. Making plots is a complicated business</h3>
+        <h3 label="agg_section">3. Backends take care of the complicated parts</h3>
 
         <p>
           Depending on whether you want to create a file, plot to the screen,
@@ -129,12 +113,13 @@ ax = fig.gca()</code></pre>
           creating your plot. This last mile in making the plot concrete is
           handled by part of the matplotlib code called a backend, and as you
           might imagine, there
-          are lots of them. Occasionally not everything plays together
+          are lots of them.
+        </p>
+        
+        <p>
+          Occasionally not everything plays together
           perfectly and something won't plot or render correctly on some
           combination of backend your particular setup.
-        </p>
-
-        <p>
           In order to avoid these frustrations, I've found an approach that
           seems pretty robust. Instead of displaying plots to the screen, I
           save them as <var>.png</var> files. Then you can look at them
@@ -173,7 +158,7 @@ matplotlib.use("agg")</code></pre>
 import numpy as np</code></pre>
 
         <p>
-          When it comes time to "display" a plot, you just need to save it to a
+          When it comes time to display a plot, you just need to save it to a
           file.
         </p>
 
@@ -182,6 +167,26 @@ import numpy as np</code></pre>
         <p>
           Passing in the path and name of the new image file to <code>savefig()</code> gets the
           job done.
+        </p>
+
+        <h4>Favor clarity over convenience</h4>
+        <p>
+          To keep things as clean as possible in our code examples,
+          we will usually work directly with the <var>Figure</var>
+          and <var>Axes</var> objects, rather than using the <var>pyplot</var>
+          simplifications that gloss over them. It turns out that
+          if we want to do much customization, this makes our job a lot easier.
+        </p>
+
+        <p>
+          matplotlib has several ways to do most things,
+          and while this can provide convenience,
+          it can also create a lot of confusion. 
+          We will stick to one way of doing things,
+          usually the one that most clearly reflects
+          the underlying structure, rather than the one that results
+          in the shortest code.
+          This also gives us fewer things to remember.
         </p>
 
         <h4>Method in the madness</h4>
@@ -208,8 +213,7 @@ import numpy as np</code></pre>
         </p>
 
         <p>
-          If you find this background fascintating and would like to take it to
-          the next level, I recommend
+          If you're curious, I recommend
           <a href="http://www.aosabook.org/en/matplotlib.html">
             this article by Hunter and Droettboom 
           </a>. It gives more of matplotlib's origin story, as well as more of
@@ -220,7 +224,9 @@ import numpy as np</code></pre>
 
         <p>
           With these three ground rules and code patterns in place, we are ready to lay down
-          some straighforward examples. Come take a look.
+          some straighforward examples.
+          <a href="https://end-to-end-machine-learning.teachable.com/p/navigating-matplotlib-tutorial-how-to/">
+          Come take a look.</a>
         </p>
         
         <script type="text/javascript" src="javascripts/blog_signature.js"></script>
