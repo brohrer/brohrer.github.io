@@ -82,9 +82,54 @@ ax.plot(x2, y2)</code></pre>
           
         </table>
 
-        <h3 id="width">Change the width</h3>
+
+        <h3 id="width">Make your lines your own</h3>
 
         <p>
+          Occasionally you'll want a plot to show something other than a single
+          thin solid thin
+          blue line. Here are the recipes for tweaking it. 
+        </p>
+
+        <p>
+          First we need to set up for these examples.
+        </p>
+
+<pre><code>import matplotlib
+matplotlib.use("agg")
+import matplotlib.pyplot as plt
+import numpy as np</code<pre>
+
+        <p>
+          Select the "agg" backend and make our imports, as in the
+          <a href="matplotltb_going_deeper.html#agg_section">
+            the AGG section of post on Leveling Up</a>.
+        </p>
+
+<pre><code>x = np.linspace(-6, 6, 500)
+y = np.sinc(x)</code></pre>
+
+        <p>
+          Create a curve to work with.
+        </p>
+
+<pre><code>fig = plt.figure()
+ax = fig.gca()</code></pre>
+
+        <p>
+          Create a new <var>Figure</var> and get the <var>Axes</var>,
+          like we did in
+          <a href="matplotltb_going_deeper.html#fig_section">this example</a>.
+          Now we're ready to go to work.
+        </p>
+
+        <h3 id="width">Change the width</h3>
+<pre><code>
+ax.plot(x, y, linewidth=15)
+
+        <p>
+          Using the <code>linewidth</code> argument, you can set the width of
+          your line, in points. For comparison, the default is 1.
         </p>
 
         <img
@@ -92,20 +137,105 @@ ax.plot(x2, y2)</code></pre>
           alt="wide curve plot of a sinc function" style="width: 440px;">
 
         <h3 id="color">Change the color</h3>
+
+<pre><code>ax.plot(x, y, color="pink", linewidth=5)</code></pre>
+
+        <p>
+          You can also specify the color using the <code>color</code> argument.
+        </p>
+
         <img
           src="https://github.com/brohrer/taming_matplotlib/raw/master/images/pink_line.png"
           alt="pink curve plot of a sinc function" style="width: 440px;">
 
+        <p>
+          There are
+          <a href="https://matplotlib.org/api/colors_api.html">
+            several ways to specify colors</a>,
+          and covering all of them deserves its own tutorial, but the simplest
+          way is to call out the (English) name of a color. matplotlib
+          can recognize a shocking variety of them. Here are some samples.
+        </p>
+
+        <a href="https://xkcd.com/color/rgb/">
+          <img
+            src="https://github.com/brohrer/taming_matplotlib/raw/master/images/css_colors.png"
+            alt="named CSS colors" style="width: 440px;">
+        </a>
+
+        <a href="https://matplotlib.org/gallery/color/named_colors.html">
+          <img
+            src="https://github.com/brohrer/taming_matplotlib/raw/master/images/xkcd_colors.png"
+            alt="named colors from xkcd survey" style="width: 440px;">
+        </a>
+
         <h3 id="style">Change the style</h3>
+        <p>
+          Another common manipulation is to change the style of a line from
+          solid to dashed or dotted.
+        </p>
+
+<pre><code>ax.plot(x, y, linewidth=2, linestyle="--")</code></pre>
+
+        <p>
+          The <code>linetyle</code> argument controls this.
+        </p>
+
         <img
           src="https://github.com/brohrer/taming_matplotlib/raw/master/images/dashed_line.png"
           alt="dashed curve plot of a sinc function" style="width: 440px;">
 
+        <p>
+          You can choose from 
+          <ul>
+            <li>"--", dashed</li>
+            <li>":", dotted</li>
+            <li>"-.", dash-dotted</li>
+          </ul>
+          or you can <a
+          href"https://matplotlib.org/api/_as_gen/matplotlib.lines.Line2D.html?highlight=line2d#matplotlib.lines.Line2D.set_linestyle">
+            create your own</a> if you have strong opinions about what it
+            should look like.
+        </p>
+
         <h3 id="multiple">Add more lines</h3>
+
+        <p>
+          Another common trick is to put more than one line on a plot.
+        </p>
+
+<pre><code>ax.plot(x, y, linewidth=4)
+ax.plot(x, y + .1, linewidth=2)
+ax.plot(x, y + .2, linewidth=1)
+ax.plot(x, y + .3, linewidth=.5)
+ax.plot(x, y + .4, linewidth=.2)</code></pre>
+
+        <p>
+          Luckily, this is as easy as repeatedly calling
+          <code>plot()</code>. You can do this as many times as you want.
+          I've had thousands of lines on a single plot before.
+          You have to wait a little while for everything to draw, but
+          it gets there eventually.
+        </p>
         <img
           src="https://github.com/brohrer/taming_matplotlib/raw/master/images/multiple_lines.png"
           alt="multiple curve plots of a sinc function" style="width: 440px;">
         
+        <h3>and more!</h3>
+        <p>
+          There are lots of other fine details of lines you can control.
+          If you're curious,
+          <a
+          href="https://matplotlib.org/api/_as_gen/matplotlib.lines.Line2D.html#matplotlib.lines.Line2D">
+          check out the API</a>.
+        </p>
+
+        <p>
+          Want even more control of your plot?
+          <a href="https://end-to-end-machine-learning.teachable.com/p/navigating-matplotlib-tutorial-how-to/">
+          Come take a look at the full set of tutorials</a>.
+        </p>
+
         <script type="text/javascript" src="javascripts/blog_signature.js"></script>
       </section>
     </div>
