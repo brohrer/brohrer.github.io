@@ -101,9 +101,9 @@ import matplotlib.pyplot as plt
 import numpy as np</code></pre>
 
         <p>
-          Select the "agg" backend and make our imports, as in the
+          Select the "agg" backend and make our imports,
           <a href="matplotlib_going_deeper.html#agg_section">
-            the AGG section of post on Leveling Up</a>.
+            as described here</a>.
         </p>
 
 <pre><code>x = np.linspace(-6, 6, 500)
@@ -156,13 +156,13 @@ ax = fig.gca()</code></pre>
           can recognize a shocking variety of them. Here are some samples.
         </p>
 
-        <a href="https://xkcd.com/color/rgb/">
+        <a href="https://matplotlib.org/gallery/color/named_colors.html">
           <img
             src="https://github.com/brohrer/taming_matplotlib/raw/master/images/css_colors.png"
             alt="named CSS colors" style="width: 440px;">
         </a>
 
-        <a href="https://matplotlib.org/gallery/color/named_colors.html">
+        <a href="https://xkcd.com/color/rgb/">
           <img
             src="https://github.com/brohrer/taming_matplotlib/raw/master/images/xkcd_colors.png"
             alt="named colors from xkcd survey" style="width: 440px;">
@@ -177,7 +177,7 @@ ax = fig.gca()</code></pre>
 <pre><code>ax.plot(x, y, linewidth=2, linestyle="--")</code></pre>
 
         <p>
-          The <code>linetyle</code> argument controls this.
+          The <code>linestyle</code> argument controls this.
         </p>
 
         <img
