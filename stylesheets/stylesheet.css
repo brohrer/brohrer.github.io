@@ -192,21 +192,19 @@ pre, code {
   color: #e1ddbf; 
   background: #04253a;
   border-radius: 2px;
+  box-shadow: 0 0 10px rgba(0,0,0,.1);
   -moz-border-radius: 2px;
   -webkit-border-radius: 2px;
 }
 
 pre {
-  width: 100%;
   padding: 10px;
-  box-shadow: 0 0 10px rgba(0,0,0,.1);
   overflow: auto;
 }
 
 code {
   padding: 3px;
   margin: 0 3px;
-  box-shadow: 0 0 10px rgba(0,0,0,.1);
 }
 
 pre code {
@@ -276,6 +274,10 @@ td {
   vertical-align: middle;
   text-align: center;
  }
+
+td pre {
+  text-align: left;
+}
 
 form {
   background: #f2f2f2;
