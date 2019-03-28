@@ -280,6 +280,7 @@ td pre{
   width: auto;
 }
 td pre code{
+  padding: 5px;
   text-align: left;
   font-size: 11px;
 }
