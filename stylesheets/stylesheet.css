@@ -276,7 +276,10 @@ td {
  }
 
 td pre {
+  width: auto;
   text-align: left;
+  text-align: top;
+  font-size: 11px;
 }
 
 form {
