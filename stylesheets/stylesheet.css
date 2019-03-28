@@ -275,11 +275,13 @@ td {
   text-align: center;
  }
 
-td pre code{
+td pre{
   vertical-align: top;
+  width: 80%;
+}
+td pre code{
   text-align: left;
   font-size: 11px;
-  width: 80%;
 }
 
 form {
