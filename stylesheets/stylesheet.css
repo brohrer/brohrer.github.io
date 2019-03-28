@@ -276,7 +276,8 @@ td {
  }
 
 td pre{
-  padding: 10px;
+  margin: 5px;
+  padding: 5px;
   width: 100%;
 }
 td pre code{
