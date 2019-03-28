@@ -270,13 +270,13 @@ th {
  }
 
 td {
+  margin: 10px;
   padding: 10px;
   vertical-align: top;
   text-align: center;
  }
 
 td pre{
-  margin: 5px;
   padding: 5px;
   width: 100%;
 }
