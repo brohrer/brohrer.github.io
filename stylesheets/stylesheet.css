@@ -271,13 +271,13 @@ th {
 
 td {
   padding: 10px;
-  vertical-align: middle;
+  vertical-align: top;
   text-align: center;
  }
 
 td pre{
-  vertical-align: top;
-  width: 80%;
+  padding: 10px;
+  width: 100%;
 }
 td pre code{
   text-align: left;
