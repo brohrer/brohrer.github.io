@@ -275,12 +275,9 @@ td {
   text-align: center;
  }
 
-td pre {
+td pre code{
   vertical-align: top;
   text-align: left;
-}
-
-td pre code{
   font-size: 11px;
   width: auto;
 }
