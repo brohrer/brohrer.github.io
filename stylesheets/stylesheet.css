@@ -277,7 +277,6 @@ td {
  }
 
 td pre{
-  /* width: 100%; */
   width: auto;
 }
 td pre code{
