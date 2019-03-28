@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html>
+
+  <script type="text/javascript">var blog_title = "Markers in matplotlib";</script>
+  <script type="text/javascript">var publication_date = "March 29, 2019";</script>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
+    <base target="_blank">
+    <script type="text/javascript" src="javascripts/blog_head.js"></script>
+  </head>
+  <body>
+    <script type="text/javascript" src="javascripts/blog_header.js"></script>
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        
+        <table>
+          <tr>
+            <td>
+              <a href="#size">
+                <img title="large markers"
+                  src="https://github.com/brohrer/taming_matplotlib/raw/master/images/markers_large.png"
+                  alt="thumbnail of a scatterplot using large circular markers"
+                  style="height: 180px;">
+              </a>
+            </td>
+            <td>
+              <a href="#size">
+                <pre><code>ax.scatter(x, y, s=80)</code></pre>
+              </a>
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              <a href="#sized">
+                <img title="various sized markers"
+                  src="https://github.com/brohrer/taming_matplotlib/raw/master/images/markers_sized.png"
+                  alt="thumbnail of a scatterplot using circular markers of differing sizes"
+                  style="height: 180px;">
+              </a>
+            </td>
+            <td>
+              <a href="#sized">
+<pre><code>sizes = np.random.sample(size=x.size)
+ax.scatter(x, y, s=sizes)</code></pre>
+              </a>
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              <a href="#triangle">
+                <img title="triangle markers"
+                  src="https://github.com/brohrer/taming_matplotlib/raw/master/images/markers_triangle.png"
+                  alt="thumbnail of a scatterplot using triangular markers"
+                  style="height: 180px;">
+              </a>
+            </td>
+            <td>
+              <a href="#triangle">
+                <pre><code>ax.scatter(x, y, marker="v")</code></pre>
+              </a>
+            </td>
+          </tr>
+          
+          <tr>
+            <td>
+              <a href="#styled">
+                <img title="varying marker styles"
+                  src="https://github.com/brohrer/taming_matplotlib/raw/master/images/markers_styled.png"
+                  alt="thumbnail of a scatterplot using a variety of markers"
+                  style="height: 180px;">
+              </a>
+            </td>
+            <td>
+              <a href="#styled">
+<pre><code>ax.scatter(x1, y1, marker="o", c="green")
+ax.scatter(x2, y2, marker="x", c="blue")
+ax.scatter(x3, y3, marker="s", c="orange")</code></pre>
+              </a>
+            </td>
+          </tr>
+          
+          <tr>
+            <td>
+              <a href="#colors">
+                <img title="colorful markers"
+                  src="https://github.com/brohrer/taming_matplotlib/raw/master/images/markers_colors.png"
+                  alt="thumbnail of a scatterplot using colorful markers"
+                  style="height: 180px;">
+              </a>
+            </td>
+            <td>
+              <a href="#colors">
+                <pre><code>ax.scatter(x, y, c=x - y)</code></pre>
+              </a>
+            </td>
+          </tr>
+          
+          <tr>
+            <td>
+              <a href="#transparent">
+                <img title="transparent markers"
+                  src="https://github.com/brohrer/taming_matplotlib/raw/master/images/markers_transparent.png"
+                  alt="thumbnail of a scatterplot using transparent markers"
+                  style="height: 180px;">
+              </a>
+            </td>
+            <td>
+              <a href="#transparent">
+<pre><code>ax.scatter(x, y, alpha=.05, edgecolors="none")</code></pre>
+              </a>
+            </td>
+          </tr>
+          
+        </table>
+
+
+        <h3 id="width">Customize your points</h3>
+
+        <p>
+          Being able to show individual data points is a powerful way to
+          communicate. Being able to change their appearance can make the story
+          they tell much richer.
+        </p>
+
+        <p>
+          A note on terminology: In matplotlib, plotted points are called
+          "markers". In plotting, "points" already refers to a unit of measure,
+          so calling data points "markers" disambiguates them. Also, as we'll
+          see, markers can be far richer than a dot, which earns them a more
+          expressive name.
+        </p>
+
+        <p>
+          We'll get all set up and create a few data points to work with.
+          If any part if this is confusing,
+          <a href="matplotlib_going_deeper.html#agg_section">
+            take a quick look at why it's here</a>.
+        </p>
+
+<pre><code>import matplotlib
+matplotlib.use("agg")
+import matplotlib.pyplot as plt
+import numpy as np
+
+x = np.linspace(-1, 1)
+y = x + np.random.normal(size=x.size)
+
+fig = plt.figure()
+ax = fig.gca()</code></pre>
+
+
+        <h3 id="size">Change the size</h3>
+
+        <pre><code>ax.scatter(x, y, s=80)</code></pre>
+
+        <p>
+          Using the <code>s</code> argument, you can set the size of
+          your markers, in points squared. If you want a marker 10 points
+          high, choose <code>s=100</code>.
+        </p>
+
+        <img title="large markers"
+          src="https://github.com/brohrer/taming_matplotlib/raw/master/images/markers_large.png"
+          alt="thumbnail of a scatterplot using large circular markers"
+          style="height: 440px;">
+
+        https://matplotlib.org/api/markers_api.html
+
+        <h3 id="sized">Make every marker a different size</h3>
+
+        <p>
+          The real power of the <code>scatter()</code> function somes out when
+          we want to modify markers individually.
+        </p>
+
+<pre><code>sizes = (np.random.sample(size=x.size) * 10) ** 2
+ax.scatter(x, y, s=sizes)</code></pre>
+
+        <p>
+          Here we created an array of sizes, one for each marker.
+        </p>
+
+        <img title="various sized markers"
+          src="https://github.com/brohrer/taming_matplotlib/raw/master/images/markers_sized.png"
+          alt="thumbnail of a scatterplot using circular markers of differing sizes"
+          style="height: 440px;">
+
+        <h3 id="color">Change the color</h3>
+
+<pre><code>ax.plot(x, y, color="pink", linewidth=5)</code></pre>
+
+        <p>
+          You can also specify the color using the <code>color</code> argument.
+        </p>
+
+        <img
+          src="https://github.com/brohrer/taming_matplotlib/raw/master/images/pink_line.png"
+          alt="pink curve plot of a sinc function" style="width: 440px;">
+
+        <p>
+          There are
+          <a href="https://matplotlib.org/api/colors_api.html">
+            several ways to specify colors</a>,
+          and covering all of them deserves its own tutorial, but the simplest
+          way is to call out the (English) name of a color. matplotlib
+          can recognize a shocking variety of them. Here are some samples.
+        </p>
+
+        <a href="https://matplotlib.org/gallery/color/named_colors.html">
+          <img
+            src="https://github.com/brohrer/taming_matplotlib/raw/master/images/css_colors.png"
+            alt="named CSS colors" style="width: 440px;">
+        </a>
+
+        <a href="https://xkcd.com/color/rgb/">
+          <img
+            src="https://github.com/brohrer/taming_matplotlib/raw/master/images/xkcd_colors.png"
+            alt="named colors from xkcd survey" style="width: 440px;">
+        </a>
+
+        <h3 id="style">Change the style</h3>
+        <p>
+          Another common manipulation is to change the style of a line from
+          solid to dashed or dotted.
+        </p>
+
+<pre><code>ax.plot(x, y, linewidth=2, linestyle="--")</code></pre>
+
+        <p>
+          The <code>linestyle</code> argument controls this.
+        </p>
+
+        <img
+          src="https://github.com/brohrer/taming_matplotlib/raw/master/images/dashed_line.png"
+          alt="dashed curve plot of a sinc function" style="width: 440px;">
+
+        <p>
+          You can choose from 
+          <ul>
+            <li>"--", dashed</li>
+            <li>":", dotted</li>
+            <li>"-.", dash-dotted</li>
+          </ul>
+          or you can <a
+          href="https://matplotlib.org/api/_as_gen/matplotlib.lines.Line2D.html?highlight=line2d#matplotlib.lines.Line2D.set_linestyle">
+            create your own</a> if you have strong opinions about what it
+            should look like.
+        </p>
+
+        <h3 id="multiple">Add more lines</h3>
+
+        <p>
+          Another common trick is to put more than one line on a plot.
+        </p>
+
+<pre><code>ax.plot(x, y, linewidth=4)
+ax.plot(x, y + .1, linewidth=2)
+ax.plot(x, y + .2, linewidth=1)
+ax.plot(x, y + .3, linewidth=.5)
+ax.plot(x, y + .4, linewidth=.2)</code></pre>
+
+        <p>
+          Luckily, this is as easy as repeatedly calling
+          <code>plot()</code>. You can do this as many times as you want.
+          I've had thousands of lines on a single plot before.
+          You have to wait a little while for everything to draw, but
+          it gets there eventually.
+        </p>
+        <img
+          src="https://github.com/brohrer/taming_matplotlib/raw/master/images/multiple_lines.png"
+          alt="multiple curve plots of a sinc function" style="width: 440px;">
+        
+        <h3>and more!</h3>
+        <p>
+          There are lots of other fine details of lines you can control.
+          If you're curious,
+          <a
+
+          href="https://matplotlib.org/api/_as_gen/matplotlib.lines.Line2D.html#matplotlib.lines.Line2D">
+          check out the API</a>.
+        </p>
+
+https://matplotlib.org/api/_as_gen/matplotlib.axes.Axes.scatter.html#matplotlib.axes.Axes.scatter
+
+        <p>
+          Want even more control of your plot?
+          <a href="https://end-to-end-machine-learning.teachable.com/p/navigating-matplotlib-tutorial-how-to/">
+          Come take a look at the full set of tutorials</a>.
+        </p>
+
+        <script type="text/javascript" src="javascripts/blog_signature.js"></script>
+      </section>
+    </div>
+    <script type="text/javascript" src="javascripts/blog_footer.js"></script>
+    <script type="text/javascript">
+      var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+      document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+    <script type="text/javascript">
+      try {
+        var pageTracker = _gat._getTracker("UA-10180621-3");
+      pageTracker._trackPageview();
+      } catch(err) {}
+    </script>
+  </body>
+</html>
