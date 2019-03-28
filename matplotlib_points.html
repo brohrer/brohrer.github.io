@@ -27,14 +27,7 @@
                   style="height: 180px;">
               </a>
             </td>
-            <td>
-              <a href="#size">
-                <pre><code>ax.scatter(x, y, s=80)</code></pre>
-              </a>
-            </td>
-          </tr>
 
-          <tr>
             <td>
               <a href="#sized">
                 <img title="various sized markers"
@@ -43,15 +36,7 @@
                   style="height: 180px;">
               </a>
             </td>
-            <td>
-              <a href="#sized">
-<pre><code>sizes = np.random.sample(size=x.size)
-ax.scatter(x, y, s=sizes)</code></pre>
-              </a>
-            </td>
-          </tr>
 
-          <tr>
             <td>
               <a href="#triangle">
                 <img title="triangle markers"
@@ -60,14 +45,34 @@ ax.scatter(x, y, s=sizes)</code></pre>
                   style="height: 180px;">
               </a>
             </td>
+
+          </tr>
+
+          <tr>
+
+            <td>
+              <a href="#size">
+                <pre><code>ax.scatter(x, y, s=80)</code></pre>
+              </a>
+            </td>
+
+            <td>
+              <a href="#sized">
+<pre><code>sizes = np.random.sample(size=x.size)
+ax.scatter(x, y, s=sizes)</code></pre>
+              </a>
+            </td>
+
             <td>
               <a href="#triangle">
                 <pre><code>ax.scatter(x, y, marker="v")</code></pre>
               </a>
             </td>
+
           </tr>
-          
+
           <tr>
+
             <td>
               <a href="#styled">
                 <img title="varying marker styles"
@@ -76,16 +81,7 @@ ax.scatter(x, y, s=sizes)</code></pre>
                   style="height: 180px;">
               </a>
             </td>
-            <td>
-              <a href="#styled">
-<pre><code>ax.scatter(x1, y1, marker="o", c="green")
-ax.scatter(x2, y2, marker="x", c="blue")
-ax.scatter(x3, y3, marker="s", c="orange")</code></pre>
-              </a>
-            </td>
-          </tr>
-          
-          <tr>
+
             <td>
               <a href="#colors">
                 <img title="colorful markers"
@@ -94,14 +90,7 @@ ax.scatter(x3, y3, marker="s", c="orange")</code></pre>
                   style="height: 180px;">
               </a>
             </td>
-            <td>
-              <a href="#colors">
-                <pre><code>ax.scatter(x, y, c=x - y)</code></pre>
-              </a>
-            </td>
-          </tr>
-          
-          <tr>
+
             <td>
               <a href="#transparent">
                 <img title="transparent markers"
@@ -110,6 +99,24 @@ ax.scatter(x3, y3, marker="s", c="orange")</code></pre>
                   style="height: 180px;">
               </a>
             </td>
+          </tr>
+          
+          <tr>
+
+            <td>
+              <a href="#styled">
+<pre><code>ax.scatter(x1, y1, marker="o", c="green")
+ax.scatter(x2, y2, marker="x", c="blue")
+ax.scatter(x3, y3, marker="s", c="orange")</code></pre>
+              </a>
+            </td>
+
+            <td>
+              <a href="#colors">
+                <pre><code>ax.scatter(x, y, c=x - y)</code></pre>
+              </a>
+            </td>
+
             <td>
               <a href="#transparent">
 <pre><code>ax.scatter(x, y, alpha=.05, edgecolors="none")</code></pre>
