@@ -277,8 +277,8 @@ td {
  }
 
 td pre{
-  padding: 5px;
-  width: 90%;
+  /* width: 100%; */
+  width: auto;
 }
 td pre code{
   text-align: left;
