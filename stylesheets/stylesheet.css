@@ -276,10 +276,13 @@ td {
  }
 
 td pre {
-  width: auto;
+  vertical-align: top;
   text-align: left;
-  text-align: top;
+}
+
+td pre code{
   font-size: 11px;
+  width: auto;
 }
 
 form {
