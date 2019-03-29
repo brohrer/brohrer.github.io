@@ -99,6 +99,15 @@ ax.scatter(x3, y3, marker="s")</code></pre>
           <tr>
 
             <td>
+              <a href="#orange">
+                <img title="orange markers"
+                  src="https://github.com/brohrer/taming_matplotlib/raw/master/images/markers_orange.png"
+                  alt="thumbnail of a scatterplot using orange markers"
+                  style="height: 180px;">
+              </a>
+            </td>
+
+            <td>
               <a href="#colors">
                 <img title="colorful markers"
                   src="https://github.com/brohrer/taming_matplotlib/raw/master/images/markers_colors.png"
@@ -106,6 +115,26 @@ ax.scatter(x3, y3, marker="s")</code></pre>
                   style="height: 180px;">
               </a>
             </td>
+
+          </tr>
+          
+          <tr>
+
+            <td>
+              <a href="#orange">
+                <pre><code>ax.scatter(x, y, c="orange")</code></pre>
+              </a>
+            </td>
+
+            <td>
+              <a href="#colors">
+                <pre><code>ax.scatter(x, y, c=x-y)</code></pre>
+              </a>
+            </td>
+
+          </tr>
+          
+          <tr>
 
             <td>
               <a href="#transparent">
@@ -119,12 +148,6 @@ ax.scatter(x3, y3, marker="s")</code></pre>
           </tr>
           
           <tr>
-
-            <td>
-              <a href="#colors">
-                <pre><code>ax.scatter(x, y, c=x-y)</code></pre>
-              </a>
-            </td>
 
             <td>
               <a href="#transparent">
@@ -238,9 +261,53 @@ ax.scatter(x, y, s=sizes)</code></pre>
           alt="scatterplot using triangular markers"
           style="height: 440px;">
 
-        <h3 id="color">Change the color</h3>
+        <h3 id="styled">Make multiple marker types</h3>
 
-<pre><code>ax.plot(x, y, color="pink", linewidth=5)</code></pre>
+        <p>
+          Having differently shaped markers is a great way to distinguish
+          between different groups of data points. If your control group is
+          all circles and your experimental group is all X's the difference
+          pops out, even to colorblind viewers.
+        </p>
+
+<pre><code>N = x.size // 3
+ax.scatter(x[:N], y[:N], marker="o")
+ax.scatter(x[N: 2 * N], y[N: 2 * N], marker="x")
+ax.scatter(x[2 * N:], y[2 * N:], marker="s")</code></pre>
+
+        <p>
+          There's no way to specify multiple marker styles in a single
+          <code>scatter()</code> call, but we can separate our data out
+          into groups and plot each marker style separately. Here we chopped
+          our data up into three equal groups.
+        </p>
+
+
+        <h3 id="orange">Change the color</h3>
+
+        <p>
+          Another great way to make your markers express your data story is by
+          changing their color.
+        </p>
+
+<pre><code>ax.scatter(x, y, c="orange")</code></pre>
+
+        <p>
+          The <code>c</code> argument, together with any of the color names
+          (<a href="matplotlib_lines.html#color">
+            as described in the post on lines</a>) lets you change your
+          markers to whatever shade of the rainbow you like.
+        </p>
+
+        <a href="#orange">
+          <img title="orange markers"
+            src="https://github.com/brohrer/taming_matplotlib/raw/master/images/markers_orange.png"
+            alt="scatterplot using orange markers"
+            style="height: 440px;">
+
+
+        <h3 id="colors">Change the color</h3>
+<pre><code>ax.scatter(x, y, c=x-y)</code></pre>
 
         <p>
           You can also specify the color using the <code>color</code> argument.
