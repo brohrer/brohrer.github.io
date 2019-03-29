@@ -213,28 +213,28 @@ pre code {
 }
 
 h1 code {
-  font-size: 36px;
+  font-size: 32px;
   font-weight: 700;
 }
 
 h2 code {
-  font-size: 32px;
+  font-size: 28px;
 }
 
 h3 code {
-  font-size: 24px;
+  font-size: 20px;
 }
 
 h4 code {
-  font-size: 21px;
-}
-
-h5 code {
   font-size: 18px;
 }
 
-h6 code {
+h5 code {
   font-size: 16px;
+}
+
+h6 code {
+  font-size: 14px;
 }
 
 blockquote {
