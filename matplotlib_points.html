@@ -310,25 +310,71 @@ ax.scatter(x[2 * N:], y[2 * N:], marker="s")</code></pre>
 
          <h3 id="colors">Change the color of each marker</h3>
 
-        <p>
-          
-        </p>
+         <p>
+           If you want to get extra fancy, you can control the color of
+           each point individually. This is what makes <code>scatter()</code>
+           special.
+         </p>
 
 <pre><code>ax.scatter(x, y, c=x-y)</code></pre>
 
-        
-        <h3>and more!</h3>
         <p>
-          There are lots of other fine details of lines you can control.
-          If you're curious,
-          <a
-            href="https://matplotlib.org/api/_as_gen/matplotlib.axes.Axes.scatter.html#matplotlib.axes.Axes.scatter"
+          One way to go about this is to specify a set of numerical values
+          for the color, one for each data point. matplotlib automatically
+          takes them and translates them to a nice color scale.
+        </p>
+        
+        <img title="colorful markers"
+          src="https://github.com/brohrer/taming_matplotlib/raw/master/images/markers_colors.png"
+          alt="scatterplot using colorful markers"
+          style="height: 440px;">
+
+        <h3 id="transparent">Make markers transparent</h3>
+
+        <p>
+          This is particularly useful when you have lots of overlapping markers
+          and you would like to get a sense of their density.
+        </p>
+
+<pre><code>x = np.linspace(-1, 1, num=1e5)
+y = x + np.random.normal(size=x.size)</code></pre>
+
+        <p>
+          To illustrate this, we first create <em>a lot</em> of data points.
+        <p>
+
+<pre><code>ax.scatter(x, y, marker=".", alpha=.05, edgecolors="none")</code></pre>
+
+        <p>
+          Then by setting the <code>alpha</code> argument to something small,
+          each individual point only contributes a small about of digital ink
+          to the picture. Only in places where lots of points overlap is the
+          result a solid color. <code>alpha=1</code> represents no transparency
+          and is the default.
+        </p>
+
+        <p>
+          The <code>edgecolors="none"</code> is necessary to remove the marker
+          outlines. For some marker types at least, the <code>alpha</code>
+          argument doesn't apply to the outlines, only the solid fill.
+        </p>
+
+        <img title="transparent markers"
+          src="https://github.com/brohrer/taming_matplotlib/raw/master/images/markers_transparent.png"
+          alt="scatterplot using transparent markers"
+          style="height: 440px;">
+
+        <h3>and even more...</h3>
+        <p>
+          If you are curious and want to explore all the other crazy things you
+          can do with markers and scatterplots,
+          <a href="https://matplotlib.org/api/_as_gen/matplotlib.axes.Axes.scatter.html#matplotlib.axes.Axes.scatter">
             check out the API</a>.
         </p>
 
-
         <p>
-          Want even more control of your plot?
+          We've only scratched the surface. Want to see what else you can
+          change in your plot?
           <a href="https://end-to-end-machine-learning.teachable.com/p/navigating-matplotlib-tutorial-how-to/">
           Come take a look at the full set of tutorials</a>.
         </p>
