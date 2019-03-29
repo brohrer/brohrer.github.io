@@ -282,6 +282,10 @@ ax.scatter(x[2 * N:], y[2 * N:], marker="s")</code></pre>
           our data up into three equal groups.
         </p>
 
+        <img title="varying marker styles"
+          src="https://github.com/brohrer/taming_matplotlib/raw/master/images/markers_styled.png"
+          alt="scatterplot using a variety of markers"
+          style="height: 440px;">
 
         <h3 id="orange">Change the color</h3>
 
@@ -299,108 +303,29 @@ ax.scatter(x[2 * N:], y[2 * N:], marker="s")</code></pre>
           markers to whatever shade of the rainbow you like.
         </p>
 
-        <a href="#orange">
-          <img title="orange markers"
-            src="https://github.com/brohrer/taming_matplotlib/raw/master/images/markers_orange.png"
-            alt="scatterplot using orange markers"
-            style="height: 440px;">
+        <img title="orange markers"
+          src="https://github.com/brohrer/taming_matplotlib/raw/master/images/markers_orange.png"
+          alt="scatterplot using orange markers"
+          style="height: 440px;">
 
+         <h3 id="colors">Change the color of each marker</h3>
 
-        <h3 id="colors">Change the color</h3>
+        <p>
+          
+        </p>
+
 <pre><code>ax.scatter(x, y, c=x-y)</code></pre>
 
-        <p>
-          You can also specify the color using the <code>color</code> argument.
-        </p>
-
-        <img
-          src="https://github.com/brohrer/taming_matplotlib/raw/master/images/pink_line.png"
-          alt="pink curve plot of a sinc function" style="width: 440px;">
-
-        <p>
-          There are
-          <a href="https://matplotlib.org/api/colors_api.html">
-            several ways to specify colors</a>,
-          and covering all of them deserves its own tutorial, but the simplest
-          way is to call out the (English) name of a color. matplotlib
-          can recognize a shocking variety of them. Here are some samples.
-        </p>
-
-        <a href="https://matplotlib.org/gallery/color/named_colors.html">
-          <img
-            src="https://github.com/brohrer/taming_matplotlib/raw/master/images/css_colors.png"
-            alt="named CSS colors" style="width: 440px;">
-        </a>
-
-        <a href="https://xkcd.com/color/rgb/">
-          <img
-            src="https://github.com/brohrer/taming_matplotlib/raw/master/images/xkcd_colors.png"
-            alt="named colors from xkcd survey" style="width: 440px;">
-        </a>
-
-        <h3 id="style">Change the style</h3>
-        <p>
-          Another common manipulation is to change the style of a line from
-          solid to dashed or dotted.
-        </p>
-
-<pre><code>ax.plot(x, y, linewidth=2, linestyle="--")</code></pre>
-
-        <p>
-          The <code>linestyle</code> argument controls this.
-        </p>
-
-        <img
-          src="https://github.com/brohrer/taming_matplotlib/raw/master/images/dashed_line.png"
-          alt="dashed curve plot of a sinc function" style="width: 440px;">
-
-        <p>
-          You can choose from 
-          <ul>
-            <li>"--", dashed</li>
-            <li>":", dotted</li>
-            <li>"-.", dash-dotted</li>
-          </ul>
-          or you can <a
-          href="https://matplotlib.org/api/_as_gen/matplotlib.lines.Line2D.html?highlight=line2d#matplotlib.lines.Line2D.set_linestyle">
-            create your own</a> if you have strong opinions about what it
-            should look like.
-        </p>
-
-        <h3 id="multiple">Add more lines</h3>
-
-        <p>
-          Another common trick is to put more than one line on a plot.
-        </p>
-
-<pre><code>ax.plot(x, y, linewidth=4)
-ax.plot(x, y + .1, linewidth=2)
-ax.plot(x, y + .2, linewidth=1)
-ax.plot(x, y + .3, linewidth=.5)
-ax.plot(x, y + .4, linewidth=.2)</code></pre>
-
-        <p>
-          Luckily, this is as easy as repeatedly calling
-          <code>plot()</code>. You can do this as many times as you want.
-          I've had thousands of lines on a single plot before.
-          You have to wait a little while for everything to draw, but
-          it gets there eventually.
-        </p>
-        <img
-          src="https://github.com/brohrer/taming_matplotlib/raw/master/images/multiple_lines.png"
-          alt="multiple curve plots of a sinc function" style="width: 440px;">
         
         <h3>and more!</h3>
         <p>
           There are lots of other fine details of lines you can control.
           If you're curious,
           <a
-
-          href="https://matplotlib.org/api/_as_gen/matplotlib.lines.Line2D.html#matplotlib.lines.Line2D">
-          check out the API</a>.
+            href="https://matplotlib.org/api/_as_gen/matplotlib.axes.Axes.scatter.html#matplotlib.axes.Axes.scatter"
+            check out the API</a>.
         </p>
 
-https://matplotlib.org/api/_as_gen/matplotlib.axes.Axes.scatter.html#matplotlib.axes.Axes.scatter
 
         <p>
           Want even more control of your plot?
