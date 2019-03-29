@@ -212,6 +212,31 @@ pre code {
   box-shadow: none;
 }
 
+h1 code {
+  font-size: 36px;
+  font-weight: 700;
+}
+
+h2 code {
+  font-size: 32px;
+}
+
+h3 code {
+  font-size: 24px;
+}
+
+h4 code {
+  font-size: 21px;
+}
+
+h5 code {
+  font-size: 18px;
+}
+
+h6 code {
+  font-size: 16px;
+}
+
 blockquote {
   color: #666;
   margin-bottom: 20px;
