@@ -6,7 +6,6 @@
   <head>
     <meta charset='utf-8'>
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
     <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
     <base target="_blank">
@@ -41,7 +40,6 @@
           </tr>
 
           <tr>
-
 
             <td>
               <a href="#size">
@@ -185,7 +183,7 @@ ax = fig.gca()</code></pre>
 
         <img title="large markers"
           src="https://github.com/brohrer/taming_matplotlib/raw/master/images/markers_large.png"
-          alt="thumbnail of a scatterplot using large circular markers"
+          alt="scatterplot using large circular markers"
           style="height: 440px;">
 
 
@@ -205,12 +203,43 @@ ax.scatter(x, y, s=sizes)</code></pre>
 
         <img title="various sized markers"
           src="https://github.com/brohrer/taming_matplotlib/raw/master/images/markers_sized.png"
-          alt="thumbnail of a scatterplot using circular markers of differing sizes"
+          alt="scatterplot using circular markers of differing sizes"
+          style="height: 440px;">
+
+        <h3 id="triangle">Change the marker style</h3>
+        <p>
+          Sometimes a circle just doesn't set the right tone. Luckliy
+          matplotlib has you covered. There are 
+          <a href="https://matplotlib.org/api/markers_api.html">
+            dozens of options</a>, plus the ability to create custom
+          shapes of any type.
+        </p>
+
+<pre><code>ax.scatter(x, y, marker="v")</code></pre>
+
+        <p>
+          Using the <code>marker</code> argument and the right character code,
+          you can choose whichever style
+          you like. Here are a few of the common ones. 
+        </p>
+
+        <ul>
+          <li>".": point</li> 
+          <li>"o": circle</li> 
+          <li>"s": square</li> 
+          <li>"^": triangle</li> 
+          <li>"v": upside down triangle</li> 
+          <li>"+": plus</li> 
+          <li>"x": X</li> 
+        </ul>
+
+        <img title="triangle markers"
+          src="https://github.com/brohrer/taming_matplotlib/raw/master/images/markers_triangle.png"
+          alt="scatterplot using triangular markers"
           style="height: 440px;">
 
         <h3 id="color">Change the color</h3>
 
-        https://matplotlib.org/api/markers_api.html
 <pre><code>ax.plot(x, y, color="pink", linewidth=5)</code></pre>
 
         <p>
