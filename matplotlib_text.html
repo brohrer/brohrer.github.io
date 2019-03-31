@@ -173,17 +173,52 @@ ax.text(0, 0, r"$E = mc^2$")</code></pre>
 
         </table>
 
+        <p>
+          Text is one of the trickiest things to get right on a plot because
+          there are so many options and permutations. Anyone who's honest will
+          tell you that they Google the syntax every time when doing matplotlib
+          text formatting. I can't change that but I at least want to give you
+          a one-stop shop for your searches.
+        </p>
 
-        Axis tick text to come later
-        https://matplotlib.org/users/text_intro.html
+        <p>
+          By the way, if you're looking for how to customize axis tick labels,
+          you'll have to wait a little longer. That's going to be the subject
+          of a later installment.
+        </p>
+        
+        <p>
+          First we set the stage for our examples. For explanation of any part
+          of this, <a href="matplotlib_going_deeper.html">look here</a>.
+        </p>
+
+<pre><code>import matplotlib
+matplotlib.use("agg")
+import matplotlib.pyplot as plt
+import numpy as np
+
+# Create the curve data.
+x = np.linspace(-6, 6, 500)
+y = np.sinc(x)
+fig = plt.figure()
+ax = fig.gca()
+ax.plot(x, y)</code></pre>
         <h3 id="xytitle">Add axis labels and a title</h3>
 
         <p>
+          This most popular text to add is axis labels and a plot title. The
+          calls for doing this are fairly intuitive. (Much more so than some of
+          of the others.)
         </p>
 
 <pre><code>ax.set_xlabel("The x-axis label")
 ax.set_ylabel("The y-axis label")
 ax.set_title("The Title")</code></pre>
+
+        <p>
+          The text these commands create is of a generic style, but don't worry.
+          Keep reading and you'll          
+          get a chance later to customize the heck out it.
 
         <img title="xlabel ylabel and title"
           src="https://github.com/brohrer/taming_matplotlib/raw/master/images/text_xy_labels_title.png"
@@ -232,7 +267,7 @@ https://matplotlib.org/api/_as_gen/matplotlib.axes.Axes.annotate.html
           style="height: 440px;">
 
 
-        <h3 id="annotate">Make beautiful equations</h3>
+        <h3 id="equation">Make beautiful equations</h3>
         <img title="a LaTeX equation"
           src="https://github.com/brohrer/taming_matplotlib/raw/master/images/text_equation.png"
           alt="a LaTeX equation"
