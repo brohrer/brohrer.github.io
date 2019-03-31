@@ -64,9 +64,9 @@ https://matplotlib.org/api/_as_gen/matplotlib.axes.Axes.annotate.html
 
             <td>
               <a href="#anytext">
-                <img title="various sized markers"
-                  src="https://github.com/brohrer/taming_matplotlib/raw/master/images/markers_sized.png"
-                  alt="thumbnail of a scatterplot using circular markers of differing sizes"
+                <img title="text on a plot"
+                  src="https://github.com/brohrer/taming_matplotlib/raw/master/images/text_any_text.png"
+                  alt="some text on a plot"
                   style="height: 180px;">
               </a>
             </td>
@@ -80,19 +80,134 @@ https://matplotlib.org/api/_as_gen/matplotlib.axes.Axes.annotate.html
 <pre><code>
 ax.set_xlabel("The x-axis label")
 ax.set_ylabel("The y-axis label")
-ax.set_title("The Title")
-</code></pre>
+ax.set_title("The Title") </code></pre>
               </a>
             </td>
 
             <td>
               <a href="#anytext">
-<pre><code>sizes = np.random.sample(size=x.size)
-ax.scatter(x, y, s=sizes)</code></pre>
+<pre><code>
+ax.text(-5, .8, "A short note") </code></pre>
               </a>
             </td>
 
           </tr>
+
+          <tr>
+            <td>
+              <a href="#alignment">
+                <img title="alignment"
+                  src="https://github.com/brohrer/taming_matplotlib/raw/master/images/text_alignment.png"
+                  alt="text alignment examples"
+                  style="height: 180px;">
+              </a>
+            </td>
+
+            <td>
+              <a href="#styles">
+                <img title="gallery of text styles"
+                  src="https://github.com/brohrer/taming_matplotlib/raw/master/images/text_styles.png"
+                  alt="a variety of text styles"
+                  style="height: 180px;">
+              </a>
+            </td>
+
+          </tr>
+
+          <tr>
+
+            <td>
+              <a href="#alignment">
+<pre><code>
+ax.text(1, -1, "left-top",
+        horizontalalignment="left",
+        verticalalignment="top") </code></pre>
+              </a>
+            </td>
+
+            <td>
+              <a href="#styles">
+<pre><code>
+ax.text(-1, 1, 'fontsize=16', fontsize=16) </code></pre>
+              </a>
+            </td>
+
+          </tr>
+
+          <tr>
+            <td>
+              <a href="#bbox">
+                <img title="text in a box"
+                  src="https://github.com/brohrer/taming_matplotlib/raw/master/images/text_bbox.png"
+                  alt="text in a bounding box"
+                  style="height: 180px;">
+              </a>
+            </td>
+
+            <td>
+              <a href="#annotate">
+                <img title="gallery of annotations"
+                  src="https://github.com/brohrer/taming_matplotlib/raw/master/images/text_annotate.png"
+                  alt="a variety of annotation styles"
+                  style="height: 180px;">
+              </a>
+            </td>
+
+          </tr>
+
+          <tr>
+
+            <td>
+              <a href="#bbox">
+<pre><code>
+ax.text(2, .4,
+        '"boxstyle"="square"\n"facecolor"="white"',
+        bbox=dict(boxstyle = "square", facecolor = "white"))
+        verticalalignment="top") </code></pre>
+              </a>
+            </td>
+
+            <td>
+              <a href="#annotate">
+<pre><code>
+ax.annotate(
+    "an annotation note",
+    (-2.4, .5),  # (x, y) point to annotate
+    (-5, .3),  # (x, y) text location
+    arrowprops=dict(arrowstyle = "-|>")) </code></pre>
+              </a>
+            </td>
+
+         </tr>
+          <tr>
+            <td>
+              <a href="#equation">
+                <img title="a LaTeX equation"
+                  src="https://github.com/brohrer/taming_matplotlib/raw/master/images/text_equation.png"
+                  alt="a LaTeX equation"
+                  style="height: 180px;">
+              </a>
+            </td>
+
+            <td>
+            </td>
+
+          </tr>
+
+          <tr>
+
+            <td>
+              <a href="#equation">
+<pre><code>
+matplotlib.rcParams['text.usetex'] = True
+ax.text(0, 0, r"$E = mc^2$")</code></pre>
+              </a>
+            </td>
+
+            <td>
+            </td>
+
+         </tr>
 
         </table>
 
@@ -100,15 +215,62 @@ ax.scatter(x, y, s=sizes)</code></pre>
         <h3 id="xytitle">Add axis labels and a title</h3>
 
         <p>
-          Being able to show individual data points is a powerful way to
-          communicate. Being able to change their appearance can make the story
-          they tell much richer.
         </p>
+
+<pre><code>
+ax.set_xlabel("The x-axis label")
+ax.set_ylabel("The y-axis label")
+ax.set_title("The Title") </code></pre>
+
+        <img title="xlabel ylabel and title"
+          src="https://github.com/brohrer/taming_matplotlib/raw/master/images/text_xy_labels_title.png"
+          alt="x-axis label, y-axis label, and title"
+          style="height: 440px;">
 
         <h3 id="anytext">Put any text anywhere</h3>
         <p>
           Put whatever you want wherever you want.
         </p>
+        <img title="text on a plot"
+          src="https://github.com/brohrer/taming_matplotlib/raw/master/images/text_any_text.png"
+          alt="some text on a plot"
+          style="height: 440px;">
+
+        <h3 id="alignment">Fine-tune text placement</h3>
+
+
+        <img title="alignment"
+          src="https://github.com/brohrer/taming_matplotlib/raw/master/images/text_alignment.png"
+          alt="text alignment examples"
+          style="height: 440px;">
+
+        <h3 id="styles">Customize your text style</h3>
+        <img title="gallery of text styles"
+          src="https://github.com/brohrer/taming_matplotlib/raw/master/images/text_styles.png"
+          alt="a variety of text styles"
+          style="height: 440px;">
+
+        <h3 id="bbox">Put your text in a box</h3>
+
+        <img title="text in a box"
+          src="https://github.com/brohrer/taming_matplotlib/raw/master/images/text_bbox.png"
+          alt="text in a bounding box"
+          style="height: 440px;">
+
+
+        <h3 id="annotate">Point your text at something</h3>
+        <img title="gallery of annotations"
+          src="https://github.com/brohrer/taming_matplotlib/raw/master/images/text_annotate.png"
+          alt="a variety of annotation styles"
+          style="height: 180px;">
+
+
+        <h3 id="annotate">Make beautiful equations</h3>
+        <img title="a LaTeX equation"
+          src="https://github.com/brohrer/taming_matplotlib/raw/master/images/text_equation.png"
+          alt="a LaTeX equation"
+          style="height: 440px;">
+
 
         <script type="text/javascript" src="javascripts/blog_signature.js"></script>
       </section>
