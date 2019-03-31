@@ -45,17 +45,16 @@
 
             <td>
               <a href="#xytitle">
-<pre><code>
-ax.set_xlabel("The x-axis label")
+<pre><code>ax.set_xlabel("The x-axis label")
 ax.set_ylabel("The y-axis label")
-ax.set_title("The Title") </code></pre>
+ax.set_title("The Title")</code></pre>
               </a>
             </td>
 
             <td>
               <a href="#anytext">
-<pre><code>
-ax.text(-5, .8, "A short note") </code></pre>
+<pre><code>ax.text(-5, .8,  # x, y text position
+        "Text on a plot")</code></pre>
               </a>
             </td>
 
@@ -86,17 +85,15 @@ ax.text(-5, .8, "A short note") </code></pre>
 
             <td>
               <a href="#alignment">
-<pre><code>
-ax.text(1, -1, "left-top",
+<pre><code>ax.text(1, -1, "left-top",
         horizontalalignment="left",
-        verticalalignment="top") </code></pre>
+        verticalalignment="top")</code></pre>
               </a>
             </td>
 
             <td>
               <a href="#styles">
-<pre><code>
-ax.text(-1, 1, 'fontsize=16', fontsize=16) </code></pre>
+<pre><code>ax.text(-1, 1, 'fontsize=16', fontsize=16)</code></pre>
               </a>
             </td>
 
@@ -127,22 +124,19 @@ ax.text(-1, 1, 'fontsize=16', fontsize=16) </code></pre>
 
             <td>
               <a href="#bbox">
-<pre><code>
-ax.text(2, .4,
-        '"boxstyle"="square"\n"facecolor"="white"',
-        bbox=dict(boxstyle = "square", facecolor = "white"))
-        verticalalignment="top") </code></pre>
+<pre><code>ax.text(2, .4, "Text in a box",
+        bbox=dict(boxstyle = "square",
+                  facecolor = "white"))</code></pre>
               </a>
             </td>
 
             <td>
               <a href="#annotate">
-<pre><code>
-ax.annotate(
+<pre><code>ax.annotate(
     "an annotation note",
     (-2.4, .5),  # (x, y) point to annotate
     (-5, .3),  # (x, y) text location
-    arrowprops=dict(arrowstyle = "-|>")) </code></pre>
+    arrowprops=dict(arrowstyle = "-|>"))</code></pre>
               </a>
             </td>
 
@@ -151,7 +145,7 @@ ax.annotate(
             <td>
               <a href="#equation">
                 <img title="a LaTeX equation"
-                  src="https://github.com/brohrer/taming_matplotlib/raw/master/images/text_equation.png"
+                  src="https://github.com/brohrer/taming_matplotlib/raw/master/images/text_equation_thumbnail.png"
                   alt="a LaTeX equation"
                   style="height: 180px;">
               </a>
@@ -166,8 +160,7 @@ ax.annotate(
 
             <td>
               <a href="#equation">
-<pre><code>
-matplotlib.rcParams['text.usetex'] = True
+<pre><code>matplotlib.rcParams['text.usetex'] = True
 ax.text(0, 0, r"$E = mc^2$")</code></pre>
               </a>
             </td>
@@ -187,10 +180,9 @@ ax.text(0, 0, r"$E = mc^2$")</code></pre>
         <p>
         </p>
 
-<pre><code>
-ax.set_xlabel("The x-axis label")
+<pre><code>ax.set_xlabel("The x-axis label")
 ax.set_ylabel("The y-axis label")
-ax.set_title("The Title") </code></pre>
+ax.set_title("The Title")</code></pre>
 
         <img title="xlabel ylabel and title"
           src="https://github.com/brohrer/taming_matplotlib/raw/master/images/text_xy_labels_title.png"
@@ -236,7 +228,7 @@ https://matplotlib.org/api/_as_gen/matplotlib.axes.Axes.annotate.html
         <img title="gallery of annotations"
           src="https://github.com/brohrer/taming_matplotlib/raw/master/images/text_annotate.png"
           alt="a variety of annotation styles"
-          style="height: 180px;">
+          style="height: 440px;">
 
 
         <h3 id="annotate">Make beautiful equations</h3>
