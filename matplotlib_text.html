@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+
+  <script type="text/javascript">var blog_title = "Text in matplotlib";</script>
+  <script type="text/javascript">var publication_date = "March 29, 2019";</script>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
+    <base target="_blank">
+    <script type="text/javascript" src="javascripts/blog_head.js"></script>
+  </head>
+  <body>
+    <script type="text/javascript" src="javascripts/blog_header.js"></script>
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        
+        https://matplotlib.org/users/text_intro.html
+
+        xlabel and ylabel
+        Axes title
+
+        text
+
+        text size
+        text font
+        font weight
+        font style
+        text color
+        text properties
+        https://matplotlib.org/users/text_props.html
+
+        text alignment
+        default alignment is left, bottom
+
+
+        text with box
+        https://matplotlib.org/gallery/pyplots/whats_new_98_4_fancy.html#sphx-glr-gallery-pyplots-whats-new-98-4-fancy-py
+
+
+        annotation box
+        annotation with arrow
+        plenty of fancy
+https://matplotlib.org/api/_as_gen/matplotlib.axes.Axes.annotate.html
+        https://matplotlib.org/gallery/pyplots/whats_new_98_4_fancy.html#sphx-glr-gallery-pyplots-whats-new-98-4-fancy-py
+
+
+        latex math text
+
+        Axis tick text to come later
+
+        <table>
+          <tr>
+            <td>
+              <a href="#xytitle">
+                <img title="xlabel ylabel and title"
+                  src="https://github.com/brohrer/taming_matplotlib/raw/master/images/text_xy_labels_title.png"
+                  alt="x-axis label, y-axis label, and title"
+                  style="height: 180px;">
+              </a>
+            </td>
+
+            <td>
+              <a href="#anytext">
+                <img title="various sized markers"
+                  src="https://github.com/brohrer/taming_matplotlib/raw/master/images/markers_sized.png"
+                  alt="thumbnail of a scatterplot using circular markers of differing sizes"
+                  style="height: 180px;">
+              </a>
+            </td>
+
+          </tr>
+
+          <tr>
+
+            <td>
+              <a href="#xytitle">
+<pre><code>
+ax.set_xlabel("The x-axis label")
+ax.set_ylabel("The y-axis label")
+ax.set_title("The Title")
+</code></pre>
+              </a>
+            </td>
+
+            <td>
+              <a href="#anytext">
+<pre><code>sizes = np.random.sample(size=x.size)
+ax.scatter(x, y, s=sizes)</code></pre>
+              </a>
+            </td>
+
+          </tr>
+
+        </table>
+
+
+        <h3 id="xytitle">Add axis labels and a title</h3>
+
+        <p>
+          Being able to show individual data points is a powerful way to
+          communicate. Being able to change their appearance can make the story
+          they tell much richer.
+        </p>
+
+        <h3 id="anytext">Put any text anywhere</h3>
+        <p>
+          Put whatever you want wherever you want.
+        </p>
+
+        <script type="text/javascript" src="javascripts/blog_signature.js"></script>
+      </section>
+    </div>
+    <script type="text/javascript" src="javascripts/blog_footer.js"></script>
+    <script type="text/javascript">
+      var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+      document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+    <script type="text/javascript">
+      try {
+        var pageTracker = _gat._getTracker("UA-10180621-3");
+      pageTracker._trackPageview();
+      } catch(err) {}
+    </script>
+  </body>
+</html>
