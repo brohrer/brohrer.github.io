@@ -227,8 +227,18 @@ ax.set_title("The Title")</code></pre>
 
         <h3 id="anytext">Put any text anywhere</h3>
         <p>
-          Put whatever you want wherever you want.
+          You're not limited to axis labels and a title. You can add any text
+          you want to any location on the plot.
         </p>
+
+<pre><code>ax.text(-5, .8, "Text on a plot")</code></pre>
+
+        <p>
+          The incantation of <code>text(x, y, "some text")</code> lets you
+          arbitrarily place your note anywhere in the plot, using plot
+          coordinates.
+        </p>
+
         <img title="text on a plot"
           src="https://github.com/brohrer/taming_matplotlib/raw/master/images/text_any_text.png"
           alt="some text on a plot"
@@ -236,6 +246,33 @@ ax.set_title("The Title")</code></pre>
 
         <h3 id="alignment">Fine-tune text placement</h3>
 
+        <p>
+          You may have noticed that choosing an x and a y for the text position
+          is a little ambiguous are you choosing the location for the bottom of
+          the text or the top? For the left or the right? Your system will have
+          default answers to these questions in place, but sometimes you'll
+          wnat more control.
+        </p>
+
+<pre><code>ax.text(-1, -1, "right-top",
+        horizontalalignment="right",
+        verticalalignment="top")</code></pre>
+
+        <p>
+          The <code>horizontalalignment</code> argument lets you specify
+          whether the x position you feed it should be fall just to the
+          <code>right</code>
+          of the text, to the <code>left</code>, or in the <code>center</code>.
+        </p>
+
+        <p>
+          As you probably guessed, the <code>verticalalignment</code> argument
+          lets you specify where the y position you supply should fall: at the
+          <code>top</code> of the text, at the <code>bottom</code>, or in the
+          <code>center</code>. There is also a <code>baseline</code> option,
+          the position of the bottoms of most of the letters except for things
+          with tails like y, g, p, and q.
+        </p>
 
         <img title="alignment"
           src="https://github.com/brohrer/taming_matplotlib/raw/master/images/text_alignment.png"
@@ -243,7 +280,26 @@ ax.set_title("The Title")</code></pre>
           style="height: 440px;">
 
         <h3 id="styles">Customize your text style</h3>
-        https://matplotlib.org/users/text_props.html
+
+        <p>
+          Now that we have our text precisely located, we can go wild on the
+          formatting. Size, font, style, color - it's a free-for-all.
+        </p>
+
+<pre><code>ax.text(-1, 1, 'fontsize=16', fontsize=16)
+ax.text(-1, 0, 'fontstyle="italic"', fontstyle="italic")
+ax.text(-1, -1, 'fontweight="bold"', fontweight="bold")
+ax.text(1, -1, "rotation=15", rotation=15)
+ax.text(1, 0, 'color="red"', color="red")
+ax.text(1, 1, 'family="serif"', family="serif")</code></pre>
+
+        <p>
+          If this still doesn't satisfy your textual creativity, take a look
+          at 
+          <a href="https://matplotlib.org/users/text_props.html">
+          the full list of text properties</a> in the matplotlib API.
+        </p>
+
         <img title="gallery of text styles"
           src="https://github.com/brohrer/taming_matplotlib/raw/master/images/text_styles.png"
           alt="a variety of text styles"
