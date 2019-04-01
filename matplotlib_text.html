@@ -175,7 +175,7 @@ ax.text(0, 0, r"$E = mc^2$")</code></pre>
           Text is one of the trickiest things to get right on a plot because
           there are so many options and permutations. Anyone who's honest will
           tell you that they Google the syntax every time when doing Matplotlib
-          text formatting. I can't change that but I at least want to give you
+          text formatting. I can't change that, but I at least want to give you
           a one-stop shop for your searches.
         </p>
 
@@ -186,7 +186,7 @@ ax.text(0, 0, r"$E = mc^2$")</code></pre>
         </p>
         
         <p>
-          First we set the stage for our examples. For explanation of any part
+          First we set the stage for our examples. For an explanation of any part
           of this, <a href="matplotlib_going_deeper.html">look here</a>.
         </p>
 
@@ -204,9 +204,9 @@ ax.plot(x, y)</code></pre>
         <h3 id="xytitle">Add axis labels and a title</h3>
 
         <p>
-          This most popular text to add is axis labels and a plot title. The
-          calls for doing this are fairly intuitive. (Much more so than some of
-          of the others.)
+          The most popular text to add is axis labels and a plot title. The
+          calls for doing this are fairly intuitive. (Much more so than some
+          we'll see further down the page.)
         </p>
 
 <pre><code>ax.set_xlabel("The x-axis label")
@@ -215,7 +215,7 @@ ax.set_title("The Title")</code></pre>
 
         <p>
           The text these commands create is of a generic style, but don't worry.
-          Keep reading and you'll          
+          Keep reading, and you'll          
           get a chance later to customize the heck out it.
 
         <img title="xlabel ylabel and title"
@@ -362,12 +362,12 @@ ax.text(1, 1, 'family="serif"', family="serif")</code></pre>
         <p>
           The pattern for calling out an annotation has several parts, and
           they're
-          all mixed up from what we've seen before. The <em>first</em>
-          argument to <code>annotate()</code> is the text. (Remember, for
-          <code>text()</code> it was the third argument.) Then a Tuple of the x- and
+          all mixed up from what we've seen before. Now the <em>first</em>
+          argument to <code>annotate()</code> is the text.
+          Then a Tuple of the x- and
           y-positions for the <em>end</em> of the pointer line. And only then,
           a Tuple of the x- and y-positions of the text. And note the use of
-          Tuples here, where in <code>text()</code> x and y are separate arguments.
+          Tuples here, where <code>text()</code> accepts x and y as separate arguments.
         </p>
 
         <p>
@@ -455,7 +455,7 @@ ax.text(
         </p>
         <br>
         <p>
-          OK, now you know enough to be dangerous. At least with text.
+          Now you are off to the races!
           My sincere hope is that this little reference page takes
           90% of the Google goose chase out of getting your plot
           text just right. If you want to explore the
