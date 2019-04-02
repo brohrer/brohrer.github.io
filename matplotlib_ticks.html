@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+
+  <script type="text/javascript">var blog_title = "Ticks and Grids in Matplotlib";</script>
+  <script type="text/javascript">var publication_date = "April 5, 2019";</script>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
+    <base target="_blank">
+    <script type="text/javascript" src="javascripts/blog_head.js"></script>
+  </head>
+  <body>
+    <script type="text/javascript" src="javascripts/blog_header.js"></script>
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+
+        <table>
+          <tr>
+            <td>
+              <a href="#limits" target="_self">
+                <img title="x and y axis with limits"
+                  src="https://github.com/brohrer/taming_matplotlib/raw/master/images/axis_ticks.png"
+                  alt="x and y axis limits"
+                  style="height: 180px;">
+              </a>
+            </td>
+
+            <td>
+              <a target="_self" href="#log">
+                <img title="logarithmic scaling"
+                  src="https://github.com/brohrer/taming_matplotlib/raw/master/images/axis_log.png"
+                  alt="x and y axes with logarithmic scaling"
+                  style="height: 180px;">
+              </a>
+            </td>
+
+          </tr>
+
+          <tr>
+
+            <td>
+              <a target="_self" href="#limits">
+<pre><code>ax.set_xlim(x_minimum, x_maximum)
+ax.set_ylim(y_minimum, y_maximum)</code></pre>
+              </a>
+            </td>
+
+            <td>
+              <a target="_self" href="#log">
+<pre><code>ax.set_xscale("log")
+ax.set_yscale("log")</code></pre>
+              </a>
+            </td>
+
+          </tr>
+
+        </table>
+
+        <p>
+        </p>
+
+<pre><code>import matplotlib
+matplotlib.use("agg")
+import matplotlib.pyplot as plt
+import numpy as np
+
+# Create the curve data.
+x = np.linspace(1, 13, 500)
+y = 1 + np.sinc(x - 7)
+fig = plt.figure()
+ax = fig.gca()
+ax.plot(x, y)</code></pre>
+
+
+        <h3 id="limits">Impose axis limits</h3>
+
+        <p>
+        </p>
+
+<pre><code>ax.set_xlim(x_minimum, x_maximum)
+ax.set_ylim(y_minimum, y_maximum)</code></pre>
+
+        <img title="limits"
+          src="https://github.com/brohrer/taming_matplotlib/raw/master/images/axis_ticks.png"
+          alt="x and y axis limits"
+          style="height: 440px;">
+
+
+        <h3 id="log">Use logarithmic scaling</h3>
+        <p>
+        </p>
+
+<pre><code>ax.set_xscale("log")
+ax.set_yscale("log")</code></pre>
+
+        <p>
+        </p>
+
+        <img title="logarithmic scaling"
+          src="https://github.com/brohrer/taming_matplotlib/raw/master/images/axis_log.png"
+          alt="x and y axes with logarithmic scaling"
+          style="height: 440px;">
+
+        <br>
+        <p>
+          Now you are off to the races!
+          My sincere hope is that this little reference page takes
+          90% of the Google goose chase out of getting your plot
+          text just right. If you want to explore the
+          other plot magic you can do,
+          <a href="https://end-to-end-machine-learning.teachable.com/p/navigating-matplotlib-tutorial-how-to/">
+          come take a look at the full set of tutorials</a>.
+        </p>
+
+        <script type="text/javascript" src="javascripts/blog_signature.js"></script>
+      </section>
+    </div>
+    <script type="text/javascript" src="javascripts/blog_footer.js"></script>
+    <script type="text/javascript">
+      var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+      document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+    <script type="text/javascript">
+      try {
+        var pageTracker = _gat._getTracker("UA-10180621-3");
+      pageTracker._trackPageview();
+      } catch(err) {}
+    </script>
+  </body>
+</html>
