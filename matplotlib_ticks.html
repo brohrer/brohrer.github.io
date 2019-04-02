@@ -93,8 +93,52 @@ ax.yaxis.set_minor_locator(
 
             <td>
               <a target="_self" href="#direction">
-<pre><code>ax.set_xscale("log")
-ax.set_yscale("log")</code></pre>
+<pre><code>ax.tick_params(axis="x", direction="in")
+ax.tick_params(axis="y", direction="inout")</code></pre>
+              </a>
+            </td>
+
+          </tr>
+
+          <tr>
+
+            <td>
+              <a target="_self" href="#opposite">
+                <img title="ticks on the opposite axis"
+                  src="https://github.com/brohrer/taming_matplotlib/raw/master/images/axis_tick_opposite.png"
+                  alt="ticks added to the opposite side of the plot"
+                  style="height: 180px;">
+              </a>
+            </td>
+
+            <td>
+              <a href="#direction" target="_self">
+                <img title="tick direction"
+                  src="https://github.com/brohrer/taming_matplotlib/raw/master/images/axis_tick_direction.png"
+                  alt="varying tick directions on x and y axes"
+                  style="height: 180px;">
+              </a>
+            </td>
+
+          </tr>
+
+          <tr>
+
+            <td>
+              <a target="_self" href="#opposite">
+<pre><code>ax.tick_params(
+    bottom=False, top=True,
+    left=True, right=True)
+ax.tick_params(
+    labelbottom=False, labeltop=True,
+    labelleft=True, labelright=True)</code></pre>
+              </a>
+            </td>
+
+            <td>
+              <a target="_self" href="#direction">
+<pre><code>ax.tick_params(axis="x", direction="in")
+ax.tick_params(axis="y", direction="inout")</code></pre>
               </a>
             </td>
 
@@ -127,7 +171,7 @@ ax.plot(x, y)</code></pre>
 ax.set_ylim(y_minimum, y_maximum)</code></pre>
 
         <img title="limits"
-          src="https://github.com/brohrer/taming_matplotlib/raw/master/images/axis_ticks.png"
+          src="https://github.com/brohrer/taming_matplotlib/raw/master/images/axis_limits.png"
           alt="x and y axis limits"
           style="height: 440px;">
 
@@ -171,13 +215,56 @@ ax.yaxis.set_minor_locator(AutoMinorLocator())</code></pre>
 ax.tick_params(axis="y", direction="inout")</code></pre>
 
         <p>
+          Everything we do with major ticks can also be done with minor ticks.
         </p>
+
+<pre><code>ax.tick_params(axis="x", direction="in")
+ax.tick_params(axis="y", direction="inout")</code></pre>
+
+        <img title="ticks on the opposite axis"
+          src="https://github.com/brohrer/taming_matplotlib/raw/master/images/axis_tick_opposite.png"
+          alt="ticks added to the opposite side of the plot"
+          style="height: 440px;">
+
+        <p>
+          Everything we do with major ticks can also be done with minor ticks.
+        </p>
+
+<pre><code>which="minor"</code></pre>
+<pre><code>ax.tick_params(which="minor", axis="x", direction="in")
+ax.tick_params(which="minor, axis="y", direction="inout")</code></pre>
+
+
+        <img title="minor ticks"
+          src="https://github.com/brohrer/taming_matplotlib/raw/master/images/axis_tick_minor.png"
+          alt="minor ticks added to the plot"
+          style="height: 440px;">
+
+
+        <h3 id="direction">Put ticks inside and out</h3>
+        <p>
+        </p>
+
+<pre><code>ax.tick_params(axis="x", direction="in")
+ax.tick_params(axis="y", direction="inout")</code></pre>
+
+        <p>
+          Everything we do with major ticks can also be done with minor ticks.
+        </p>
+
+<pre><code>ax.tick_params(axis="x", direction="in")
+ax.tick_params(axis="y", direction="inout")</code></pre>
 
         <img title="tick direction"
           src="https://github.com/brohrer/taming_matplotlib/raw/master/images/axis_tick_direction.png"
           alt="varying tick directions on x and y axes"
           style="height: 440px;">
-
+<pre><code>ax.tick_params(
+    bottom=False, top=True,
+    left=True, right=True)
+ax.tick_params(
+    labelbottom=False, labeltop=True,
+    labelleft=True, labelright=True)</code></pre>
         <br>
         <p>
           Now you are off to the races!
