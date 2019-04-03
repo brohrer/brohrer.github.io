@@ -187,10 +187,58 @@ ax.yaxis.set_minor_locator(
 
             <td>
               <a target="_self" href="#minor_tick_labels">
-<pre><code>ax.xaxis.set_minor_locator(AutoMinorLocator())
-ax.yaxis.set_minor_locator(AutoMinorLocator())
+<pre><code>ax.xaxis.set_minor_locator(
+    AutoMinorLocator())
+ax.yaxis.set_minor_locator(
+    AutoMinorLocator())
 ax.yaxis.set_minor_formatter(
     FormatStrFormatter("%.3f"))</code></pre>
+              </a>
+            </td>
+
+          </tr>
+
+            <td>
+              <a target="_self" href="#custom">
+                <img title="custom ticks"
+                  src="https://github.com/brohrer/taming_matplotlib/raw/master/images/axis_tick_custom.png"
+                  alt="custom located and labeled ticks"
+                  style="height: 180px;">
+              </a>
+            </td>
+
+            <td>
+              <a target="_self" href="#grid">
+                <img title="complete grid"
+                  src="https://github.com/brohrer/taming_matplotlib/raw/master/images/axis_tick_grid.png"
+                  alt="added a grid to the plot"
+                  style="height: 180px;">
+              </a>
+            </td>
+
+          </tr>
+
+          <tr>
+
+            <td>
+              <a target="_self" href="#custom">
+<pre><code>x_locator = FixedLocator(tick_position_list)
+x_formatter = FixedFormatter(tick_label_list)
+ax.xaxis.set_major_locator(x_locator)
+ax.xaxis.set_major_formatter(x_formatter)</code></pre>
+              </a>
+            </td>
+
+            <td>
+              <a target="_self" href="#grid">
+
+<pre><code>ax.grid(
+    axis="x", color="green",
+    alpha=.3, linewidth=2,
+    linestyle=":")
+ax.grid(
+    axis="y", color="black",
+    alpha=.5, linewidth=.5)</code></pre>
               </a>
             </td>
 
@@ -241,21 +289,6 @@ ax.set_yscale("log")</code></pre>
         <img title="logarithmic scaling"
           src="https://github.com/brohrer/taming_matplotlib/raw/master/images/axis_log.png"
           alt="x and y axes with logarithmic scaling"
-          style="height: 440px;">
-
-
-        <h3 id="minor">Add minor ticks</h3>
-
-        <p>
-        </p>
-
-<pre><code>from matplotlib.ticker import AutoMinorLocator
-ax.xaxis.set_minor_locator(AutoMinorLocator())
-ax.yaxis.set_minor_locator(AutoMinorLocator())</code></pre>
-
-        <img title="minor ticks"
-          src="https://github.com/brohrer/taming_matplotlib/raw/master/images/axis_tick_minor.png"
-          alt="minor ticks added to the plot"
           style="height: 440px;">
 
 
@@ -332,6 +365,21 @@ ax.tick_params(
           style="height: 440px;">
 
 
+        <h3 id="minor">Add minor ticks</h3>
+
+        <p>
+        </p>
+
+<pre><code>from matplotlib.ticker import AutoMinorLocator
+ax.xaxis.set_minor_locator(AutoMinorLocator())
+ax.yaxis.set_minor_locator(AutoMinorLocator())</code></pre>
+
+        <img title="minor ticks"
+          src="https://github.com/brohrer/taming_matplotlib/raw/master/images/axis_tick_minor.png"
+          alt="minor ticks added to the plot"
+          style="height: 440px;">
+
+
         <h3 id="minor_tick_labels">Add labels to the minor ticks</h3>
 
 <pre><code>from matplotlib.ticker import (
@@ -344,6 +392,45 @@ ax.yaxis.set_minor_formatter(
         <img title="minor tick labels"
           src="https://github.com/brohrer/taming_matplotlib/raw/master/images/axis_tick_labels_minor.png"
           alt="added minor tick labels on x and y axes"
+          style="height: 440px;">
+
+
+        <h3 id="custom">Exercise total tick control</h3>
+
+<pre><code>from matplotlib.ticker import FixedLocator, FixedFormatter
+x_formatter = FixedFormatter([
+    "I like this spot",
+    "and this",
+    "and that",
+    "but not this one."])
+x_locator = FixedLocator([3, 7, 8.8, 12])
+ax.xaxis.set_major_formatter(x_formatter)
+ax.xaxis.set_major_locator(x_locator)</code></pre>
+
+        <img title="custom ticks"
+          src="https://github.com/brohrer/taming_matplotlib/raw/master/images/axis_tick_custom.png"
+          alt="custom located and labeled ticks"
+          style="height: 440px;">
+
+
+        <h3 id="grid">Add a custom grid</h3>
+
+
+<pre><code>ax.grid(
+    axis="x",
+    color="green",
+    alpha=.3,
+    linewidth=2,
+    linestyle=":")
+ax.grid(
+    axis="y",
+    color="black",
+    alpha=.5,
+    linewidth=.5)</code></pre>
+
+        <img title="complete grid"
+          src="https://github.com/brohrer/taming_matplotlib/raw/master/images/axis_tick_grid.png"
+          alt="added a grid to the plot"
           style="height: 440px;">
 
 
