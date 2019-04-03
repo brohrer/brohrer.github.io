@@ -59,16 +59,6 @@ ax.set_yscale("log")</code></pre>
           </tr>
 
           <tr>
-
-            <td>
-              <a target="_self" href="#minor">
-                <img title="minor ticks"
-                  src="https://github.com/brohrer/taming_matplotlib/raw/master/images/axis_tick_minor.png"
-                  alt="minor ticks added to the plot"
-                  style="height: 180px;">
-              </a>
-            </td>
-
             <td>
               <a target="_self" href="#direction">
                 <img title="tick direction"
@@ -77,30 +67,6 @@ ax.set_yscale("log")</code></pre>
                   style="height: 180px;">
               </a>
             </td>
-
-          </tr>
-
-          <tr>
-
-            <td>
-              <a target="_self" href="#minor">
-<pre><code>ax.xaxis.set_minor_locator(
-    AutoMinorLocator())
-ax.yaxis.set_minor_locator(
-    AutoMinorLocator())</code></pre>
-              </a>
-            </td>
-
-            <td>
-              <a target="_self" href="#direction">
-<pre><code>ax.tick_params(axis="x", direction="in")
-ax.tick_params(axis="y", direction="inout")</code></pre>
-              </a>
-            </td>
-
-          </tr>
-
-          <tr>
 
             <td>
               <a target="_self" href="#opposite">
@@ -111,18 +77,17 @@ ax.tick_params(axis="y", direction="inout")</code></pre>
               </a>
             </td>
 
-            <td>
-              <a target="_self" href="#tick_style">
-                <img title="tick style"
-                  src="https://github.com/brohrer/taming_matplotlib/raw/master/images/axis_tick_styled.png"
-                  alt="varying tick styles on x and y axes"
-                  style="height: 180px;">
-              </a>
-            </td>
-
           </tr>
 
           <tr>
+
+            <td>
+              <a target="_self" href="#direction">
+<pre><code>ax.tick_params(axis="x", direction="in")
+ax.tick_params(axis="y", direction="inout")</code></pre>
+              </a>
+            </td>
+
 
             <td>
               <a target="_self" href="#opposite">
@@ -135,6 +100,31 @@ ax.tick_params(
               </a>
             </td>
 
+          </tr>
+
+          <tr>
+
+            <td>
+              <a target="_self" href="#tick_style">
+                <img title="tick style"
+                  src="https://github.com/brohrer/taming_matplotlib/raw/master/images/axis_tick_styled.png"
+                  alt="varying tick styles on x and y axes"
+                  style="height: 180px;">
+              </a>
+            </td>
+
+            <td>
+              <a target="_self" href="#label_style">
+                <img title="tick label style"
+                  src="https://github.com/brohrer/taming_matplotlib/raw/master/images/axis_tick_label_styled.png"
+                  alt="tick labels styled on the x and y axes"
+                  style="height: 180px;">
+              </a>
+            </td>
+
+          </tr>
+
+          <tr>
             <td>
               <a target="_self" href="#tick_style">
 <pre><code>ax.tick_params(
@@ -146,15 +136,29 @@ ax.tick_params(
               </a>
             </td>
 
+            <td>
+              <a target="_self" href="#label_style">
+<pre><code>ax.tick_params(
+    axis="x", labelsize=18,
+    labelrotation=-60,
+    labelcolor="turquoise")
+ax.tick_params(
+    axis="y", labelsize=12,
+    labelrotation=20,
+    labelcolor="orange")</code></pre>
+              </a>
+            </td>
+
           </tr>
 
           <tr>
 
+
             <td>
-              <a target="_self" href="#label_style">
-                <img title="tick label style"
-                  src="https://github.com/brohrer/taming_matplotlib/raw/master/images/axis_tick_label_styled.png"
-                  alt="tick labels styled on the x and y axes"
+              <a target="_self" href="#minor">
+                <img title="minor ticks"
+                  src="https://github.com/brohrer/taming_matplotlib/raw/master/images/axis_tick_minor.png"
+                  alt="minor ticks added to the plot"
                   style="height: 180px;">
               </a>
             </td>
@@ -173,21 +177,17 @@ ax.tick_params(
           <tr>
 
             <td>
-              <a target="_self" href="#label_style">
-<pre><code>ax.tick_params(
-    axis="x", labelsize=18,
-    labelrotation=-60, labelcolor="turquoise")
-ax.tick_params(
-    axis="y", labelsize=12,
-    labelrotation=20, labelcolor="orange")</code></pre>
+              <a target="_self" href="#minor">
+<pre><code>ax.xaxis.set_minor_locator(
+    AutoMinorLocator())
+ax.yaxis.set_minor_locator(
+    AutoMinorLocator())</code></pre>
               </a>
             </td>
 
             <td>
               <a target="_self" href="#minor_tick_labels">
-<pre><code>from matplotlib.ticker import (
-    AutoMinorLocator, FormatStrFormatter)
-ax.xaxis.set_minor_locator(AutoMinorLocator())
+<pre><code>ax.xaxis.set_minor_locator(AutoMinorLocator())
 ax.yaxis.set_minor_locator(AutoMinorLocator())
 ax.yaxis.set_minor_formatter(
     FormatStrFormatter("%.3f"))</code></pre>
