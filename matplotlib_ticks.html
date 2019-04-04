@@ -247,6 +247,17 @@ ax.grid(
         </table>
 
         <p>
+          Well formatted axis ticks elevate a plot from serviceable to professional, but unfortunately it’s one of the toughest things to do in Matplotlib. This recipe collection is designed to change that.
+        </p>
+
+        <p>
+          There are at least three different ways to perform most tick formatting operations. I’ve chosen to stick with the set that feels the most consistent, but don’t be surprised when you come across lots of alternatives on StackOverflow.
+        </p>
+
+        <p>
+          All the examples to follow will rely on this bit of setup. (See
+          <a href="matplotlib_going_deeper.html">the Level Up post</a>
+          for a line-by-line breakdown.)
         </p>
 
 <pre><code>import matplotlib
@@ -265,10 +276,16 @@ ax.plot(x, y)</code></pre>
         <h3 id="limits">Impose axis limits</h3>
 
         <p>
+          Setting axis limits is a good place to start. By default, Matplotlib uses the range of the data to choose reasonable limits. This is good enough most of the time, but occasionally you will want more control. You may want to avoid suppressing your zero or ensure that multiple plots have the same scale or drive a certain aspect ratio, or maybe you just like having the limits fall on even whole numbers. Whatever the reason, specifying limits gives you a greater degree of control over the framing of your plot.
         </p>
 
 <pre><code>ax.set_xlim(x_minimum, x_maximum)
 ax.set_ylim(y_minimum, y_maximum)</code></pre>
+
+        <p>
+          This is thankfully one of the most self-explanatory examples in the
+          bunch.
+        </p>
 
         <img title="limits"
           src="https://github.com/brohrer/taming_matplotlib/raw/master/images/axis_limits.png"
@@ -278,12 +295,17 @@ ax.set_ylim(y_minimum, y_maximum)</code></pre>
 
         <h3 id="log">Use logarithmic scaling</h3>
         <p>
+          Some data lends itself well to logarithmic scaling on one of its
+          axes, or both. Matplotlib handles that transformation gracefully.
         </p>
 
 <pre><code>ax.set_xscale("log")
 ax.set_yscale("log")</code></pre>
 
         <p>
+          It even adds a second set of ticks without labels, minor ticks, to
+          help the viewer resolve locations. Minor ticks will be showing up
+          again in later examples.
         </p>
 
         <img title="logarithmic scaling"
@@ -294,11 +316,30 @@ ax.set_yscale("log")</code></pre>
 
         <h3 id="direction">Put ticks inside and out</h3>
         <p>
+          Fine control over ticks can make the story your plot tells crisper.
+          By default they sit just outiside the plot frame, but you can place
+          the ticks inside the frame or half in, half out. 
         </p>
 
 <pre><code>ax.tick_params(axis="x", direction="in")
 ax.tick_params(axis="y", direction="inout")</code></pre>
 
+        <p>
+          To adjust this aspect of tick behavior, we get to use
+          <code>tick_params()</code>. With the <code>direction</code> argument
+          we can specify <code>in</code>, <code>out</code>, or
+          <code>inout</code> to get the precise placement we want.
+        </p>
+        
+        <p>
+          Also, note
+          how we can specify the <code>axis</code> we want to adjust. The
+          default is <code>both</code> and when it's in force, anything we do
+          will affect both x- and y-axes. When we want to adjust them
+          separately, we can call them out individually, as we did here. 
+        >/p>
+
+https://matplotlib.org/api/_as_gen/matplotlib.pyplot.tick_params.html
 
         <img title="tick direction"
           src="https://github.com/brohrer/taming_matplotlib/raw/master/images/axis_tick_direction.png"
@@ -306,11 +347,23 @@ ax.tick_params(axis="y", direction="inout")</code></pre>
           style="height: 440px;">
 
         <p>
-          Everything we do with major ticks can also be done with minor ticks.
+          Another power that we get with <code>tick_params()</code> is that everything we do with major ticks can also be done with minor ticks. 
+          The <code>which</code> argument lets us select between them.
+          By default, it only operates on <code>major</code> ticks, but we
+          could also call out <code>which="minor"</code> to perform the same
+          operation on our minor ticks.
         </p>
-<pre><code>which="minor"</code></pre>
+
 <pre><code>ax.tick_params(which="minor", "axis="x", direction="in")
 ax.tick_params(which="minor", axis="y", direction="inout")</code></pre>
+
+        <p>
+          There is no inherent difference between major and minor ticks, but it is
+          often convenient to have two sets. One might be larger, with labels and
+          wider spacing, the other finer. By convention these are called major
+          and minor, but the distinction ends there, as far as Matplotlib is
+          concerned.
+        </p>
 
         <h3 id="opposite">Put ticks on the top and right axes</h3>
         <p>
@@ -368,11 +421,18 @@ ax.tick_params(
         <h3 id="minor">Add minor ticks</h3>
 
         <p>
+
         </p>
 
 <pre><code>from matplotlib.ticker import AutoMinorLocator
 ax.xaxis.set_minor_locator(AutoMinorLocator())
 ax.yaxis.set_minor_locator(AutoMinorLocator())</code></pre>
+
+https://matplotlib.org/api/ticker_api.html
+https://matplotlib.org/gallery/ticks_and_spines/tick-formatters.html
+https://matplotlib.org/gallery/ticks_and_spines/tick-locators.html
+https://matplotlib.org/gallery/ticks_and_spines/major_minor_demo.html
+
 
         <img title="minor ticks"
           src="https://github.com/brohrer/taming_matplotlib/raw/master/images/axis_tick_minor.png"
@@ -428,6 +488,7 @@ ax.grid(
     alpha=.5,
     linewidth=.5)</code></pre>
 
+# https://matplotlib.org/api/_as_gen/matplotlib.axes.Axes.grid.html#matplotlib.axes.Axes.grid
         <p>
         <img title="complete grid"
           src="https://github.com/brohrer/taming_matplotlib/raw/master/images/axis_tick_grid.png"
