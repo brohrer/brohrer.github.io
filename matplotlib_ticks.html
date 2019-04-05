@@ -566,28 +566,37 @@ ax.yaxis.set_major_locator(y_locator)</code></pre>
 
         <h3 id="grid">Add a custom grid</h3>
 
-    
-
-<pre><code>ax.grid(
-    axis="x",
-    color="green",
-    alpha=.3,
-    linewidth=2,
-    linestyle=":")
-ax.grid(
-    axis="y",
-    color="black",
-    alpha=.5,
-    linewidth=.5)</code></pre>
-
-# https://matplotlib.org/api/_as_gen/matplotlib.axes.Axes.grid.html#matplotlib.axes.Axes.grid
         <p>
+          If you imagine tick lines growing really long, so long that they span
+          the entire plot, you can then them into a grid. Matplotlib actually
+          makes it even easier than that. It supplies us with a
+          <code>grid()</code> command.
+
+<pre><code>ax.grid(axis="x", color="green", alpha=.3, linewidth=2, linestyle=":")
+ax.grid(axis="y", color="black", alpha=.5, linewidth=.5)</code></pre>
+
+        <p>
+          Although it defaults to making both x- and y-grid lines the same,
+          <code>grid()</code> easily separate them, as in our code here.
+          It takes all the arguments that we could pass to <code>plot()</code>
+          when <a href="matplotlib_lines.html">formatting a line</a>.
+        </p>
+
         <img title="complete grid"
           src="https://github.com/brohrer/taming_matplotlib/raw/master/images/axis_tick_grid.png"
           alt="added a grid to the plot"
           style="height: 440px;">
+
+        <p>
+          After the complexity of ticks, grids offer a straightforward way to
+          make our plots stylish and readable. To dig deeper into the options
+          available,
+          <a
+          href="https://matplotlib.org/api/_as_gen/matplotlib.axes.Axes.grid.html">\
+            check out the grid API</a>.
         </p>
 
+Proofread for flow
 Add links to Resources
 Add link to here from text post
 Add link from Blog
