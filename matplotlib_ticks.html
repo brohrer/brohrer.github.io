@@ -470,6 +470,16 @@ ax.tick_params(axis="y", labelsize=12, labelrotation=20, labelcolor="orange")</c
           source code, you'll see why.
         </p>
 
+        <p>
+          As a side note, notice how the x-label no longer fits on the graph
+          after growing the x-axis tick labels. That's because, when the
+          <var>Axes</var> are first created, Matplotlib makes a reasonable
+          guess at how much space the ticks and axis labels are going to take
+          and places the plot accordingly. This is a great illustration of how
+          sometimes we will need to take the <var>Axes</var> layout into our
+          own hands. That will be to topic of a forthcoming post.
+        </p>
+
         <br>
         <br>
         <h3 id="minor">Add minor ticks</h3>
@@ -537,16 +547,6 @@ ax.yaxis.set_minor_formatter(FormatStrFormatter("%.3f"))</code></pre>
             locator gallery</a>.
         </p>
 
-        <p>
-          As a side note, notice how the x-label no longer fits on the graph
-          after growing the x-axis tick labels. That's because, when the
-          <var>Axes</var> are first created, Matplotlib makes a reasonable
-          guess at how much space the ticks and axis labels are going to take
-          and places the plot accordingly. This is a great illustration of how
-          sometimes we will need to take the <var>Axes</var> layout into our
-          own hands. That will be to topic of a forthcoming post.
-        </p>
-
         <br>
         <br>
         <h3 id="custom">Exercise total tick control</h3>
@@ -554,7 +554,7 @@ ax.yaxis.set_minor_formatter(FormatStrFormatter("%.3f"))</code></pre>
         <p>
           When you have to do some tick gymnastics that are at all
           non-standard, the <code>FixedLocator</code> and
-          <code>FixedFormatter</code> are your friends. These just let you hard
+          <code>FixedFormatter</code> are your friends. These let you hard
           code in every tick location and tick label.
         </p>
           
@@ -595,9 +595,9 @@ ax.yaxis.set_major_locator(y_locator)</code></pre>
         <h3 id="grid">Add a custom grid</h3>
 
         <p>
-          If you imagine tick lines growing really long, so long that they span
-          the entire plot, you can then them into a grid. Matplotlib actually
-          makes it even easier than that. It supplies us with a
+          The cousin of the tick is the grid, tick lines that cross the entire
+          plot.
+          Matplotlib makes it easy to create one and supplies us with a
           <code>grid()</code> command.
 
 <pre><code>ax.grid(axis="x", color="green", alpha=.3, linewidth=2, linestyle=":")
@@ -605,7 +605,7 @@ ax.grid(axis="y", color="black", alpha=.5, linewidth=.5)</code></pre>
 
         <p>
           Although it defaults to making both x- and y-grid lines the same,
-          <code>grid()</code> easily separate them, as in our code here.
+          <code>grid()</code> also handles them individually, as in our code here.
           It takes all the arguments that we could pass to <code>plot()</code>
           when <a href="matplotlib_lines.html">formatting a line</a>.
         </p>
@@ -620,23 +620,17 @@ ax.grid(axis="y", color="black", alpha=.5, linewidth=.5)</code></pre>
           make our plots stylish and readable. To dig deeper into the options
           available,
           <a
-          href="https://matplotlib.org/api/_as_gen/matplotlib.axes.Axes.grid.html">\
+          href="https://matplotlib.org/api/_as_gen/matplotlib.axes.Axes.grid.html">
             check out the grid API</a>.
         </p>
 
-Proofread for flow
-Add links to Resources
-Add link from text post to here
-Add link from Blog
 Add link from course
 
         <br>
         <p>
-          Now you are off to the races!
-          My sincere hope is that this little reference page takes
-          90% of the Google goose chase out of getting your plot
-          text just right. If you want to explore the
-          other plot magic you can do,
+          You now have mastery of ticks. I hope it sets you up well to make
+          your plots look polished with a minimum of internet searching.         
+          There are a handful of other Matplotlib how-to's you can refer to:
           <a href="https://end-to-end-machine-learning.teachable.com/p/navigating-matplotlib-tutorial-how-to/">
           come take a look at the full set of tutorials</a>.
         </p>
