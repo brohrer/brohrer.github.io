@@ -246,6 +246,7 @@ ax.grid(
 
         </table>
 
+        <h3>Tip-Top Tick Tips and Tricks</h3>
         <p>
           Well formatted axis ticks elevate a plot from serviceable to professional, but unfortunately it’s one of the toughest things to do in Matplotlib. This recipe collection is designed to change that.
         </p>
@@ -337,7 +338,7 @@ ax.tick_params(axis="y", direction="inout")</code></pre>
           default is <code>both</code> and when it's in force, anything we do
           will affect both x- and y-axes. When we want to adjust them
           separately, we can call them out individually, as we did here. 
-        >/p>
+        </p>
 
 https://matplotlib.org/api/_as_gen/matplotlib.pyplot.tick_params.html
 
@@ -361,12 +362,16 @@ ax.tick_params(which="minor", axis="y", direction="inout")</code></pre>
           There is no inherent difference between major and minor ticks, but it is
           often convenient to have two sets. One might be larger, with labels and
           wider spacing, the other finer. By convention these are called major
-          and minor, but the distinction ends there, as far as Matplotlib is
+          and minor, but the distinction ends there as far as Matplotlib is
           concerned.
         </p>
 
         <h3 id="opposite">Put ticks on the top and right axes</h3>
         <p>
+          By default, ticks and tick labels will be added to the left and
+          bottom axes. To make changes to this, you can use
+          <code>tick_params()</code> to turn ticks and tick labels on and off
+          for each axis independently.
         </p>
 
 <pre><code>ax.tick_params(
@@ -376,8 +381,14 @@ ax.tick_params(
     labelbottom=False, labeltop=True,
     labelleft=True, labelright=True)</code></pre>
 
-
         <p>
+          The boolean arguments <code>bottom</code>, <code>top</code>,
+          <code>right</code>, and <code>left</code> determine whether the ticks
+          are shown. As you might have guessed, tick labels are similarly
+          controlled using <code>labelbottom</code>, <code>labeltop</code>,
+          <code>labelleft</code>, and <code>labelright</code>. You can have one without the other, both, or
+          neither on any axis in any
+          combination.
         </p>
 
         <img title="ticks on the opposite axis"
@@ -386,7 +397,11 @@ ax.tick_params(
           style="height: 440px;">
 
         <h3 id="tick_style">Stylize the ticks</h3>
+
         <p>
+          Sometimes if your taste is particular, the default ticks just aren't
+          quite right. Luckily you can adjust the length, width, and color of
+          them as well.
         </p>
 
 <pre><code>ax.tick_params(
@@ -396,6 +411,13 @@ ax.tick_params(
     axis="y", direction="in",
     length=6, width=4, color="orange")</code></pre>
 
+        <p>
+          The <code>tick_params</code> accepts these parameters with
+          <code>length</code> and <code>width</code> measured in points and
+          <code>color</code> any valid color, as in <a
+          href="matplotlib_lines.html">the lesson on setting line color</a>.
+        </p>
+
         <img title="tick style"
           src="https://github.com/brohrer/taming_matplotlib/raw/master/images/axis_tick_styled.png"
           alt="varying tick styles on x and y axes"
@@ -403,6 +425,10 @@ ax.tick_params(
 
         <h3 id="label_style">Tweak the label style</h3>
         <p>
+          <a href="matplotlib_text.html">The lesson on text</a> showed how to
+          customize axis labels and plot text in a myriad of ways, but stopped
+          short of showing how to handle tick labels. Now we finally get to
+          that.
         </p>
 
 <pre><code>ax.tick_params(
@@ -412,27 +438,48 @@ ax.tick_params(
     axis="y", labelsize=12,
     labelrotation=20, labelcolor="orange")</code></pre>
 
+        <p>
+          We don't get quite the freedom with tick labels as we do with other
+          text, but we get enough to make things interesting. Size, rotation, 
+          and color are all modifiable.
+        </p>
+
         <img title="tick label style"
           src="https://github.com/brohrer/taming_matplotlib/raw/master/images/axis_tick_label_styled.png"
           alt="tick labels styled on the x and y axes"
           style="height: 440px;">
 
+        <p>
+          As you can see, this gives you a fair amount of power over your tick
+          labels. If you need to go further than that, like changing the font
+          or italicizing it, that's beyond the scope of this post. If you
+          decide to turn to StackOverflow for this, a word of caution: it's a
+          deep rabbit hole. My personal recommendation is to use
+          <code>text()</code> and hand place them. It's a bit extreme, but
+          after 2 hours of trial and error when you're neck deep in Matplotlib
+          source code, you'll see why.
+        </p>
 
         <h3 id="minor">Add minor ticks</h3>
 
         <p>
-
+          We got minor ticks for free when we log scaled our axis, but if we want
+          to add them on linear scales, we can do that too.
         </p>
 
 <pre><code>from matplotlib.ticker import AutoMinorLocator
 ax.xaxis.set_minor_locator(AutoMinorLocator())
 ax.yaxis.set_minor_locator(AutoMinorLocator())</code></pre>
 
-https://matplotlib.org/api/ticker_api.html
-https://matplotlib.org/gallery/ticks_and_spines/tick-formatters.html
-https://matplotlib.org/gallery/ticks_and_spines/tick-locators.html
-https://matplotlib.org/gallery/ticks_and_spines/major_minor_demo.html
-
+        <p>
+          To do this we have to introduce the notion of a <var>Locator</var>.
+          It's a function that generates the locations according to some rules.
+          There are several different types, but Auto locators are a great
+          place to start. They automatically create a reasonable set of ticks. By default, major ticks are initialized with an Auto
+          locator, but minor ticks aren't. To turn them on, we have to import
+          the <code>AutoMinorLocator</code> and use it to set minor ticks for
+          the x- and y-axes.
+        </p>
 
         <img title="minor ticks"
           src="https://github.com/brohrer/taming_matplotlib/raw/master/images/axis_tick_minor.png"
@@ -442,36 +489,80 @@ https://matplotlib.org/gallery/ticks_and_spines/major_minor_demo.html
 
         <h3 id="minor_tick_labels">Add labels to the minor ticks</h3>
 
-<pre><code>from matplotlib.ticker import (
-    AutoMinorLocator, FormatStrFormatter)
+        <p>
+          Another powerful tick tool is a <var>Formatter</var>. It's a function
+          that lets you transform the tick label to be an integer, a
+          fixed-place decimal, or lots of other things.
+        </p>
+
+<pre><code>from matplotlib.ticker import AutoMinorLocator, FormatStrFormatter
 ax.xaxis.set_minor_locator(AutoMinorLocator())
 ax.yaxis.set_minor_locator(AutoMinorLocator())
-ax.yaxis.set_minor_formatter(
-    FormatStrFormatter("%.3f"))</code></pre>
+ax.yaxis.set_minor_formatter(FormatStrFormatter("%.3f"))</code></pre>
+
+        <p>
+          Here, we imported the <code>FormatStrFormatter</code>, and used it to
+          create tick label strings using the coordinates of each tick.
+        </p>        
 
         <img title="minor tick labels"
           src="https://github.com/brohrer/taming_matplotlib/raw/master/images/axis_tick_labels_minor.png"
           alt="added minor tick labels on x and y axes"
           style="height: 440px;">
 
+        <p>
+          The helpful package that contains all the Formatters and Locators is
+          called <a href="https://matplotlib.org/api/ticker_api.html">
+            <code>ticker</code></a>.
+          If you are curious about all the Formatters and Locators you have at
+          your disposal, I recommend the
+          <a href="https://matplotlib.org/gallery/ticks_and_spines/tick-formatters.html">
+             formatter gallery</a> and the
+          <a
+          href="https://matplotlib.org/gallery/ticks_and_spines/tick-locators.html">
+            locator gallery</a>.
+        </p>
 
         <h3 id="custom">Exercise total tick control</h3>
 
+        <p>
+          When you have to do some tick gymnastics that are at all
+          non-standard, the <code>FixedLocator</code> and
+          <code>FixedFormatter</code> are your friends. These just let you hard
+          code in every tick location and tick label.
+        </p>
+          
 <pre><code>from matplotlib.ticker import FixedLocator, FixedFormatter
 x_formatter = FixedFormatter([
-    "I like this spot",
-    "and this",
-    "and that",
-    "but not this one."])
+    "I like this spot", "and this", "and that", "but not this one."])
+y_formatter = FixedFormatter(["-1e7", "111", "007", "xkcd"])
 x_locator = FixedLocator([3, 7, 8.8, 12])
+y_locator = FixedLocator([.85, 1.15, 1.28, 1.9])
 ax.xaxis.set_major_formatter(x_formatter)
-ax.xaxis.set_major_locator(x_locator)</code></pre>
+ax.yaxis.set_major_formatter(y_formatter)
+ax.xaxis.set_major_locator(x_locator)
+ax.yaxis.set_major_locator(y_locator)</code></pre>
+
         <p>
+          Supplying a list of positions to <code>FixedLocator</code> and a list
+          of labels of the same length to
+          <code>FixedFormatter</code> lets you arbitrarily specify the position
+          and label of each tick.
+        <p>
+
         <img title="custom ticks"
           src="https://github.com/brohrer/taming_matplotlib/raw/master/images/axis_tick_custom.png"
           alt="custom located and labeled ticks"
           style="height: 440px;">
+
+        <p>
+          You can immediately see the power that this bestows on you.
+          Your axes can say <em>whatever you want</em>. Just remember that with
+          great tick formatting power comes great responsibility. If you ever
+          change your axes to intentionally misrepresent your data, you will be
+          kicked out of data science club, no backsies.
         </p>
+
 
         <h3 id="grid">Add a custom grid</h3>
 
@@ -496,6 +587,10 @@ ax.grid(
           style="height: 440px;">
         </p>
 
+Add links to Resources
+Add link to here from text post
+Add link from Blog
+Add link from course
 
         <br>
         <p>
