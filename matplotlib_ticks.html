@@ -276,7 +276,11 @@ ax.plot(x, y)</code></pre>
         <h3 id="limits">Impose axis limits</h3>
 
         <p>
-          Setting axis limits is a good place to start. By default, Matplotlib uses the range of the data to choose reasonable limits. This is good enough most of the time, but occasionally you will want more control. You may want to avoid suppressing your zero or ensure that multiple plots have the same scale or drive a certain aspect ratio, or maybe you just like having the limits fall on even whole numbers. Whatever the reason, specifying limits gives you a greater degree of control over the framing of your plot.
+          Setting axis limits is a good place to start. By default, Matplotlib
+          uses the range of the data to choose reasonable limits. This is good
+          enough most of the time, but occasionally you will want more control.
+          You may want to avoid suppressing your zero or to ensure that multiple
+          plots have the same scale or to drive a certain aspect ratio, or maybe you just like having the limits fall on even whole numbers. Whatever the reason, specifying limits gives you a greater degree of control over the framing of your plot.
         </p>
 
 <pre><code>ax.set_xlim(x_minimum, x_maximum)
@@ -305,7 +309,7 @@ ax.set_ylim(y_minimum, y_maximum)</code></pre>
 ax.set_yscale("log")</code></pre>
 
         <p>
-          It even adds a second set of ticks without labels, minor ticks, to
+          It even adds a second set of smaller ticks without labels, called minor ticks, to
           help the viewer resolve locations. Minor ticks will be showing up
           again in later examples.
         </p>
@@ -343,7 +347,6 @@ ax.tick_params(axis="y", direction="inout")</code></pre>
           separately, we can call them out individually, as we did here. 
         </p>
 
-https://matplotlib.org/api/_as_gen/matplotlib.pyplot.tick_params.html
 
         <img title="tick direction"
           src="https://github.com/brohrer/taming_matplotlib/raw/master/images/axis_tick_direction.png"
@@ -362,11 +365,21 @@ https://matplotlib.org/api/_as_gen/matplotlib.pyplot.tick_params.html
 ax.tick_params(which="minor", axis="y", direction="inout")</code></pre>
 
         <p>
-          There is no inherent difference between major and minor ticks, but it is
+          There is no inherent difference between major and minor ticks, but
+          it's
           often convenient to have two sets. One might be larger, with labels and
           wider spacing, the other finer. By convention these are called major
           and minor, but the distinction ends there as far as Matplotlib is
           concerned.
+        </p>
+
+        <p>
+          The <code>tick_params()</code> function will come up a lot in the
+          next few examples. If you want to take a closer look at the API to
+          get a full sense of its abilities,
+          <a
+          href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.tick_params.html">
+            you can find it here</a>.
         </p>
 
         <br>
@@ -379,12 +392,8 @@ ax.tick_params(which="minor", axis="y", direction="inout")</code></pre>
           for each axis independently.
         </p>
 
-<pre><code>ax.tick_params(
-    bottom=False, top=True,
-    left=True, right=True)
-ax.tick_params(
-    labelbottom=False, labeltop=True,
-    labelleft=True, labelright=True)</code></pre>
+<pre><code>ax.tick_params(bottom=False, top=True, left=True, right=True)
+ax.tick_params(labelbottom=False, labeltop=True, labelleft=True, labelright=True)</code></pre>
 
         <p>
           The boolean arguments <code>bottom</code>, <code>top</code>,
