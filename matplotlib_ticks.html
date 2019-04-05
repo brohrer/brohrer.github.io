@@ -523,6 +523,16 @@ ax.yaxis.set_minor_formatter(FormatStrFormatter("%.3f"))</code></pre>
             locator gallery</a>.
         </p>
 
+        <p>
+          As a side note, notice how the x-label no longer fits on the graph
+          after growing the x-axis tick labels. That's because, when the
+          <var>Axes</var> are first created, Matplotlib makes a reasonable
+          guess at how much space the ticks and axis labels are going to take
+          and places the plot accordingly. This is a great illustration of how
+          sometimes we will need to take the <var>Axes</var> layout into our
+          own hands. That will be to topic of a forthcoming post.
+        </p>
+
         <h3 id="custom">Exercise total tick control</h3>
 
         <p>
@@ -598,7 +608,7 @@ ax.grid(axis="y", color="black", alpha=.5, linewidth=.5)</code></pre>
 
 Proofread for flow
 Add links to Resources
-Add link to here from text post
+Add link from text post to here
 Add link from Blog
 Add link from course
 
