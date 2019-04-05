@@ -187,11 +187,7 @@ ax.yaxis.set_minor_locator(
 
             <td>
               <a target="_self" href="#minor_tick_labels">
-<pre><code>ax.xaxis.set_minor_locator(
-    AutoMinorLocator())
-ax.yaxis.set_minor_locator(
-    AutoMinorLocator())
-ax.yaxis.set_minor_formatter(
+<pre><code>ax.yaxis.set_minor_formatter(
     FormatStrFormatter("%.3f"))</code></pre>
               </a>
             </td>
@@ -234,8 +230,7 @@ ax.xaxis.set_major_formatter(x_formatter)</code></pre>
 
 <pre><code>ax.grid(
     axis="x", color="green",
-    alpha=.3, linewidth=2,
-    linestyle=":")
+    alpha=.3, linestyle=":")
 ax.grid(
     axis="y", color="black",
     alpha=.5, linewidth=.5)</code></pre>
@@ -246,6 +241,8 @@ ax.grid(
 
         </table>
 
+        <br>
+        <br>
         <h3>Tip-Top Tick Tips and Tricks</h3>
         <p>
           Well formatted axis ticks elevate a plot from serviceable to professional, but unfortunately it’s one of the toughest things to do in Matplotlib. This recipe collection is designed to change that.
@@ -274,6 +271,8 @@ ax = fig.gca()
 ax.plot(x, y)</code></pre>
 
 
+        <br>
+        <br>
         <h3 id="limits">Impose axis limits</h3>
 
         <p>
@@ -294,6 +293,8 @@ ax.set_ylim(y_minimum, y_maximum)</code></pre>
           style="height: 440px;">
 
 
+        <br>
+        <br>
         <h3 id="log">Use logarithmic scaling</h3>
         <p>
           Some data lends itself well to logarithmic scaling on one of its
@@ -315,6 +316,8 @@ ax.set_yscale("log")</code></pre>
           style="height: 440px;">
 
 
+        <br>
+        <br>
         <h3 id="direction">Put ticks inside and out</h3>
         <p>
           Fine control over ticks can make the story your plot tells crisper.
@@ -366,6 +369,8 @@ ax.tick_params(which="minor", axis="y", direction="inout")</code></pre>
           concerned.
         </p>
 
+        <br>
+        <br>
         <h3 id="opposite">Put ticks on the top and right axes</h3>
         <p>
           By default, ticks and tick labels will be added to the left and
@@ -396,6 +401,8 @@ ax.tick_params(
           alt="ticks added to the opposite side of the plot"
           style="height: 440px;">
 
+        <br>
+        <br>
         <h3 id="tick_style">Stylize the ticks</h3>
 
         <p>
@@ -423,6 +430,8 @@ ax.tick_params(
           alt="varying tick styles on x and y axes"
           style="height: 440px;">
 
+        <br>
+        <br>
         <h3 id="label_style">Tweak the label style</h3>
         <p>
           <a href="matplotlib_text.html">The lesson on text</a> showed how to
@@ -460,6 +469,8 @@ ax.tick_params(
           source code, you'll see why.
         </p>
 
+        <br>
+        <br>
         <h3 id="minor">Add minor ticks</h3>
 
         <p>
@@ -487,6 +498,8 @@ ax.yaxis.set_minor_locator(AutoMinorLocator())</code></pre>
           style="height: 440px;">
 
 
+        <br>
+        <br>
         <h3 id="minor_tick_labels">Add labels to the minor ticks</h3>
 
         <p>
@@ -533,6 +546,8 @@ ax.yaxis.set_minor_formatter(FormatStrFormatter("%.3f"))</code></pre>
           own hands. That will be to topic of a forthcoming post.
         </p>
 
+        <br>
+        <br>
         <h3 id="custom">Exercise total tick control</h3>
 
         <p>
@@ -574,6 +589,8 @@ ax.yaxis.set_major_locator(y_locator)</code></pre>
         </p>
 
 
+        <br>
+        <br>
         <h3 id="grid">Add a custom grid</h3>
 
         <p>
