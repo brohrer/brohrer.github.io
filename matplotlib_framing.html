@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html>
+
+  <script type="text/javascript">var blog_title = "Framing in Matplotlib";</script>
+  <script type="text/javascript">var publication_date = "April 8, 2019";</script>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
+    <base target="_blank">
+    <script type="text/javascript" src="javascripts/blog_head.js"></script>
+  </head>
+  <body>
+    <script type="text/javascript" src="javascripts/blog_header.js"></script>
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+
+        <table>
+
+          <tr>
+            <td>
+              <a target="_self" href="#manual">
+                <img title="manually set Axes by size and position"
+                  src="https://github.com/brohrer/taming_matplotlib/raw/master/images/framing_manual.png"
+                  alt="Axes with position set manually by size and position"
+                  style="height: 220px;">
+              </a>
+            </td>
+
+            <td>
+              <a target="_self" href="#multiple">
+                <img title="multiple Axes"
+                  src="https://github.com/brohrer/taming_matplotlib/raw/master/images/framing_multiple.png"
+                  alt="multiple Axes on a single Figure"
+                  style="height: 220px;">
+              </a>
+            </td>
+
+          </tr>
+
+          <tr>
+
+            <td>
+              <a target="_self" href="#manual">
+<pre><code>
+ax = fig.add_axes((left, bottom, width, height))
+</code></pre>
+              </a>
+            </td>
+
+            <td>
+              <a target="_self" href="#multiple">
+<pre><code>
+ax1 = fig.add_axes((left_1, bottom_1, width_1, height_1))
+ax1.plot(x, y)
+ax2 = fig.add_axes((left_2, bottom_2, width_2, height_2))
+ax2.plot(x, y)
+...
+</code></pre>
+              </a>
+            </td>
+
+          </tr>
+
+          <tr>
+            <td>
+              <a target="_self" href="#fill">
+                <img title="Figure filled with Axes"
+                  src="https://github.com/brohrer/taming_matplotlib/raw/master/images/framing_no_border.png"
+                  alt="Axes sized to fill the Figure"
+                  style="height: 220px;">
+              </a>
+            </td>
+
+            <td>
+              <a target="_self" href="#spinesoff">
+                <img title="spines turned off"
+                  src="https://github.com/brohrer/taming_matplotlib/raw/master/images/framing_spines_off.png"
+                  alt="some of the Axes spines turned off"
+                  style="height: 220px;">
+              </a>
+            </td>
+
+          </tr>
+
+          <tr>
+
+            <td>
+              <a target="_self" href="#fill">
+<pre><code>
+ax1 = fig.add_axes((0, 0, 1, 1))
+</code></pre>
+              </a>
+            </td>
+
+            <td>
+              <a target="_self" href="#spinesoff">
+<pre><code>
+ax.spines['top'].set_visible(False)
+ax.spines['right'].set_visible(False)
+ax.spines['left'].set_visible(False)
+</code></pre>
+              </a>
+            </td>
+
+          </tr>
+
+          <tr>
+            <td>
+              <a target="_self" href="#spinestyle">
+                <img title="modify Axes spine styles"
+                  src="https://github.com/brohrer/taming_matplotlib/raw/master/images/framing_spines_styled.png"
+                  alt="Axes spines with several styles"
+                  style="height: 220px;">
+              </a>
+            </td>
+
+            <td>
+              <a target="_self" href="#spinesmoved">
+                <img title="spines moved"
+                  src="https://github.com/brohrer/taming_matplotlib/raw/master/images/framing_spines_moved.png"
+                  alt="spines offset from their default positions"
+                  style="height: 220px;">
+              </a>
+            </td>
+
+          </tr>
+
+          <tr>
+
+            <td>
+              <a target="_self" href="#spinestyle">
+<pre><code>
+ax.spines['top'].set_color("orange")
+ax.spines['left'].set_bounds(-.5, .5)
+ax.spines['right'].set_linestyle("--")
+ax.spines['bottom'].set_linewidth(6)
+ax.spines['bottom'].set_capstyle("round")
+</code></pre>
+              </a>
+            </td>
+
+            <td>
+              <a target="_self" href="#spinesmoved">
+<pre><code>
+ax.spines['top'].set_position(("outward", 15))
+ax.spines['bottom'].set_position(("data", 0))
+ax.spines['left'].set_position(("axes", .3))
+ax.spines['right'].set_position(("outward", -40))
+</code></pre>
+              </a>
+            </td>
+
+          </tr>
+          <tr>
+            <td>
+              <a target="_self" href="#smallfig">
+                <img title="small Figure"
+                  src="https://github.com/brohrer/taming_matplotlib/raw/master/images/framing_small_fig.png"
+                  alt="a half-size Figure"
+                  style="height: 110px;">
+              </a>
+            </td>
+
+            <td>
+              <a target="_self" href="#lowres">
+                <img title="low resolution image"
+                  src="https://github.com/brohrer/taming_matplotlib/raw/master/images/framing_lo_res_fig.png"
+                  alt="a low resolution version of the image"
+                  style="height: 220px;">
+              </a>
+            </td>
+
+          </tr>
+
+          <tr>
+
+            <td>
+              <a target="_self" href="#smallfig">
+<pre><code>
+fig = plt.figure(figsize=(4, 2))
+</code></pre>
+              </a>
+            </td>
+
+            <td>
+              <a target="_self" href="#lowres">
+<pre><code>
+fig.savefig("images/framing_lo_res_fig.png", dpi=15)
+</code></pre>
+              </a>
+            </td>
+
+          </tr>
+
+          <tr>
+            <td>
+              <a target="_self" href="#axescolor">
+                <img title="Axes color"
+                  src="https://github.com/brohrer/taming_matplotlib/raw/master/images/framing_axes_bg_color.png"
+                  alt="a plot with a colorful background"
+                  style="height: 220px;">
+              </a>
+            </td>
+
+            <td>
+              <a target="_self" href="#figbgcolor">
+                <img title="Figure background color"
+                  src="https://github.com/brohrer/taming_matplotlib/raw/master/images/framing_lo_res_fig.png"
+                  alt="A Figure with a colorful background"
+                  style="height: 220px;">
+              </a>
+            </td>
+
+          </tr>
+
+          <tr>
+
+            <td>
+              <a target="_self" href="#axescolor">
+<pre><code>
+ax.set_facecolor("#e1ddbf")
+</code></pre>
+              </a>
+            </td>
+
+            <td>
+              <a target="_self" href="#figbgcolor">
+<pre><code>
+fig = plt.figure(facecolor="#e1ddbf")
+fig.savefig("images/framing_fig_bg_color.png", facecolor=fig.get_facecolor())
+</code></pre>
+              </a>
+            </td>
+
+          </tr>
+
+          <tr>
+            <td>
+              <a target="_self" href="#figedgecolor">
+                <img title="Figure frame"
+                  src="https://github.com/brohrer/taming_matplotlib/raw/master/images/framing_fig_frame.png"
+                  alt="a Figure with a solid frame"
+                  style="height: 220px;">
+              </a>
+            </td>
+
+            <td>
+              <a target="_self" href="#figbgcolor">
+                <img title="Figure background color"
+                  src="https://github.com/brohrer/taming_matplotlib/raw/master/images/framing_lo_res_fig.png"
+                  alt="A Figure with a colorful background"
+                  style="height: 220px;">
+              </a>
+            </td>
+
+          </tr>
+
+          <tr>
+
+            <td>
+              <a target="_self" href="#figedgecolor">
+<pre><code>
+fig = plt.figure(linewidth=10, edgecolor="#04253a")
+fig.savefig("images/framing_fig_frame.png", edgecolor=fig.get_edgecolor())
+</code></pre>
+              </a>
+            </td>
+
+            <td>
+              <a target="_self" href="#figbgcolor">
+<pre><code>
+fig = plt.figure(facecolor="#e1ddbf")
+fig.savefig("images/framing_fig_bg_color.png", facecolor=fig.get_facecolor())
+</code></pre>
+              </a>
+            </td>
+
+          </tr>
+        </table>
+
+        <br>
+        <br>
+        <h3>Get your layout right</h3>
+        <p>
+          Here's the setup for all the examples to follow.
+        </p>
+
+
+<pre><code>import matplotlib
+matplotlib.use("agg")
+import matplotlib.pyplot as plt
+import numpy as np
+
+# Create the curve data.
+x = np.linspace(-6, 6, 500)
+y = np.sinc(x)
+
+fig = plt.figure()
+ax = fig.gca()
+ax.plot(x, y)</code></pre>
+
+        <br>
+        <br>
+        <h3 id="manual">Manually place your </var>Axes</var></h3>
+
+        <p>
+        </p>
+
+<pre><code>
+ax = fig.add_axes((left, bottom, width, height))
+</code></pre>
+
+        <p>
+          All as fractions of the figure width and height.
+        </p>
+
+        <img title="manually set Axes by size and position"
+          src="https://github.com/brohrer/taming_matplotlib/raw/master/images/framing_manual.png"
+          alt="Axes with position set manually by size and position"
+          style="height: 440px;">
+
+        <br>
+        <br>
+        <h3 id="multiple">Create several <var>Axes</var></h3>
+
+        <p>
+        </p>
+
+
+<pre><code>
+ax1 = fig.add_axes((left_1, bottom_1, width_1, height_1))
+ax1.plot(x, y)
+ax2 = fig.add_axes((left_2, bottom_2, width_2, height_2))
+ax2.plot(x, y)
+...
+</code></pre>
+
+        <img title="multiple Axes"
+          src="https://github.com/brohrer/taming_matplotlib/raw/master/images/framing_multiple.png"
+          alt="multiple Axes on a single Figure"
+          style="height: 440px;">
+
+
+        <br>
+        <br>
+        <h3 id="fill">Fill the <var>Figure</var> with one <var>Axes</var></h3>
+
+        <p>
+        </p>
+
+<pre><code>
+ax1 = fig.add_axes((0, 0, 1, 1))
+</code></pre>
+
+        <img title="Figure filled with Axes"
+          src="https://github.com/brohrer/taming_matplotlib/raw/master/images/framing_no_border.png"
+          alt="Axes sized to fill the Figure"
+          style="height: 440px;">
+
+        <br>
+        <br>
+        <h3 id="spinesoff">Hide axis spines </h3>
+
+        <p>
+        </p>
+
+<pre><code>
+ax.spines['top'].set_visible(False)
+ax.spines['right'].set_visible(False)
+ax.spines['left'].set_visible(False)
+</code></pre>
+
+        <img title="spines turned off"
+          src="https://github.com/brohrer/taming_matplotlib/raw/master/images/framing_spines_off.png"
+          alt="some of the Axes spines turned off"
+          style="height: 220px;">
+
+
+        <br>
+        <br>
+        <h3 id="spinestyle">Modify the spines</h3>
+
+        <p>
+        </p>
+
+<pre><code>
+ax.spines['top'].set_color("orange")
+ax.spines['left'].set_bounds(-.5, .5)
+ax.spines['right'].set_linestyle("--")
+ax.spines['bottom'].set_linewidth(6)
+ax.spines['bottom'].set_capstyle("round")
+</code></pre>
+
+        <img title="modify Axes spine styles"
+          src="https://github.com/brohrer/taming_matplotlib/raw/master/images/framing_spines_styled.png"
+          alt="Axes spines with several styles"
+          style="height: 440px;">
+
+
+
+        <br>
+        <br>
+        <h3 id="spinesmoved">Move the spines around</h3>
+
+        <p>
+        </p>
+
+
+
+<pre><code>
+ax.spines['top'].set_position(("outward", 15))
+ax.spines['bottom'].set_position(("data", 0))
+ax.spines['left'].set_position(("axes", .3))
+ax.spines['right'].set_position(("outward", -40))
+</code></pre>
+
+
+        <img title="spines moved"
+          src="https://github.com/brohrer/taming_matplotlib/raw/master/images/framing_spines_moved.png"
+          alt="spines offset from their default positions"
+          style="height: 440px;">
+
+
+
+        <br>
+        <br>
+        <h3 id="smallfig">Change the size of the <var>Figure</var></h3>
+
+        <p>
+        </p>
+
+
+<pre><code>
+fig = plt.figure(figsize=(4, 2))
+</code></pre>
+
+        <img title="small Figure"
+          src="https://github.com/brohrer/taming_matplotlib/raw/master/images/framing_small_fig.png"
+          alt="a half-size Figure"
+          style="height: 220px;">
+
+
+
+        <br>
+        <br>
+        <h3 id="lowres">Change the resolution of the <var>Figure</var></h3>
+
+        <p>
+        </p>
+
+<pre><code>
+fig.savefig("images/framing_lo_res_fig.png", dpi=15)
+</code></pre>
+
+        <img title="low resolution image"
+          src="https://github.com/brohrer/taming_matplotlib/raw/master/images/framing_lo_res_fig.png"
+          alt="a low resolution version of the image"
+          style="height: 440px;">
+
+
+
+
+        <br>
+        <br>
+        <h3 id="axescolor">Change <var>Axes</var> background color</h3>
+
+        <p>
+        </p>
+
+<pre><code>
+ax.set_facecolor("#e1ddbf")
+</code></pre>
+
+        <img title="Axes color"
+          src="https://github.com/brohrer/taming_matplotlib/raw/master/images/framing_axes_bg_color.png"
+          alt="a plot with a colorful background"
+          style="height: 220px;">
+
+
+
+        <br>
+        <br>
+        <h3 id="figbgcolor">Change <var>Figure</var> background color</h3>
+
+        <p>
+        </p>
+
+<pre><code>
+fig = plt.figure(facecolor="#e1ddbf")
+fig.savefig("images/framing_fig_bg_color.png", facecolor=fig.get_facecolor())
+</code></pre>
+
+        <img title="Figure background color"
+          src="https://github.com/brohrer/taming_matplotlib/raw/master/images/framing_lo_res_fig.png"
+          alt="A Figure with a colorful background"
+          style="height: 220px;">
+
+
+        <br>
+        <br>
+        <p>
+          There are a handful of other Matplotlib how-to's you can refer to:
+          <a href="https://end-to-end-machine-learning.teachable.com/p/navigating-matplotlib-tutorial-how-to/">
+          come take a look at the full set of tutorials</a>.
+        </p>
+
+        <script type="text/javascript" src="javascripts/blog_signature.js"></script>
+      </section>
+    </div>
+    <script type="text/javascript" src="javascripts/blog_footer.js"></script>
+    <script type="text/javascript">
+      var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+      document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+    <script type="text/javascript">
+      try {
+        var pageTracker = _gat._getTracker("UA-10180621-3");
+      pageTracker._trackPageview();
+      } catch(err) {}
+    </script>
+  </body>
+</html>
