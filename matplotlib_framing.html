@@ -44,21 +44,20 @@
 
             <td>
               <a target="_self" href="#manual">
-<pre><code>
-ax = fig.add_axes((left, bottom, width, height))
-</code></pre>
+<pre><code>ax = fig.add_axes(
+    (left, bottom, width, height))</code></pre>
               </a>
             </td>
 
             <td>
               <a target="_self" href="#multiple">
-<pre><code>
-ax1 = fig.add_axes((left_1, bottom_1, width_1, height_1))
+<pre><code>ax1 = fig.add_axes(
+    (left_1, bottom_1, width_1, height_1))
 ax1.plot(x, y)
-ax2 = fig.add_axes((left_2, bottom_2, width_2, height_2))
+ax2 = fig.add_axes(
+    (left_2, bottom_2, width_2, height_2))
 ax2.plot(x, y)
-...
-</code></pre>
+...</code></pre>
               </a>
             </td>
 
@@ -89,19 +88,15 @@ ax2.plot(x, y)
 
             <td>
               <a target="_self" href="#fill">
-<pre><code>
-ax1 = fig.add_axes((0, 0, 1, 1))
-</code></pre>
+<pre><code>ax1 = fig.add_axes((0, 0, 1, 1))</code></pre>
               </a>
             </td>
 
             <td>
               <a target="_self" href="#spinesoff">
-<pre><code>
-ax.spines['top'].set_visible(False)
-ax.spines['right'].set_visible(False)
-ax.spines['left'].set_visible(False)
-</code></pre>
+<pre><code>ax.spines["top"].set_visible(False)
+ax.spines["right"].set_visible(False)
+ax.spines["left"].set_visible(False)</code></pre>
               </a>
             </td>
 
@@ -132,24 +127,20 @@ ax.spines['left'].set_visible(False)
 
             <td>
               <a target="_self" href="#spinestyle">
-<pre><code>
-ax.spines['top'].set_color("orange")
-ax.spines['left'].set_bounds(-.5, .5)
-ax.spines['right'].set_linestyle("--")
-ax.spines['bottom'].set_linewidth(6)
-ax.spines['bottom'].set_capstyle("round")
-</code></pre>
+<pre><code>ax.spines["top"].set_color("orange")
+ax.spines["left"].set_bounds(-.5, .5)
+ax.spines["right"].set_linestyle("--")
+ax.spines["bottom"].set_linewidth(6)
+ax.spines["bottom"].set_capstyle("round")</code></pre>
               </a>
             </td>
 
             <td>
               <a target="_self" href="#spinesmoved">
-<pre><code>
-ax.spines['top'].set_position(("outward", 15))
-ax.spines['bottom'].set_position(("data", 0))
-ax.spines['left'].set_position(("axes", .3))
-ax.spines['right'].set_position(("outward", -40))
-</code></pre>
+<pre><code>ax.spines["top"].set_position(("outward", 15))
+ax.spines["bottom"].set_position(("data", 0))
+ax.spines["left"].set_position(("axes", .3))
+ax.spines["right"].set_position(("outward", -40))</code></pre>
               </a>
             </td>
 
@@ -179,17 +170,13 @@ ax.spines['right'].set_position(("outward", -40))
 
             <td>
               <a target="_self" href="#smallfig">
-<pre><code>
-fig = plt.figure(figsize=(4, 2))
-</code></pre>
+<pre><code>fig = plt.figure(figsize=(width, height))</code></pre>
               </a>
             </td>
 
             <td>
               <a target="_self" href="#lowres">
-<pre><code>
-fig.savefig("images/framing_lo_res_fig.png", dpi=15)
-</code></pre>
+<pre><code>fig.savefig("image_filename.png", dpi=15)</code></pre>
               </a>
             </td>
 
@@ -220,18 +207,15 @@ fig.savefig("images/framing_lo_res_fig.png", dpi=15)
 
             <td>
               <a target="_self" href="#axescolor">
-<pre><code>
-ax.set_facecolor("#e1ddbf")
-</code></pre>
+<pre><code>ax.set_facecolor("#e1ddbf")</code></pre>
               </a>
             </td>
 
             <td>
               <a target="_self" href="#figbgcolor">
-<pre><code>
-fig = plt.figure(facecolor="#e1ddbf")
-fig.savefig("images/framing_fig_bg_color.png", facecolor=fig.get_facecolor())
-</code></pre>
+<pre><code>fig = plt.figure(facecolor="#e1ddbf")
+fig.savefig("image_filename.png",
+            facecolor=fig.get_facecolor())</code></pre>
               </a>
             </td>
 
@@ -253,10 +237,9 @@ fig.savefig("images/framing_fig_bg_color.png", facecolor=fig.get_facecolor())
 
             <td>
               <a target="_self" href="#figedgecolor">
-<pre><code>
-fig = plt.figure(linewidth=10, edgecolor="#04253a")
-fig.savefig("images/framing_fig_frame.png", edgecolor=fig.get_edgecolor())
-</code></pre>
+<pre><code>fig = plt.figure(linewidth=10, edgecolor="#04253a")
+fig.savefig("image_filename.png",
+            edgecolor=fig.get_edgecolor())</code></pre>
               </a>
             </td>
 
@@ -291,9 +274,7 @@ ax.plot(x, y)</code></pre>
         <p>
         </p>
 
-<pre><code>
-ax = fig.add_axes((left, bottom, width, height))
-</code></pre>
+<pre><code>ax = fig.add_axes((left, bottom, width, height))</code></pre>
 
         <p>
           All as fractions of the figure width and height.
@@ -312,13 +293,11 @@ ax = fig.add_axes((left, bottom, width, height))
         </p>
 
 
-<pre><code>
-ax1 = fig.add_axes((left_1, bottom_1, width_1, height_1))
+<pre><code>ax1 = fig.add_axes((left_1, bottom_1, width_1, height_1))
 ax1.plot(x, y)
 ax2 = fig.add_axes((left_2, bottom_2, width_2, height_2))
 ax2.plot(x, y)
-...
-</code></pre>
+...</code></pre>
 
         <img title="multiple Axes"
           src="https://github.com/brohrer/taming_matplotlib/raw/master/images/framing_multiple.png"
@@ -333,9 +312,7 @@ ax2.plot(x, y)
         <p>
         </p>
 
-<pre><code>
-ax1 = fig.add_axes((0, 0, 1, 1))
-</code></pre>
+<pre><code>ax1 = fig.add_axes((0, 0, 1, 1))</code></pre>
 
         <img title="Figure filled with Axes"
           src="https://github.com/brohrer/taming_matplotlib/raw/master/images/framing_no_border.png"
@@ -349,11 +326,9 @@ ax1 = fig.add_axes((0, 0, 1, 1))
         <p>
         </p>
 
-<pre><code>
-ax.spines['top'].set_visible(False)
-ax.spines['right'].set_visible(False)
-ax.spines['left'].set_visible(False)
-</code></pre>
+<pre><code>ax.spines["top"].set_visible(False)
+ax.spines["right"].set_visible(False)
+ax.spines["left"].set_visible(False)</code></pre>
 
         <img title="spines turned off"
           src="https://github.com/brohrer/taming_matplotlib/raw/master/images/framing_spines_off.png"
@@ -368,13 +343,11 @@ ax.spines['left'].set_visible(False)
         <p>
         </p>
 
-<pre><code>
-ax.spines['top'].set_color("orange")
-ax.spines['left'].set_bounds(-.5, .5)
-ax.spines['right'].set_linestyle("--")
-ax.spines['bottom'].set_linewidth(6)
-ax.spines['bottom'].set_capstyle("round")
-</code></pre>
+<pre><code>ax.spines["top"].set_color("orange")
+ax.spines["left"].set_bounds(-.5, .5)
+ax.spines["right"].set_linestyle("--")
+ax.spines["bottom"].set_linewidth(6)
+ax.spines["bottom"].set_capstyle("round")</code></pre>
 
         <img title="modify Axes spine styles"
           src="https://github.com/brohrer/taming_matplotlib/raw/master/images/framing_spines_styled.png"
@@ -392,12 +365,10 @@ ax.spines['bottom'].set_capstyle("round")
 
 
 
-<pre><code>
-ax.spines['top'].set_position(("outward", 15))
-ax.spines['bottom'].set_position(("data", 0))
-ax.spines['left'].set_position(("axes", .3))
-ax.spines['right'].set_position(("outward", -40))
-</code></pre>
+<pre><code>ax.spines["top"].set_position(("outward", 15))
+ax.spines["bottom"].set_position(("data", 0))
+ax.spines["left"].set_position(("axes", .3))
+ax.spines["right"].set_position(("outward", -40))</code></pre>
 
 
         <img title="spines moved"
@@ -415,9 +386,7 @@ ax.spines['right'].set_position(("outward", -40))
         </p>
 
 
-<pre><code>
-fig = plt.figure(figsize=(4, 2))
-</code></pre>
+<pre><code>fig = plt.figure(figsize=(width, height))</code></pre>
 
         <img title="small Figure"
           src="https://github.com/brohrer/taming_matplotlib/raw/master/images/framing_small_fig.png"
@@ -433,9 +402,7 @@ fig = plt.figure(figsize=(4, 2))
         <p>
         </p>
 
-<pre><code>
-fig.savefig("images/framing_lo_res_fig.png", dpi=15)
-</code></pre>
+<pre><code>fig.savefig("image_filename.png", dpi=15)</code></pre>
 
         <img title="low resolution image"
           src="https://github.com/brohrer/taming_matplotlib/raw/master/images/framing_lo_res_fig.png"
@@ -452,9 +419,7 @@ fig.savefig("images/framing_lo_res_fig.png", dpi=15)
         <p>
         </p>
 
-<pre><code>
-ax.set_facecolor("#e1ddbf")
-</code></pre>
+<pre><code>ax.set_facecolor("#e1ddbf")</code></pre>
 
         <img title="Axes color"
           src="https://github.com/brohrer/taming_matplotlib/raw/master/images/framing_axes_bg_color.png"
@@ -470,10 +435,8 @@ ax.set_facecolor("#e1ddbf")
         <p>
         </p>
 
-<pre><code>
-fig = plt.figure(facecolor="#e1ddbf")
-fig.savefig("images/framing_fig_bg_color.png", facecolor=fig.get_facecolor())
-</code></pre>
+<pre><code>fig = plt.figure(facecolor="#e1ddbf")
+fig.savefig("image_filename.png", facecolor=fig.get_facecolor())</code></pre>
 
         <img title="Figure background color"
           src="https://github.com/brohrer/taming_matplotlib/raw/master/images/framing_lo_res_fig.png"
@@ -489,10 +452,8 @@ fig.savefig("images/framing_fig_bg_color.png", facecolor=fig.get_facecolor())
         <p>
         </p>
 
-<pre><code>
-fig = plt.figure(linewidth=10, edgecolor="#04253a")
-fig.savefig("images/framing_fig_frame.png", edgecolor=fig.get_edgecolor())
-</code></pre>
+<pre><code>fig = plt.figure(linewidth=10, edgecolor="#04253a")
+fig.savefig("image_filename.png", edgecolor=fig.get_edgecolor())</code></pre>
 
         <img title="Figure frame"
           src="https://github.com/brohrer/taming_matplotlib/raw/master/images/framing_fig_frame.png"
