@@ -281,7 +281,7 @@ ax.plot(x, y)</code></pre>
 
         <br>
         <br>
-        <h3 id="manual">Manually place your </var>Axes</var></h3>
+        <h3 id="manual">Manually place your <var>Axes</var></h3>
 
         <p>
           By default, a <var>Figure</var> will create an <var>Axes</var> object with a
@@ -499,7 +499,7 @@ ax.spines["bottom"].set_capstyle("round")</code></pre>
         <p>
           You can also change the measurements of the <var>Figure</var>
           overall. When you create it without choosing a size, Matplotlib
-          chooses a reasonable default size--typically something like 6 1/2
+          chooses a reasonable default size - typically something like 6 1/2
           inches wide by 4 1/2 inches high. However, if you know the final
           image is going to need to be a certain size, say, filling a 12 x 8
           inch spot on a poster or a 3 x 2 inch slot in a two-column paper
@@ -510,7 +510,8 @@ ax.spines["bottom"].set_capstyle("round")</code></pre>
 <pre><code>fig = plt.figure(figsize=(width, height))</code></pre>
 
         <p>
-          By starting with the final size specification, you can avoid
+          Here, <code>width</code> and <code>height</code> are always in
+          inches. By starting with the final size specification, you can avoid
           rescaling your final image. This lets you control the aspect ratio
           and makes the font sizes and line thicknesses meaningful. It also
           ensures that you can pick an output resolution that will look sharp.
@@ -562,7 +563,7 @@ ax.spines["bottom"].set_capstyle("round")</code></pre>
 
         <p>
           You can use any Matplotlib color specification for this. Here we used
-          a hexidecimal code, matching the web page background.
+          a hexidecimal code.
         </p>
 
         <img title="Axes color"
@@ -589,6 +590,11 @@ fig.savefig("image_filename.png", facecolor=fig.get_facecolor())</code></pre>
           including the <code>facecolor</code> argument and choosing a color.
         <p>
 
+        <img title="Figure background color"
+          src="https://github.com/brohrer/taming_matplotlib/raw/master/images/framing_fig_bg_color.png"
+          alt="A Figure with a colorful background"
+          style="height: 440px;">
+
         <p>
           One quirk of this is that <code>savefig()</code> tries to be helpful
           and assumes that you'd like to save with a white background. While
@@ -598,11 +604,6 @@ fig.savefig("image_filename.png", facecolor=fig.get_facecolor())</code></pre>
           background should definitely be the <code>facecolor</code> of the
           original <var>Figure</var>.
         </p>
-
-        <img title="Figure background color"
-          src="https://github.com/brohrer/taming_matplotlib/raw/master/images/framing_fig_bg_color.png"
-          alt="A Figure with a colorful background"
-          style="height: 440px;">
 
         <br>
         <br>
