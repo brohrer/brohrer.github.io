@@ -139,8 +139,7 @@ ax.spines["bottom"].set_capstyle("round")</code></pre>
               <a target="_self" href="#spinesmoved">
 <pre><code>ax.spines["top"].set_position(("outward", 15))
 ax.spines["bottom"].set_position(("data", 0))
-ax.spines["left"].set_position(("axes", .3))
-ax.spines["right"].set_position(("outward", -40))</code></pre>
+ax.spines["left"].set_position(("axes", .3)) </code></pre>
               </a>
             </td>
 
@@ -176,7 +175,7 @@ ax.spines["right"].set_position(("outward", -40))</code></pre>
 
             <td>
               <a target="_self" href="#lowres">
-<pre><code>fig.savefig("image_filename.png", dpi=15)</code></pre>
+<pre><code>fig.savefig("filename.png", dpi=15)</code></pre>
               </a>
             </td>
 
@@ -214,7 +213,7 @@ ax.spines["right"].set_position(("outward", -40))</code></pre>
             <td>
               <a target="_self" href="#figbgcolor">
 <pre><code>fig = plt.figure(facecolor="#e1ddbf")
-fig.savefig("image_filename.png",
+fig.savefig("filename.png",
             facecolor=fig.get_facecolor())</code></pre>
               </a>
             </td>
@@ -237,9 +236,10 @@ fig.savefig("image_filename.png",
 
             <td>
               <a target="_self" href="#figedgecolor">
-<pre><code>fig = plt.figure(linewidth=10, edgecolor="#04253a")
-fig.savefig("image_filename.png",
-            edgecolor=fig.get_edgecolor())</code></pre>
+<pre><code>fig = plt.figure(
+    linewidth=10, edgecolor="#04253a")
+fig.savefig(
+    "filename.png", edgecolor=fig.get_edgecolor())</code></pre>
               </a>
             </td>
 
@@ -333,7 +333,7 @@ ax.spines["left"].set_visible(False)</code></pre>
         <img title="spines turned off"
           src="https://github.com/brohrer/taming_matplotlib/raw/master/images/framing_spines_off.png"
           alt="some of the Axes spines turned off"
-          style="height: 220px;">
+          style="height: 440px;">
 
 
         <br>
