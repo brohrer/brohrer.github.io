@@ -127,9 +127,12 @@ ax.spines["left"].set_visible(False)</code></pre>
 
             <td>
               <a target="_self" href="#spinesmoved">
-<pre><code>ax.spines["top"].set_position(("outward", 15))
-ax.spines["bottom"].set_position(("data", 0))
-ax.spines["left"].set_position(("axes", .3)) </code></pre>
+<pre><code>ax.spines["top"].set_position(
+    ("outward", 15))
+ax.spines["bottom"].set_position(
+    ("data", 0))
+ax.spines["left"].set_position(
+    ("axes", .3)) </code></pre>
               </a>
             </td>
 
@@ -213,8 +216,9 @@ ax.spines["bottom"].set_capstyle("round")</code></pre>
             <td>
               <a target="_self" href="#figbgcolor">
 <pre><code>fig = plt.figure(facecolor="#e1ddbf")
-fig.savefig("filename.png",
-            facecolor=fig.get_facecolor())</code></pre>
+fig.savefig(
+    "filename.png",
+    facecolor=fig.get_facecolor())</code></pre>
               </a>
             </td>
 
@@ -463,6 +467,8 @@ ax.spines["right"].set_position(("outward", -40))</code></pre>
         <h3 id="spinestyle">Modify the spines</h3>
 
         <p>
+          Just like all the other lines in our plot, we can modify their style
+          to suit our whims.
         </p>
 
 <pre><code>ax.spines["top"].set_color("orange")
@@ -470,6 +476,14 @@ ax.spines["left"].set_bounds(-.5, .5)
 ax.spines["right"].set_linestyle("--")
 ax.spines["bottom"].set_linewidth(6)
 ax.spines["bottom"].set_capstyle("round")</code></pre>
+
+        <p>
+          Most of the settings should be familiar from the
+          <a href="matplotlib_lines.html">section on Lines</a>, but it's worth
+          calling out <code>set_bounds()</code>. It allows you to dictate the
+          lower and upper bounds of an axis spine. There's no need for it to
+          span the plotting area.
+        </p>
 
         <img title="modify Axes spine styles"
           src="https://github.com/brohrer/taming_matplotlib/raw/master/images/framing_spines_styled.png"
@@ -483,10 +497,24 @@ ax.spines["bottom"].set_capstyle("round")</code></pre>
         <h3 id="smallfig">Change the size of the <var>Figure</var></h3>
 
         <p>
+          You can also change the measurements of the <var>Figure</var>
+          overall. When you create it without choosing a size, Matplotlib
+          chooses a reasonable default size--typically something like 6 1/2
+          inches wide by 4 1/2 inches high. However, if you know the final
+          image is going to need to be a certain size, say, filling a 12 x 8
+          inch spot on a poster or a 3 x 2 inch slot in a two-column paper
+          manuscript, if can be helpful to start with that. 
         </p>
 
 
 <pre><code>fig = plt.figure(figsize=(width, height))</code></pre>
+
+        <p>
+          By starting with the final size specification, you can avoid
+          rescaling your final image. This lets you control the aspect ratio
+          and makes the font sizes and line thicknesses meaningful. It also
+          ensures that you can pick an output resolution that will look sharp.
+        </p>
 
         <img title="small Figure"
           src="https://github.com/brohrer/taming_matplotlib/raw/master/images/framing_small_fig.png"
@@ -500,9 +528,19 @@ ax.spines["bottom"].set_capstyle("round")</code></pre>
         <h3 id="lowres">Change the resolution of the <var>Figure</var></h3>
 
         <p>
+          Together with size, controlling the output image resolution gives you
+          control over the quality of the final product.
         </p>
 
 <pre><code>fig.savefig("image_filename.png", dpi=15)</code></pre>
+
+        <p>
+          You can specify the <code>dpi</code>, dots per inch, in the call to
+          <code>savefig()</code>. For printing and most screens, 150 is pretty
+          good, 300 is clear, and 600 is spectacular. 1200 or higher can come
+          in handy if you want to be able to do a lot of zooming in, but your
+          image can start to get very big on disk at that resolution.
+        </p>
 
         <img title="low resolution image"
           src="https://github.com/brohrer/taming_matplotlib/raw/master/images/framing_lo_res_fig.png"
@@ -517,9 +555,15 @@ ax.spines["bottom"].set_capstyle("round")</code></pre>
         <h3 id="axescolor">Change <var>Axes</var> background color</h3>
 
         <p>
+          It's not tough to change up the background coor of the plotting area.
         </p>
 
 <pre><code>ax.set_facecolor("#e1ddbf")</code></pre>
+
+        <p>
+          You can use any Matplotlib color specification for this. Here we used
+          a hexidecimal code, matching the web page background.
+        </p>
 
         <img title="Axes color"
           src="https://github.com/brohrer/taming_matplotlib/raw/master/images/framing_axes_bg_color.png"
@@ -533,28 +577,53 @@ ax.spines["bottom"].set_capstyle("round")</code></pre>
         <h3 id="figbgcolor">Change <var>Figure</var> background color</h3>
 
         <p>
+          Similarly, you can tweak the <var>Figure</var> background color to be
+          whatever you like.
         </p>
 
 <pre><code>fig = plt.figure(facecolor="#e1ddbf")
 fig.savefig("image_filename.png", facecolor=fig.get_facecolor())</code></pre>
+
+        <p>
+          We can set this up when first creating the <var>Figure</var> by
+          including the <code>facecolor</code> argument and choosing a color.
+        <p>
+
+        <p>
+          One quirk of this is that <code>savefig()</code> tries to be helpful
+          and assumes that you'd like to save with a white background. While
+          this default has doubtless saved truckloads of toner cartridges, it's
+          not always what you want. To get around this, you can manually
+          re-specify that the <code>facecolor</code> of the saved image
+          background should definitely be the <code>facecolor</code> of the
+          original <var>Figure</var>.
+        </p>
 
         <img title="Figure background color"
           src="https://github.com/brohrer/taming_matplotlib/raw/master/images/framing_fig_bg_color.png"
           alt="A Figure with a colorful background"
           style="height: 440px;">
 
-
-
         <br>
         <br>
         <h3 id="figedgecolor">Frame the <var>Figure</var></h3>
 
         <p>
+          Rounding out or menu of layout midifications is a frame
+          around the whole <var>Figure</var>. 
         </p>
 
 <pre><code>fig = plt.figure(linewidth=10, edgecolor="#04253a")
 fig.savefig("image_filename.png", edgecolor=fig.get_edgecolor())</code></pre>
 
+        <p>
+          We can create a border by both choosing a nonzero
+          <code>linewidth</code> and an <code>edgecolor</code> when creating our
+          <var>Figure</var>. When calling <code>savefig()</code> we have to
+          repeat our trick of explicitly setting the <code>edgecolor</code> in
+          the output image.
+        </p>
+          
         <img title="Figure frame"
           src="https://github.com/brohrer/taming_matplotlib/raw/master/images/framing_fig_frame.png"
           alt="a Figure with a solid frame"
@@ -563,7 +632,13 @@ fig.savefig("image_filename.png", edgecolor=fig.get_edgecolor())</code></pre>
         <br>
         <br>
         <p>
-          There are a handful of other Matplotlib how-to's you can refer to:
+          No you know all my layout tricks. As with all of Matplotlib, there
+          are several ways to do mos of these things, but these ways are for me
+          a combination of the most intuitive, most flexible, and require the
+          least memorization.
+        </p>
+        <p>
+          If this was helpful, there are a handful of other Matplotlib how-to's you can refer to:
           <a href="https://end-to-end-machine-learning.teachable.com/p/navigating-matplotlib-tutorial-how-to/">
           come take a look at the full set of tutorials</a>.
         </p>
