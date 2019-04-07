@@ -239,7 +239,8 @@ fig.savefig("filename.png",
 <pre><code>fig = plt.figure(
     linewidth=10, edgecolor="#04253a")
 fig.savefig(
-    "filename.png", edgecolor=fig.get_edgecolor())</code></pre>
+    "filename.png",
+    edgecolor=fig.get_edgecolor())</code></pre>
               </a>
             </td>
 
@@ -250,7 +251,14 @@ fig.savefig(
         <br>
         <h3>Get your layout right</h3>
         <p>
-          Here's the setup for all the examples to follow.
+          I've spent more time wrestling with frames, layouts, and backgrounds
+          than anything else in Matplotlib. Here are the most
+          straightforward methods I've found.
+        </p>
+        <p>
+          First, we'll start with this setup for all the examples to follow.
+          For an explanation of it, <a
+          href="matplotlib_going_deeper.html">check here</a>.
         </p>
 
 
@@ -272,12 +280,25 @@ ax.plot(x, y)</code></pre>
         <h3 id="manual">Manually place your </var>Axes</var></h3>
 
         <p>
+          By default, a <var>Figure</var> will create an <var>Axes</var> with a
+          reasonable size and location, but it doesn't always get it exactly
+          right. If you change your
+          <a href="matplotlib_ticks.html#log">tick label formatting</a> or 
+          <a href="matplotlib_ticks.html#label_style">tick font size</a>
+          for instance, things can start falling
+          off the edge of the <var>Figure</var>. To get around this, you can
+          manually place <var>Axes</var> right where you wnt them.
         </p>
 
 <pre><code>ax = fig.add_axes((left, bottom, width, height))</code></pre>
 
         <p>
-          All as fractions of the figure width and height.
+          This call to <code>add_axes()</code> specifies the x and y positions
+          of the lower left hand corner of the <var>Axes</var>, together with
+          the width and the height of it.
+          It's most important to note that all of these are expressed as
+          fractions of the figure width and height. Because of this, they will
+          almost always fall between 0 and 1.
         </p>
 
         <img title="manually set Axes by size and position"
@@ -290,6 +311,9 @@ ax.plot(x, y)</code></pre>
         <h3 id="multiple">Create several <var>Axes</var></h3>
 
         <p>
+          Some stories are best told by putting two or more plots side by side.
+          In Matplotlib you can do this by adding additional <var>Axes</var> to
+          the same <var>Figure</var> as many times as you need to.
         </p>
 
 
@@ -299,20 +323,57 @@ ax2 = fig.add_axes((left_2, bottom_2, width_2, height_2))
 ax2.plot(x, y)
 ...</code></pre>
 
+        <p>
+          Each one is
+          a separate object and can be modified independently using all the
+          methods we've mentioned already. <var>Axes</var> can overlap each
+          other and even fall partly outside the <var>Figure</var> boundaries.
+        </p>
+
         <img title="multiple Axes"
           src="https://github.com/brohrer/taming_matplotlib/raw/master/images/framing_multiple.png"
           alt="multiple Axes on a single Figure"
           style="height: 440px;">
 
+        <p>
+          I have to admit a bias here. There are already some tools in place to
+          help layout multiple <var>Axes</var> objects. There's 
+          <a href"https://matplotlib.org/api/_as_gen/matplotlib.pyplot.subplots.html">
+            <code>subplots()</code></a> and
+          <a href="https://matplotlib.org/api/_as_gen/matplotlib.gridspec.GridSpec.html">
+            <code>gridspec()</code></a>. Those get 80% of the way there.
+            Then there is 
+          <a
+          href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.tight_layout.html">
+            <code>tight_layout()</code></a> and
+          <a href="https://matplotlib.org/tutorials/intermediate/constrainedlayout_guide.html#sphx-glr-tutorials-intermediate-constrainedlayout-guide-py">
+            <code>constrained layout()</code></a> which try to clean things up
+            and make up yet another 10%. If you need a 90% solution, these are
+            a fine way to go. But if you want things to look a particular way
+            or line up just so, then you'll soon find yourself tweaking these
+            and fiddling with down-in-the-weeds settings. In my experience, I
+            get better results with less work by thinking through the layout I
+            want and specifying each <var>Axes</var> manually. But if you are
+            feeling curious try both approaches for yourself and see what works
+            best for you.
+        </p>
 
         <br>
         <br>
         <h3 id="fill">Fill the <var>Figure</var> with one <var>Axes</var></h3>
 
         <p>
+          One trick that's occasionally useful is to fill the entire
+          <var>Figure</var> with the plot area of one <var>Axes</var>.
+          With our trick of manual placement, this is a breeze.
         </p>
 
 <pre><code>ax1 = fig.add_axes((0, 0, 1, 1))</code></pre>
+
+        <p>
+          Using left and bottom values of 0 and width and height of 1 fills the
+          <var>Axes</var> completely, by definition.
+        </p>
 
         <img title="Figure filled with Axes"
           src="https://github.com/brohrer/taming_matplotlib/raw/master/images/framing_no_border.png"
@@ -324,11 +385,19 @@ ax2.plot(x, y)
         <h3 id="spinesoff">Hide axis spines </h3>
 
         <p>
+          Removing unnecessary lines really cleans up a plot. The lines that
+          form the border of the plot area are called axis spines, and
+          sometimes they are expendable.
         </p>
 
 <pre><code>ax.spines["top"].set_visible(False)
 ax.spines["right"].set_visible(False)
 ax.spines["left"].set_visible(False)</code></pre>
+
+        <p>
+          This trick lets us set the properties of each of the four spines
+          independently. Here, we toggle their visibility.
+        </p>
 
         <img title="spines turned off"
           src="https://github.com/brohrer/taming_matplotlib/raw/master/images/framing_spines_off.png"
@@ -341,15 +410,46 @@ ax.spines["left"].set_visible(False)</code></pre>
         <h3 id="spinesmoved">Move the spines around</h3>
 
         <p>
+          We can also shift the spines around a bit. The y-axis spines can move
+          right and left and the x-axis spines can move up and down.
         </p>
-
-
 
 <pre><code>ax.spines["top"].set_position(("outward", 15))
 ax.spines["bottom"].set_position(("data", 0))
 ax.spines["left"].set_position(("axes", .3))
 ax.spines["right"].set_position(("outward", -40))</code></pre>
 
+        <p>
+          There are three different methods to move them: <code>"data"</code>,
+          <code>"axes"</code>,  and <code>"outward"</code>. 
+        </p>
+
+        <p>
+          <code>"data"</code> lets you specify the position in your data
+          coordinates to place the spine. This is super useful for putting
+          spines along the x = 0 and y = 0 lines. 
+        </p>
+
+        <p>
+          <code>"axes"</code> lets you name the position as a fraction of the
+          <var>Axes</var> height and width. 0 is the bottom or the left of the
+          plotting area, and 1 is the top or the right. .5 is right in the
+          middle. Less than 0 or more than 1 is outside the plotting area.
+        </p>
+
+        <p>
+          <code>"outward"</code> lets you indicate a position as an offset from
+          the boundary of the plotting area, measured in points (there are 72
+          points in an inch). A positive offset is toward the center of the
+          plotting area, a negative offset is away. A positive offset for a
+          left spine would move it to the right. A positive offset of a right
+          spine would move it to the left.
+        </p>
+
+        <p>
+          Note that all of these let you place spines outside the plotting area
+          (or even outside the <var>Figure</var> boundaries).
+        </p>
 
         <img title="spines moved"
           src="https://github.com/brohrer/taming_matplotlib/raw/master/images/framing_spines_moved.png"
