@@ -104,19 +104,19 @@ ax.spines["left"].set_visible(False)</code></pre>
 
           <tr>
             <td>
-              <a target="_self" href="#spinestyle">
-                <img title="modify Axes spine styles"
-                  src="https://github.com/brohrer/taming_matplotlib/raw/master/images/framing_spines_styled.png"
-                  alt="Axes spines with several styles"
+              <a target="_self" href="#spinesmoved">
+                <img title="spines moved"
+                  src="https://github.com/brohrer/taming_matplotlib/raw/master/images/framing_spines_moved.png"
+                  alt="spines offset from their default positions"
                   style="height: 220px;">
               </a>
             </td>
 
             <td>
-              <a target="_self" href="#spinesmoved">
-                <img title="spines moved"
-                  src="https://github.com/brohrer/taming_matplotlib/raw/master/images/framing_spines_moved.png"
-                  alt="spines offset from their default positions"
+              <a target="_self" href="#spinestyle">
+                <img title="modify Axes spine styles"
+                  src="https://github.com/brohrer/taming_matplotlib/raw/master/images/framing_spines_styled.png"
+                  alt="Axes spines with several styles"
                   style="height: 220px;">
               </a>
             </td>
@@ -126,20 +126,20 @@ ax.spines["left"].set_visible(False)</code></pre>
           <tr>
 
             <td>
+              <a target="_self" href="#spinesmoved">
+<pre><code>ax.spines["top"].set_position(("outward", 15))
+ax.spines["bottom"].set_position(("data", 0))
+ax.spines["left"].set_position(("axes", .3)) </code></pre>
+              </a>
+            </td>
+
+            <td>
               <a target="_self" href="#spinestyle">
 <pre><code>ax.spines["top"].set_color("orange")
 ax.spines["left"].set_bounds(-.5, .5)
 ax.spines["right"].set_linestyle("--")
 ax.spines["bottom"].set_linewidth(6)
 ax.spines["bottom"].set_capstyle("round")</code></pre>
-              </a>
-            </td>
-
-            <td>
-              <a target="_self" href="#spinesmoved">
-<pre><code>ax.spines["top"].set_position(("outward", 15))
-ax.spines["bottom"].set_position(("data", 0))
-ax.spines["left"].set_position(("axes", .3)) </code></pre>
               </a>
             </td>
 
@@ -338,26 +338,6 @@ ax.spines["left"].set_visible(False)</code></pre>
 
         <br>
         <br>
-        <h3 id="spinestyle">Modify the spines</h3>
-
-        <p>
-        </p>
-
-<pre><code>ax.spines["top"].set_color("orange")
-ax.spines["left"].set_bounds(-.5, .5)
-ax.spines["right"].set_linestyle("--")
-ax.spines["bottom"].set_linewidth(6)
-ax.spines["bottom"].set_capstyle("round")</code></pre>
-
-        <img title="modify Axes spine styles"
-          src="https://github.com/brohrer/taming_matplotlib/raw/master/images/framing_spines_styled.png"
-          alt="Axes spines with several styles"
-          style="height: 440px;">
-
-
-
-        <br>
-        <br>
         <h3 id="spinesmoved">Move the spines around</h3>
 
         <p>
@@ -374,6 +354,26 @@ ax.spines["right"].set_position(("outward", -40))</code></pre>
         <img title="spines moved"
           src="https://github.com/brohrer/taming_matplotlib/raw/master/images/framing_spines_moved.png"
           alt="spines offset from their default positions"
+          style="height: 440px;">
+
+
+
+        <br>
+        <br>
+        <h3 id="spinestyle">Modify the spines</h3>
+
+        <p>
+        </p>
+
+<pre><code>ax.spines["top"].set_color("orange")
+ax.spines["left"].set_bounds(-.5, .5)
+ax.spines["right"].set_linestyle("--")
+ax.spines["bottom"].set_linewidth(6)
+ax.spines["bottom"].set_capstyle("round")</code></pre>
+
+        <img title="modify Axes spine styles"
+          src="https://github.com/brohrer/taming_matplotlib/raw/master/images/framing_spines_styled.png"
+          alt="Axes spines with several styles"
           style="height: 440px;">
 
 
