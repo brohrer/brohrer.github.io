@@ -208,7 +208,7 @@ fig.savefig("images/framing_lo_res_fig.png", dpi=15)
             <td>
               <a target="_self" href="#figbgcolor">
                 <img title="Figure background color"
-                  src="https://github.com/brohrer/taming_matplotlib/raw/master/images/framing_lo_res_fig.png"
+                  src="https://github.com/brohrer/taming_matplotlib/raw/master/images/framing_fig_bg_color.png"
                   alt="A Figure with a colorful background"
                   style="height: 220px;">
               </a>
@@ -247,15 +247,6 @@ fig.savefig("images/framing_fig_bg_color.png", facecolor=fig.get_facecolor())
               </a>
             </td>
 
-            <td>
-              <a target="_self" href="#figbgcolor">
-                <img title="Figure background color"
-                  src="https://github.com/brohrer/taming_matplotlib/raw/master/images/framing_lo_res_fig.png"
-                  alt="A Figure with a colorful background"
-                  style="height: 220px;">
-              </a>
-            </td>
-
           </tr>
 
           <tr>
@@ -265,15 +256,6 @@ fig.savefig("images/framing_fig_bg_color.png", facecolor=fig.get_facecolor())
 <pre><code>
 fig = plt.figure(linewidth=10, edgecolor="#04253a")
 fig.savefig("images/framing_fig_frame.png", edgecolor=fig.get_edgecolor())
-</code></pre>
-              </a>
-            </td>
-
-            <td>
-              <a target="_self" href="#figbgcolor">
-<pre><code>
-fig = plt.figure(facecolor="#e1ddbf")
-fig.savefig("images/framing_fig_bg_color.png", facecolor=fig.get_facecolor())
 </code></pre>
               </a>
             </td>
@@ -498,6 +480,24 @@ fig.savefig("images/framing_fig_bg_color.png", facecolor=fig.get_facecolor())
           alt="A Figure with a colorful background"
           style="height: 220px;">
 
+
+
+        <br>
+        <br>
+        <h3 id="figedgecolor">Frame the <var>Figure</var></h3>
+
+        <p>
+        </p>
+
+<pre><code>
+fig = plt.figure(linewidth=10, edgecolor="#04253a")
+fig.savefig("images/framing_fig_frame.png", edgecolor=fig.get_edgecolor())
+</code></pre>
+
+        <img title="Figure frame"
+          src="https://github.com/brohrer/taming_matplotlib/raw/master/images/framing_fig_frame.png"
+          alt="a Figure with a solid frame"
+          style="height: 440px;">
 
         <br>
         <br>
