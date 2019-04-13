@@ -14,7 +14,7 @@ document.write('\
             </a> &nbsp except where noted.\
           </p>\
           <p>\
-            The postings on this site are my own and don\'t necessarily represent my employer\'s\
+            The postings on this site are my own and don\'t necessarily represent my iRobot\'s\
             positions, strategies or opinions.\
           </p>\
         </section>\
