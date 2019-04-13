@@ -248,8 +248,7 @@ ul, ol, dl {
 
 ul {
   list-style-position: inside;
-  list-style: disc;
-  list-style-type: none;
+  list-style-type: disc;
   padding-left: 20px;
 }
 
@@ -272,6 +271,10 @@ dl p {
   padding-left: 20px;
   font-style: italic;
 }
+
+li{
+  margin: 5px 0;
+  }
 
 hr {
   height: 1px;
