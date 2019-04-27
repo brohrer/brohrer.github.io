@@ -30,11 +30,9 @@
             </td>
 
             <td>
-              <a target="_self" href="#multiple">
-                <img title="multiple Axes"
-                  src="https://github.com/brohrer/taming_matplotlib/raw/master/images/framing_multiple.png"
-                  alt="multiple Axes on a single Figure"
-                  style="height: 220px;">
+              <a target="_self" href="#manual">
+<pre><code>ax = fig.add_axes(
+    (left, bottom, width, height))</code></pre>
               </a>
             </td>
 
@@ -43,9 +41,11 @@
           <tr>
 
             <td>
-              <a target="_self" href="#manual">
-<pre><code>ax = fig.add_axes(
-    (left, bottom, width, height))</code></pre>
+              <a target="_self" href="#multiple">
+                <img title="multiple Axes"
+                  src="https://github.com/brohrer/taming_matplotlib/raw/master/images/framing_multiple.png"
+                  alt="multiple Axes on a single Figure"
+                  style="height: 220px;">
               </a>
             </td>
 
@@ -72,6 +72,15 @@ ax2.plot(x, y)
                   style="height: 220px;">
               </a>
             </td>
+          </tr>
+
+            <td>
+              <a target="_self" href="#fill">
+<pre><code>ax1 = fig.add_axes((0, 0, 1, 1))</code></pre>
+              </a>
+            </td>
+
+          <tr>
 
             <td>
               <a target="_self" href="#spinesoff">
@@ -79,16 +88,6 @@ ax2.plot(x, y)
                   src="https://github.com/brohrer/taming_matplotlib/raw/master/images/framing_spines_off.png"
                   alt="some of the Axes spines turned off"
                   style="height: 220px;">
-              </a>
-            </td>
-
-          </tr>
-
-          <tr>
-
-            <td>
-              <a target="_self" href="#fill">
-<pre><code>ax1 = fig.add_axes((0, 0, 1, 1))</code></pre>
               </a>
             </td>
 
@@ -113,11 +112,13 @@ ax.spines["left"].set_visible(False)</code></pre>
             </td>
 
             <td>
-              <a target="_self" href="#spinestyle">
-                <img title="modify Axes spine styles"
-                  src="https://github.com/brohrer/taming_matplotlib/raw/master/images/framing_spines_styled.png"
-                  alt="Axes spines with several styles"
-                  style="height: 220px;">
+              <a target="_self" href="#spinesmoved">
+<pre><code>ax.spines["top"].set_position(
+    ("outward", 15))
+ax.spines["bottom"].set_position(
+    ("data", 0))
+ax.spines["left"].set_position(
+    ("axes", .3)) </code></pre>
               </a>
             </td>
 
@@ -126,13 +127,11 @@ ax.spines["left"].set_visible(False)</code></pre>
           <tr>
 
             <td>
-              <a target="_self" href="#spinesmoved">
-<pre><code>ax.spines["top"].set_position(
-    ("outward", 15))
-ax.spines["bottom"].set_position(
-    ("data", 0))
-ax.spines["left"].set_position(
-    ("axes", .3)) </code></pre>
+              <a target="_self" href="#spinestyle">
+                <img title="modify Axes spine styles"
+                  src="https://github.com/brohrer/taming_matplotlib/raw/master/images/framing_spines_styled.png"
+                  alt="Axes spines with several styles"
+                  style="height: 220px;">
               </a>
             </td>
 
@@ -158,11 +157,8 @@ ax.spines["bottom"].set_capstyle("round")</code></pre>
             </td>
 
             <td>
-              <a target="_self" href="#lowres">
-                <img title="low resolution image"
-                  src="https://github.com/brohrer/taming_matplotlib/raw/master/images/framing_lo_res_fig.png"
-                  alt="a low resolution version of the image"
-                  style="height: 220px;">
+              <a target="_self" href="#smallfig">
+<pre><code>fig = plt.figure(figsize=(width, height))</code></pre>
               </a>
             </td>
 
@@ -171,8 +167,11 @@ ax.spines["bottom"].set_capstyle("round")</code></pre>
           <tr>
 
             <td>
-              <a target="_self" href="#smallfig">
-<pre><code>fig = plt.figure(figsize=(width, height))</code></pre>
+              <a target="_self" href="#lowres">
+                <img title="low resolution image"
+                  src="https://github.com/brohrer/taming_matplotlib/raw/master/images/framing_lo_res_fig.png"
+                  alt="a low resolution version of the image"
+                  style="height: 220px;">
               </a>
             </td>
 
@@ -195,11 +194,8 @@ ax.spines["bottom"].set_capstyle("round")</code></pre>
             </td>
 
             <td>
-              <a target="_self" href="#figbgcolor">
-                <img title="Figure background color"
-                  src="https://github.com/brohrer/taming_matplotlib/raw/master/images/framing_fig_bg_color.png"
-                  alt="A Figure with a colorful background"
-                  style="height: 220px;">
+              <a target="_self" href="#axescolor">
+<pre><code>ax.set_facecolor("#e1ddbf")</code></pre>
               </a>
             </td>
 
@@ -208,8 +204,11 @@ ax.spines["bottom"].set_capstyle("round")</code></pre>
           <tr>
 
             <td>
-              <a target="_self" href="#axescolor">
-<pre><code>ax.set_facecolor("#e1ddbf")</code></pre>
+              <a target="_self" href="#figbgcolor">
+                <img title="Figure background color"
+                  src="https://github.com/brohrer/taming_matplotlib/raw/master/images/framing_fig_bg_color.png"
+                  alt="A Figure with a colorful background"
+                  style="height: 220px;">
               </a>
             </td>
 
@@ -222,9 +221,6 @@ fig.savefig(
               </a>
             </td>
 
-          </tr>
-
-          <tr>
             <td>
               <a target="_self" href="#figedgecolor">
                 <img title="Figure frame"
