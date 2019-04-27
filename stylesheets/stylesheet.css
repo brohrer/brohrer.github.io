@@ -299,8 +299,8 @@ th {
 td {
   margin: 10px;
   padding: 10px;
-  /* vertical-align: top; */
-  vertical-align: center;
+  vertical-align: top;
+  /* vertical-align: center; */
   /* text-align: center; */
   text-align: left;
  }
