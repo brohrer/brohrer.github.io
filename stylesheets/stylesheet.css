@@ -154,7 +154,8 @@ strong {
 }
 
 img {
-  display: block;
+  /* display: block; */
+  display: inline;
   max-width: 739px;
   padding: 5px;
   border: 1px solid #ebebeb;
