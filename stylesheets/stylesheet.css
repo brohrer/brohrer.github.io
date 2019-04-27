@@ -273,7 +273,7 @@ dl p {
 }
 
 li{
-  margin: 10px 0;
+  margin: 5px 0;
   }
 
 hr {
@@ -298,7 +298,8 @@ th {
 td {
   margin: 10px;
   padding: 10px;
-  vertical-align: top;
+  /* vertical-align: top; */
+  vertical-align: center;
   /* text-align: center; */
   text-align: left;
  }
