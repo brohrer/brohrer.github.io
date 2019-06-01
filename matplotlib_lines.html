@@ -80,6 +80,23 @@ ax.plot(x2, y2)</code></pre>
             </td>
           </tr>
           
+          <tr>
+            <td>
+              <a target="_self" href="#capstyle">
+                <img title="capstyles"
+                  src="https://github.com/brohrer/taming_matplotlib/raw/master/images/cap_join_styles.png"
+                  alt="thumbnail of various cap styles and join styles"
+                  style="height: 220px;">
+              </a>
+            </td>
+            <td>
+              <a target="_self" href="#capstyle">
+<pre><code>ax.plot(x, y, solid_capstyle="round",
+        solid_joinstyle="bevel")</code></pre>
+              </a>
+            </td>
+          </tr>
+          
         </table>
 
 
@@ -220,6 +237,35 @@ ax.plot(x, y + .4, linewidth=.2)</code></pre>
           src="https://github.com/brohrer/taming_matplotlib/raw/master/images/multiple_lines.png"
           alt="multiple curve plots of a sinc function" style="width: 440px;">
         
+        <h3 id="capstyle">Style line ends and joins</h3>
+
+        <p>
+          Occasionally you want to really get in and control exactly how your
+          lines look. The styling of the tips of the lines (capstyle) and
+          the bends in the lines (joinstyle) let you do this.
+        </p>
+
+<pre><code>ax.plot(x, y, solid_capstyle="butt", solid_joinstyle="miter")
+ax.plot(x, y, solid_capstyle="round", solid_joinstyle="round")
+ax.plot(x, y, solid_capstyle="projecting", solid_joinstyle="bevel")</code></pre>
+
+        <p>
+          The <code>solid_capstyle</code> and <code>solid_joinstyle</code>
+          options in the snippet above give the varying effects seen
+          in this figure.
+        </p>
+
+        <img title="capstyles"
+          src="https://github.com/brohrer/taming_matplotlib/raw/master/images/cap_join_styles.png"
+          alt="thumbnail of various cap styles and join styles"
+          style="height: 440px;">
+
+        <p>
+          You can also make use of the 
+          <code>dash_capstyle</code> and <code>dash_joinstyle</code>
+          with broken lines. They take the same sets of arguments.
+        </p>
+
         <h3>and more!</h3>
         <p>
           There are lots of other fine details of lines you can control.
