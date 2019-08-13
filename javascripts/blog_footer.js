@@ -4,9 +4,10 @@ document.write('\
       <footer class="inner">\
         <section class="clearfix">\
           <p>\
-            Need to procrastinate? Check out the rest of the\
+            Want to see more like this?\
           </p>\
-          <a id="project_tagline" href="blog.html"><span>End-to-End Machine Learning Blog</span></a>\
+          <h4><a id="project_tagline" href="https://end-to-end-machine-learning.teachable.com/p/complete-course-library-full-end-to-end-machine-learning-catalog">\
+            Come visit the complete End-to-End Machine Learning course library</a></h4>\
           <p>\
             <br>\
             <a href="https://creativecommons.org/publicdomain/zero/1.0/">\
