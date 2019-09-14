@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+
+  <script type="text/javascript">var blog_title = "How does backpropagation work?";</script>
+  <script type="text/javascript">var publication_date = "September 18, 2019";</script>
+  <head>  
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
+    <base target="_blank">
+    <script type="text/javascript" src="javascripts/blog_head.js"></script>
+  </head>
+  <body>
+    <script type="text/javascript" src="javascripts/blog_header.js"></script>
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        
+        <p>
+        Find the rest of the How Neural Networks Work video series
+        <a href="https://end-to-end-machine-learning.teachable.com/p/how-deep-neural-networks-work">
+          in this free online course</a>.
+        </p>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/6BMwisTZFr4"
+          frameborder="0" style="margin: 0 auto"
+          allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen></iframe>
+        <br>
+
+        <a href="https://youtu.be/FmpDIaiMIeA?t=1m43s">
+          <img src="images/cnn1.png" alt="alternative text" style="width: 440px;" />
+        </a>
+                    
+        <p>
+          We’re going to try and build a comfortable intuition, a solid understanding, of what backpropagation is and how it works. 
+        </p>
+        <p>
+          This is part of the
+           <a href="http://e2eml.school/">End to End Machine</a> Learning school library. You can find a lot more tutorials and courses at
+           <a href="http://e2eml.school/">e2eml.school</a>. 
+        </p>
+        <p>
+
+        <h3>Backpropagation from scratch</h3>
+
+        </p>
+        <p>
+          We’re going to use Backpropagation to take the perfect shower. Imagine your shower head is finicky. If you don’t get the flow rate just right, you get a terrible shower. Too little flow and it feels like it’s dripping. Too much flow and it feels like a firehose. There’s a very narrow range where it’s comfortable.
+        </p>
+        <p>
+          You have two valves that adjust the water flow rate: the shower handle, and the main valve for the house. By adjusting either one of them, you can adjust the flow rate through the shower head, making it faster or slower. We’re going to use backpropagation to get them adjusted just right. 
+        </p>
+        <p>
+          The shower flow rate depends on the setting of both of these valves. We care about how sensitive it is to both valve settings. If we turn the shower handle a quarter turn, does the shower flow rate change a lot or a little? Is it sensitive to the shower handle position or not very?
+        </p>
+
+        <h3>Sensitivity</h3>
+
+        <p>
+          We can put a number on sensitivity.  First we start by measuring the shower handle position. Let’s assume that positions on the shower handle are numbered one through 10. If we adjust it from a 2 to 3, that’s a change of one unit.  
+        </p>
+        <p>
+          We can also measure the flow rate at the showerhead In units of cubic feet per minute. If the flow rate changes from 4 to 5 cubic feet per minute, that’s a change of one unit. 
+        </p>
+        <p>
+          We can adjust the shower handle by a certain amount and observe how much the shower flow rate changes. Let’s say we change the shower handle position from 4 to 8. That is a change of four units. Then we notice that the shower flow rate changes from 3 to 5 cubic feet per minute. That’s a change of two units. By dividing the change in the shower flow rate by the change in the handle position, we can find the sensitivity of shower flow rate to handle position. In this case it is (5-3) / (8-4), or 2 / 4, or one half. Sensitivity is a way of quantifying how much the shower flow rate will change if we adjust the shower handle up by one position . For each unit increase in shower handle position, we can expect the flow rate to increase by on half unit.
+        </p>
+
+        <h3>Saying it in math</h3>
+        <p>
+          The terminology quickly becomes awkward. Luckily math helps us out here. sensitivity is change in one thing per a one unit change in another thing, change in shower flow rate per one unit change in the shower handle position for instance. This can be written &Delta; shower flow rate divided by &Delta; shower handle setting. &Delta;, the capital Greek d, is a common way to indicate a change in a variable. Or, if we want to talk about the relationship between very small changes in both of these items, we can use the calculus notation of d(showerhead flow rate) divided by d(shower handle position). This is a way to express the derivative of the shower flow rate with respect to the shower handle setting. Since the flow rate is actually sensitive to two different things, the shower handle setting and the house flow rate going into the shower handle, it is most accurate to write sensitivity as &part;(showerhead flow rate) divided by &part; (shower handle position). This means the partial derivative of shower flow rate with respect to shower handle setting. But they all mean the same thing. Conceptually we’re just expressing the sensitivity of the thing on top to changes of the thing on the bottom. Because they are the most technically correct and because they look cool, we'll use the curly D’s: &part;. 
+        </p>
+        <p>
+          To make our conversation even a little more concise, we can give things shorter names. We'll call the shower flow rate y and the shower handle position h. We can call the flow rate in the house x, and the pressure in the water main w, and the position of the main valve m. Now we can use these short names to call the sensitivity of the shower flow rate to the shower handle position &part;y/&part;h. 
+        </p>
+
+        <h3>Working backward</h3>
+        <p>
+          We can also find the sensitivity for the main house valve. We can measure both the main valve position m and the resulting house flow rate x and we can observe how the latter changes when we adjust the former.  By dividing our change in x by our change in m, we can calculate the sensitivity of house flow rate to main valve setting,&part;x/&part;h.
+        </p>
+        <p>
+          The output flow rate of the showerhead, y, depends both on the shower handle setting, h, and the house flow rate flowing into the shower handle, x. We can put a number on this sensitivity too. Adjusting the main valve, m, changes the house flow rate, x, which indirectly affects the shower flow rate, y. By measuring the change in the house flow rate x and the corresponding change in the flow rate through the showerhead y,  we can find the sensitivity of the shower flow rate to increases in the house flow rate, &part;y/&part;x.
+        </p>
+
+        <h3>The Chain Rule</h3>
+        <p>
+          So now we have a few different sensitivities, &part;y/&part;h, &part;y/&part;x, and &part;x/&part;m. This is a solid start. This is exactly what we need to start calculating what adjustments we need to make. 
+        </p>
+        <p>
+          One thing that jumps out is that we don’t actually know the sensitivity of the shower flow rate with respect to the main valve. We don’t know &part;y/&part;m. However, with a little bit of puzzling we can figure it out. Imagine that we had measured &part;x/&part;m to be two. For every unit change in main valve position, the house flow rate increases by two. Also assume that we had measured &part;y/&part;x to be 1/4. For every unit change in house flow rate, the showerhead flow rate increases by 1/4 unit. Now, we can play out what would happen to the showerhead flow rate if we increase the main valve position by one unit. &part;x/&part;m says the house flow rate would go up by two. And since we know that every unit of house flow rate increases the showerflow rate by ¼, we can multiply the two together to get the net result. 2×1/4 equals 1/2. A unit change in main valve position gives an increase of showerhead flow rate of half a unit.
+        </p>
+        <p>
+          This example is pretty straightforward to think about, so the power of what we just did may not be immediately obvious. We chained together two sensitivities by multiplying them. &part;y/&part;m equals &part;y/&part;x times &part;x/&part;m. Calculus tells us that this doesn’t just work for our example here, but it works all the time everywhere for any chain of sensitivities, no matter how long. Not surprisingly, it’s called The Chain Rule. And it will be the secret to our success in backpropagation. 
+        </p>
+        <p>
+          Now we are in a good position to start making adjustments. We have the sensitivity of the thing we care about, the shower flow rate, with respect to the two things that we can change, the main valve setting and the shower handle setting. Armed with these, we are ready to get our shower going.
+        </p>
+
+        <h3>Error: How far from ideal is the shower?</h3>
+        <p>
+          Let’s say that our ideal shower flow rate is a special value of y, which we’ll call y'. We can calculate our deviation, how far away from this ideal value we are, by taking y - y'. To express our unhappiness with the current state of the water flow, we can use how far away it is from the ideal: the absolute value of y - y’ or |y - y'|. We'll call this E, our error, and we would like for it to be zero. Our goal will be to adjust our valves, m and h, to make our shower flow rate perfect, drive y to be y prime, and make and E go to zero.
+        </p>
+        <p>
+          Since we’re in the business of calculating sensitivities, we can also find the sensitivity of E to changes in our shower flow rate. The derivative of an absolute value is straightforward:
+        </p>
+        <p>
+          &part;E/&part;y = 1 if y is greater than y' and it’s -1 if it’s less than y'. It’s not actually defined at y = y', but we can just declare it to be zero. 
+        </p>
+        <p>
+          Now we can chain this with our other sensitivities to find the sensitivity of the error to our two valve positions. 
+        </p>
+
+        <h3>How to split the adjustment between valves?</h3>
+        <p>
+          Now we have one thing we want to change, the error, and two ways to change it. How do we go about it? Do we try to get away with turning just one valve? Split the difference between the two? There are any number of ways to get the results we want. Which do we choose? This is where backpropagation comes in.
+        </p>
+        <p>
+          The recipe that backpropagation uses to choose how much to adjust each valve is to weight the adjustments by the sensitivity. Is the shower flow rate error twice as sensitive to the main valve position m as it is to the shower handle position h? Then adjust the main valve twice as much as the shower handle. The benefits of focusing adjustments on the most sensitive valve aren’t obvious in this simple example, but in a more complex situation (imagine hundreds of showers connected through thousands of pipes to millions of valves) it helps encourage specialization. It leads to a few valves and pipes being closely tied to a single shower.
+        </p>
+
+        <h3>How much should each valve be adjusted?</h3>
+        <p>
+          Knowing the sensitivities and the size of the change that we hope to make, it’s tempting to try to get to the perfect shower flow in one go, touching each of the valves just once. 
+        </p>
+        <p>
+          There are three good reasons not to do this. 
+        </p>
+        <p>
+          The first reason is that we may not be able to get to a zero error. It’s possible that the water main has low pressure and even with both valves wide open our shower would be slower than we want. This is the case much more often than not. Depending on how our error, E, is defined, the best we can do might be some number other than zero. We don’t know what that best value is, so we’re kind of hunting in the dark for it. 
+        </p>
+        <p>
+          The second reason is that our sensitivities are probably nonlinear. That means that &part;y/&part;h, the change in shower flow rate with respect to shower handle position, will be different depending on whether we’re at position h = 2 or at position h = 7. Graphically, the relationship may not be a straight line with a constant slope. It’s probably a curve. The implication of this is that if we make a large adjustment, we are jumping a long way along the curve, but pretending it's a straight line. In all probability we will end up deviating wildly from the curve, and getting an unexpected result.
+        </p>
+        <p>
+          The third reason is that our sensitivities, remember, are partial derivatives, meaning they also depend on other values. &part;y/&part;h might be a larger number if the house flow rate x is high than when the house flow rate is low. And because we are also changing the main valve setting m at the same time, the house flow rate will probably change too. The whole foundation on which we calculated our initial set of sensitivities will shift.
+        </p>
+        <p>
+          The safest way to handle an uncertain, nonlinear, dynamic situation like this is to take tiny steps. Instead of trying to move the whole distance all at once, move 1/100, or 1/1000, or 1/10,000 of the way. It means that you have to make a lot of steps, but at least your chances of settling into a good answer are much better. This fraction of the distance that we choose to nibble is called the learning rate. Choosing a learning rate that is too large will cause us to bounce around wildly without finding a viable solution. A learning rate that is too small will take an unreasonably long time to reach a solution. The baby steps will just be too tiny. A learning rate of 1/1000 is not a bad place to start, but keep in mind that the ideal learning rate will be different for every problem you try. 
+        </p>
+
+        <h3>Making the first adjustment</h3>
+        <p>
+          Now we finally know everything we need to adjust our valves and get our shower set up! Each valve adjustment will be proportional to the sensitivity of the error to that valve, and in the opposite direction (we want E to go down, not up). We multiply that by our learning rate, &eta;.
+        </p>
+        <p>
+          So for our first iteration, our adjustment to the shower handle, &Delta; h1, is minus &eta; times &part;E/&part;y times &part;y/&part;h. Similarly, the change to the main valve, &Delta; m1, is minus &eta; times &part;E/&part;y times &part;y/&part;x times &part;x/&part;m. 
+        </p>
+        <p>
+          Congratulations! We have used the chain rule to backpropagate sensitivities through our little network and make small adjustments to the valves. Now we are roughly 100th of the way to a great shower.
+        </p>
+        <p>
+          The bad news is that all of our sensitivities have now changed. They may have changed a lot. We need to recalculate them.
+        </p>
+        <p>
+          The good news is that we have everything we need to do that. We made our small changes to the valve settings, &Delta; m1 and &Delta; h1, and all we need to do is note the changes in the house flow rate, &Delta; x1 and the shower flow rate, &Delta; y1, that resulted from these changes. We can use these to calculate new estimates for the sensitivities in just the same way we did before. This is a computationally cheap way to recalculate our sensitivities.
+        </p>
+        <p>
+          Now we are really off to the races. All that lacks is to repeat the procedure of making a small change to each valve and updating our sensitivity estimates 100 or 1000 times, until the shower temperature gets close enough to ideal that we don’t care anymore.
+        </p>
+
+        <h3>Gradient descent and other learning rate schedules</h3>
+        <p>
+          Having a small, fixed learning rate is only one way to make use of our sensitivities. If you imagine our error E as a valley, this approach is analogous to taking a step in the downhill direction. The steeper the hill, the larger the step. This is called gradient descent. 
+        </p>
+        <p>
+          There are other approaches that also use the results of previous steps to to make better guesses about where to step next. They have names like <a href="https://towardsdatascience.com/10-gradient-descent-optimisation-algorithms-86989510b5e9">
+          AdaGrad and Momentum </a>
+          and have been shown to work really well.
+          But every single one of them makes use of backpropagation to find the sensitivities of the error to each of the knobs we can adjust. 
+        </p>
+
+        <h3>Backpropagation in the real world</h3>
+        <p>
+          And that’s backpropagation in the world's simplest network. 
+        </p>
+        <p>
+          In our shower example there were just two valves - two knobs to adjust. These were the weights of our little network. In a real neural network there will likely be thousands or millions of these. In our example we just had one hidden layer - the house flow rate. In a real neural network there can be a dozen layers or more. However, the principles of backpropagation are the same:
+        </p>
+        <p>
+          <ul>
+            <li>
+              chain sensitivities back through the network,
+            </li>
+            <li>
+              make a small update,
+            </li>
+            <li>
+              observe the effects,
+            </li>
+            <li>
+              update the sensitivities throughout the network,
+            </li>
+            <li>
+              and repeat.
+            </li>
+          <ul> 
+        </p>
+
+        <h3>Write your own backpropagation code</h3>
+        <p>
+          Now that you’ve seen how backpropagation works youre ready for the next step - to code it up for yourself.  Come join me in the
+          <a href="https://end-to-end-machine-learning.teachable.com/p/write-a-neural-network-framework">
+          Build a Neural Network Framework course in my End to End Machine Learning school</a>.
+          Together we’ll code up a whole neural network framework in python, start to finish, including backpropagation. 
+        </p>
+        <p>
+          Thanks for stopping by. 
+        </p>
+        <p>
+          Happy building!
+        </p>
+        <p>
+
+        <script type="text/javascript" src="javascripts/blog_signature.js"></script>
+      </section>
+    </div>
+    <script type="text/javascript" src="javascripts/blog_footer.js"></script>
+    <script type="text/javascript">
+      var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+      document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+    <script type="text/javascript">
+      try {
+        var pageTracker = _gat._getTracker("UA-10180621-3");
+      pageTracker._trackPageview();
+      } catch(err) {}
+    </script>
+  </body>
+</html>
+
