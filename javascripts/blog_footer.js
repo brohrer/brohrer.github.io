@@ -3,7 +3,7 @@ document.write('\
     <div id="footer_wrap" class="outer">\
       <footer class="inner">\
         <section class="clearfix">\
-          <h4><a id="project_tagline" href="https://end-to-end-machine-learning.teachable.com/p/complete-course-library-full-end-to-end-machine-learning-catalog">\
+          <h4><a id="project_tagline" href="http://e2eml.school">\
             Come visit the complete End-to-End Machine Learning course library</a></h4>\
           <p>\
             <br>\

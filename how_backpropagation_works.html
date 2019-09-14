@@ -17,11 +17,6 @@
     <div id="main_content_wrap" class="outer">
       <section id="main_content" class="inner">
         
-        <p>
-        Find the rest of the How Neural Networks Work video series
-        <a href="https://end-to-end-machine-learning.teachable.com/p/how-deep-neural-networks-work">
-          in this free online course</a>.
-        </p>
         <iframe width="560" height="315" src="https://www.youtube.com/embed/6BMwisTZFr4"
           frameborder="0" style="margin: 0 auto"
           allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
@@ -58,18 +53,18 @@
         <h3>Sensitivity</h3>
 
         <p>
-          We can put a number on sensitivity.  First we start by measuring the shower handle position. Let’s assume that positions on the shower handle are numbered one through 10. If we adjust it from a 2 to 3, that’s a change of one unit.  
+          We can put a number on sensitivity.  First we start by measuring the shower handle position. Let’s assume that positions on the shower handle are numbered 1 through 10. If we adjust it from a 2 to 3, that’s a change of one unit.  
         </p>
         <p>
-          We can also measure the flow rate at the showerhead In units of cubic feet per minute. If the flow rate changes from 4 to 5 cubic feet per minute, that’s a change of one unit. 
+          We can also measure the flow rate at the showerhead in units of cubic feet per minute. If the flow rate changes from 4 to 5 cubic feet per minute, that’s a change of one unit. 
         </p>
         <p>
-          We can adjust the shower handle by a certain amount and observe how much the shower flow rate changes. Let’s say we change the shower handle position from 4 to 8. That is a change of four units. Then we notice that the shower flow rate changes from 3 to 5 cubic feet per minute. That’s a change of two units. By dividing the change in the shower flow rate by the change in the handle position, we can find the sensitivity of shower flow rate to handle position. In this case it is (5-3) / (8-4), or 2 / 4, or one half. Sensitivity is a way of quantifying how much the shower flow rate will change if we adjust the shower handle up by one position . For each unit increase in shower handle position, we can expect the flow rate to increase by on half unit.
+          We can adjust the shower handle by a certain amount and observe how much the shower flow rate changes. Let’s say we change the shower handle position from 4 to 8. That is a change of four units. Then we notice that the shower flow rate changes from 3 to 5 cubic feet per minute. That’s a change of two units. By dividing the change in the shower flow rate by the change in the handle position, we can find the sensitivity of shower flow rate to handle position. In this case it is (5-3) / (8-4), or 2 / 4, or one half. Sensitivity is a way of quantifying how much the shower flow rate will change if we adjust the shower handle up by one position. For each unit increase in shower handle position, we can expect the flow rate to increase by on half unit.
         </p>
 
         <h3>Saying it in math</h3>
         <p>
-          The terminology quickly becomes awkward. Luckily math helps us out here. sensitivity is change in one thing per a one unit change in another thing, change in shower flow rate per one unit change in the shower handle position for instance. This can be written &Delta; shower flow rate divided by &Delta; shower handle setting. &Delta;, the capital Greek d, is a common way to indicate a change in a variable. Or, if we want to talk about the relationship between very small changes in both of these items, we can use the calculus notation of d(showerhead flow rate) divided by d(shower handle position). This is a way to express the derivative of the shower flow rate with respect to the shower handle setting. Since the flow rate is actually sensitive to two different things, the shower handle setting and the house flow rate going into the shower handle, it is most accurate to write sensitivity as &part;(showerhead flow rate) divided by &part; (shower handle position). This means the partial derivative of shower flow rate with respect to shower handle setting. But they all mean the same thing. Conceptually we’re just expressing the sensitivity of the thing on top to changes of the thing on the bottom. Because they are the most technically correct and because they look cool, we'll use the curly D’s: &part;. 
+          The terminology quickly becomes awkward. Luckily math helps us out here. Sensitivity is change in one thing per a one unit change in another thing, change in shower flow rate per one unit change in the shower handle position for instance. This can be written &Delta; shower flow rate divided by &Delta; shower handle setting. &Delta;, the capital Greek d, is a common way to indicate a change in a variable. Or, if we want to talk about the relationship between very small changes in both of these items, we can use the calculus notation of d(showerhead flow rate) divided by d(shower handle position). This is a way to express the derivative of the shower flow rate with respect to the shower handle setting. Since the flow rate is actually sensitive to two different things, the shower handle setting and the house flow rate going into the shower handle, it is most accurate to write sensitivity as &part;(showerhead flow rate) divided by &part; (shower handle position). This means the partial derivative of shower flow rate with respect to shower handle setting. But they all mean the same thing. Conceptually we’re just expressing the sensitivity of the thing on top to changes of the thing on the bottom. Because they are the most technically correct and because they look cool, we'll use the curly D’s: &part;. 
         </p>
         <p>
           To make our conversation even a little more concise, we can give things shorter names. We'll call the shower flow rate y and the shower handle position h. We can call the flow rate in the house x, and the pressure in the water main w, and the position of the main valve m. Now we can use these short names to call the sensitivity of the shower flow rate to the shower handle position &part;y/&part;h. 
@@ -77,10 +72,10 @@
 
         <h3>Working backward</h3>
         <p>
-          We can also find the sensitivity for the main house valve. We can measure both the main valve position m and the resulting house flow rate x and we can observe how the latter changes when we adjust the former.  By dividing our change in x by our change in m, we can calculate the sensitivity of house flow rate to main valve setting,&part;x/&part;h.
+          We can also find the sensitivity for the main house valve. We can measure both the main valve position m and the resulting house flow rate x and we can observe how the latter changes when we adjust the former.  By dividing our change in x by our change in m, we can calculate the sensitivity of house flow rate to main valve setting, &part;x/&part;h.
         </p>
         <p>
-          The output flow rate of the showerhead, y, depends both on the shower handle setting, h, and the house flow rate flowing into the shower handle, x. We can put a number on this sensitivity too. Adjusting the main valve, m, changes the house flow rate, x, which indirectly affects the shower flow rate, y. By measuring the change in the house flow rate x and the corresponding change in the flow rate through the showerhead y,  we can find the sensitivity of the shower flow rate to increases in the house flow rate, &part;y/&part;x.
+          The output flow rate of the showerhead y depends both on the shower handle setting h and the house flow rate flowing into the shower handle x. We can put a number on this sensitivity too. Adjusting the main valve m changes the house flow rate x which indirectly affects the shower flow rate y. By measuring the change in the house flow rate x and the corresponding change in the flow rate through the showerhead y, we can find the sensitivity of the shower flow rate to increases in the house flow rate, &part;y/&part;x.
         </p>
 
         <h3>The Chain Rule</h3>
@@ -88,18 +83,20 @@
           So now we have a few different sensitivities, &part;y/&part;h, &part;y/&part;x, and &part;x/&part;m. This is a solid start. This is exactly what we need to start calculating what adjustments we need to make. 
         </p>
         <p>
-          One thing that jumps out is that we don’t actually know the sensitivity of the shower flow rate with respect to the main valve. We don’t know &part;y/&part;m. However, with a little bit of puzzling we can figure it out. Imagine that we had measured &part;x/&part;m to be two. For every unit change in main valve position, the house flow rate increases by two. Also assume that we had measured &part;y/&part;x to be 1/4. For every unit change in house flow rate, the showerhead flow rate increases by 1/4 unit. Now, we can play out what would happen to the showerhead flow rate if we increase the main valve position by one unit. &part;x/&part;m says the house flow rate would go up by two. And since we know that every unit of house flow rate increases the showerflow rate by ¼, we can multiply the two together to get the net result. 2×1/4 equals 1/2. A unit change in main valve position gives an increase of showerhead flow rate of half a unit.
+          One thing that jumps out is that we don’t actually know the sensitivity of the shower flow rate with respect to the main valve. We don’t know &part;y/&part;m. However, with a little bit of puzzling we can figure it out. Imagine that we had measured &part;x/&part;m to be two. For every unit change in main valve position, the house flow rate increases by two. Also assume that we had measured &part;y/&part;x to be 1/4. For every unit change in house flow rate, the showerhead flow rate increases by 1/4 unit. Now, we can play out what would happen to the showerhead flow rate if we increase the main valve position by one unit. &part;x/&part;m says the house flow rate would go up by two. And since we know that every unit of house flow rate increases the showerflow rate by 1/4, we can multiply the two together to get the net result. 2×1/4 equals 1/2. A unit change in main valve position gives an increase of showerhead flow rate of half a unit.
         </p>
         <p>
-          This example is pretty straightforward to think about, so the power of what we just did may not be immediately obvious. We chained together two sensitivities by multiplying them. &part;y/&part;m equals &part;y/&part;x times &part;x/&part;m. Calculus tells us that this doesn’t just work for our example here, but it works all the time everywhere for any chain of sensitivities, no matter how long. Not surprisingly, it’s called The Chain Rule. And it will be the secret to our success in backpropagation. 
+          This example is pretty straightforward to think about, so the power of what we just did may not be immediately obvious. We chained together two sensitivities by multiplying them. &part;y/&part;m = &part;y/&part;x &times; &part;x/&part;m. Calculus tells us that this doesn’t just work for our example here, but it works all the time everywhere for any chain of sensitivities, no matter how long. Not surprisingly, it’s called the
+          <a href="https://en.wikipedia.org/wiki/Chain_rule">Chain Rule</a>.
+          And it will be the secret to our success in backpropagation. 
         </p>
         <p>
           Now we are in a good position to start making adjustments. We have the sensitivity of the thing we care about, the shower flow rate, with respect to the two things that we can change, the main valve setting and the shower handle setting. Armed with these, we are ready to get our shower going.
         </p>
 
-        <h3>Error: How far from ideal is the shower?</h3>
+        <h3>How far from ideal is the shower?</h3>
         <p>
-          Let’s say that our ideal shower flow rate is a special value of y, which we’ll call y'. We can calculate our deviation, how far away from this ideal value we are, by taking y - y'. To express our unhappiness with the current state of the water flow, we can use how far away it is from the ideal: the absolute value of y - y’ or |y - y'|. We'll call this E, our error, and we would like for it to be zero. Our goal will be to adjust our valves, m and h, to make our shower flow rate perfect, drive y to be y prime, and make and E go to zero.
+          Let’s say that our ideal shower flow rate is a special value of y, which we’ll call y'. We can calculate our deviation, how far away from this ideal value we are, by taking y - y'. To express our unhappiness with the current state of the water flow, we can use how far away it is from the ideal: the absolute value of y - y’ or |y - y'|. We'll call this E, our error, and we would like for it to be zero. Our goal will be to adjust our valves m and h to make our shower flow rate perfect, drive y to be y prime, and make and E go to zero.
         </p>
         <p>
           Since we’re in the business of calculating sensitivities, we can also find the sensitivity of E to changes in our shower flow rate. The derivative of an absolute value is straightforward:
@@ -127,7 +124,7 @@
           There are three good reasons not to do this. 
         </p>
         <p>
-          The first reason is that we may not be able to get to a zero error. It’s possible that the water main has low pressure and even with both valves wide open our shower would be slower than we want. This is the case much more often than not. Depending on how our error, E, is defined, the best we can do might be some number other than zero. We don’t know what that best value is, so we’re kind of hunting in the dark for it. 
+          The first reason is that we may not be able to get to a zero error. It’s possible that the water main has low pressure and even with both valves wide open our shower would be slower than we want. This is the case much more often than not. Depending on how our error E is defined, the best we can do might be some number other than zero. We don’t know what that best value is, so we’re kind of hunting in the dark for it. 
         </p>
         <p>
           The second reason is that our sensitivities are probably nonlinear. That means that &part;y/&part;h, the change in shower flow rate with respect to shower handle position, will be different depending on whether we’re at position h = 2 or at position h = 7. Graphically, the relationship may not be a straight line with a constant slope. It’s probably a curve. The implication of this is that if we make a large adjustment, we are jumping a long way along the curve, but pretending it's a straight line. In all probability we will end up deviating wildly from the curve, and getting an unexpected result.
@@ -141,10 +138,10 @@
 
         <h3>Making the first adjustment</h3>
         <p>
-          Now we finally know everything we need to adjust our valves and get our shower set up! Each valve adjustment will be proportional to the sensitivity of the error to that valve, and in the opposite direction (we want E to go down, not up). We multiply that by our learning rate, &eta;.
+          Now we finally know everything we need to adjust our valves and get our shower set up. Each valve adjustment will be proportional to the sensitivity of the error to that valve, and in the opposite direction (we want E to go down, not up). We multiply that by our learning rate, &eta;.
         </p>
         <p>
-          So for our first iteration, our adjustment to the shower handle, &Delta; h1, is minus &eta; times &part;E/&part;y times &part;y/&part;h. Similarly, the change to the main valve, &Delta; m1, is minus &eta; times &part;E/&part;y times &part;y/&part;x times &part;x/&part;m. 
+          So for our first iteration, our adjustment to the shower handle, &Delta;h2, is &minus;&eta; &times; &part;E/&part;y &times; &part;y/&part;h. Similarly, the change to the main valve, &Delta;m1, is &minus;&eta; &times; &part;E/&part;y &times; &part;y/&part;x &times; &part;x/&part;m. 
         </p>
         <p>
           Congratulations! We have used the chain rule to backpropagate sensitivities through our little network and make small adjustments to the valves. Now we are roughly 100th of the way to a great shower.
@@ -153,15 +150,16 @@
           The bad news is that all of our sensitivities have now changed. They may have changed a lot. We need to recalculate them.
         </p>
         <p>
-          The good news is that we have everything we need to do that. We made our small changes to the valve settings, &Delta; m1 and &Delta; h1, and all we need to do is note the changes in the house flow rate, &Delta; x1 and the shower flow rate, &Delta; y1, that resulted from these changes. We can use these to calculate new estimates for the sensitivities in just the same way we did before. This is a computationally cheap way to recalculate our sensitivities.
+          The good news is that we have everything we need to do that. We made our small changes to the valve settings, &Delta;m<sub>1</sub> and &Delta;h<sub>1</sub>, and all we need to do is note the changes in the house flow rate, &Delta;x<sub>1</sub> and the shower flow rate, &Delta;y<sub>1</sub>, that resulted from these changes. We can use these to calculate new estimates for the sensitivities in just the same way we did before. This is a computationally cheap way to recalculate our sensitivities.
         </p>
         <p>
-          Now we are really off to the races. All that lacks is to repeat the procedure of making a small change to each valve and updating our sensitivity estimates 100 or 1000 times, until the shower temperature gets close enough to ideal that we don’t care anymore.
+          Now we are really off to the races. All that lacks is to repeat the procedure of making a small change to each valve and updating our sensitivity estimates 100 or 1000 times, until the shower temperature gets close enough to ideal that we don’t care about the difference anymore.
         </p>
 
         <h3>Gradient descent and other learning rate schedules</h3>
         <p>
-          Having a small, fixed learning rate is only one way to make use of our sensitivities. If you imagine our error E as a valley, this approach is analogous to taking a step in the downhill direction. The steeper the hill, the larger the step. This is called gradient descent. 
+          Having a small, fixed learning rate is only one way to make use of our sensitivities. If you imagine our error E as a valley, this approach is analogous to taking a step in the downhill direction. The steeper the hill, the larger the step. This is called
+          <a href="https://en.wikipedia.org/wiki/Gradient_descent">gradient descent</a>. 
         </p>
         <p>
           There are other approaches that also use the results of previous steps to to make better guesses about where to step next. They have names like <a href="https://towardsdatascience.com/10-gradient-descent-optimisation-algorithms-86989510b5e9">
@@ -178,7 +176,7 @@
           In our shower example there were just two valves - two knobs to adjust. These were the weights of our little network. In a real neural network there will likely be thousands or millions of these. In our example we just had one hidden layer - the house flow rate. In a real neural network there can be a dozen layers or more. However, the principles of backpropagation are the same:
         </p>
         <p>
-          <ul>
+          <ol>
             <li>
               chain sensitivities back through the network,
             </li>
@@ -194,7 +192,7 @@
             <li>
               and repeat.
             </li>
-          <ul> 
+          </ol> 
         </p>
 
         <h3>Write your own backpropagation code</h3>
