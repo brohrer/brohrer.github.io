@@ -37,7 +37,7 @@
         <p>
           <img src="images/backprop/system.png" 
             alt="A shower and the plumbing system behind it. A shower handle valve, house pipe, a main valve, and the water main."
-            style="width: 440px;" />
+            style="width: 600px;" />
         </p>
 
         </p>
@@ -55,7 +55,7 @@
         <p>
           <img src="images/backprop/handle.png" 
             alt="Shower handle with positions numbered and shower flow rate with numbered levels."
-            style="width: 440px;" />
+            style="width: 600px;" />
         </p>
 
         <p>
@@ -75,7 +75,7 @@
         <p>
           <img src="images/backprop/sensitivity.png" 
             alt="A collection of mathematical expressions of sensitivity."
-            style="width: 440px;" />
+            style="width: 600px;" />
         </p>
         <p>
           To make our conversation even a little more concise, we can give things shorter names. We'll call the shower flow rate y and the shower handle position h. We can call the flow rate in the house x, and the pressure in the water main w, and the position of the main valve m. Now we can use these short names to call the sensitivity of the shower flow rate to the shower handle position &part;y/&part;h. 
@@ -85,7 +85,7 @@
         <p>
           <img src="images/backprop/main_valve.png" 
             alt="Main valve with positions numbered and house flow rate with numbered levels."
-            style="width: 440px;" />
+            style="width: 600px;" />
         </p>
         <p>
           We can also find the sensitivity for the main house valve. We can measure both the main valve position m and the resulting house flow rate x and we can observe how the latter changes when we adjust the former.  By dividing our change in x by our change in m, we can calculate the sensitivity of house flow rate to main valve setting, &part;x/&part;h.
@@ -93,7 +93,7 @@
         <p>
           <img src="images/backprop/house_flow.png" 
             alt="Shower handle with house flow rate and shower flow rate numbered."
-            style="width: 440px;" />
+            style="width: 600px;" />
         </p>
         <p>
           The output flow rate of the showerhead y depends both on the shower handle setting h and the house flow rate flowing into the shower handle x. We can put a number on this sensitivity too. Adjusting the main valve m changes the house flow rate x which indirectly affects the shower flow rate y. By measuring the change in the house flow rate x and the corresponding change in the flow rate through the showerhead y, we can find the sensitivity of the shower flow rate to increases in the house flow rate, &part;y/&part;x.
@@ -119,7 +119,7 @@
         <p>
           <img src="images/backprop/error.png" 
             alt="Difference between actual and desired shower flow rate defined as error."
-            style="width: 440px;" />
+            style="width: 600px;" />
         </p>
         <p>
           Let’s say that our ideal shower flow rate is a special value of y, which we’ll call y'. We can calculate our deviation, how far away from this ideal value we are, by taking y - y'. To express our unhappiness with the current state of the water flow, we can use how far away it is from the ideal: the absolute value of y - y’ or |y - y'|. We'll call this E, our error, and we would like for it to be zero. Our goal will be to adjust our valves m and h to make our shower flow rate perfect, drive y to be y prime, and make and E go to zero.
@@ -136,7 +136,7 @@
         <p>
           <img src="images/backprop/abs_value.png" 
             alt="Plot of absolute error and its derivative."
-            style="width: 440px;" />
+            style="width: 600px;" />
         </p>
 
         <h3>How to split the adjustment between valves?</h3>
@@ -157,7 +157,7 @@
         <p>
           <img src="images/backprop/justification.png" 
             alt="Multiple plots of sensitivity of y to h, shown for different values of m"
-            style="width: 440px;" />
+            style="width: 600px;" />
         </p>
         <p>
           The first reason is that we may not be able to get to a zero error. It’s possible that the water main has low pressure and even with both valves wide open our shower would be slower than we want. This is the case much more often than not. Depending on how our error E is defined, the best we can do might be some number other than zero. We don’t know what that best value is, so we’re kind of hunting in the dark for it. 
@@ -174,12 +174,12 @@
         <p>
           <img src="images/backprop/big_steps.png" 
             alt="Too large adjustments make the error get worse"
-            style="width: 440px;" />
+            style="width: 600px;" />
         </p>
         <p>
           <img src="images/backprop/small_steps.png" 
             alt="Too small adjustments take a long time to reach their goal"
-            style="width: 440px;" />
+            style="width: 600px;" />
         </p>
 
         <h3>Making the first adjustment</h3>
@@ -192,7 +192,7 @@
         <p>
           <img src="images/backprop/update_rule.png" 
             alt="Plumbing system shown with update rules for adjusting both valves."
-            style="width: 440px;" />
+            style="width: 600px;" />
         </p>
         <p>
           Congratulations! We have used the chain rule to backpropagate sensitivities through our little network and make small adjustments to the valves. Now we are roughly 100th of the way to a great shower.
@@ -211,7 +211,7 @@
         <p>
           <img src="images/backprop/gradient_descent.png" 
             alt="Gradient descent is taking a steps in the downhill direction of the error landscape"
-            style="width: 440px;" />
+            style="width: 600px;" />
         </p>
         <p>
           Having a small, fixed learning rate is only one way to make use of our sensitivities. If you imagine our error E as a valley, this approach is analogous to taking a step in the downhill direction. The steeper the hill, the larger the step. This is called
