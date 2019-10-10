@@ -20,7 +20,7 @@
         <p>
           Sometimes, when we train a model on our data the coefficients
           don’t look like we think they should. They might be too big 
-          or notsparse enough. When this happens, we can add a fudge
+          or not sparse enough. When this happens, we can add a fudge
           factor to nudge the parameters in a direction that is
           more pleasing. This sounds horribly crude, so mathematicians
           have taken to calling it regularization.
@@ -55,6 +55,9 @@
            in machine learning models. We can illustrate them by taking
            a trip to the park.
         </p>
+        <h3>
+          The Problem
+        </h3>
         <p>
           Imagine you’re at the park with a dog and two children.
           The dog immediately climbs into a snug cubby under the seat
@@ -66,27 +69,33 @@
           to go get your phone, your pup will wake up. You are in a pickle.
         </p>
         <p>
+          <img src="images/regularization/sleeping_pup.png" 
+            alt="A seesaw with a dog sleeping on one end and a stick figure holding the other end in place."
+            style="width: 600px;" />
+        </p>
+        <p>
           To get out of it, you enlist the help of the children.
           You ask them to come climb on the seesaw and sit for a moment
           so that you can run to the car. The smaller child climbs on
           first and get situated in the seat near the end where you are
           holding it. Then the larger of the two climbs on closer to the
-          middle, balancing everything out. To put numbers on it,
-          your dog has a mass of 15 kg, and the seesaw is an enormous
-          6 meters, 3 meters on each side of the fulcrum, the central pivot.
-          The smaller child is 8 kg and is at the opposite end.
-          The larger child is 20 kg and sits about 1 meter away from the
-          center. At that point, the problem is solved.
+          middle, balancing everything out. 
+          At that point, the problem is solved.
           The seesaw is balanced and you can step away.
         </p>
         <p>
           After a moment's reflection you get concerned.
-          The 8 kg child is not at all good at sitting still.
+          The small child is not at all good at sitting still.
           She is right at the end of the seesaw, and a wiggle in the wrong
           direction will send her toppling off the back onto her head.
           Even though the current arrangement solves the problem you tackled,
           closer inspection of the solution shows that it’s not quite
           what you hoped.
+        </p>
+        <p>
+          <img src="images/regularization/children.png" 
+            alt="A seesaw with a dog sleeping on one end and two children sitting on itto balance it out."
+            style="width: 600px;" />
         </p>
         <p>
           In this particular problem, there are two parameters:
@@ -101,6 +110,9 @@
           it will remain balanced. This is an example of an ill-posed problem.
           It has many solutions that are equally good. 
         </p>
+        <h3>
+          L2 Regularization
+        </h3>
         <p>
            You have the kids jump off and start over.
            As a regularizer, grab a conveniently parabolic shaped piece
