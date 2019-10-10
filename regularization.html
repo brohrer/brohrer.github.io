@@ -94,20 +94,21 @@
         </p>
         <p>
           <img src="images/regularization/children.png" 
-            alt="A seesaw with a dog sleeping on one end and two children sitting on itto balance it out."
+            alt="A seesaw with a dog sleeping on one end and two children sitting on it to balance it out."
             style="width: 600px;" />
         </p>
         <p>
           In this particular problem, there are two parameters:
-          the position of each child. Although having the 8 kg child at
+          the position of each child. Although having the small child at
           the far end of the seesaw solves the original problem,
           the parameter values you ended up with are troubling.
-          Not to worry. You can adjust the problem, and nudge the parameter
+          Not to worry. You can adjust the problem and nudge the parameter
           values in a direction that you like. There are a lot of
           combinations of positions of the two children that would
-          stabilize the seesaw. If the 8 kg child scoots toward the
-          fulcrum, and the 20 kg child scoots away from it half as much,
-          it will remain balanced. This is an example of an ill-posed problem.
+          stabilize the seesaw. If the small scoots toward the
+          fulcrum, and the bigger child scoots away from it a bit,
+          the seesaw will remain balanced.
+          This is an example of an ill-posed problem.
           It has many solutions that are equally good. 
         </p>
         <h3>
@@ -115,7 +116,7 @@
         </h3>
         <p>
            You have the kids jump off and start over.
-           As a regularizer, grab a conveniently parabolic shaped piece
+           As a regularizer, you grab a conveniently parabolic shaped piece
            of playground equipment nearby with one hand,
            and lay it on top of the seesaw while continuing to hold
            the seesaw in place with the other. Now, the shape of this
@@ -128,22 +129,36 @@
            the weight of the sleeping dog.
         </p>
         <p>
+          <img src="images/regularization/l2_regularization.png" 
+            alt="A seesaw with a dog sleeping on one end and two children sitting on itto balance it out. A curved object on top pushes them away from the edge and toward the center."
+            style="width: 600px;" />
+        </p>
+
+        <h3>
+          L1 Regularization
+        </h3>
+        <p>
           You turn to run for your phone, but your instincts niggle again.
-          Even in the middle of the seesaw, trusting the 8 kg child to stay
+          Even in the middle of the seesaw, trusting the smaller child to stay
           put for 30 seconds is wishful thinking. What would be ideal
-          would be a solution that only involved the 20 kg child.
+          would be a solution that only involved the larger child.
           To find this, you make use of yet another set of conveniently
           shaped playground equipment and add gently sloped ramps
           to both sides of the seesaw. The children jump on again,
-          finding a balance point. Then as the 8 kg child wiggles, she
+          finding a balance point. Then as the smaller child wiggles, she
           naturally makes her way down the slope, eventually reaching
           the bottom. The larger child continues to shift away from the
           fulcrum to accommodate. By the time the small child reaches
-          the middle, their weight isn’t helping to balance the
-          seesaw at all, so they can safely jump off and pursue other
+          the middle, her weight isn’t helping to balance the
+          seesaw at all, so she can safely jump off and pursue other
           interests. Now you have a solution relying only on the
-          10 kg child, and you are comfortable grabbing your phone amd
-          settling in to that podcast for the duration of your puppy's nap.
+          larger child, and you are comfortable grabbing your phone amd
+          settling into that podcast for the duration of your puppy's nap.
+        </p>
+        <p>
+          <img src="images/regularization/l1_regularization.png" 
+            alt="A seesaw with a dog sleeping on one end and one child sitting on itto balance it out. A sloped object on top encourages them to migrate toward the center."
+            style="width: 600px;" />
         </p>
         <p>
           The two differently shaped wedges represent two different
