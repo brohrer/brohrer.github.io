@@ -16,8 +16,34 @@
     <!-- MAIN CONTENT -->
     <div id="main_content_wrap" class="outer">
       <section id="main_content" class="inner">
+          give it just enough extra structure that it can find a
+          single best option.
+        </p>
+        <p>
+           There are two types of regularization that occur most often
+           in machine learning models. We can illustrate them by taking
+           a trip to the park.
+        </p>
+        <h3>
+          A Problem in Need of Regularization
+        </h3>
+        <p>
+          Imagine you’re at the park with a dog and two children.
+          The dog immediately climbs into a snug cubby under the seat
+          of a seesaw and curls up. You push on the other side,
+          rocking your pup until she falls asleep. You don’t mind staying
+          there for the duration of her nap, but you left your phone in
+          the car and would like to listen to a podcast while your doggo
+          sleeps and your children play. But if you drop the seesaw
+          to go get your phone, your pup will wake up. You are in a pickle.
+        </p>
+        <p>
+          <img src="images/regularization/sleeping_pup.png" 
+            alt="A seesaw with a dog sleeping on one end and a stick figure holding the other end in place."
+            style="width: 600px;" />
+        </p>
         <h5>
-          Photos by Diane Rohrer
+          Photo credit: Diane Rohrer
         </h5>
         <p>
           Sometimes, when we train a model on our data the coefficients
@@ -49,32 +75,6 @@
           many combinations of parameter values, that all give an equally
           good fit. The problem isn’t well-defined enough to have a 
           single best solution. Adding a regularization term is a way to
-          give it just enough extra structure that it can find a
-          single best option.
-        </p>
-        <p>
-           There are two types of regularization that occur most often
-           in machine learning models. We can illustrate them by taking
-           a trip to the park.
-        </p>
-        <h3>
-          The Problem
-        </h3>
-        <p>
-          Imagine you’re at the park with a dog and two children.
-          The dog immediately climbs into a snug cubby under the seat
-          of a seesaw and curls up. You push on the other side,
-          rocking your pup until she falls asleep. You don’t mind staying
-          there for the duration of her nap, but you left your phone in
-          the car and would like to listen to a podcast while your doggo
-          sleeps and your children play. But if you drop the seesaw
-          to go get your phone, your pup will wake up. You are in a pickle.
-        </p>
-        <p>
-          <img src="images/regularization/sleeping_pup.png" 
-            alt="A seesaw with a dog sleeping on one end and a stick figure holding the other end in place."
-            style="width: 600px;" />
-        </p>
         <p>
           To get out of it, you enlist the help of the children.
           You ask them to come climb on the seesaw and sit for a moment
@@ -198,13 +198,19 @@
            Euclidean norm or L2 norm</a>.
            Using the L2 norm as a regularization term is so common,
            it has its own name:
-           Ridge regression or
+           <strong>Ridge regression</strong> or
            <a href="https://en.wikipedia.org/wiki/Tikhonov_regularization">
-           Tikhonov regularization</a>.
+           <strong>Tikhonov regularization</strong></a>.
            The name "ridge" comes from the
            way that, if you plot all the possible solutions to some problems
            in 3D, there is a diagonal line of solutions that are all equally
            good that looks like a mountain ridge.
+           It's also known as <strong>weight decay</strong>,
+           since in the absence of any other
+           gradient-descending it results in a weight exponentially
+           decaying toward zero, that is, it's rate of decay toward
+           zero is proportional
+           to it's distance from zero.
         </p>
         <p>
           In some models, overfitting looks like lots of large parameter
@@ -219,7 +225,7 @@
            Absolute-value norm or L1 norm</a>.
            L1 regularization is also very common and has its own name,
            <a href="https://en.wikipedia.org/wiki/Lasso_(statistics)">
-           LASSO</a>, a tortured acronym for "least absolute shrinkage and
+           <strong>LASSO<strong></a>, a tortured acronym for "least absolute shrinkage and
            selection operator".
            Because it has a constant slope, it provides the same pressure
            to all parameters everywhere, driving them to zero. The result
@@ -243,7 +249,7 @@
            at the same time. This combination is also common enough to
            have its own name:
            <a href="https://en.wikipedia.org/wiki/Elastic_net_regularization">
-           Elastic Net</a>.
+           <strong>Elastic Net</strong></a>.
            It both provides a soft boundary keeping for parameters from
            getting too large, and nudges them toward zero where they can
            afford to go there without hurting the model's performance
