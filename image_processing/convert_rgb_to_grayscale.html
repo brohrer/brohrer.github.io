@@ -35,8 +35,8 @@
             image reader:
         </p>
         <p>
-          <tt>img = matplotlib.pyplot.imread(
-              os.path.join(path, imagename), format='jpeg')</tt>
+          <code>color_img = matplotlib.pyplot.imread(
+              os.path.join(path, imagename), format='jpeg')</code>
         </p>
         <p>
           Matplotlib reads the image in and converts it into a Numpy array.
@@ -55,18 +55,22 @@
         <p>
           An intuitive way to convert a color image 3D array to a grayscale
           2D array is, for each pixel, take the average of the red, green,
-          and blue pixel values to get the grayscale value. The code
-          in the repository does this.
+          and blue pixel values to get the grayscale value.
         </p>
         <p>
-          <tt>img = numpy.mean(img, axis=2)</tt>
+          <code>gray_img = numpy.mean(color_img, axis=2)</code>
         </p>
         <p>
-          The <tt>axis=2</tt> argument tells <tt>numpy.mean()</tt> to
+          The <code>axis=2</code> argument tells <code>numpy.mean()</code> to
           average values across all three color channels.
-          (<tt>axis=0</tt> would average across pixel rows and
-          <tt>axis=1</tt> would average across pixel columns.)
+          (<code>axis=0</code> would average across pixel rows and
+          <code>axis=1</code> would average across pixel columns.)
         </p>
+
+        <img title="Color image with red, green, and blue channels"
+          src="images/reign_pic_breakdown.png"
+          alt="Color image with red, green, and blue channels and grayscale"
+          style="height: 600px;">
 
 
         <script type="text/javascript" src="javascripts/blog_signature.js"></script>
