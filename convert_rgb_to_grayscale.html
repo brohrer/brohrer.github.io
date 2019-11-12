@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+  <script type="text/javascript">var blog_title = "How to Convert an RGB Image to Grayscale";</script>
+  <script type="text/javascript">var publication_date = "November 13, 2019";</script>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
+    <base target="_blank">
+    <script type="text/javascript" src="javascripts/blog_head.js"></script>
+  </head>
+  <body>
+    <script type="text/javascript" src="javascripts/blog_header.js"></script>
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <p>
+          Occasionally the need arises to convert a color image to grayscale.
+          This need came up when loading images taken on the surface
+          of Mars as part of
+          <a href="https://end-to-end-machine-learning.teachable.com/p/advanced-neural-network-methods">
+          End-to-End Machine Learning Course 313, Advanced Neural Network
+          Methods</a>. We were working with a mixture of color and
+          grayscale images and needed to transform them into a uniform
+          format - all grayscale.
+          We're going to be working in Python using the Numpy and Matplotlib
+          packages.
+        </p>
+        <p>
+          The <a href="https://github.com/brohrer/cottonwood_martian_images/blob/master/image_loader.py">
+            code we're working from</a> loads jpeg images for an autoencoder
+            to use as inputs. This is accomplished with Matplotlib's
+            image reader:
+        </p>
+        <p>
+          <code>color_img = matplotlib.pyplot.imread(
+              os.path.join(path, imagename), format='jpeg')</code>
+        </p>
+        <p>
+          Matplotlib reads the image in and converts it into a Numpy array.
+          For grayscale images, this is a two-dimensional array with the
+          number of rows and columns equal to the number of pixel rows
+          and columns in the image. Usually low numeric values indicate
+          darker shades and higher values lighter shades. The range
+          of pixel values can be 0 to 1 or 0 to 255 or something else.
+        </p>
+        <p>
+          Color images are represented as three-dimensional Numpy arrays -
+          a collection of three two-dimensional arrays, one each for red,
+          green, and blue channels. Each one, like grayscale arrays,
+          has one value per pixel and their ranges are identical.
+        </p>
+        <p>
+          An intuitive way to convert a color image 3D array to a grayscale
+          2D array is, for each pixel, take the average of the red, green,
+          and blue pixel values to get the grayscale value.
+        </p>
+        <p>
+          <code>gray_img = numpy.mean(color_img, axis=2)</code>
+        </p>
+        <p>
+          The <code>axis=2</code> argument tells <code>numpy.mean()</code> to
+          average values across all three color channels.
+          (<code>axis=0</code> would average across pixel rows and
+          <code>axis=1</code> would average across pixel columns.)
+        </p>
+
+        <img title="Color image with red, green, and blue channels"
+          src="images/reign_pic_breakdown.png"
+          alt="Color image with red, green, and blue channels and grayscale"
+          style="height: 600px;">
+
+
+        <script type="text/javascript" src="javascripts/blog_signature.js"></script>
+      </section>
+    </div>
+    <script type="text/javascript" src="javascripts/blog_footer.js"></script>
+    <script type="text/javascript">
+      var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+      document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+    <script type="text/javascript">
+      try {
+        var pageTracker = _gat._getTracker("UA-10180621-3");
+      pageTracker._trackPageview();
+      } catch(err) {}
+    </script>
+  </body>
+</html>
