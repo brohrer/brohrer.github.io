@@ -35,6 +35,7 @@
           machine learning practitioners. Reducing images to numbers
           makes them amenable to computation.
         </p>
+        <h3>Color perception</h3>
         <p>
           Color fascinates me because it is less about physics than it
           is about the physiology and psychology of human perception.
@@ -77,14 +78,17 @@
           any color that we're
           capable of seeing in the natural world.
         </p>
+        <h3>Making color</h3>
         <p>
           In computer screens, this is done with a red, a green, and a blue
           light, often light-emitting diodes (LEDs).
         </p>
-        <img title="A pixel composed of red, green, and blue LEDs"
-          src="images/image_processing/rgb_pixel.png"
-          alt="A pixel composed of red, green, and blue LEDs"
-          style="height: 300px;">
+        <p>
+          <img title="A pixel composed of red, green, and blue LEDs"
+            src="images/image_processing/rgb_pixel.png"
+            alt="A pixel composed of red, green, and blue LEDs"
+            style="height: 300px;">
+        </p>
         <p>
           In practice the red, green, and blue LEDs in a computer
           screen can’t represent all the colors we can see. To make
@@ -109,13 +113,72 @@
             alt="An array of pixels composed of red, green, and blue LEDs"
             style="height: 300px;">
         </p>
+        <h3>Turning color into numbers</h3>
+        <p>
+          Each pixel in a screen is a triplet of a red, a green, and a blue
+          light source, but when you look at them from far enough away
+          they are too small for your eye to distinguish and they look
+          like a single small patch of color. One way to determine which color
+          is produced is to specify the intensity levels of each of the
+          light sources. Since the
+          <a href="https://en.wikipedia.org/wiki/Just-noticeable_difference">
+            just noticeable difference (JND)</a> 
+          in human perception of color intensity is somewhere
+          around one part in a hundred, using 256 discrete levels gives
+          enough fine-grained control that smooth color gradients still
+          look smooth.
+        </p>
+        <p>
+          256 intensity levels can be represented with 8 bits or 1 byte. It can
+          also be represented with two hexadecimal numbers, between 0x00
+          for zero brightness
+          and 0xff for maximum brightness.
+          Specifying the intensity of three colors takes triple that: 
+          6 hexidecimal numbers (24 bits or 3 bytes).
+          The hex representation gives a concise way to call out a
+          red-green-blue color. The first two digits show the red level,
+          the second two correspond to the green level, and the
+          third pair correponds to the blue level. Here are a few extremes.
+        </p>
+        <p>
+          <img title="Hex codes of a few colors"
+            src="images/image_processing/color_hex.png"
+            alt="Hex codes of a few colors"
+            style="height: 600px;">
+        </p>
+        <p>
+          There are a lot more useful
+          <a href="https://www.color-hex.com/">color hex codes here</a>.
+          For convenience and code readability, colors can also be represented
+          as triples like (255, 255, 255) for white or (0, 255, 0) for green.
+        </p>
+        <h3>Building an image from pixels</h3>
+        <p>
+          To recreate an entire image,
+          computers use their reliable trick of simply chopping it up into
+          small pieces. To make high quality images,
+          it's just necessary to make the pieces are so small that the
+          human eye has trouble seeing them individually. 
+        </p>
+        <p>
+          <img title="Progressive zoom showing pixels in an image"
+            src="images/image_processing/zoom_pixels.png"
+            alt="Progressive zoom showing pixels in an image"
+            style="height: 500px;">
+          Image credit: Diane Rohrer
+        </p>
+        <p>
+
+        </p>
+
+        <p>
+          <img title="Arrays of pixel colors broken down into red, green, and blue"
+            src="images/image_processing/rgb_arrays.png"
+            alt="Arrays of pixel colors broken down into red, green, and blue"
+            style="height: 700px;">
+        </p>
 
 
-
-        <img title="Color image with red, green, and blue channels"
-          src="images/reign_pic_breakdown.png"
-          alt="Color image with red, green, and blue channels and grayscale"
-          style="height: 600px;">
 
         <script type="text/javascript" src="javascripts/blog_signature.js"></script>
       </section>
