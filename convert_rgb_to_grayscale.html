@@ -113,13 +113,15 @@ color_img = np.asarray(Image.open(img_filename)) / 255</code></pre>
           repetitions of carefully designed experiments, psychologists
           have figured out how different we perceive the luminance or
           red, green, and blue to be. They have provided us a different
-          set of weights for our channel averaging.
+          set of weights for our channel averaging to get total luminance.
         </p>
         <p style="text-align:center;">
+        <a href="https://en.wikipedia.org/wiki/Grayscale#Colorimetric_(perceptual_luminance-preserving)_conversion_to_grayscale">
         <img title="Equation for combinging red, green, and blue channels"
           src="images/image_processing/rgb2gray_eq_linear.png"
           alt="Equation for combining red, green, and blue channels"
           style="height: 50px;">
+        </a>
         </p>
           
 The results are noticeably different, and, to Mayeye, much more accurate.
