@@ -29,6 +29,7 @@
           Numpy, and Matplotlib
           packages.
         </p>
+        <h3>Read in a color image</h3>
         <p>
           The <a href="https://github.com/brohrer/cottonwood_martian_images/blob/master/image_loader.py">
             code we're working from</a> loads jpeg images for an autoencoder
@@ -62,14 +63,14 @@ color_img = np.asarray(Image.open(img_filename)) / 255</code></pre>
           <img title="Three dimensional image array structure"
             src="images/image_processing/three_d_array.png"
             alt="Three dimensional image array structure"
-            style="height: 400px;">
+            style="height: 250px;">
         </p>
 
         <p style="text-align:center;">
         <img title="Color image with red, green, and blue channels"
           src="images/reign_pic_breakdown.png"
-          alt="Color image with red, green, and blue channels and grayscale"
-          style="height: 600px;">
+          alt="Color image with red, green, and blue channels"
+          style="height: 500px;">
         </p>
 
         <h3>Take the average channel value</h3>
