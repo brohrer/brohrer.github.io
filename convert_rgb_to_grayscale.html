@@ -104,12 +104,12 @@ color_img = np.asarray(Image.open(img_filename)) / 255</code></pre>
           src="images/image_processing/gray_mean.png"
           alt="Gray from averaging red, green, and blue channels"
           style="height: 320px;">
-          Image credit: Diane Rohrer
         </p>
 
         <h3>Well, actually...channel-dependent luminance perception</h3>
         <p>
-          To our eyes green looks brighter than blue. Through many
+          To our eyes green looks abount ten times
+          brighter than blue. Through many
           repetitions of carefully designed experiments, psychologists
           have figured out how different we perceive the luminance or
           red, green, and blue to be. They have provided us a different
@@ -132,7 +132,6 @@ color_img = np.asarray(Image.open(img_filename)) / 255</code></pre>
           src="images/image_processing/gray_lin.png"
           alt="Gray from weighted averaging red, green, and blue channels"
           style="height: 500px;">
-          Image credit: Diane Rohrer
         </p>
 
         <h3>Well, actually...gamma compression</h3>
@@ -145,12 +144,25 @@ color_img = np.asarray(Image.open(img_filename)) / 255</code></pre>
           and spreads them out more widely in the higher end. This is
           called gamma compression.
         </p>
+        <p style="text-align:center;">
+        <img title="Gamma compression function"
+          src="images/image_processing/gamma_fcn.png"
+          alt="Gamma compression function"
+          style="height: 350px;">
+        </p>
+        <p>
+          To undo the effects of gamma compression before calculating the
+          grayscale luminance, it's necessary to apply the inverse
+          operation, gamma expansion:
+        </p>
 
         <p style="text-align:center;">
+        <a href="https://en.wikipedia.org/wiki/Grayscale#Colorimetric_(perceptual_luminance-preserving)_conversion_to_grayscale">
         <img title="Nonlinear transformation of gamma"
           src="images/image_processing/gamma_compression_eq.png"
           alt="Nonlinear transformation of gamma"
           style="height: 90px;">
+        </a>
         </p>
         <p>
           The benefit of gamma compression is that it gets rid of
@@ -166,7 +178,6 @@ color_img = np.asarray(Image.open(img_filename)) / 255</code></pre>
           src="images/image_processing/gray_nl.png"
           alt="Gray accounting for gamma compression"
           style="height: 500px;">
-          Image credit: Diane Rohrer
         </p>
 
         <h3>Well, actually...a linear approximation</h3>
