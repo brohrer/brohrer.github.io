@@ -123,9 +123,9 @@ color_img = np.asarray(Image.open(img_filename)) / 255</code></pre>
           style="height: 50px;">
         </a>
         </p>
-          
-The results are noticeably different, and, to Mayeye, much more accurate.
-
+        <p>
+          The results are noticeably different and, to my eye, more accurate.
+        </p>
 
         <p style="text-align:center;">
         <img title="Gray from weighted averaging red, green, and blue channels"
@@ -159,6 +159,14 @@ The results are noticeably different, and, to Mayeye, much more accurate.
           like adding, subtracting, or averaging bands, we first have
           to undo the compression and get the luminance
           back into a linear representation.
+        </p>
+
+        <p style="text-align:center;">
+        <img title="Gray accounting for gamma compression"
+          src="images/image_processing/gray_nl.png"
+          alt="Gray accounting for gamma compression"
+          style="height: 500px;">
+          Image credit: Diane Rohrer
         </p>
 
         <h3>Well, actually...a linear approximation</h3>
