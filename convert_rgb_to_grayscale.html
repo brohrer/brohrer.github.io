@@ -144,12 +144,6 @@ color_img = np.asarray(Image.open(img_filename)) / 255</code></pre>
           and spreads them out more widely in the higher end. This is
           called gamma compression.
         </p>
-        <p style="text-align:center;">
-        <img title="Gamma compression function"
-          src="images/image_processing/gamma_fcn.png"
-          alt="Gamma compression function"
-          style="height: 350px;">
-        </p>
         <p>
           To undo the effects of gamma compression before calculating the
           grayscale luminance, it's necessary to apply the inverse
@@ -163,6 +157,12 @@ color_img = np.asarray(Image.open(img_filename)) / 255</code></pre>
           alt="Nonlinear transformation of gamma"
           style="height: 130px;">
         </a>
+        </p>
+        <p style="text-align:center;">
+        <img title="Gamma compression function"
+          src="images/image_processing/gamma_fcn.png"
+          alt="Gamma compression function"
+          style="height: 350px;">
         </p>
         <p>
           The benefit of gamma compression is that it gets rid of
@@ -221,7 +221,21 @@ color_img = np.asarray(Image.open(img_filename)) / 255</code></pre>
           to be a little darker, especially through the
           red mid-range values, but arguably just as good in most
           practical respects.
-        
+        </p>
+
+        <h3>Which one should I use?</h3>
+        <p>
+          If close is good enough or if you really care about speed,
+          use the linear approximation of gamma correction.
+          But if you simply must have the best results, splurge on
+          the whole gamma decompression - perceptual luminance corrected - 
+          gamma re-compression pipeline. If after reading this far
+          you insist on straight up averaging the three channels together,
+          I will judge you.
+        </p>
+        <p>
+          Now go make beautiful grayscale images!
+        </p>
 
         <script type="text/javascript" src="javascripts/blog_signature.js"></script>
       </section>
