@@ -164,7 +164,7 @@
           <img title="Progressive zoom showing pixels in an image"
             src="images/image_processing/zoom_pixels.png"
             alt="Progressive zoom showing pixels in an image"
-            style="height: 500px;">
+            style="height: 250px;">
           Image credit: Diane Rohrer
         </p>
         <p>
@@ -182,18 +182,50 @@
             style="height: 700px;">
         </p>
 
+        <h3>Reading images into Python code</h3>
         <p>
-          The <code>imread()</code> function in Matplotlib.pyplot returns
-          a three dimensional array of 
+          A reliable way to read images into Python is with
+          <a href="https://pillow.readthedocs.io/en/stable/">
+            Pillow</a> an actively maintained fork of the
+          classic Python Image Library or PIL, and Numpy.
+        </p>
+        <p>
+<pre><code>import numpy as np
+from PIL import Image
+img = np.asarray(Image.open("image_filename.jpg"))</code></pre>
+        </p>
+        <p>
+          When reading in a color image, the resulting object
+          <code>img</code> is a three-dimensional
+          Numpy array. The data type is often
+          <a href="https://docs.scipy.org/doc/numpy/user/basics.types.html">
+            <code>numpy.uint8</code></a>, which is a natural and efficient
+          way to represent color levels between 0 and 255. I haven't
+          been able to determine that this is always the case, so it's
+          safest to confirm for the images in your dataset before you
+          start operating on them.
+        </p>
+        <p>
+          In order to facilitate calculations, I find it most convenient
+          to convert the image values to floats between 0 and 1.
+          In python3, the easiest way to do this is to divide by 255:
+          <code>img *= 1/255</code>
         </p>
         <p>
           It's helpful to remember that when images are stored and
           transmitted, they can be represented using
           a dizzying variety of formats. Parsing these is a separate
-          effort. We'll let Matplotlib do all the heavy lifting in this
-          department, and rely on <code>imread()</code> and
-          <code>savefig()</code> to do all those conversions for us.
+          effort. We'll let Pillow do all the heavy lifting in this
+          department, and rely on <code>open()</code> and
+          <code>asarray()</code> to do all those conversions for us.
+          I still haven't found a way around having to verify your
+          pixels' range and data types without checking, but I'll keep
+          my eyes open.
         </p>
+        <p>
+          Now we have all the image information in a compact collection
+          of numbers
+
         <script type="text/javascript" src="javascripts/blog_signature.js"></script>
       </section>
     </div>
