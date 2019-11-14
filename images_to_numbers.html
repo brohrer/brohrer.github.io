@@ -157,7 +157,7 @@
           To recreate an entire image,
           computers use their reliable trick of simply chopping it up into
           small pieces. To make high quality images,
-          it's just necessary to make the pieces are so small that the
+          it's necessary to make the pieces are so small that the
           human eye has trouble seeing them individually. 
         </p>
         <p>
@@ -168,7 +168,11 @@
           Image credit: Diane Rohrer
         </p>
         <p>
-
+          The color of each pixel can be represented as a 6-digit hex
+          number or a triple of decimal numbers ranging from 0 to 255.
+          During image processing it's customary to do the latter.
+          For convenience, the red, green, and blue pixel values are
+          separated out into their own arrays.
         </p>
 
         <p>
@@ -178,8 +182,18 @@
             style="height: 700px;">
         </p>
 
-
-
+        <p>
+          The <code>imread()</code> function in Matplotlib.pyplot returns
+          a three dimensional array of 
+        </p>
+        <p>
+          It's helpful to remember that when images are stored and
+          transmitted, they can be represented using
+          a dizzying variety of formats. Parsing these is a separate
+          effort. We'll let Matplotlib do all the heavy lifting in this
+          department, and rely on <code>imread()</code> and
+          <code>savefig()</code> to do all those conversions for us.
+        </p>
         <script type="text/javascript" src="javascripts/blog_signature.js"></script>
       </section>
     </div>
