@@ -158,6 +158,7 @@ img {
   padding: 5px;
   border: 1px solid #ebebeb;
   margin: 10 auto;
+  text-align: center;
 
   box-shadow: 0 0 5px #ebebeb;
   -webkit-box-shadow: 0 0 5px #ebebeb;
