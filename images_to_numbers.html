@@ -165,7 +165,7 @@
           <img title="Progressive zoom showing pixels in an image"
             src="images/image_processing/zoom_pixels.png"
             alt="Progressive zoom showing pixels in an image"
-            style="height: 180px;">
+            style="height: 160px;">
           Image credit: Diane Rohrer
         </p>
         <p>
@@ -187,7 +187,7 @@
         <p>
           A reliable way to read images into Python is with
           <a href="https://pillow.readthedocs.io/en/stable/">
-            Pillow</a> an actively maintained fork of the
+            Pillow</a>, an actively maintained fork of the
           classic Python Image Library or PIL, and Numpy.
         </p>
         <p>
@@ -216,16 +216,15 @@ img = np.asarray(Image.open("image_filename.jpg"))</code></pre>
           It's helpful to remember that when images are stored and
           transmitted, they can be represented using
           a dizzying variety of formats. Parsing these is a separate
-          effort. We'll let Pillow do all the heavy lifting in this
-          department, and rely on <code>open()</code> and
-          <code>asarray()</code> to do all those conversions for us.
+          effort. We'll rely on <code>Image.open()</code> and
+          <code>numpy.asarray()</code> to do all those conversions for us.
           I still haven't found a way around having to verify your
           pixels' range and data types without checking, but I'll keep
           my eyes open.
         </p>
         <p>
           Now we have all the image information in a compact collection
-          of numbers. In our array dimension 0 represents pixel rows,
+          of numbers. In our array, dimension 0 represents pixel rows,
           from the top to the bottom of the image. Dimension 1 represents columns
           from left to right. And dimension 2 represents color channels
           red, green, and blue, in that order.
@@ -241,7 +240,7 @@ img = np.asarray(Image.open("image_filename.jpg"))</code></pre>
           <code>img[row, column, channel]</code>. The green value
           for top left pixel is given by
           <code>img[0, 0, 1]</code>. The red value for the bottom left
-          pixel is <code>img[2, 0, 2]</code>. You have all the
+          pixel is <code>img[2, 0, 0]</code>. You have all the
           <a href="https://docs.scipy.org/doc/numpy/reference/arrays.indexing.html">
             slicing and indexing tools of Numpy</a> at your disposal.
         </p>
