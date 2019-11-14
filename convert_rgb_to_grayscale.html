@@ -161,7 +161,7 @@ color_img = np.asarray(Image.open(img_filename)) / 255</code></pre>
         <img title="Nonlinear transformation of gamma"
           src="images/image_processing/gamma_compression_eq.png"
           alt="Nonlinear transformation of gamma"
-          style="height: 90px;">
+          style="height: 130px;">
         </a>
         </p>
         <p>
@@ -180,19 +180,47 @@ color_img = np.asarray(Image.open(img_filename)) / 255</code></pre>
           style="height: 500px;">
         </p>
 
+        <p>
+          There is lightening throughout the image after accounting
+          for gamma compression. It brings the luminance up to be a closer
+          match to that of the original image. Finally, we have a high
+          quality grayscale representation.
+        </p>
+
         <h3>Well, actually...a linear approximation</h3>
-
-
+        <p>
+          The gamma decompresssion and re-compression rack up quite a large
+          computation cost, compared to the weighted averages we were
+          working with before. Sometimes speed is more desirable than 
+          accurate-as-possible luminance calculations. For situations
+          like these, there is a linear approximation:
+        </p>
 
         <p style="text-align:center;">
         <img title="Equation for combinging red, green, and blue channels"
           src="images/image_processing/rgb2gray_eq_approx.png"
           alt="Equation for combining red, green, and blue channels"
-          style="height: 50px;">
+          style="height: 40px;">
+        </p>
+
+        <p>
+          This lets you get a result that's a little closer to the
+          gamma-compression-corrected version, but without the extra
+          computation time.
         </p>
           
+        <p style="text-align:center;">
+        <img title="Linear approximation of gray accounting for gamma compression"
+          src="images/image_processing/gray_approx.png"
+          alt="Linear approximation of gray accounting for gamma compression"
+          style="height: 500px;">
+        </p>
 
-
+        <p>
+          As you can see, the results are not bad at all. They tend
+          to be a little darker, especially through the
+          red mid-range values, but arguably just as good in most
+          practical respects.
         
 
         <script type="text/javascript" src="javascripts/blog_signature.js"></script>
