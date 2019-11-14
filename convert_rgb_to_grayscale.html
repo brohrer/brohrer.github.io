@@ -25,26 +25,31 @@
           Methods</a>. We were working with a mixture of color and
           grayscale images and needed to transform them into a uniform
           format - all grayscale.
-          We're going to be working in Python using the Numpy and Matplotlib
+          We'll be working in Python using the Pillow,
+          Numpy, and Matplotlib
           packages.
         </p>
         <p>
           The <a href="https://github.com/brohrer/cottonwood_martian_images/blob/master/image_loader.py">
             code we're working from</a> loads jpeg images for an autoencoder
-            to use as inputs. This is accomplished with Matplotlib's
-            image reader:
+            to use as inputs. This is accomplished with using Pillow and Numpy:
         </p>
         <p>
-          <code>color_img = matplotlib.pyplot.imread(
-              os.path.join(path, imagename), format='jpeg')</code>
+<pre><code>from PIL import Image
+import numpy as np
+color_img = np.asarray(Image.open(img_filename)) / 255</code></pre>
         </p>
         <p>
-          Matplotlib reads the image in and converts it into a Numpy array.
-          For grayscale images, this is a two-dimensional array with the
+          This reads the image in and converts it into a Numpy array.
+          For a detailed description of what this does and why, check
+          out the prequel post to this one:
+          <a href="">How to Convert a Picture into Numbers</a>.
+          For grayscale images, the result is a two-dimensional array with the
           number of rows and columns equal to the number of pixel rows
-          and columns in the image. Usually low numeric values indicate
+          and columns in the image. Low numeric values indicate
           darker shades and higher values lighter shades. The range
-          of pixel values can be 0 to 1 or 0 to 255 or something else.
+          of pixel values is often 0 to 255. We divide by 255 to
+          get a range of 0 to 1.
         </p>
         <p>
           Color images are represented as three-dimensional Numpy arrays -
@@ -52,13 +57,30 @@
           green, and blue channels. Each one, like grayscale arrays,
           has one value per pixel and their ranges are identical.
         </p>
+        <p style="text-align:center;">
+          <img title="Three dimensional image array structure"
+            src="images/image_processing/three_d_array.png"
+            alt="Three dimensional image array structure"
+            style="height: 400px;">
+        </p>
+
+        <p style="text-align:center;">
+        <img title="Color image with red, green, and blue channels"
+          src="images/reign_pic_breakdown.png"
+          alt="Color image with red, green, and blue channels and grayscale"
+          style="height: 600px;">
+        </p>
+
+        <h3>Take the average channel value</h3>
         <p>
           An intuitive way to convert a color image 3D array to a grayscale
           2D array is, for each pixel, take the average of the red, green,
-          and blue pixel values to get the grayscale value.
+          and blue pixel values to get the grayscale value. This combines
+          the "lightness" or luminance contributed by each color band into
+          a reasonable gray approximation.
         </p>
         <p>
-          <code>gray_img = numpy.mean(color_img, axis=2)</code>
+          <code>img = numpy.mean(color_img, axis=2)</code>
         </p>
         <p>
           The <code>axis=2</code> argument tells <code>numpy.mean()</code> to
@@ -66,11 +88,6 @@
           (<code>axis=0</code> would average across pixel rows and
           <code>axis=1</code> would average across pixel columns.)
         </p>
-
-        <img title="Color image with red, green, and blue channels"
-          src="images/reign_pic_breakdown.png"
-          alt="Color image with red, green, and blue channels and grayscale"
-          style="height: 600px;">
 
 
         <script type="text/javascript" src="javascripts/blog_signature.js"></script>
