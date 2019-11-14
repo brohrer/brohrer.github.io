@@ -227,9 +227,27 @@ color_img = np.asarray(Image.open(img_filename)) / 255</code></pre>
         <p>
           If close is good enough or if you really care about speed,
           use the linear approximation of gamma correction.
+          It is included in the
+          <a href="https://github.com/brohrer/cottonwood">
+            Cottonwood machine learning framework</a>:
+        </p>
+        <p>
+<pre><code>import cottonwood.core.toolbox as tb
+gray_img = tb.rgb2gray_approx(color_img)
+</code></pre>
+        </p>
+        <p>
           But if you simply must have the best results, splurge on
           the whole gamma decompression - perceptual luminance corrected - 
-          gamma re-compression pipeline. If after reading this far
+          gamma re-compression pipeline:
+        </p>
+        <p>
+<pre><code>import cottonwood.core.toolbox as tb
+gray_img = tb.rgb2gray(color_img)
+</code></pre>
+        </p>
+        <p>
+          If after reading this far
           you insist on straight up averaging the three channels together,
           I will judge you.
         </p>
