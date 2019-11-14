@@ -110,7 +110,8 @@ footer p {
 }
 
 a {
-  text-decoration: none;
+  /*text-decoration: none;*/
+  text-decoration: underline;
   text-shadow: none;
   /*font-weight: 700;
   color: #000000; */

@@ -55,13 +55,11 @@
             color blindness</a>
           (I myself experience
           <a href="https://en.m.wikipedia.org/wiki/Color_blindness#Deuteranomaly">
-            deuteranomaly</a>
-          , a type of
+            deuteranomaly</a>, a type of
           red-green colorblindness) and there are those with unusual
           abilities, like
           <a href="https://en.m.wikipedia.org/wiki/Tetrachromacy">
-            tetrachromats</a>
-          , who have not three types of
+            tetrachromats</a>, who have not three types of
           color receptors, but four, and can distinguish colors
           that the rest of us can’t.
           Because of this, keep in mind that all of the statements
@@ -71,8 +69,9 @@
         <p>
           Although photons vibrate at all frequencies,
           we have three distinct types of color-sensing cones,
-          each with its characteristic frequency response.
-          That means that a combination of three light sources
+          each with its characteristic frequency response, a particular
+          color that it responds strongly to.
+          That means that a combination of just three light sources
           with carefully chosen colors
           in carefully chosen intensities can make us experience
           any color that we're
@@ -97,8 +96,8 @@
           red, blue, and green but they aren’t perfect. For this
           reason there is a bit of a gap between the range of
           colors that you can see in the real world (the
-          <a href="https://en.wikipedia.org/wiki/Gamut">gamut</a>
-          ) and what you can see on a computer screen.
+          <a href="https://en.wikipedia.org/wiki/Gamut">gamut</a>)
+          and what you can see on a computer screen.
         </p>
         <p>
           As a side note, lasers are capable of
@@ -107,26 +106,27 @@
           gamut, and laser micro arrays for computer screens are
           a current topic of research and development.
         </p>
-        <p>
-          <img title="An array of pixels composed of red, green, and blue LEDs"
-            src="images/image_processing/rgb_pixel_array.png"
-            alt="An array of pixels composed of red, green, and blue LEDs"
-            style="height: 300px;">
-        </p>
         <h3>Turning color into numbers</h3>
         <p>
           Each pixel in a screen is a triplet of a red, a green, and a blue
           light source, but when you look at them from far enough away
-          they are too small for your eye to distinguish and they look
+          they are too small for your eye to distinguish, and they look
           like a single small patch of color. One way to determine which color
           is produced is to specify the intensity levels of each of the
           light sources. Since the
           <a href="https://en.wikipedia.org/wiki/Just-noticeable_difference">
             just noticeable difference (JND)</a> 
-          in human perception of color intensity is somewhere
-          around one part in a hundred, using 256 discrete levels gives
-          enough fine-grained control that smooth color gradients still
+          in human perception of color intensity tends to stay in the
+          neighborhood of
+          one part in a hundred, using 256 discrete levels gives
+          enough fine-grained control that color gradients
           look smooth.
+        </p>
+        <p>
+          <img title="An array of pixels composed of red, green, and blue LEDs"
+            src="images/image_processing/rgb_pixel_array.png"
+            alt="An array of pixels composed of red, green, and blue LEDs"
+            style="height: 300px;">
         </p>
         <p>
           256 intensity levels can be represented with 8 bits or 1 byte. It can
@@ -144,13 +144,15 @@
           <img title="Hex codes of a few colors"
             src="images/image_processing/color_hex.png"
             alt="Hex codes of a few colors"
-            style="height: 400px;">
+            style="height: 400px;"
+            text-align="center">
         </p>
         <p>
           There are a lot more useful
           <a href="https://www.color-hex.com/">color hex codes here</a>.
           For convenience and code readability, colors can also be represented
-          as triples like (255, 255, 255) for white or (0, 255, 0) for green.
+          as triples of decimals, as in (255, 255, 255) for white
+          or (0, 255, 0) for green.
         </p>
         <h3>Building an image from pixels</h3>
         <p>
