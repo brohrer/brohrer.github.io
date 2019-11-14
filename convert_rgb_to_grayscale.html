@@ -29,6 +29,13 @@
           Numpy, and Matplotlib
           packages.
         </p>
+        <p>
+          By the way, all the interesting information in this post all comes from
+          <a href="https://en.wikipedia.org/wiki/Grayscale">
+            the Wikipedia entry on Grayscale</a>. (If you find it helpful,
+          <a href="https://donate.wikimedia.org/w/index.php?title=Special:LandingPage&country=US&uselang=en&utm_medium=sidebar&utm_source=donate&utm_campaign=C13_en.wikipedia.org">
+            maybe send them a dollar</a>.)
+        </p>
         <h3>Read in a color image</h3>
         <p>
           The <a href="https://github.com/brohrer/cottonwood_martian_images/blob/master/image_loader.py">
@@ -70,16 +77,16 @@ color_img = np.asarray(Image.open(img_filename)) / 255</code></pre>
         <img title="Color image with red, green, and blue channels"
           src="images/image_processing/reign_pic_breakdown.png"
           alt="Color image with red, green, and blue channels"
-          style="height: 500px;">
+          style="height: 380px;">
           Image credit: Diane Rohrer
         </p>
 
-        <h3>Take the average channel value</h3>
+        <h3>Easy peasy: Average the channels</h3>
         <p>
           An intuitive way to convert a color image 3D array to a grayscale
           2D array is, for each pixel, take the average of the red, green,
           and blue pixel values to get the grayscale value. This combines
-          the "lightness" or luminance contributed by each color band into
+          the lightness or <em>luminance</em> contributed by each color band into
           a reasonable gray approximation.
         </p>
         <p>
@@ -92,6 +99,80 @@ color_img = np.asarray(Image.open(img_filename)) / 255</code></pre>
           <code>axis=1</code> would average across pixel columns.)
         </p>
 
+        <p style="text-align:center;">
+        <img title="Gray from averaging red, green, and blue channels"
+          src="images/image_processing/gray_mean.png"
+          alt="Gray from averaging red, green, and blue channels"
+          style="height: 320px;">
+          Image credit: Diane Rohrer
+        </p>
+
+        <h3>Well, actually...channel-dependent luminance perception</h3>
+        <p>
+          To our eyes green looks brighter than blue. Through many
+          repetitions of carefully designed experiments, psychologists
+          have figured out how different we perceive the luminance or
+          red, green, and blue to be. They have provided us a different
+          set of weights for our channel averaging.
+        </p>
+        <p style="text-align:center;">
+        <img title="Equation for combinging red, green, and blue channels"
+          src="images/image_processing/rgb2gray_eq_linear.png"
+          alt="Equation for combining red, green, and blue channels"
+          style="height: 50px;">
+        </p>
+          
+The results are noticeably different, and, to Mayeye, much more accurate.
+
+
+        <p style="text-align:center;">
+        <img title="Gray from weighted averaging red, green, and blue channels"
+          src="images/image_processing/gray_lin.png"
+          alt="Gray from weighted averaging red, green, and blue channels"
+          style="height: 500px;">
+          Image credit: Diane Rohrer
+        </p>
+
+        <h3>Well, actually...gamma compression</h3>
+        <p>
+          We are able to see small differences when luminance is low,
+          but at high luminance levels, we are much less sensitive to them.
+          In order to avoid wasting effort representing imperceptible
+          differences at high luminance, the color scale is warped,
+          so that it concentrates more values in the lower end of the range,
+          and spreads them out more widely in the higher end. This is
+          called gamma compression.
+        </p>
+
+        <p style="text-align:center;">
+        <img title="Nonlinear transformation of gamma"
+          src="images/image_processing/gamma_compression_eq.png"
+          alt="Nonlinear transformation of gamma"
+          style="height: 90px;">
+        </p>
+        <p>
+          The benefit of gamma compression is that it gets rid of
+          banding in smoothly varying dark colors, like a photo of the sky
+          at twilight. The downside is that if we want to do anything
+          like adding, subtracting, or averaging bands, we first have
+          to undo the compression and get the luminance
+          back into a linear representation.
+        </p>
+
+        <h3>Well, actually...a linear approximation</h3>
+
+
+
+        <p style="text-align:center;">
+        <img title="Equation for combinging red, green, and blue channels"
+          src="images/image_processing/rgb2gray_eq_approx.png"
+          alt="Equation for combining red, green, and blue channels"
+          style="height: 50px;">
+        </p>
+          
+
+
+        
 
         <script type="text/javascript" src="javascripts/blog_signature.js"></script>
       </section>
