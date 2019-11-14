@@ -87,7 +87,7 @@
           <img title="A pixel composed of red, green, and blue LEDs"
             src="images/image_processing/rgb_pixel.png"
             alt="A pixel composed of red, green, and blue LEDs"
-            style="height: 300px;">
+            style="height: 200px;">
         </p>
         <p>
           In practice the red, green, and blue LEDs in a computer
@@ -144,7 +144,7 @@
           <img title="Hex codes of a few colors"
             src="images/image_processing/color_hex.png"
             alt="Hex codes of a few colors"
-            style="height: 600px;">
+            style="height: 400px;">
         </p>
         <p>
           There are a lot more useful
@@ -164,7 +164,7 @@
           <img title="Progressive zoom showing pixels in an image"
             src="images/image_processing/zoom_pixels.png"
             alt="Progressive zoom showing pixels in an image"
-            style="height: 250px;">
+            style="height: 200px;">
           Image credit: Diane Rohrer
         </p>
         <p>
@@ -179,7 +179,7 @@
           <img title="Arrays of pixel colors broken down into red, green, and blue"
             src="images/image_processing/rgb_arrays.png"
             alt="Arrays of pixel colors broken down into red, green, and blue"
-            style="height: 700px;">
+            style="height: 600px;">
         </p>
 
         <h3>Reading images into Python code</h3>
@@ -224,7 +224,50 @@ img = np.asarray(Image.open("image_filename.jpg"))</code></pre>
         </p>
         <p>
           Now we have all the image information in a compact collection
-          of numbers
+          of numbers. In our array dimension 0 represents pixel rows,
+          from the top to the bottom of the image. Dimension 1 represents columns
+          from left to right. And dimension 2 represents color channels
+          red, green, and blue, in that order.
+        </p>
+        <p>
+          <img title="Three dimensional image array structure"
+            src="images/image_processing/three_d_array.png"
+            alt="Three dimensional image array structure"
+            style="height: 400px;">
+        </p>
+        <p>
+          In this format you can get at any value you need with
+          <code>img[row, column, channel]</code>. The green value
+          for top left pixel is given by
+          <code>img[0, 0, 1]</code>. The red value for the bottom left
+          pixel is <code>img[2, 0, 2]</code>. You have all the
+          <a href="https://docs.scipy.org/doc/numpy/reference/arrays.indexing.html">
+            slicing and indexing tools of Numpy</a> at your disposal.
+        </p>
+        <p>
+          Don't get tripped up by the fact that row 0 is at the top of the
+          image. As you count up through row numbers, you move down toward
+          the bottom of the image. This doesn't match with our convention
+          of an (x, y) coordinate axis, but it matches perfectly with our
+          [row, column] layout of two dimensional arrays.
+        </p>
+        <p>
+          There can also be a fourth color channel representing the
+          transparency of pixel, called alpha. It controls how
+          much of whatever is underneath the image shines through.
+          If the pixel range is 0 to 1 then an alpha of 1 is completely
+          opaque and an alpha of 0 is completely transparent.
+          If it's not present, alpha is assumed to be completely opaque.
+        </p>
+        <p>
+          Another special case is the grayscale image, where all three
+          color channels for each pixel have the same value. Because of the
+          repetition, it's more space efficient to store just one color
+          channel, leaving the others implied.
+          A two-dimensional array can also be used for
+          monochrome images of any sort. By definition they have only
+          one color channel.
+        </p>
 
         <script type="text/javascript" src="javascripts/blog_signature.js"></script>
       </section>
