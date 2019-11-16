@@ -227,6 +227,9 @@ color_img = np.asarray(Image.open(img_filename)) / 255</code></pre>
         <p>
           If close is good enough or if you really care about speed,
           use the linear approximation of gamma correction.
+          This is the approach used by
+          <a href="https://www.mathworks.com/help/matlab/ref/rgb2gray.html">
+            MATLAB</a>, for instance.
           It is included in the
           <a href="https://github.com/brohrer/cottonwood">
             Cottonwood machine learning framework</a>:

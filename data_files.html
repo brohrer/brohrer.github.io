@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+  <script type="text/javascript">var blog_title = "How to Read and Write Data Files";</script>
+  <script type="text/javascript">var publication_date = "November 20, 2019";</script>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
+    <base target="_blank">
+    <script type="text/javascript" src="javascripts/blog_head.js"></script>
+  </head>
+  <body>
+    <script type="text/javascript" src="javascripts/blog_header.js"></script>
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+      
+        <p>
+          This is a list of snippets for read and writing data
+          files in Python. It's not encyclopedic, but it's a convenient
+          collection of the things I google regularly.
+        </p>
+        <h3>Read a text file</h3>
+
+        <p>
+<pre><code>with open("filename.txt", "rt") as fw:
+    data_lines = f.readlines()</code></pre>
+        </p>
+
+        <h3>Save and load a Python object</h3>
+        <p>
+<pre><code>import pickle as pkl
+with open("filename.pkl", "wb") as f:
+    pkl.dump(object, f) </code></pre>
+        </p>
+        <p>
+<pre><code>import pickle as pkl
+with open("filename.pkl", "wb") as f:
+    object = pkl.load(f)</code></pre>
+        </p>
+
+        <h3>Load an image as a Numpy array</h3>
+        <p>
+<pre><code>import numpy as np
+from PIL import Image
+img = np.asarray(Image.open("image_filename.jpg"))</code></pre>
+        </p>
+
+        <h3>Save a Matplotlib image</h3>
+        <p>
+<pre><code>import matplotlib.pyplot as plt
+# Create image in Figure named fig
+fig.savefig("filename.png", dpi=300)</code></pre>
+        </p>
+
+        <h3>Convert a JSON string to Python dictionary and back</h3>
+        <p>
+<pre><code>import json
+json_dict = json.loads(json_formatted_string)
+json_formatted_string = json.dumps(json_dict)</code></pre>
+        </p>
+
+        <script type="text/javascript" src="javascripts/blog_signature.js"></script>
+      </section>
+    </div>
+    <script type="text/javascript" src="javascripts/blog_footer.js"></script>
+    <script type="text/javascript">
+      var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+      document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+    <script type="text/javascript">
+      try {
+        var pageTracker = _gat._getTracker("UA-10180621-3");
+      pageTracker._trackPageview();
+      } catch(err) {}
+    </script>
+  </body>
+</html>
