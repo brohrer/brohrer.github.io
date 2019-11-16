@@ -18,26 +18,28 @@
       <section id="main_content" class="inner">
       
         <p>
-          This is a list of snippets for read and writing data
+          This is a list of snippets for reading and writing data
           files in Python. It's not encyclopedic, but it's a convenient
           collection of the things I google regularly.
         </p>
         <h3>Read a text file</h3>
 
         <p>
-<pre><code>with open("filename.txt", "rt") as fw:
+<pre><code>with open("filename.txt", "rt") as f:
     data_lines = f.readlines()</code></pre>
         </p>
 
-        <h3>Save and load a Python object</h3>
+        <h3>Save a Python object</h3>
         <p>
 <pre><code>import pickle as pkl
 with open("filename.pkl", "wb") as f:
     pkl.dump(object, f) </code></pre>
         </p>
+
+        <h3>Load a Python object</h3>
         <p>
 <pre><code>import pickle as pkl
-with open("filename.pkl", "wb") as f:
+with open("filename.pkl", "rb") as f:
     object = pkl.load(f)</code></pre>
         </p>
 
