@@ -222,6 +222,14 @@ color_img = np.asarray(Image.open(img_filename)) / 255</code></pre>
           red mid-range values, but arguably just as good in most
           practical respects.
         </p>
+        <p>
+          This method of calculating luminance is codified in the 
+          standard 
+          <a href="https://www.itu.int/dms_pubrec/itu-r/rec/bt/R-REC-BT.601-7-201103-I!!PDF-E.pdf">
+            ITU-R BT.601 Studio encoding parameters of digital television
+            for standard 4:3 and wide screen 16:9 aspect ratios. </a>
+          which incidentally was awaded an Emmy in 1983.
+        </p>
 
         <h3>Which one should I use?</h3>
         <p>
@@ -229,7 +237,11 @@ color_img = np.asarray(Image.open(img_filename)) / 255</code></pre>
           use the linear approximation of gamma correction.
           This is the approach used by
           <a href="https://www.mathworks.com/help/matlab/ref/rgb2gray.html">
-            MATLAB</a>, for instance.
+            MATLAB</a>,
+          <a href="https://pillow.readthedocs.io/en/3.1.x/reference/Image.html">
+            Pillow</a>, and
+          <a href="https://github.com/opencv/opencv/blob/8c0b0714e76efef4a8ca2a7c410c60e55c5e9829/modules/imgproc/src/color.simd_helpers.hpp">
+            OpenCV</a>.
           It is included in the
           <a href="https://github.com/brohrer/cottonwood">
             Cottonwood machine learning framework</a>:
