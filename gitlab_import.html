@@ -46,9 +46,10 @@
               <img title="Import options for GitLab projects"
                 src="images/gitlab/import_options.png"
                 alt="Import options for GitLab projects"
-                style="height: 320px;">
+                style="height: 160px;">
             </p>
           </li>
+          <li>
             <p>
               You'll be asked authenticate and authorize the request.
             </p>
@@ -64,14 +65,48 @@
                 alt="Authorize GitLab from GitHub"
                 style="height: 320px;">
             </p>
-          <li>
           </li>
           <li>
+            <p>
+              The import dialog lets you conveniently choose one, several,
+              or all of your GitHub repositories to import.
+            </p>
+            <p style="text-align:center;">
+              <img title="List of repositories to import"
+                src="images/gitlab/import_repositories.png"
+                alt="List of repositories to import"
+                style="height: 200px;">
+            </p>
           </li>
           <li>
+            <p>
+              And just like that the project is migrated to GitLab,
+              ready to clone, fork, merge, star, and build into something
+              amazing.
+            </p>
+            <p style="text-align:center;">
+              <img title="The imported project"
+                src="images/gitlab/imported_project.png"
+                alt="The imported project view"
+                style="height: 320px;">
+            </p>
           </li>
-
+          <li>
+            <p>
+              The last step is to set the new remote location any place you
+              have cloned the repository. At the command line run
+            </p>
+<pre><code>git remote set-url origin git@gitlab.com:brohrer/ponderosa.git</code></pre>
+            <p>
+              if "brohrer" is your username and "ponderosa" is the name
+              of the project. Modify accordingly.
+            </p>
+          </li>
         </ol>
+
+        <p>
+          That's all there is to it.
+        </p>
 
 
         <script type="text/javascript" src="javascripts/blog_signature.js"></script>
