@@ -242,13 +242,15 @@ color_img = np.asarray(Image.open(img_filename)) / 255</code></pre>
             Pillow</a>, and
           <a href="https://github.com/opencv/opencv/blob/8c0b0714e76efef4a8ca2a7c410c60e55c5e9829/modules/imgproc/src/color.simd_helpers.hpp">
             OpenCV</a>.
-          It is included in the
-          <a href="https://github.com/brohrer/cottonwood">
-            Cottonwood machine learning framework</a>:
+          It is included in my
+          <a href="
+          https://github.com/brohrer/lodgepole/blob/master/lodgepole/image_tools.py
+          ">
+            Lodgepole image and video processing toolbox</a>:
         </p>
         <p>
-<pre><code>import cottonwood.core.toolbox as tb
-gray_img = tb.rgb2gray_approx(color_img)
+<pre><code>import lodgepole.image_tools as lit
+gray_img = lit.rgb2gray_approx(color_img)
 </code></pre>
         </p>
         <p>
@@ -257,8 +259,8 @@ gray_img = tb.rgb2gray_approx(color_img)
           gamma re-compression pipeline:
         </p>
         <p>
-<pre><code>import cottonwood.core.toolbox as tb
-gray_img = tb.rgb2gray(color_img)
+<pre><code>import lodgepole.image_tools as lit
+gray_img = lit.rgb2gray(color_img)
 </code></pre>
         </p>
         <p>
