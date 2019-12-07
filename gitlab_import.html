@@ -40,7 +40,7 @@
           <li>
             <p>
               Start creating a new project and select the "Import Project"
-              tab.
+              tab. Choose the GitHub option.
             </p>
             <p style="text-align:center;">
               <img title="Import options for GitLab projects"
@@ -57,7 +57,7 @@
               <img title="Authenticate with GitHub"
                 src="images/gitlab/authenticate.png"
                 alt="Authenticate with GitHub"
-                style="height: 320px;">
+                style="height: 280px;">
             </p>
             <p style="text-align:center;">
               <img title="Authorize GitLab from GitHub"
@@ -75,14 +75,15 @@
               <img title="List of repositories to import"
                 src="images/gitlab/import_repositories.png"
                 alt="List of repositories to import"
-                style="height: 200px;">
+                style="height: 240px;">
             </p>
           </li>
           <li>
             <p>
               And just like that the project is migrated to GitLab,
               ready to clone, fork, merge, star, and build into something
-              amazing.
+              amazing. (Make sure to add an ssh key if you want password-less
+              interaction from your local machine.)
             </p>
             <p style="text-align:center;">
               <img title="The imported project"
@@ -94,12 +95,18 @@
           <li>
             <p>
               The last step is to set the new remote location any place you
-              have cloned the repository. At the command line run
+              have cloned the repository.
+              For example, if "brohrer" is your username and "ponderosa" is the name
+              of the project, at the command line run
             </p>
 <pre><code>git remote set-url origin git@gitlab.com:brohrer/ponderosa.git</code></pre>
             <p>
-              if "brohrer" is your username and "ponderosa" is the name
-              of the project. Modify accordingly.
+              or
+            </p>
+<pre><code>git remote set-url origin https://gitlab.com/brohrer/ponderosa.git</code></pre>
+            <p>
+              depending on whether you are using <code>ssh</code> or
+              <code>http</code> to talk with it.
             </p>
           </li>
         </ol>
