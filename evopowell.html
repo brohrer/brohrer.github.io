@@ -41,12 +41,71 @@
           <a href="https://choosealicense.com/licenses/mit/">
             MIT Open Source License</a>.
         </p>
-        <p>
-          <a href="https://brohrer.github.io/evopowell.html">
-            Here's more information on how it works and how to use it.
-          </a>
-        </p>
 
+        <p>
+          Evolutionary Powell's method tries to find the global minimum
+          of a loss function (cost function, error function) over a
+          discrete space, meaning that each variable can only take on
+          a finite number of unique values. It has a few main steps, which
+          we'll illustrate by walking through the example in the animation
+          above.
+        </p>
+        <p>
+          The loss function we'll be working with is a two-dimensional
+          <a href="https://en.wikipedia.org/wiki/Sinc_function">
+            <em>sinc</em></a> function, which has a single pronounced
+          peak and several shoulder peaks and dips surrounding it.
+          The code for creating it and running the rest of this example
+          can be found in
+          <a href="https://gitlab.com/brohrer/ponderosa/blob/master/ponderosa/demo.py">
+            this GitLab project</a>.
+        </p>
+        <p>
+          The optimizer actually tries to find
+          the lowest point in the the negative of this function &mdash;
+          the global minimum &mdash; but for ease of visualization everything
+          is flipped upside down before plotting. Both x and y are allowed
+          to take on 10 distinct values between 0 and 3. The method can
+          be applied to spaces of any number of dimensions, but a
+          two-dimensional space gives the richest visualization.
+        </p>
+        <p>
+          There are a few main steps to Evolutionary Powell's method.
+          <ol>
+            <li>
+              Randomly select a few points and evaluate them.
+            </li>
+            <li>
+              Make a list of the hyperparameters in random order.
+            </li>
+            <li>
+              Choose a small number of previously-evaluated points
+              to be parents. This will be
+              a random choice, but weighted by performance so that points
+              with the lowest error are more likely to be chosen.
+            </li>
+            <li>
+              For the first parent added, start at the top of the list
+              of hyperparameters. Look for a small number of unevaluated
+              child points along that line &mdash; points that are identical 
+              to the parent, differing only in the value of that particular
+              hyperparameter. If no children can be found, check the next
+              hyperparameter, until they have all been attempted.
+            </li>
+            <li>
+              For each subsequent parent added, repeat the process, but
+              shift the list of hyperparameters by one so that a different
+              hyperparameter is attemped first.
+            </li>
+            <li>
+              Evaluate all the children found and start again at step 3.
+            </li>
+            <li>
+              When no children can be found for any of the parents, the
+              algorithm terminates.
+            </li>
+          </ol>
+        </p>
         <script type="text/javascript" src="javascripts/blog_signature.js"></script>
       </section>
     </div>
