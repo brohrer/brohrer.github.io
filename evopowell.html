@@ -42,6 +42,7 @@
             MIT Open Source License</a>.
         </p>
 
+      <h3>Overview</h3>
         <p>
           Evolutionary Powell's method tries to find the global minimum
           of a loss function (cost function, error function) over a
@@ -106,6 +107,55 @@
             </li>
           </ol>
         </p>
+
+        <h3>Powell's method</h3>
+        <p>
+          This is a little like Powell's method where, starting from a single
+          point, it finds the minimum along one dimension at a time,
+          and the new best guess is moved iteratively to the new location
+          of the minimum. (
+          <a href="https://en.wikipedia.org/wiki/Powell%27s_method">
+            There's a bit more to it than that</a>, but those
+          are the relevant parts.)
+        </p>
+        <p>
+          Powell's method typically assumes smooth, continuously varying
+          functions, and seeks just to find the local minimum, so it
+          alone isn't a good fit for hyperparameter optimization
+          where we are looking for a global minimum in a discrete space.
+          But it at least is nice in that it doesn't require differentiation
+          and it manages a large number of dimensions gracefully.
+        </p>
+
+        <h3>Evolutionary algorithms</h3>
+        <p>
+          In high-dimensional discrete spaces, evolutionary algorithms have
+          proven themselves useful. They don't have to
+          assume anything about the
+          smoothness of a function, and they can be used as
+          <a href="https://en.wikipedia.org/wiki/Anytime_algorithm">
+            an anytime algorithm</a>, meaning that you can interrupt the
+          algorithm at any time and have a workable best-so-far answer
+          to work with.
+        </p>
+        <p>
+          Evolutionary algorithms are especially useful when there are
+          far more points in the space than could ever be exhaustively
+          explored. They make the assumption that the lowest-error points
+          will have at least some traits in common with other
+          low-error points. In our case, that assumption is expressed as
+          "successful points will have <em>some</em> identical hyperparameter
+          values". Choosing the most-successful-so-far points as parents,
+          and varying one of their hyperparameter values to create children,
+          is a way to exploit this assumption. This is also where
+          the similarity to Powell's method comes from. Exploring
+          one dimension at a time, starting from a high performing point,
+          looks a lot like the iterative one-dimensional optimization that
+          Powell's method performs.
+        </p>
+
+
+
         <script type="text/javascript" src="javascripts/blog_signature.js"></script>
       </section>
     </div>
