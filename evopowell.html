@@ -51,6 +51,12 @@
           we'll illustrate by walking through the example in the animation
           above.
         </p>
+        <p style="text-align:center;">
+          <img
+            alt="Two dimensional sinc function"
+            src="images/evopowell/two_d_sinc.png"
+            style="height: 200px;">
+        </p>
         <p>
           The loss function we'll be working with is a two-dimensional
           <a href="https://en.wikipedia.org/wiki/Sinc_function">
@@ -152,6 +158,25 @@
           one dimension at a time, starting from a high performing point,
           looks a lot like the iterative one-dimensional optimization that
           Powell's method performs.
+        </p>
+
+        <h3>1. Randomly select a few points</h3>
+        <p style="text-align:center;">
+          <img
+            alt="Two random points selected and evaluated"
+            src="images/evopowell/f_10007.png"
+            style="height: 350px;">
+        </p>
+        <p>
+          The first thing we need is to choose a few points to start with.
+          We don't want to assume anything about which dimensions are
+          important or whether we prefer high or low values. The safest
+          way to avoid systemic bias is to randomly choose a few points in
+          our space. In this example, we start with two. Subsequent
+          playing around with the algorithm suggests that twice the number
+          of hyperparameters is a good number of points to start with.
+          It sprinkles its guesses throughout the space and gives
+          a reasonably rich population of points to start from.
         </p>
 
 
