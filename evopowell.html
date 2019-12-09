@@ -179,6 +179,73 @@
           a reasonably rich population of points to start from.
         </p>
 
+        <h3>2. Make a list of hyperparameters</h3>
+        <p>
+          Just to make sure our results aren't sensitive to the order in which
+          we search the hyperparameters, we generate a shuffled list of them.
+          Each hyperparameter represents one dimension in our space.
+          We don't want to give any one of them preferential treatment.
+          Later, we'll also rotate through the list so that we start searching
+          along a different dimension each time.
+        </p>
+
+        <h3>3. Choose a few parent points</h3>
+        <p>
+          From all the points we've tried and evaluated so far, we choose
+          a few (this number is set to 3 right now) candidate parents.
+          We expect that high-performing, low-error points are likely
+          to make the best parents <strong>but</strong> we don't
+          want to make that assumption too rigid. To allow room
+          for accidental discovery, we randomly select our parents from
+          the population, but we weight better performing points
+          more heavily.
+        </p>
+        <p>
+          We also want to avoid the pathological situation where there is
+          one point that is very strong compared to all the rest, but
+          because there are just so many of the others, it gets
+          overwhelmed by the accumulation of their weak weights, and
+          it never gets selected as a parent. To fix this, the weights
+          of each point are calculated &mdash; the square of its
+          normalized position between the highest error and the lowest error,
+          resulting in weights that fall on [0, 1]. 0 is the weight of
+          the worst-performing point and 1 is the weight of the best.
+          Then a random number is drawn from a uniform distribution.
+          The point with the next-highest weight on the [0, 1] interval
+          is the parent selected. This ensures that parents are selected
+          with stratification based on their relative error, rather than
+          their relative prevalence.
+        </p>
+
+        <h3>4. Choose a few children</h3>
+        <p style="text-align:center;">
+          <img
+            alt="Child points selected for first parent"
+            src="images/evopowell/f_10016.png"
+            style="height: 350px;">
+        </p>
+        <p>
+          For the first parent selected, start with the hyperparameter
+          at the top of the list we created in step 2. Randomly select
+          points along that dimension, up to a maximum of a set
+          fraction of all the possible values it can take. Right now
+          this fraction is set to 30%. If at least one unevaluated child
+          is found, stop looking and move on. If not, try the next
+          parent. If no unevaluated children are found for any of the
+          parent candidates, terminate the search. Evolutionary Powell's
+          is done looking.
+        </p>
+        <p>
+          Each time through the child selection process for a new parent,
+          rotate the list of hyperparameters
+          to the right by one, so that what was the last element
+          becomes the first, what was the first becomes the second, etc.
+          That way each new child selection process starts looking along
+          a different dimension.
+        </p>
+
+        <h3>4. Choose a few children</h3>
+
 
 
         <script type="text/javascript" src="javascripts/blog_signature.js"></script>
