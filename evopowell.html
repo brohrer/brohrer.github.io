@@ -92,24 +92,22 @@
               with the lowest error are more likely to be chosen.
             </li>
             <li>
+              <p>
               For the first parent added, start at the top of the list
               of hyperparameters. Look for a small number of unevaluated
               child points along that line &mdash; points that are identical 
               to the parent, differing only in the value of that particular
               hyperparameter. If no children can be found, check the next
               hyperparameter, until they have all been attempted.
-            </li>
-            <li>
+              </p>
+              <p>
               For each subsequent parent added, repeat the process, but
               shift the list of hyperparameters by one so that a different
               hyperparameter is attemped first.
+              </p>
             </li>
             <li>
               Evaluate all the children found and start again at step 3.
-            </li>
-            <li>
-              When no children can be found for any of the parents, the
-              algorithm terminates.
             </li>
           </ol>
         </p>
@@ -192,7 +190,7 @@
         <h3>3. Choose a few parent points</h3>
         <p>
           From all the points we've tried and evaluated so far, we choose
-          a few (this number is set to 3 right now) candidate parents.
+          a few candidate parents. (This number is set to 3 right now.) 
           We expect that high-performing, low-error points are likely
           to make the best parents <strong>but</strong> we don't
           want to make that assumption too rigid. To allow room
@@ -230,7 +228,9 @@
           points along that dimension, up to a maximum of a set
           fraction of all the possible values it can take. Right now
           this fraction is set to 30%. If at least one unevaluated child
-          is found, stop looking and move on. If not, try the next
+          is found for that parent, stop evaluating potential parents
+          and move on.
+          If not, try the next
           parent. If no unevaluated children are found for any of the
           parent candidates, terminate the search. Evolutionary Powell's
           is done looking.
@@ -238,15 +238,88 @@
         <p>
           Each time through the child selection process for a new parent,
           rotate the list of hyperparameters
-          to the right by one, so that what was the last element
+          to the right by one, so that what was the last dimension
           becomes the first, what was the first becomes the second, etc.
           That way each new child selection process starts looking along
           a different dimension.
         </p>
+        <p>
+          This is a fairly conservative stopping criteria. Especially for
+          a high dimensional space, for a parent to have no unevaluated
+          children means that a reasonable fraction of the space
+          has been exhasutively explored. It is more likely that on
+          optimization runs with many parameters, other constraints will
+          cause the researcher to terminate the search before it runs its
+          course, such as time or computing expense.
+        </p>
 
-        <h3>4. Choose a few children</h3>
-
-
+        <h3>5. Evaluate each of the children chosen</h3>
+        <p>
+          If a new lowest error is found, update the best-so-far error
+          and the best-so-far combination of hyperparameters. These will
+          be available as results if the algorithm is terminated before
+          the next better solution is found. When all the pre-selected
+          children are evaluated, return to step 3 and go through the
+          child selection process again until no more can be found for the
+          chosen parents.
+        </p>
+        <p style="text-align:center;">
+          <img
+            alt="Results after second iteration"
+            src="images/evopowell/f_10021.png"
+            style="height: 350px;">
+        </p>
+        <p>
+          Here is the set of evaluated points after two iterations through
+          this algorithmic loop. Already it has found a relatively
+          high-performing point.
+        </p>
+        <p style="text-align:center;">
+          <img
+            alt="Results after third iteration"
+            src="images/evopowell/f_10032.png"
+            style="height: 350px;">
+        </p>
+        <p>
+          In the third iteration, it chooses a high performing point
+          (not the highest), and explores the x-axis to find a still
+          better one.
+        </p>
+        <p style="text-align:center;">
+          <img
+            alt="Results after a few more iterations"
+            src="images/evopowell/f_10071.png"
+            style="height: 350px;">
+        </p>
+        <p>
+          After a few more iterations, it can be seen that mostly
+          the higher-performing points have been chosen as parents,
+          and they have generated children along both axes.
+        </p>
+        <p style="text-align:center;">
+          <img
+            alt="Results after a few more iterations"
+            src="images/evopowell/f_10123.png"
+            style="height: 350px;">
+        </p>
+        <p>
+          By the time 30 points have been evaluated, the global optimum
+          has been found. Not too bad, considering there are 100 points
+          in the space. We would expect random exploration to find the
+          global optimum on average on its 50th point, so this is somewhat
+          of an improvement.
+        </p>
+        <p style="text-align:center;">
+          <img
+            alt="Results after a few more iterations"
+            src="images/evopowell/f_10211.png"
+            style="height: 350px;">
+        </p>
+        <p>
+          After exploring about 2/3 of the space, the algorithm has
+          been unable to find any unevaluated children for the three
+          parent candidates it selected. It terminates.
+        </p>
 
         <script type="text/javascript" src="javascripts/blog_signature.js"></script>
       </section>
