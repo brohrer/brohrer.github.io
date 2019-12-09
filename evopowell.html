@@ -26,8 +26,9 @@
             style="height: 350px;">
         </p>
         <p>
-          I built Evolutionary Powell's method as a hyperparameter optimization
-          algorithm as part of
+          I built Evolutionary Powell's method to use for
+          hyperparameter optimization
+          as part of
           <a href="https://end-to-end-machine-learning.teachable.com/p/314-neural-network-optimization/">
             Course 314</a>. It is inspired by the original
           <a href="https://en.wikipedia.org/wiki/Powell%27s_method">
@@ -71,7 +72,8 @@
           The optimizer actually tries to find
           the lowest point in the the negative of this function &mdash;
           the global minimum &mdash; but for ease of visualization everything
-          is flipped upside down before plotting. Both x and y are allowed
+          is flipped upside down before plotting, so it looks like it's trying
+          to find the top of the peak. Both x and y are allowed
           to take on 10 distinct values between 0 and 3. The method can
           be applied to spaces of any number of dimensions, but a
           two-dimensional space gives the richest visualization.
@@ -117,8 +119,8 @@
           This is a little like Powell's method where, starting from a single
           point, it finds the minimum along one dimension at a time,
           and the new best guess is moved iteratively to the new location
-          of the minimum. (
-          <a href="https://en.wikipedia.org/wiki/Powell%27s_method">
+          of the minimum.
+          (<a href="https://en.wikipedia.org/wiki/Powell%27s_method">
             There's a bit more to it than that</a>, but those
           are the relevant parts.)
         </p>
@@ -157,6 +159,10 @@
           looks a lot like the iterative one-dimensional optimization that
           Powell's method performs.
         </p>
+        <hr>
+        <p>
+          It's worth taking a detailed tour of the method, step-by-step.
+        </p>
 
         <h3>1. Randomly select a few points</h3>
         <p style="text-align:center;">
@@ -169,7 +175,7 @@
           The first thing we need is to choose a few points to start with.
           We don't want to assume anything about which dimensions are
           important or whether we prefer high or low values. The safest
-          way to avoid systemic bias is to randomly choose a few points in
+          way to avoid systematic bias is to randomly choose a few points in
           our space. In this example, we start with two. Subsequent
           playing around with the algorithm suggests that twice the number
           of hyperparameters is a good number of points to start with.
@@ -202,9 +208,12 @@
           We also want to avoid the pathological situation where there is
           one point that is very strong compared to all the rest, but
           because there are just so many of the others, it gets
-          overwhelmed by the accumulation of their weak weights, and
-          it never gets selected as a parent. To fix this, the weights
-          of each point are calculated &mdash; the square of its
+          overwhelmed by their collective weights, and
+          it never gets selected as a parent.
+        </p>
+        <p>
+          To fix this, the weights
+          of each point are calculated as the square of its
           normalized position between the highest error and the lowest error,
           resulting in weights that fall on [0, 1]. 0 is the weight of
           the worst-performing point and 1 is the weight of the best.
@@ -230,10 +239,6 @@
           this fraction is set to 30%. If at least one unevaluated child
           is found for that parent, stop evaluating potential parents
           and move on.
-          If not, try the next
-          parent. If no unevaluated children are found for any of the
-          parent candidates, terminate the search. Evolutionary Powell's
-          is done looking.
         </p>
         <p>
           Each time through the child selection process for a new parent,
@@ -242,6 +247,14 @@
           becomes the first, what was the first becomes the second, etc.
           That way each new child selection process starts looking along
           a different dimension.
+        </p>
+        <p>
+          If no unevaluated children are found along that dimension,
+          try the next one on the list. If no unevaluated children are found
+          for that parent along any dimension, try the next
+          parent. If no unevaluated children are found for any of the
+          parent candidates, terminate the search. Evolutionary Powell's
+          is done looking.
         </p>
         <p>
           This is a fairly conservative stopping criteria. Especially for
@@ -323,6 +336,33 @@
           After exploring about 2/3 of the space, the algorithm has
           been unable to find any unevaluated children for the three
           parent candidates it selected. It terminates.
+        </p>
+
+        <h3>The trade-off between generality and performance</h3>
+        <p>
+          If you look carefully, you may have noticed that the algorithm
+          spent a lot of its evaulation effort on poorly-performing points
+          far from the optimum. If, instead of choosing children randomly
+          along the a dimension of its parent, the algorithm chose
+          the nearest unevaluated points, it might have found the best solution
+          much faster. 
+        </p>
+        <p>
+          However, if faced with a loss function that was more choppy
+          that this, such an approach might get stuck in a local minimum
+          and fail to find a far better solution. The best approach to use
+          depends on which problem we will be solving.
+          The No Free Lunch Theorem suggests that no optimizer
+          is great at solving all optimization problems.
+          The trick with choosing
+          an optimizer is place your bets on what type of problems you
+          expect to be solving. Will the loss function be smooth?
+          Convex? Bounded?
+          Low-dimensional? 
+          Discrete? Differentiable? Have loosely-coupled dimensions?
+          Depending on what you expect to find, you can tweak your optimizer
+          to take advantage of those expectations. Just be prepared &mdash;
+          if your assumptions are wrong, then your optimizer may fail badly.
         </p>
 
         <h3>Give it a try</h3>
