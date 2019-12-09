@@ -258,7 +258,11 @@
           If a new lowest error is found, update the best-so-far error
           and the best-so-far combination of hyperparameters. These will
           be available as results if the algorithm is terminated before
-          the next better solution is found. When all the pre-selected
+          the next better solution is found.
+        </p>
+          
+        <h3>6. Repeat</h3>
+          When all the pre-selected
           children are evaluated, return to step 3 and go through the
           child selection process again until no more can be found for the
           chosen parents.
@@ -319,6 +323,23 @@
           After exploring about 2/3 of the space, the algorithm has
           been unable to find any unevaluated children for the three
           parent candidates it selected. It terminates.
+        </p>
+
+        <h3>Give it a try</h3>
+        <p>
+          If you'd like to use Evolutionary Powell's in your next project,
+          it is implemented in
+          <a href="https://gitlab.com/brohrer/ponderosa">
+            the Ponderosa package</a>, an open source
+          collection of optimizers designed to be lightweight and
+          easy to experiment with.
+          <a href="https://gitlab.com/brohrer/ponderosa">
+            Here are the installation instructions</a> amd
+          <a href="https://gitlab.com/brohrer/ponderosa/blob/master/ponderosa/demo.p">
+            here is the code for the demo above</a> to show how to use it.
+          If you're curious about how it's implemented,
+          <a href="https://gitlab.com/brohrer/ponderosa/blob/master/ponderosa/optimizers.py#L91">
+            here is the code for it</a>.
         </p>
 
         <script type="text/javascript" src="javascripts/blog_signature.js"></script>
