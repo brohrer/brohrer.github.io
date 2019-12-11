@@ -42,7 +42,10 @@ ttl.parse_weird_file(filename)</pre></code>
             <code>touch toolbox/toolbox/__init__.py</code>.
           </li>
           <li>
-            <code>echo "import setuptools as st\nst.setup(name='toolbox')" | toolbox/setup.py</code>
+            <code>echo "import setuptools as st" > toolbox/setup.py</code>
+          </li>
+          <li>
+            <code>echo "st.setup(name='toolbox')" >> toolbox/setup.py</code>
           </li>
           <li>
             <code>python3 -m pip install -e toolbox</code>
