@@ -103,7 +103,8 @@
               hyperparameter, until they have all been attempted.
               </p>
               <p>
-              For each subsequent parent added, repeat the process, but
+              If no children are found for the first parent candidate
+              repeat the process with the next, but
               shift the list of hyperparameters by one so that a different
               hyperparameter is attemped first.
               </p>
@@ -343,8 +344,9 @@
           If you look carefully, you may have noticed that the algorithm
           spent a lot of its evaulation effort on poorly-performing points
           far from the optimum. If, instead of choosing children randomly
-          along the a dimension of its parent, the algorithm chose
-          the nearest unevaluated points, it might have found the best solution
+          along one of its parent's dimensions, the algorithm instead chose
+          the <em>nearest</em> unevaluated points,
+          it might have found the best solution
           much faster. 
         </p>
         <p>

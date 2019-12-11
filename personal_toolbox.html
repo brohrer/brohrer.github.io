@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+  <script type="text/javascript">var blog_title = "How to Make a Personal Python Toolbox";</script>
+  <script type="text/javascript">var publication_date = "December 18, 2019";</script>
+  <head>
+    <link rel="icon" href="images/ml_logo.png">
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
+    <base target="_blank">
+    <script type="text/javascript" src="javascripts/blog_head.js"></script>
+  </head>
+  <body>
+    <script type="text/javascript" src="javascripts/blog_header.js"></script>
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <p>
+          A trick that I've found useful is to make a toolbox of methods
+          that I re-use often. That way, when I need to, say, read and parse
+          a quirky file format I can just do this
+        </p>
+<pre><code>from toolbox as import texttools as ttl
+ttl.parse_weird_file(filename)</pre></code>
+        <p>
+          where <code>parse_weird_file()</code> is a function that I
+          meticulously copied, pasted, and tweaked from StackOverflow
+          a long time ago. There are a few steps at the command line
+          to set this up, but nothing
+          too hairy.
+        </p>
+        <ol>
+          <li>
+            Navigate to the directory you want this to live.
+          </li>
+          <li>
+            <code>mkdir -p toolbox/toolbox</code>.
+          </li>
+          <li>
+            <code>touch toolbox/toolbox/__init__.py</code>.
+          </li>
+          <li>
+            <code>toolbox/setup.py < "import setuptools as st\nst.setup(name='toolbox')"</code>.
+          </li>
+          <li>
+            python3 -m pip install -e toolbox
+          </li>
+          <li>
+            Create <code>toolbox/toolbox/texttools.py</code> containing
+            the function <code>parse_weird_file()</code> and you are
+            good to go!
+          </li>
+        </ol>
+        <p>
+          Now any changes you make to <code>texttools.py</code> or any other
+          files you add to <code>toolbox/toolbox</code> will be available
+          for python3 to import, no matter which directory you're working in.
+          It's guaranteed to cut your googling time in half.
+        </p>
+
+
+        <script type="text/javascript" src="javascripts/blog_signature.js"></script>
+      </section>
+    </div>
+    <script type="text/javascript" src="javascripts/blog_footer.js"></script>
+    <script type="text/javascript">
+      var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+      document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+    <script type="text/javascript">
+      try {
+        var pageTracker = _gat._getTracker("UA-10180621-3");
+      pageTracker._trackPageview();
+      } catch(err) {}
+    </script>
+  </body>
+</html>
