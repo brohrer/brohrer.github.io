@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+
+  <script type="text/javascript">var blog_title = "How to Make Your Code Run Faster";</script>  
+  <script type="text/javascript">var publication_date = "December 13, 2019";</script>
+  <head>
+    <link rel="icon" href="images/ml_logo.png">
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
+    <base target="_blank">
+    <script type="text/javascript" src="javascripts/blog_head.js"></script>
+  </head>
+  <body>
+    <script type="text/javascript" src="javascripts/blog_header.js"></script>
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <p>
+          I don't need to tell you why it's nice to have your code run fast.
+          Here are some tricks I've found helpful, roughly in order of
+          most-bang-for-the-buck.
+        </p>
+        <h4>Profile</h4>
+        <p>
+          You can't know how to make your code faster until you know how
+          it is slow. Profiling tools let you see how much time your
+          code is spending on which lines and operations.
+          <a href="https://docs.python.org/3/library/profile.html">
+            cProfile</a> is a classic and you can't go wrong with it,
+          but my personal favorite right now is
+          <a href="https://github.com/benfred/py-spy">py-spy</a>.
+          It doesn't require you to modify
+          your code at all and doesn't slow it down.
+        </p>
+
+        <h4>Elimination</h4>
+        <p>
+          The fastest code is the code that never runs. After working on
+          code for a while it's amazing how much cruft accumulates.
+          Deleting it is the best optimization trick.
+          And the best part is you don't incur any technical debt &mdash;
+          there's no new code to hide bugs and no new libraries to depend on.
+        </p>
+
+        <h4>Avoidance</h4>
+        <p>
+          Some code only needs to be run some of the time. The addition of
+          if-else checks can help you avoid costly computations that aren't
+          strictly necessary.
+        </p>
+
+        <h4>Cacheing</h4>
+        <p>
+          Your code may be computing the same thing several times.
+          Store it and re-use it, rather than re-computing it.
+        </p>
+
+        <h4>Pre-processing</h4>
+        <p>
+          This is similar to cacheing, but uses the disk. If you have to
+          transform the data in a table every time you load it,
+          you might be able to save a lot of time by making a
+          separate table with the pre-transformed data. Then each time
+          you use it, it's all ready to go.
+        </p>
+
+        <h4>Vectorization</h4>
+        <p>
+          If you're working with many numbers in Python, put them in arrays and
+          use <a href="https://numpy.org/">NumPy</a>.
+          Avoid for loops whenever possible. You will be amazed how fast
+          it goes.
+        </p>
+
+        <h4>Algorithms and Data Types</h4>
+        <p>
+          This is the level where the computer science courses pay off.
+          (Or where you might want to look into reading some CS literature.)
+          Choosing the right algorithm for what you are trying to do can
+          sometimes reduce a
+          longer-than-the-age-of-the-universe calculatation down to
+          five minutes. This will be entirely case-specific and will
+          require you to know roughly how many bits are doing what at each
+          point in your program. It's a fun direction to head in,
+          and sometimes you can get caught up in it so completely that you
+          forget about the problem you were originally trying to solve.
+        </p>
+        <p>
+          Closely related is choosing the right data type. Again,
+          it will depend on exactly what you are doing, but having the right
+          data type can totally change the game. While working on
+          <a href="https://github.com/facebookresearch/many-to-many-dijkstra">
+            a variant of Dijkstra's algorithm</a>, a switch from a
+          list to a heap sped up the algorithm by five orders of magnitude
+          (100,000X). It can pay to understand what's going on under the
+          hood.
+        </p>
+
+        <h4>Acceleration</h4>
+        <p>
+          After you've removed all the unnecessary code, vectorized,
+          tweaked your algorithms, and made sure
+          that nothing heavy runs more often than it needs to, and you
+          still feel the need to speed up your code, you can
+          move up to next level. When you're working in Python, you can
+          get big speedups by compiling your code into C.
+        </p>
+        <p>
+          My favorite
+          tool for doing this is
+          <a href="https://numba.pydata.org/">Numba</a>,
+          which is shockingly easy to use. The biggest cost is that
+          it can introduce some debugging challenges, but
+          nothing that can't be navigated with persistence.
+          I've seen it speed up code more than 50 times.
+          If you have nested for loops with branching logic, Numba is
+          your new best friend.
+        </p>
+
+        <h4>Parallelization</h4>
+        <p>
+          If you <em>still</em> need to speed up your code, you are now
+          in the realm of brute force. The first brute force trick is
+          to split up your code and run it on lots of processors at the same
+          time. It isn't any more efficient, but now you have an army
+          instead of a lone soldier.
+        </p>
+        <p>
+          There are several tools for doing this. On a local machine,
+          I prefer <a href="https://docs.python.org/3/library/subprocess.html">
+            subprocess.run()</a> for simplicity. I've also had excellent
+          experiences with
+          <a href="https://github.com/joblib/joblib">joblib</a>.
+          There are of course many others, and that doesn't even touch
+          cloud tools that scale to add as many processors as you want. 
+        </p>
+        <p>
+          Take note, multi-processing can open up a lot of doors for demons
+          to enter. Communication and coordination become tricker,
+          and debugging can become an absolute nightmare. It can be a
+          tremendous boost to your compute power, but it will not be painless.
+        </p>
+
+        <h4>Graphical Processing Units</h4>
+        <p>
+          GPUs are 
+        </p>
+
+        <h3>Beware the Rabbit Hole</h3>
+        <p>
+          Like Alice chasing the White Rabbit, it's tempting to set our sights
+          on code speed at the expense of everything else &mdash; complexity,
+          brittleness, dependencies, memory. Worse, it's all to easy to
+          chase small performance wins in parts of our code that are already
+          fast, rather than focusing on the slowest ones. Keep your sights
+          set on the big goal: ease of use. Buying a 5% speedup
+          with a doubled memory footprint may not be worth it.
+        </p>
+        <p>
+          
+        </p>
+        <p>
+          The <a href="https://github.com/brohrer/cottonwood_martian_images/blob/master/image_loader.py">
+            code we're working from</a> loads jpeg images for an autoencoder
+            to use as inputs. This is accomplished with Matplotlib's
+            image reader:
+        </p>
+
+Donald Knuth
+. We should forget about small efficiencies, say about 97% of the time: pre- mature optimization is the root of all evil. Yet we should not pass up our opportuni- ties in that critical 3 percent.
+https://citeseerx.ist.psu.edu/viewdoc/download;jsessionid=8EAE75F2D55DEB8184C9406727661B3C?doi=10.1.1.103.6084&rep=rep1&type=pdf
+
+
+        <script type="text/javascript" src="javascripts/blog_signature.js"></script>
+      </section>
+    </div>
+    <script type="text/javascript" src="javascripts/blog_footer.js"></script>
+    <script type="text/javascript">
+      var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+      document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+    <script type="text/javascript">
+      try {
+        var pageTracker = _gat._getTracker("UA-10180621-3");
+      pageTracker._trackPageview();
+      } catch(err) {}
+    </script>
+  </body>
+</html>
