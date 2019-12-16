@@ -22,7 +22,7 @@
           Here are some tricks I've found helpful, starting with the
           most bang for the buck.
         </p>
-        <h4>Profile</h4>
+        <h4>1. Profile</h4>
         <p>
           You can't know how to make your code faster until you know how
           it is slow. Profiling tools let you see how much time your
@@ -35,7 +35,7 @@
           your code at all and doesn't slow it down.
         </p>
 
-        <h4>Elimination</h4>
+        <h4>2. Elimination</h4>
         <p>
           The fastest code is the code that never runs. After working on
           code for a while it's amazing how much cruft accumulates.
@@ -44,20 +44,20 @@
           there's no new code to hide bugs and no new libraries to depend on.
         </p>
 
-        <h4>Avoidance</h4>
+        <h4>3. Avoidance</h4>
         <p>
           Some code only needs to be run some of the time. The addition of
           if-else checks can help you avoid costly computations that aren't
           strictly necessary.
         </p>
 
-        <h4>Cacheing</h4>
+        <h4>4. Cacheing</h4>
         <p>
           Your code may be computing the same thing several times.
           Store it and re-use it, rather than re-computing it.
         </p>
 
-        <h4>Pre-processing</h4>
+        <h4>5. Pre-processing</h4>
         <p>
           This is similar to cacheing, but uses the disk. If you have to
           transform the data in a table every time you load it,
@@ -66,7 +66,7 @@
           you use it, it's all ready to go.
         </p>
 
-        <h4>Vectorization</h4>
+        <h4>6. Vectorization</h4>
         <p>
           If you're working with many numbers in Python, put them in arrays and
           use <a href="https://numpy.org/">NumPy</a>.
@@ -74,7 +74,7 @@
           it goes.
         </p>
 
-        <h4>Algorithms and Data Types</h4>
+        <h4>7. Algorithms and Data Types</h4>
         <p>
           This is the level where the computer science courses pay off.
           (Or where you might want to look into reading some CS literature.)
@@ -98,7 +98,7 @@
           hood.
         </p>
 
-        <h4>Acceleration</h4>
+        <h4>8. Acceleration</h4>
         <p>
           After you've removed all the unnecessary code, vectorized,
           tweaked your algorithms, and made sure
@@ -119,7 +119,7 @@
           your new best friend.
         </p>
 
-        <h4>Parallelization</h4>
+        <h4>9. Parallelization</h4>
         <p>
           If you <em>still</em> need to speed up your code, you are now
           in the realm of brute force. The first brute force trick is
@@ -143,7 +143,7 @@
           tremendous boost to your compute power, but it will not be painless.
         </p>
 
-        <h4>Graphical Processing Units</h4>
+        <h4>10. Graphical Processing Units</h4>
         <p>
           When you need blink-and-it's-gone speed, you skip software
           altogether and hard wire your computation directly into silicon.
