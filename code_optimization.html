@@ -19,8 +19,8 @@
       <section id="main_content" class="inner">
         <p>
           I don't need to tell you why it's nice to have your code run fast.
-          Here are some tricks I've found helpful, roughly in order of
-          most-bang-for-the-buck.
+          Here are some tricks I've found helpful, starting with the
+          most bang for the buck.
         </p>
         <h4>Profile</h4>
         <p>
@@ -145,7 +145,37 @@
 
         <h4>Graphical Processing Units</h4>
         <p>
-          GPUs are 
+          When you need blink-and-it's-gone speed, you skip software
+          altogether and hard wire your computation directly into silicon.
+          Forty years ago, the ancestors of the
+          <a href="https://en.wikipedia.org/wiki/Graphics_processing_unit">
+            Graphical Processing Unit</a> (GPU) were specialized video cards
+          created to render video at higher frame rates. Through the years
+          they have evolved to do more sophisticated graphics computations,
+          like 3D rotation and shading. Underlying all this is exceptionally
+          fast matrix compuation and a ridiculously large number of processors.
+          This just so happens to match the needs of some
+          artificial neural networks. If you can coerce your code to run
+          on a GPU (or take advantage of a library that has already solved
+          that problem) it can speed up your code by hundreds of times.
+        </p>
+        <p>
+          This path has two dangers, one obvious and one less so. The obvious
+          danger is that it can be hard work to get your code to run on
+          entirely different hardware. The rules have changed.
+          Your intuitions can be wrong.
+          Debugging can be a nightmare.
+        </p>
+        <p>
+          The second is that you are placing a bet that the computations you
+          need to do are what the GPU can do. There are lots of things that
+          GPUs can't do, or at least can't do better than a CPU. Be very
+          honest with yourself about whether you need what they have to offer.
+          You might be missing out on mind-blowing algorithmic innovations
+          just because the GPU API doesn't have a command for that.
+          It's great to strap a jet engine to your bicycle, but you need
+          to be really sure that your bicycle is point pointed in the
+          right direction before you ignite it.
         </p>
 
         <h3>Beware the Rabbit Hole</h3>
@@ -159,21 +189,27 @@
           with a doubled memory footprint may not be worth it.
         </p>
         <p>
-          
+          Donald Knuth's
+          <a href="
+            https://citeseerx.ist.psu.edu/viewdoc/download;jsessionid=8EAE75F2D55DEB8184C9406727661B3C?doi=10.1.1.103.6084&rep=rep1&type=pdf
+          ">words on the topic</a> are as true today as they were
+          in the 70s.
         </p>
+        <blockquote>
+          <p>
+            We should forget about small efficiencies,
+            say about 97 percent of the time: premature optimization is
+            the root of all evil. Yet we should not pass up our
+            opportunities in that critical 3 percent.
+          </p>
+        </blockquote>
         <p>
-          The <a href="https://github.com/brohrer/cottonwood_martian_images/blob/master/image_loader.py">
-            code we're working from</a> loads jpeg images for an autoencoder
-            to use as inputs. This is accomplished with Matplotlib's
-            image reader:
+          To walk through a progression of these optimization steps in
+          deep neural network autoencoder, join me for
+          <a href="https://end-to-end-machine-learning.teachable.com/p/314-neural-network-optimization/">
+          Course 314</a> in the
+          <a href="http://e2eml.school">End-to-End Machine Learning School</a>.
         </p>
-
-<!--
-Donald Knuth
-. We should forget about small efficiencies, say about 97% of the time: pre- mature optimization is the root of all evil. Yet we should not pass up our opportuni- ties in that critical 3 percent.
-https://citeseerx.ist.psu.edu/viewdoc/download;jsessionid=8EAE75F2D55DEB8184C9406727661B3C?doi=10.1.1.103.6084&rep=rep1&type=pdf
---> 
-
 
         <script type="text/javascript" src="javascripts/blog_signature.js"></script>
       </section>
