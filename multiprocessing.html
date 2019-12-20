@@ -25,15 +25,15 @@
           typically have at least two cores, and many have four.
           Desktop boxes can have as many as 32. But Python is single-threaded.
           By default it will only run on one core at a time.
-          The <code>multiprocessor</code> package helps us to use as
+          <a href="https://docs.python.org/3/library/multiprocessing.html">
+            The <code>multiprocessing</code> package</a> helps us to use as
           many cores as we want.
         </p>
         <p>
           Here's a minimal example that you can copy and paste to get
           started with.
         </p>
-<pre><code>
-from multiprocessing import Pool
+<pre><code>from multiprocessing import Pool
 import os
 import numpy as np
 
@@ -50,14 +50,68 @@ with Pool(processes=os.cpu_count() - 1) as pool:
     results = [result.get() for result in result_objs]
     print(len(results), np.mean(results), np.var(results))
 </code></pre>
-        <script src="https://gitlab.com/snippets/1924217.js"></script>
+        (<a href="https://gitlab.com/snippets/1924217">
+          Here's the snippet on GitLab.</a>)
         <ul>
           <li>
             <p>
-              Lines 5 and 6 define a function with a burdensome calculation.   
+              <code>f(n)</code> a function with a burdensome calculation.   
+            </p>
+          </li>
+          <li>
+            <p>
+              <a href="https://docs.python.org/3/library/multiprocessing.html#multiprocessing.pool.Pool">
+                <code>Pool</code></a> is a collection of worker processes.
+            </p>
+          </li>
+          <li>
+            <p>
+              When initializing a <code>Pool</code>,
+              the <code>processes</code> keyword argument
+              chooses how many workers to create. It doesn't make sense
+              to create more workers than you have processors.
+              <code>os.cpu_count()</code> tells you exactly how many that is.
+              If you leave one
+              processor free you can still run Firefox and listen to Spotify
+              while your code runs.
+            </p>
+          </li>
+          <li>
+            <p>
+              <code>Pool.apply_async()</code> assigns a job to your worker
+              pool, but doesn't wait around for the result. Instead it returns
+              a placeholder. We can use the placeholder to get the actual
+              result by calling <code>result_placeholder.get()</code>.
+            </p>
+          </li>
+          <li>
+            <p>
+              <code>Pool.apply_async()</code> takes a function as a first
+              argument and a tuple of arguments for that function
+              as a second argument. Because we want each worker to
+              run <code>f(n)</code>, we pass <code>apply_async(f, (n,))</code>.
+            </p>
+          </li>
+          <li>
+            <p>
+              If you were to immediately call <code>get()</code> on the
+              result placeholder from <code>apply_async()</code>,
+              it would hold up the for loop while it waited for the result.
+              In parallelization terminology, it blocks all the other
+              workers from getting new jobs. In this case, you would still
+              have several workers, but they would each take turns doing one
+              job while the others stood around and waited. Better to
+              collect all the result placeholders and gather up the
+              results when the works have done their jobs.
             </p>
           </li>
         </ul>
+
+        <p>
+          The <code>multiprocessing</code> package is incredibly powerful.
+          This is only the tiniest part of its capabilities. But hopefully
+          it's a part that you'll find particularly useful.
+        </p>
 
         <script type="text/javascript" src="javascripts/blog_signature.js"></script>
       </section>
