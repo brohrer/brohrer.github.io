@@ -129,15 +129,18 @@
         </p>
         <p>
           There are several tools for doing this. On a local machine,
-          I prefer <a href="https://docs.python.org/3/library/subprocess.html">
-            subprocess.run()</a> for simplicity. I've also had excellent
+          I prefer
+          <a href="
+            https://brohrer.github.io/multiprocessing.html
+          ">
+            the multiprocessing package</a>. I've also had excellent
           experiences with
           <a href="https://github.com/joblib/joblib">joblib</a>.
           There are of course many others, and that doesn't even touch
           cloud tools that scale to add as many processors as you want. 
         </p>
         <p>
-          Take note, multi-processing can open up a lot of doors for demons
+          Take note, parallelization can open up a lot of doors for demons
           to enter. Communication and coordination become tricker,
           and debugging can become an absolute nightmare. It can be a
           tremendous boost to your compute power, but it will not be painless.
