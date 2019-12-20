@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+  <script type="text/javascript">var blog_title = "How to Convert an RGB Image to Grayscale";</script>
+  <script type="text/javascript">var publication_date = "November 13, 2019";</script>
+  <head>
+    <link rel="icon" href="images/ml_logo.png">
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
+    <base target="_blank">
+    <script type="text/javascript" src="javascripts/blog_head.js"></script>
+  </head>
+  <body>
+    <script type="text/javascript" src="javascripts/blog_header.js"></script>
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <p>
+          If you spend a lot of time waiting around for your code to run,
+          and you've tried all the easier things, you can sometimes get
+          a big speedup by parallelizing it &mdash; breaking it into
+          chunks and running each chunk separately. Laptops typically
+          typically have at least two cores, and many have four.
+          Desktop boxes can have as many as 32. But Python is single-threaded.
+          By default it will only run on one core at a time.
+          The <code>multiprocessor</code> package helps us to use as
+          many cores as we want.
+        </p>
+        <p>
+          Here's a minimal example that you can copy and paste to get
+          started with.
+        </p>
+        <script src="https://gitlab.com/snippets/1924217.js"></script>
+        <ul>
+          <li>
+            <p>
+              Lines 5 and 6 define a function with a burdensome calculation.   
+            </p>
+          </li>
+        </ul>
+
+        <script type="text/javascript" src="javascripts/blog_signature.js"></script>
+      </section>
+    </div>
+    <script type="text/javascript" src="javascripts/blog_footer.js"></script>
+    <script type="text/javascript">
+      var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+      document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+    <script type="text/javascript">
+      try {
+        var pageTracker = _gat._getTracker("UA-10180621-3");
+      pageTracker._trackPageview();
+      } catch(err) {}
+    </script>
+  </body>
+</html>
